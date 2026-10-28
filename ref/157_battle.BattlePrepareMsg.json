@@ -1,0 +1,90 @@
+{
+ "soldiers": [
+  {
+   "skillId": [
+    40081,
+    40082,
+    40081
+   ],
+   "livingId": 2,
+   "tempId": 2001,
+   "type": 1,
+   "side": 2,
+   "pos": 5,
+   "initHp": 10,
+   "hp": 10,
+   "castTime": 4000,
+   "maxHp": 10
+  }
+ ],
+ "heros": [
+  {
+   "skillId": [
+    30711,
+    30811,
+    40801001,
+    40802001
+   ],
+   "starBuffer": [],
+   "item": [],
+   "buffers": [],
+   "trials": [],
+   "battleDrop": [],
+   "changeSkillId": [],
+   "marriageSkills": [],
+   "marSkills": [],
+   "talentSealOrder": [
+    0,
+    0,
+    0
+   ],
+   "multiLanNickName": [
+    {
+     "lan": 6,
+     "param": "finley9l"
+    }
+   ],
+   "heroId": 850,
+   "livingId": 1,
+   "userId": 956,
+   "userPics": 3,
+   "tempId": 3,
+   "type": 1,
+   "nickName": "finley9l",
+   "grade": 1,
+   "side": 1,
+   "pos": 5,
+   "maxHp": 190,
+   "initHp": 190,
+   "hp": 190,
+   "captain": 100,
+   "castTime": 3500,
+   "job": 3,
+   "serverName": "bmdim_0039",
+   "fightCapacity": 197,
+   "segmentId": 1001,
+   "mulSportScore": 500,
+   "spMax": 100
+  }
+ ],
+ "soldierTemplated": [],
+ "coolDown": [
+  {
+   "templatedId": 30711,
+   "coolType": 1
+  },
+  {
+   "templatedId": 30811,
+   "coolType": 1
+  }
+ ],
+ "pets": [],
+ "watchHeros": [],
+ "guards": [],
+ "battleId": "ec0a698d-1547-485e-8050-2d7cbf8218c4",
+ "battleType": 6,
+ "mapTempId": 10001,
+ "needAnimation": true,
+ "side": 1,
+ "battleCapity": 1
+}

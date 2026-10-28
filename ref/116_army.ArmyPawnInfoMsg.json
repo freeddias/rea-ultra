@@ -1,0 +1,25 @@
+{
+ "pawnLive": [
+  {
+   "tempData": 79
+  },
+  {
+   "tempData": 64
+  },
+  {},
+  {
+   "tempData": 54
+  },
+  {
+   "tempData": 350
+  },
+  {
+   "tempData": 78
+  },
+  {}
+ ],
+ "sonType": 101,
+ "tempateId": 10102,
+ "ownPawns": 27,
+ "fightPos": 3
+}

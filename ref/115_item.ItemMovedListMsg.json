@@ -1,0 +1,42 @@
+{
+ "moved": [
+  {
+   "changeType": 1,
+   "item": {
+    "id": 74433,
+    "templateId": 2030102,
+    "exist": true,
+    "bagType": 1,
+    "bind": true,
+    "beginDate": "2000-01-01 00:00:00",
+    "count": 2,
+    "join_1": -1,
+    "join_2": -1,
+    "join_3": -1,
+    "join_4": -1,
+    "isNew": true,
+    "userId": 956
+   }
+  },
+  {
+   "changeType": 1,
+   "changePos": 1,
+   "item": {
+    "id": 74434,
+    "templateId": 2060020,
+    "pos": 1,
+    "exist": true,
+    "bagType": 1,
+    "bind": true,
+    "beginDate": "2000-01-01 00:00:00",
+    "count": 2,
+    "join_1": -1,
+    "join_2": -1,
+    "join_3": -1,
+    "join_4": -1,
+    "isNew": true,
+    "userId": 956
+   }
+  }
+ ]
+}

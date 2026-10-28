@@ -1,0 +1,17 @@
+{
+ "info": [
+  {
+   "index": 1,
+   "roleId": 8,
+   "roleName": "Tina",
+   "text": "Yardım edin!"
+  },
+  {
+   "direction": 1,
+   "roleId": 3,
+   "event": "SESSION_OVER",
+   "param": "mapId:10256|nodeId:1000110|command:2"
+  }
+ ],
+ "sceneType": 3
+}

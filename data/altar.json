@@ -1,0 +1,115 @@
+{
+ "source": "older official capture (2026-10-03), U_C_CONSORTIA_ALTERITEM (4142) after U_C_CONSORTIA_ALTERINFO",
+ "lists": [
+  {
+   "altarItemList": [
+    {
+     "templateId": 2040109,
+     "count": 1
+    },
+    {
+     "pos": 1,
+     "templateId": -5500,
+     "count": 50
+    },
+    {
+     "pos": 2,
+     "templateId": 2040108,
+     "count": 1
+    },
+    {
+     "pos": 3,
+     "templateId": 208008,
+     "count": 1
+    },
+    {
+     "pos": 4,
+     "templateId": 2040107,
+     "count": 1
+    },
+    {
+     "pos": 5,
+     "templateId": 208009,
+     "count": 10
+    },
+    {
+     "pos": 6,
+     "templateId": 2030102,
+     "count": 1
+    },
+    {
+     "pos": 7,
+     "templateId": 208012,
+     "count": 5
+    },
+    {
+     "pos": 8,
+     "templateId": 208005,
+     "count": 1
+    },
+    {
+     "pos": 9,
+     "templateId": 2030102,
+     "count": 1
+    }
+   ],
+   "op": 1,
+   "type": 1
+  },
+  {
+   "altarItemList": [
+    {
+     "templateId": 208067,
+     "count": 1
+    },
+    {
+     "pos": 1,
+     "templateId": 208056,
+     "count": 1
+    },
+    {
+     "pos": 2,
+     "templateId": 208056,
+     "count": 1
+    },
+    {
+     "pos": 3,
+     "templateId": 208052,
+     "count": 1
+    },
+    {
+     "pos": 4,
+     "templateId": 208052,
+     "count": 1
+    },
+    {
+     "pos": 5,
+     "templateId": 208023,
+     "count": 1
+    },
+    {
+     "pos": 6,
+     "templateId": 2120100,
+     "count": 1
+    },
+    {
+     "pos": 7,
+     "templateId": 208073,
+     "count": 1
+    },
+    {
+     "pos": 8,
+     "templateId": 208073,
+     "count": 1
+    },
+    {
+     "pos": 9,
+     "templateId": -910,
+     "count": 50
+    }
+   ],
+   "op": 1,
+   "type": 2
+  }
+ ]
+}

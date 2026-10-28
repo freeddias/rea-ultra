@@ -1,0 +1,26 @@
+{
+ "player": [
+  {
+   "tarIds": [],
+   "heroId": 850,
+   "playerId": 956,
+   "grades": 1,
+   "nickName": "finley9l",
+   "templateId": 3,
+   "armyId": 6834,
+   "fightingCapacity": 197,
+   "curPosX": 24,
+   "curPosY": 66,
+   "campaignId": 10001,
+   "onlineState": true,
+   "job": 3,
+   "mulSportScore": 500,
+   "segmentId": 1001,
+   "hp": 190,
+   "maxHp": 190,
+   "guardShowInfo": {}
+  }
+ ],
+ "userIds": [],
+ "result": 1
+}

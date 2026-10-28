@@ -1,0 +1,50 @@
+{
+ "damages": [
+  {
+   "dropInfos": [],
+   "livingId": 2,
+   "damageType": 6,
+   "damageValue": 24,
+   "resistType": 12,
+   "index": 2
+  }
+ ],
+ "buffers": [
+  {
+   "damage": [
+    {
+     "dropInfos": [],
+     "livingId": 1,
+     "damageType": 9,
+     "damageValue": 2,
+     "leftValue": 22,
+     "index": 1
+    }
+   ],
+   "unSkillIds": [],
+   "bufferId": 2,
+   "templateId": 30711,
+   "sourceId": 1,
+   "targetId": 1,
+   "curTurn": -1,
+   "exeWay": 1,
+   "pressedNum": 1,
+   "maxTurn": -1,
+   "curRound": -1,
+   "maxRound": -1,
+   "level": 1
+  }
+ ],
+ "awakenSoldiers": [],
+ "waitRevives": [],
+ "battleId": "ec0a698d-1547-485e-8050-2d7cbf8218c4",
+ "frame": 63,
+ "orderId": 30711,
+ "livingId": 1,
+ "sp": 22,
+ "spAdded": 20,
+ "execFrame": 63,
+ "frameNum": 61,
+ "attackMillis": "2026-10-03 19:02:00",
+ "curTurn": 1
+}

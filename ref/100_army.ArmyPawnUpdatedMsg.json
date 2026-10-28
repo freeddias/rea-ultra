@@ -1,0 +1,28 @@
+{
+ "armyPawn": [
+  {
+   "pawnLive": [
+    {
+     "tempData": 64
+    },
+    {
+     "tempData": 50
+    },
+    {},
+    {
+     "tempData": 40
+    },
+    {
+     "tempData": 323
+    },
+    {
+     "tempData": 64
+    },
+    {}
+   ],
+   "sonType": 101,
+   "tempateId": 10101,
+   "fightPos": 3
+  }
+ ]
+}

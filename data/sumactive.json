@@ -1,0 +1,3928 @@
+{
+ "source": "2026-10-23 live capture, U_C_SUM_ACTIVE_TEMP (4475) at login; mainType per active (0 events, 3 wonderland); dates shifted by whole weeks to now",
+ "capturedWeek": "2026-10-19",
+ "actives": [
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 700000,
+       "isbind": true
+      },
+      {
+       "templateId": 2126801,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2300001,
+       "templateType": 1,
+       "count": 100,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 3,
+       "conditionBak": 99
+      }
+     ],
+     "packageId": "1EB5DE40-26A4-6B45-E1EF-5C25F48C54B1",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 500000,
+       "isbind": true
+      },
+      {
+       "templateId": 2032101,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126801,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 2,
+       "conditionBak": 99
+      }
+     ],
+     "packageId": "2B884FF9-7158-42A2-6F78-5C25F48C33E8",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 350000,
+       "isbind": true
+      },
+      {
+       "templateId": 208057,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2126801,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 1,
+       "conditionBak": 99
+      }
+     ],
+     "packageId": "5895036F-BDBF-5276-AB4D-5C25F48B7E6D",
+     "order": 1
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 1200000,
+       "isbind": true
+      },
+      {
+       "templateId": 208062,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126801,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 5,
+       "conditionBak": 99
+      }
+     ],
+     "packageId": "6689E82E-268D-E980-B748-5C25F48C8E19",
+     "order": 5
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 1000000,
+       "isbind": true
+      },
+      {
+       "templateId": 2126801,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2300302,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 4,
+       "conditionBak": 99
+      }
+     ],
+     "packageId": "AC6DC51B-25B1-9B04-EC6B-5C25F48CE780",
+     "order": 4
+    }
+   ],
+   "activeId": "1421C746-7227-7813-2308-5C25F48BDAC0",
+   "beginDate": "2026-10-22 00:00:00",
+   "endDate": "2026-10-28 23:59:59",
+   "title": "<en>Total Recharge Days 10/22</en>\n<es>Días de Recarga total 10/22</es>\n<de>Gesamte Aufladetage 10/22</de>\n<fr>Nombre total de jours d'achat 10/22</fr>\n<pt>Total de Dias de Recarga 10/22</pt>\n<tr>Toplam Ödeme Günü 10/22</tr>\n<ru>Ежедневное пополнение 10/22</ru>\n<zhtw>每日充值 10/22</zhtw>\n<nl>Dagelijkse Oplading 10/22</nl>\n<id>Top-up Harian 10/22</id>\n<th>เติมเงินรายวัน 10/22</th>\n<pl>Codzienne Doładowanie 10/22</pl>",
+   "detail": "<en>During the event, recharge for the required number of days to claim rewards. Rewards can only be claimed once.</en>\n<es>Durante el evento, recarga por un número específico de días para reclamar recompensas. Las recompensas se pueden reclamar una vez.</es>\n<de>Lade während des Events für die erforderliche Anzahl an Tage lang auf, um Belohnungen zu erhalten. Belohnungen können nur einmal beansprucht werden.</de>\n<fr>Pendant l'événement, lorsque le nombre cumulé de jours d'achat atteint le nombre de jours spécifié, vous pouvez recevoir des récompenses. Les récompenses ne peuvent être réclamées qu'une seule fois.</fr>\n<pt>Durante o evento, recarregue o número necessário de dias para receber as recompensas. As recompensas só podem ser solicitadas uma vez.</pt>\n<tr>Etkinlik süresinde ödülleri almak için gereken gün sayısı kadar yükleme yapın. Ödüller sadece bir kez alınabilir.</tr>\n<ru>Во время события пополняйте счет в течение X дней, чтобы получить награды. Награды можно получить только один раз.</ru>\n<zhtw>活動期間內累計充值天數達到X天，即可領取獎勵。獎勵僅可領取一次。</zhtw>\n<nl>Tijdens de evenementperiode, wanneer het totale aantal oplaaddagen X bereikt, kan de beloning worden opgehaald. De beloning kan slechts eenmaal worden opgehaald.</nl>\n<id>Selama periode acara, total hari top-up mencapai X hari maka hadiah dapat diklaim. Hadiah hanya dapat diklaim sekali.</id>\n<th>ในช่วงระยะเวลากิจกรรม จำนวนวันสะสมที่เติมเงินครบ X วัน สามารถรับรางวัลได้ รางวัลสามารถรับได้เพียงครั้งเดียว</th>\n<pl>Podczas wydarzenia, gdy liczba dni doładowań osiągnie X, nagrodę można odebrać. Nagrodę można odebrać tylko raz.</pl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 166,
+   "startTime": "2026-10-22 00:00:00",
+   "stopTime": "2026-10-28 23:59:59",
+   "order": 16,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [],
+   "activeId": "16846576-0CB3-9A82-A8C3-38224D806556",
+   "beginDate": "2026-10-15 00:00:00",
+   "endDate": "2026-10-21 23:59:59",
+   "title": "<en>Dungeon Drop Event 10/15</en>\n<es>Botín de la Mazmorra 10/15</es>\n<pt>Drops de Masmorra 10/15</pt>\n<de>Dungeon-Drop-Event 10/15</de>\n<fr>Événement de Butins de Donjon 10/15</fr>\n<tr>Sahne Kazancı Etkinliği 10/15</tr>\n<ru>Падение экземпляра 10/15</ru>\n<zhtw>副本掉落 10/15</zhtw>\n<nl>Dungeon Drops 10/15</nl>\n<id>Drop Dungeon 10/15</id>\n<th>ดรอปจากดันเจี้ยน 10/15</th>\n<pl>Dropy z lochów 10/15</pl>",
+   "detail": "<en>During the event<br>\nThere is a chance to drop the event treasure chest [color=#ff0000]【Puppy】[/color] in multiplayer dungeons, daily limit is 5<br>\nThere is a chance to drop the event item [color=#ff0000]【Pet Food】[/color] in campaigns, daily limit is 5</en>\n<es>Durante el evento<br>\nExiste la posibilidad de obtener el cofre del tesoro del evento [color=#ff0000]【Cachorro】[/color] en mazmorras multijugador, límite diario de 5<br>\nExiste la posibilidad de obtener el objeto del evento [color=#ff0000]【Comida para Mascota】[/color] en campañas, límite diario de 5.</es>\n<pt>Durante o evento<br>\nHá uma chance de obter o baú de tesouro do evento [color=#ff0000]【Filhote de Cachorro】[/color] em masmorras multijogador, limite diário de 5<br>\nHá uma chance de obter o item do evento [color=#ff0000]【Ração para Pet】[/color] nas campanhas, limite diário de 5.</pt>\n<de>Während des Events<br>\nEs besteht die Chance, die Event-Schatztruhe [color=#ff0000]【Welpe】[/color] in Multispieler Dungeons zu erhalten, Tageslimit: 5<br>\nEs besteht die Chance, den Event-Gegenstand [color=#ff0000]【Tierfutter】[/color] in Kampage zu erhalten, Tageslimit: 5.</de>\n<fr>Pendant l'événement<br>\nIl y a une chance d'obtenir le coffre au trésor de l'événement [color=#ff0000]【Chiot】[/color] dans les donjons multijoueurs, limite quotidienne de 5<br>\nIl y a une chance d'obtenir l'objet de l'événement [color=#ff0000]【Nourriture pour Familier】[/color] dans les campagnes, limite quotidienne de 5.</fr>\n<tr>Etkinlik süresinde<br> \ngrup sahnelerde olasılıkla [color=#ff0000]【Yavru Köpek】[/color] etkinlik hazinesi düşecektir, günlük sınır 5 adettir<br>\nsavaşlarda olasılıkla [color=#ff0000]【Evcil Hayvan Maması】[/color] etkinlik hazinesi düşecektir, günlük sınır 5 adettir</tr>\n<ru>В многопользовательских подземельях есть шанс выпадения сундуков с сокровищами событий : [color=#ff0000]【Щенок】[/color] (с лимитом в 5 шт. в день.)<br>\nЕсть вероятность выпадения предмета кампании  [color=#ff0000]【Корм】[/color] с лимитом в 5 шт. в день.</ru>\n<zhtw>活動期間<br>\n多人副本有幾率掉落活動寶箱[color=#ff0000]【狗狗幼崽】[/color]，每日上限5個<br>\n戰役有幾率掉落活動道具[color=#ff0000]【寵物糧食】[/color]，每日上限5個</zhtw>\n<nl>Tijdens de evenementperiode<br>\nMultiplayer-dungeons hebben een kans om de Evenementkist [color=#ff0000]【Puppy】[/color] te droppen, maximum 5 per dag<br>\nDe Campaign heeft een kans om het Evenementitem [color=#ff0000]【Huisdiervoer】[/color] te droppen, maximum 5 per dag</nl>\n<id>Selama periode acara<br>\nDungeon multipemain memiliki peluang menjatuhkan Peti Acara [color=#ff0000]【Anak Anjing】[/color], batas 5 per hari<br>\nCampaign memiliki peluang menjatuhkan Item Acara [color=#ff0000]【Makanan Hewan Peliharaan】[/color], batas 5 per hari</id>\n<th>ในช่วงระยะเวลากิจกรรม<br>\nดันเจี้ยนแบบผู้เล่นหลายคนมีโอกาสดรอปหีบกิจกรรม [color=#ff0000]【ลูกสุนัข】[/color] จำกัดวันละ 5 ชิ้น<br>\nแคมเปญมีโอกาสดรอปไอเทมกิจกรรม [color=#ff0000]【อาหารสัตว์เลี้ยง】[/color] จำกัดวันละ 5 ชิ้น</th>\n<pl>Podczas trwania wydarzenia<br>\nLochy wieloosobowe mają szansę upuścić Skrzynię Wydarzenia [color=#ff0000]【Szczeniak】[/color], limit 5 dziennie<br>\nKampania ma szansę upuścić Przedmiot Wydarzenia [color=#ff0000]【Karma dla Zwierzaka】[/color], limit 5 dziennie</pl>",
+   "conditionDetail": "-",
+   "getway": 4,
+   "activeType": 29,
+   "startTime": "2026-10-15 00:00:00",
+   "stopTime": "2026-10-21 23:59:59",
+   "order": 11,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2126025,
+       "templateType": 4,
+       "count": 52,
+       "isbind": true
+      },
+      {
+       "templateId": 2183012,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 52,
+       "conditionBak": 2126025,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "38814B53-D57A-B301-6A6E-38224D8BC48A",
+     "order": 1
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126025,
+       "templateType": 4,
+       "count": 60,
+       "isbind": true
+      },
+      {
+       "templateId": 2183334,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 60,
+       "conditionBak": 2126025,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "9C924394-1E29-58CF-0899-38224D8C107A",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126025,
+       "templateType": 4,
+       "count": 60,
+       "isbind": true
+      },
+      {
+       "templateId": 2183373,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 60,
+       "conditionBak": 2126025,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "C51B2001-EE06-8282-5419-38224D8C7747",
+     "order": 3
+    }
+   ],
+   "activeId": "1DD30755-B91E-649D-FE1A-38224D8B69BB",
+   "beginDate": "2026-10-15 00:00:00",
+   "endDate": "2026-10-21 23:59:59",
+   "title": "<en>Special Exchange-I 10/15</en>\n<es>Canjeo especial-I 10/15</es>\n<pt>Troca Especial-I 10/15</pt>\n<tr>Özel Takas-I 10/15</tr>\n<de>Spezialtausch-I 10/15</de>\n<fr>Échange spécial-I 10/15</fr>\n<ru>Специальный обмен-I 10/15</ru>\n<zhtw>特別兌換-I 10/15</zhtw>\n<nl>Speciale Ruil-I 10/15</nl>\n<id>Penukaran Khusus-I 10/15</id>\n<th>แลกพิเศษ-I 10/15</th>\n<pl>Specjalna Wymiana-I 10/15</pl>",
+   "detail": "<en>Exchange for stunning Clothing/Mounts to be the coolest in Cloud City!</en>\n<es>¡Canjea ropa/monturas impresionantes para ser el más genial de la Ciudad de las Nubes!</es>\n<de>Tausche atemberaubende Kleidung/Reittiere, um der Coolste in der Stadt im Himmel zu werden!</de>\n<fr>Échangez contre des Vêtements/Montures éblouissants pour être le plus cool de la Cité des Nuages !</fr>\n<pt>Troque por roupas/montarias deslumbrantes para ser o mais bacana da Cidade das Nuvens!</pt>\n<tr>Etkileyici moda ve bineklerle takas yapın. Gökyüzü Şehri'ndeki en göz kamaştırıcı savaşçı olun!</tr>\n<ru>Обменивайте на потрясающую одежду/скакунов, чтобы стать самым крутым в Облачном городе!</ru>\n<zhtw>精美坐騎限時上架！</zhtw>\n<nl>Prachtige Rijdieren Tijdelijk Verkrijgbaar!</nl>\n<id>Tunggangan Mewah Dijual Terbatas!</id>\n<th>พาหนะสุดงดงามวางจำหน่ายจำกัดเวลา!</th>\n<pl>Limitowana Sprzedaż Wyjątkowych Wierzchowców!</pl>",
+   "conditionDetail": "-",
+   "getway": 2,
+   "activeType": 10,
+   "startTime": "2026-10-15 00:00:00",
+   "stopTime": "2026-10-21 23:59:59",
+   "order": 19,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2125057,
+       "templateType": 1,
+       "count": 25,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 30,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 30,
+       "conditionBak": 2126802,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "201C358D-ECA7-7A22-6E14-5C25F48F71F5",
+     "order": 10
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125150,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 25,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 25,
+       "conditionBak": 2126802,
+       "conditionBak2": 5
+      }
+     ],
+     "packageId": "26A59A9F-4BC5-1C50-BBC2-5C25F48E1381",
+     "order": 6
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125127,
+       "templateType": 1,
+       "count": 5,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 9,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 9,
+       "conditionBak": 2126802,
+       "conditionBak2": 50
+      }
+     ],
+     "packageId": "5EDF02CB-CA5F-19D2-2234-5C25F48E5766",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125092,
+       "templateType": 1,
+       "count": 75,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 50,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 50,
+       "conditionBak": 2126802,
+       "conditionBak2": 50
+      }
+     ],
+     "packageId": "7F86E26E-A9E3-A813-0687-5C25F48F28E8",
+     "order": 12
+    },
+    {
+     "items": [
+      {
+       "templateId": 208027,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2126802,
+       "conditionBak2": 80
+      }
+     ],
+     "packageId": "97B45FE5-B10F-49F4-0807-5C25F48F95FF",
+     "order": 16
+    },
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 5,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 5,
+       "conditionBak": 2126802,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "A4183A08-A255-DE18-A72D-5C25F48F1139",
+     "order": 15
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125126,
+       "templateType": 1,
+       "count": 5,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 9,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 9,
+       "conditionBak": 2126802,
+       "conditionBak2": 50
+      }
+     ],
+     "packageId": "AD724A99-2DA4-EF87-33D3-5C25F48E775E",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125123,
+       "templateType": 1,
+       "count": 25,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 30,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 30,
+       "conditionBak": 2126802,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "B4515C39-2CDA-4DC7-9994-5C25F48E15E2",
+     "order": 4
+    },
+    {
+     "items": [
+      {
+       "templateId": 2100035,
+       "templateType": 1,
+       "count": 25,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 40,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 40,
+       "conditionBak": 2126802,
+       "conditionBak2": 10
+      }
+     ],
+     "packageId": "B468A223-61DE-463B-2AD4-5C25F48FC5CB",
+     "order": 11
+    },
+    {
+     "items": [
+      {
+       "templateId": 2060031,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 20,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 20,
+       "conditionBak": 2126802,
+       "conditionBak2": 2
+      }
+     ],
+     "packageId": "B87E06D9-A2BE-023F-8AA0-5C25F48F1115",
+     "order": 14
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126203,
+       "templateType": 1,
+       "count": 3,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 6,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 6,
+       "conditionBak": 2126802,
+       "conditionBak2": 100
+      }
+     ],
+     "packageId": "B996767E-A40E-5E87-3289-5C25F48EDEC6",
+     "order": 9
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126219,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 10,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 10,
+       "conditionBak": 2126802,
+       "conditionBak2": 100
+      }
+     ],
+     "packageId": "CE6A0512-2E4F-C0CF-75AD-5C25F48F9CB3",
+     "order": 13
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125084,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 10,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 10,
+       "conditionBak": 2126802,
+       "conditionBak2": 100
+      }
+     ],
+     "packageId": "D1522D8F-CD56-2482-033E-5C25F48EAFCF",
+     "order": 8
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125083,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 10,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 10,
+       "conditionBak": 2126802,
+       "conditionBak2": 100
+      }
+     ],
+     "packageId": "EAE76611-4032-1C1D-6252-5C25F48EC320",
+     "order": 7
+    },
+    {
+     "items": [
+      {
+       "templateId": 2030101,
+       "templateType": 1,
+       "count": 50,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2126802
+      }
+     ],
+     "packageId": "EC978F2B-02DB-A768-2338-5C25F48FCC32",
+     "order": 17
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125124,
+       "templateType": 1,
+       "count": 25,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 30,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 30,
+       "conditionBak": 2126802,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "FD2AEDCF-2790-DB5B-A668-5C25F48E6891",
+     "order": 5
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 50,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 50,
+       "conditionBak": 2126802,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "FFB0D027-7FCA-1F19-4C3B-5C25F48C7C57",
+     "order": 1
+    }
+   ],
+   "activeId": "233AF70C-48BD-F9B0-D22A-5C25F48C7358",
+   "beginDate": "2026-10-22 00:00:00",
+   "endDate": "2026-10-29 23:59:59",
+   "title": "<en>Pixie 10/22</en>\n<es>Hada 10/22</es>\n<de>Fee 10/22</de>\n<fr>Fée 10/22</fr>\n<pt>Fada 10/22</pt>\n<tr>Küçük Elf 10/22</tr>\n<ru>Мини Фея 10/22</ru>\n<zhtw>小精靈 10/22</zhtw>\n<nl>Pixie 10/22</nl>\n<id>Pixie 10/22</id>\n<th>พิกซี่ 10/22</th>\n<pl>Pixie 10/22</pl>",
+   "detail": "<en>Exchange for precious items!</en>\n<es>¡Canjea y consigue objetos valiosos!</es>\n<pt>Troque por itens poderosos!</pt>\n<de>Tausch für wertvolle Gegenstände!</de>\n<fr>Échangez contre des objets précieux !</fr>\n<tr>Değerli eşyalarla takas yapın!</tr>\n<ru>Обменивайте предметы силы и стремитесь к титулу Чемпиона!</ru>\n<zhtw>兌換強力道具！</zhtw>\n<nl>Ruil voor krachtige items!</nl>\n<id>Tukar Item Kuat!</id>\n<th>แลกไอเทมพลังสูง!</th>\n<pl>Wymień na potężne przedmioty!</pl>",
+   "conditionDetail": "-",
+   "getway": 2,
+   "activeType": 10,
+   "startTime": "2026-10-22 00:00:00",
+   "stopTime": "2026-10-29 23:59:59",
+   "order": 17,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 400000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 500,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 6,
+       "isbind": true
+      },
+      {
+       "templateId": 2300001,
+       "templateType": 1,
+       "count": 200,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 516,
+       "conditionValue": 1300,
+       "conditionBak": 2271001
+      }
+     ],
+     "packageId": "5A9A19C0-F077-069C-BED5-19A3EE1E7D9B",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 800000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 1000,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 8,
+       "isbind": true
+      },
+      {
+       "templateId": 2300001,
+       "templateType": 1,
+       "count": 300,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 516,
+       "conditionValue": 1800,
+       "conditionBak": 2271001
+      }
+     ],
+     "packageId": "5C661677-4125-8A34-1168-19A4273D9325",
+     "order": 4
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 300000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 300,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 4,
+       "isbind": true
+      },
+      {
+       "templateId": 2300001,
+       "templateType": 1,
+       "count": 100,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 516,
+       "conditionValue": 800,
+       "conditionBak": 2271001
+      }
+     ],
+     "packageId": "7684446A-8F66-7E35-F220-19A3BA5785DB",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 200000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 200,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2300001,
+       "templateType": 1,
+       "count": 50,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 516,
+       "conditionValue": 300,
+       "conditionBak": 2271001
+      }
+     ],
+     "packageId": "FDDA36F8-6C76-9AD4-A0D4-19A355854C4D",
+     "order": 1
+    }
+   ],
+   "activeId": "34D09C52-5D6F-5F58-11FA-19A270CA5BE8",
+   "beginDate": "2026-10-15 00:00:00",
+   "endDate": "2026-10-21 23:59:59",
+   "title": "<en>Consume Silver Ore 10/15</en>\r<es>Consumo de Mineral de Plata 10/15</es>\r<de>Verbrauch von Silbererz 10/15</de>\r<fr>Consommation de Minerai d’Argent 10/15</fr>\r<pt>Consumo de Minério de Prata 10/15</pt>\r<tr>Beyaz Demir Cevheri 10/15</tr>\r<ru>Потребление Руды 10/15</ru>\r<zhtw>白鐵礦消耗 10/15</zhtw>\r<nl>Verbruik van Wit IJzererts 10/15</nl>\r<id>Konsumsi Bijih Besi Putih 10/15</id>\r<th>การใช้แร่เหล็กขาว 10/15</th>\r<pl>Zużycie Białej Rudy Żelaza 10/15</pl>",
+   "detail": "<en>Consume X Silver Ore to claim the reward. Each tier can only be claimed once during the event</en>\r<es>Durante el evento, al consumir X Mineral de Plata, podrás recibir recompensas. Cada rango de recompensa solo se puede reclamar una vez durante el evento.</es>\r<pt>Durante o evento, ao consumir X Minério de Prata, você poderá receber recompensas. Cada faixa de recompensa só pode ser reivindicada uma vez durante o evento.</pt>\r<de>Während des Events kannst du Belohnungen erhalten, indem du X Silbererz verbrauchst. Jede Belohnungsstufe kann während des Events nur einmal beansprucht werden.</de>\r<fr>Etkinlik süresinde Beyaz Demir Cevheri*X tüketerek ödül kazan. Etkinlik süresinde her aşama ödülü yalnızca bir kez alınabilir.</fr>\r<tr>Etkinlik süresinde karşılık gelen seviyede belirli sayıda mücevher elde ederek ödülleri kazanın. Her ödül yalnızca bir kez alınabilir.</tr>\r<ru>Во время события потребляйте X серебряной руды, чтобы получить награды. Каждый ранг можно получить только один раз за событие.</ru>\r<zhtw>活動期間，消耗X個白鐵礦，即可獲得獎勵。活動期間每檔僅可領取一次。</zhtw>\r<nl>Tijdens het evenement kun je door het verbruiken van X Wit IJzererts een beloning ontvangen. Elke fase kan slechts eenmaal tijdens het evenement worden geclaimd.</nl>\r<id>Selama periode event, konsumsi X Bijih Besi Putih untuk mendapatkan hadiah. Setiap tier hanya dapat diklaim satu kali selama event.</id>\r<th>ในช่วงเวลากิจกรรม ใช้แร่เหล็กขาวครบ X ชิ้น จะสามารถรับรางวัลได้ แต่ละขั้นรับได้เพียงครั้งเดียวตลอดกิจกรรม</th>\r<pl>W trakcie wydarzenia zużyj X Białych Rud Żelaza, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz w trakcie wydarzenia.</pl>",
+   "conditionDetail": "<en>Consume X Silver Ore to claim the reward. Each tier can only be claimed once during the event</en>\r<es>Durante el evento, al consumir X Mineral de Plata, podrás recibir recompensas. Cada rango de recompensa solo se puede reclamar una vez durante e",
+   "getway": 1,
+   "activeType": 516,
+   "startTime": "2026-10-15 00:00:00",
+   "stopTime": "2026-10-21 23:59:59",
+   "order": 100,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 1200,
+       "isbind": true
+      },
+      {
+       "templateId": 2273004,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1200,
+       "conditionBak": 2126815,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "05B71D60-7908-2298-229C-38224D875304",
+     "order": 1
+    },
+    {
+     "items": [
+      {
+       "templateId": 2030101,
+       "templateType": 1,
+       "count": 50,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2126815
+      }
+     ],
+     "packageId": "0BEEC06E-1314-3241-C49B-38224D8A81C2",
+     "order": 17
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 30,
+       "isbind": true
+      },
+      {
+       "templateId": 2300306,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 30,
+       "conditionBak": 2126815,
+       "conditionBak2": 10
+      }
+     ],
+     "packageId": "1FA1BC8C-9250-9EE9-1C3C-38224D899AC1",
+     "order": 5
+    },
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 5,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 5,
+       "conditionBak": 2126815,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "28FD0B8F-AD2A-7CC1-937B-38224D8A3A46",
+     "order": 16
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 24,
+       "isbind": true
+      },
+      {
+       "templateId": 2271005,
+       "templateType": 1,
+       "count": 20,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 24,
+       "conditionBak": 2126815,
+       "conditionBak2": 10
+      }
+     ],
+     "packageId": "5A956B1C-9761-2F4D-5F50-38224D891357",
+     "order": 8
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126473,
+       "templateType": 1,
+       "count": 20,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 28,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 28,
+       "conditionBak": 2126815,
+       "conditionBak2": 80
+      }
+     ],
+     "packageId": "5CDC5C01-CB1E-9ADE-0561-38224D8A7E23",
+     "order": 14
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2269002,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 2,
+       "conditionBak": 2126815,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "66D055E5-6CDC-9FCB-F1FB-38224D89BC1D",
+     "order": 10
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 15,
+       "isbind": true
+      },
+      {
+       "templateId": 2300001,
+       "templateType": 1,
+       "count": 50,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 15,
+       "conditionBak": 2126815,
+       "conditionBak2": 10
+      }
+     ],
+     "packageId": "78329459-FCBD-C24B-62B4-38224D8A549D",
+     "order": 13
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125151,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 18,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 18,
+       "conditionBak": 2126815,
+       "conditionBak2": 5
+      }
+     ],
+     "packageId": "A3793CCF-D6B9-E062-07CE-38224D89FBA9",
+     "order": 9
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126400,
+       "templateType": 1,
+       "count": 5,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 25,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 25,
+       "conditionBak": 2126815,
+       "conditionBak2": 10
+      }
+     ],
+     "packageId": "AA456F9C-617D-62EE-6F0E-38224D8AD270",
+     "order": 12
+    },
+    {
+     "items": [
+      {
+       "templateId": 208084,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 30,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 30,
+       "conditionBak": 2126815,
+       "conditionBak2": 10
+      }
+     ],
+     "packageId": "B7FDFB67-2765-A4A0-F13B-38224D885C31",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": 2060020,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 10,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 10,
+       "conditionBak": 2126815,
+       "conditionBak2": 10
+      }
+     ],
+     "packageId": "BCDB77F4-EA98-B514-E9F3-38224D8A98B7",
+     "order": 15
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 30,
+       "isbind": true
+      },
+      {
+       "templateId": 2300302,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 30,
+       "conditionBak": 2126815,
+       "conditionBak2": 25
+      }
+     ],
+     "packageId": "C1496A92-16A3-CDD4-5B79-38224D893B7D",
+     "order": 4
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 12,
+       "isbind": true
+      },
+      {
+       "templateId": 2271003,
+       "templateType": 1,
+       "count": 20,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 12,
+       "conditionBak": 2126815,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "D3EACA68-1E41-0B5E-2852-38224D895058",
+     "order": 7
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 30,
+       "isbind": true
+      },
+      {
+       "templateId": 2273002,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 30,
+       "conditionBak": 2126815,
+       "conditionBak2": 10
+      }
+     ],
+     "packageId": "F25B4CAC-FC9D-039F-ACC1-38224D8983BE",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 6,
+       "isbind": true
+      },
+      {
+       "templateId": 2271001,
+       "templateType": 1,
+       "count": 20,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 6,
+       "conditionBak": 2126815,
+       "conditionBak2": 100
+      }
+     ],
+     "packageId": "F35E67C0-8F74-B16A-84FE-38224D89CE30",
+     "order": 6
+    },
+    {
+     "items": [
+      {
+       "templateId": 2126815,
+       "templateType": 4,
+       "count": 25,
+       "isbind": true
+      },
+      {
+       "templateId": 2131139,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 25,
+       "conditionBak": 2126815,
+       "conditionBak2": 5
+      }
+     ],
+     "packageId": "FF13315E-C278-888D-0000-38224D8915AE",
+     "order": 11
+    }
+   ],
+   "activeId": "58FF26A2-156B-069B-98FE-38224D87C77F",
+   "beginDate": "2026-10-15 00:00:00",
+   "endDate": "2026-10-22 23:59:59",
+   "title": "<en>Pet Food 10/15</en>\n<es>Comida para Mascota  10/15</es>\n<de>Tierfutter 10/15</de>\n<fr>Nourriture pour Familier 10/15</fr>\n<pt>Ração para Pet 10/15</pt>\n<tr>Evcil Hayvan Maması 10/15</tr>\n<ru>Корм 10/15</ru>\n<zhtw>寵物糧食 10/15</zhtw>\n<nl>Huisdiervoer 10/15</nl>\n<id>Makanan Hewan Peliharaan 10/15</id>\n<th>อาหารสัตว์เลี้ยง 10/15</th>\n<pl>Karma dla Zwierzaka 10/15</pl>",
+   "detail": "<en>Exchange for precious items!</en>\n<es>¡Canjea y consigue objetos valiosos!</es>\n<pt>Troque por itens poderosos!</pt>\n<de>Tausch für wertvolle Gegenstände!</de>\n<fr>Échangez contre des objets précieux !</fr>\n<tr>Değerli eşyalarla takas yapın!</tr>\n<ru>Обменивайте предметы силы и стремитесь к титулу Чемпиона!</ru>\n<zhtw>兌換強力道具！</zhtw>\n<nl>Ruil voor krachtige items!</nl>\n<id>Tukar Item Kuat!</id>\n<th>แลกไอเทมพลังสูง!</th>\n<pl>Wymień na potężne przedmioty!</pl>",
+   "conditionDetail": "-",
+   "getway": 2,
+   "activeType": 10,
+   "startTime": "2026-10-15 00:00:00",
+   "stopTime": "2026-10-22 23:59:59",
+   "order": 17,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [],
+   "activeId": "69DA6F79-95B6-02C3-8DE9-5C25F4839D66",
+   "beginDate": "2026-10-23 00:00:00",
+   "endDate": "2026-10-25 23:59:59",
+   "title": "<en>Angel's Blessing Premium Wand</en>\n<es>Varinha Premium da Bênção do Anjo</es>\n<de>Exklusivstab des Engelssegens</de>\n<fr>Baguette Premium de la Bénédiction de l’Ange</fr>\n<pt>Varinha Premium da Bênção do Anjo</pt>\n<tr>Meleğin Lütfu Özel Sihirli Asa</tr>\n<ru>Особая палочка Благословение Ангела</ru>\n<zhtw>天使的賜福尊享魔杖</zhtw>\n<nl>Exclusieve Toverstaf van de Engelzegen</nl>\n<id>Tongkat Eksklusif Berkah Malaikat</id>\n<th>คทาสุดพิเศษแห่งพรทูตสวรรค์</th>\n<pl>Ekskluzywna Laska Błogosławieństwa Anioła</pl>",
+   "detail": "<en>Angel's Blessing joins hands with the Solar Divine Tree for a grand return! Purchase the gift pack to immediately enjoy a 10x Draw from the Solar Divine Tree!<br>\nPurchase the [Angel's Guard Gift Pack] to instantly receive 10 [Golden Wands] and 1 [Angel Wish Ticket]!<br>\nConsume an [Angel Wish Ticket] to participate in 3 types of Blessing events, with a chance to obtain a massive amount of in-game items.<br>\nSpecial Reminder: The more [Angel Wish Tickets] you invest, the higher the probability of triggering the precious Blessing!Investing 5 tickets in the same pool during the same round guarantees the activation of a Blessing!<br></en>\n<es>Bênção do Anjo une forças com a Árbol Divino del Sol Ardiente para um grande retorno! Adquira o pacote de presente para desfrutar imediatamente de um Sorteio 10x da Árbol Divino del Sol Ardiente!<br>\nAdquira o [Pacote de Presente da Guarda Angelical] para receber instantaneamente 10 [Varinhas Douradas] e 1 [Cupom de Desejo do Anjo]!<br>\nLembrete Especial: Quanto mais [Cupons de Desejo do Anjo] você investir, maior a probabilidade de ativar a preciosa Bênção! Investindo 5 cupons no mesmo conjunto durante a mesma rodada garante a ativação de uma Bênção!<br></es>\n<de>Der Segen der Engel kehrt in Zusammenarbeit mit Göttlicher Baum der Glühenden Sonne grandios zurück! Kaufe das Geschenkpaket, um sofort eine 10x-Ziehung vom Heiligen Goldbaum zu genießen!<br>\nKaufe das [Geschenkpaket „Engels-Wächter“], um sofort 10 [Gold-Zauberstäbe] und 1 [Engelswunsch-Ticket] zu erhalten!<br>\nBesonderer Hinweis: Je mehr [Engelswunsch-Tickets] du investierst, desto höher ist die Wahrscheinlichkeit, den wertvollen Segen auszulösen! Wenn du 5 Tickets im selben Pool während derselben Runde investierst, ist die Aktivierung eines Segens garantiert!<br></de>\n<fr>La Bénédiction de l’Ange s’allie à l’Arbre Divin du Soleil Ardent pour un grand retour ! Achetez le pack cadeau pour profiter immédiatement d’un Tirage 10x de l’Arbre Divin du Soleil Ardent !<br>\nAchetez le [Pack Cadeau de la Garde Angélique] pour recevoir instantanément 10 [Baguettes dorées] et 1 [Ticket de Vœu Angélique] !<br>\nRappel Spécial : Plus vous investissez de [Tickets de Vœu Angélique], plus la probabilité de déclencher une précieuse Bénédiction est élevée ! En investissant 5 tickets dans le même lot pendant le même tour, vous êtes assuré d’activer une Bénédiction !<br></fr>\n<pt>Bênção do Anjo une forças com a Árbol Divino del Sol Ardiente para um grande retorno! Adquira o pacote de presente para desfrutar imediatamente de um Sorteio 10x da Árbol Divino del Sol Ardiente!<br>\nAdquira o [Pacote de Presente da Guarda Angelical] para receber instantaneamente 10 [Varinhas Douradas] e 1 [Cupom de Desejo do Anjo]!<br>\nLembrete Especial: Quanto mais [Cupons de Desejo do Anjo] você investir, maior a probabilidade de ativar a preciosa Bênção! <br>\nInvestindo 5 cupons no mesmo conjunto durante a mesma rodada garante a ativação de uma Bênção!<br></pt>\n<tr>Meleğin Lütfu Güneş Ağacı ile tekrar geliyor, paket satın alarak Güneş Ağacç'tan 10 çekiliş yapın!<br>\n[Melek Koruma Paketi] satın alarak anında 10 adet [Güneş Asa] ve 1 adet [Melek Dilek Kuponu] kazanın!<br>\nÖzel Hatırlatma: Ne kadar çok [Melek Dilek Kuponu] tüketirseniz, değerli lütfun tetikleme olasılığı o kadar artar!<br>\nAynı turda aynı havuz için 5 kupon kullanıldığında lütuf kesinlikle tetiklenir!<br></tr>\n<ru>Благословение Ангела и Золотое Священное Древо возвращаются!<br>\nПриобретите подарочный набор и получите десять призов от Священного Древа!<br>\nКупите [Благословение Ангела] и мгновенно получите 10 [Золотых палочек] и один [Билет Ангельской Молитвы]!<br>\nВажное напоминание: чем больше [Билетов Ангельской Молитвы] вы вложите, тем выше ваши шансы получить драгоценные благословения!<br>\nВложение трёх [Билетов Ангельской Молитвы] в один и тот же пул в одном раунде гарантирует благословение!<br></ru>\n<zhtw>天使的賜福攜手熾陽神樹再度來襲，購買禮包立享神樹十連抽！<br>\n購買【天使的守護禮包】，即刻尊享10根【黃金魔杖】和1張【天使祈願券】！<br>\n消耗【天使祈願券】參與3種賜福，更有機會獲取海量道具，<br>\n特別提醒：投入的【天使祈願券】越多，觸發珍貴賜福的概率越高！<br>\n同一輪同一個池子投入5張必定觸發賜福！<br>\n機遇當前，領主大人切勿錯過！<br></zhtw>\n<nl>De Engelzegen keert terug samen met de Goddelijke Boom van de Brandende Zon. Koop het pakket en ontvang direct 10 opeenvolgende trekkingen van de Goddelijke Boom!<br>\nBij aankoop van het 【Beschermingspakket van de Engel】 ontvang je direct 10 【Gouden Toverstaven】 en 1 【Engelgebedscoupon】!<br>\nGebruik 【Engelgebedscoupons】 om deel te nemen aan 3 soorten zegeningen en maak kans op een grote hoeveelheid items,<br>\nSpeciale herinnering: hoe meer 【Engelgebedscoupons】 je inzet, hoe groter de kans op het activeren van zeldzame zegeningen!<br>\nIn dezelfde ronde en dezelfde pool garandeert het inzetten van 5 coupons de activering van een zegen!<br>\nDe kans is hier, Heer, mis het niet!<br></nl>\n<id>Berkah Malaikat kembali hadir bersama Pohon Ilahi Matahari Membara, beli paket dan langsung nikmati 10 kali undian Pohon Ilahi!<br>\nDengan membeli 【Paket Perlindungan Malaikat】, Anda langsung mendapatkan 10 【Tongkat Emas】 dan 1 【Kupon Doa Malaikat】!<br>\nGunakan 【Kupon Doa Malaikat】 untuk berpartisipasi dalam 3 jenis berkah dan berpeluang mendapatkan banyak item,<br>\nPengingat khusus: semakin banyak 【Kupon Doa Malaikat】 yang digunakan, semakin tinggi peluang memicu berkah langka!<br>\nDalam putaran yang sama dan kolam yang sama, menggunakan 5 kupon pasti akan memicu berkah!<br>\nKesempatan ada di depan mata, Tuan Lord, jangan sampai terlewat!<br></id>\n<th>พรของทูตสวรรค์กลับมาอีกครั้งพร้อมกับต้นไม้ศักดิ์สิทธิ์สุริยันเพลิง ซื้อแพ็กเกจรับสิทธิ์สุ่มต้นไม้ศักดิ์สิทธิ์ 10 ครั้งทันที!<br>\nเมื่อซื้อ 【แพ็กเกจการพิทักษ์ของทูตสวรรค์】 จะได้รับ 【คทาทองคำ】 10 อัน และ 【คูปองอธิษฐานทูตสวรรค์】 1 ใบทันที!<br>\nใช้ 【คูปองอธิษฐานทูตสวรรค์】 เพื่อเข้าร่วมพรทั้ง 3 รูปแบบ และมีโอกาสได้รับไอเทมจำนวนมาก,<br>\nคำเตือนพิเศษ: ยิ่งใช้ 【คูปองอธิษฐานทูตสวรรค์】 มากเท่าใด โอกาสกระตุ้นพรล้ำค่าก็ยิ่งสูงขึ้น!<br>\nในรอบเดียวกันและสระเดียวกัน ใช้คูปองครบ 5 ใบ รับประกันการกระตุ้นพร!<br>\nโอกาสอยู่ตรงหน้าแล้ว ท่านลอร์ด อย่าพลาดเด็ดขาด!<br></th>\n<pl>Błogosławieństwo Anioła powraca wraz ze Złotym Boskim Drzewem. Kup pakiet i natychmiast skorzystaj z 10 losowań Boskiego Drzewa!<br>\nKupując 【Pakiet Ochrony Anioła】, natychmiast otrzymasz 10 【Złotych Lasek】 oraz 1 【Kupon Modlitwy Anioła】!<br>\nUżyj 【Kuponów Modlitwy Anioła】, aby wziąć udział w 3 rodzajach błogosławieństw i mieć szansę zdobyć ogromną liczbę przedmiotów,<br>\nSpecjalne przypomnienie: im więcej 【Kuponów Modlitwy Anioła】 zostanie użytych, tym większa szansa na aktywację cennych błogosławieństw!<br>\nW tej samej rundzie i tej samej puli użycie 5 kuponów gwarantuje aktywację błogosławieństwa!<br>\nOkazja jest teraz, Panie Lordzie, nie przegap jej!<br></pl>",
+   "conditionDetail": "-",
+   "getway": 4,
+   "activeType": 29,
+   "startTime": "2026-10-23 00:00:00",
+   "stopTime": "2026-10-25 23:59:59",
+   "order": 10,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": -500,
+       "templateType": 1,
+       "count": 100,
+       "isbind": true
+      },
+      {
+       "templateId": 2125083,
+       "templateType": 1,
+       "count": 3,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 45,
+       "conditionValue": 1,
+       "conditionBak": 160
+      }
+     ],
+     "packageId": "B688CD8A-3879-27F7-2D8E-5728B3041312",
+     "order": 1
+    }
+   ],
+   "activeId": "700D2BC1-81E8-ED66-46EB-57284A7D4F84",
+   "beginDate": "2026-10-20 00:00:00",
+   "endDate": "2026-10-21 23:59:59",
+   "title": "<en>Maintenance Compensation 10/20</en><pt>Compensação de Manutenção 10/20</pt><es>Compensación por mantenimiento 10/20</es><de>Wartung-Entschädigung 10/20</de><fr>Compensation de la maintenance du 10/20</fr><tr>Bakım Telafisi 10/20</tr><zhtw>維護補償 10/20</zhtw><id>Kompensasi Perawatan 10/20</id><th>ค่าตอบแทนการบำรุงรักษา 10/20</th><pl>Odszkodowanie za Konserwację 10/20</pl><nl>Onderhoudsvergoeding 10/20</nl>",
+   "detail": "<en>Dear lord, please check the maintenance compensation. Thank you for your support to Wartune Ultra.</en><pt>Caro Lorde, verifique a compensação de manutenção. Obrigado por seu apoio ao Wartune Ultra.</pt><es>Querido Señor, verifique la compensación por mantenimiento. Gracias por su apoyo a Wartune Ultra.</es><de>Lieber Lord, überprüfe bitte die Wartung-Entschädigung. Danke für deine Unterstützung zu Wartune Ultra.</de><fr>Chers Seigneurs, veuillez jeter un œil à la compensation de la maintenance. Merci pour votre soutien à Wartune Ultra.</fr><tr>Sevgili Lord, lütfen bakım telafinizi kontrol ediniz. Wartune Ultra'ya desteğiniz için teşekkür ederiz.</tr><zhtw>親愛的領主們，請查收維護補償。感謝你們對星曲 Ultra的支持</zhtw><id>Yang terhormat, mohon periksa kompensasi perawatan. Terima kasih atas dukungan Anda kepada Wartune Ultra.</id><th>เรียนท่านเจ้านาย โปรดตรวจสอบค่าตอบแทนการบำรุงรักษา ขอขอบคุณสำหรับการสนับสนุนของท่านต่อ Wartune Ultra</th><pl>Szanowny Panie, proszę sprawdzić odszkodowanie za konserwację. Dziękujemy za Państwa wsparcie dla Wartune Ultra.</pl><nl>Geachte heer, controleer alstublieft de onderhoudsvergoeding. Bedankt voor uw steun aan Wartune Ultra.</nl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 45,
+   "startTime": "2026-10-20 00:00:00",
+   "stopTime": "2026-10-21 23:59:59",
+   "order": 100,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 200,
+       "isbind": true
+      },
+      {
+       "templateId": 2125083,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 131,
+       "conditionValue": 1
+      }
+     ],
+     "packageId": "1BAB1F3E-8EA2-8CF3-F3A4-38224D810FD7",
+     "order": 1
+    },
+    {
+     "items": [
+      {
+       "templateId": 208001,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2125059,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 3,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 131,
+       "conditionValue": 6
+      }
+     ],
+     "packageId": "6451FFFE-94BF-5325-AE5C-38224D8414F5",
+     "order": 6
+    },
+    {
+     "items": [
+      {
+       "templateId": 208067,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 1000,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 6,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 131,
+       "conditionValue": 7
+      }
+     ],
+     "packageId": "79E15EA7-051B-BF0A-F947-38224D8481FA",
+     "order": 7
+    },
+    {
+     "items": [
+      {
+       "templateId": 208001,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2125124,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 3,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 131,
+       "conditionValue": 4
+      }
+     ],
+     "packageId": "A21BCD7F-01AB-713D-4F8D-38224D83794F",
+     "order": 4
+    },
+    {
+     "items": [
+      {
+       "templateId": 208051,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 500,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 3,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 131,
+       "conditionValue": 5
+      }
+     ],
+     "packageId": "B1E58881-7D9B-150F-3191-38224D84D5BA",
+     "order": 5
+    },
+    {
+     "items": [
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 300,
+       "isbind": true
+      },
+      {
+       "templateId": 2125123,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 131,
+       "conditionValue": 3
+      }
+     ],
+     "packageId": "C3484C50-78B8-B0E6-4983-38224D835D7A",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": 208001,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2125084,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 131,
+       "conditionValue": 2
+      }
+     ],
+     "packageId": "D3853BEF-5A0A-2278-870A-38224D832173",
+     "order": 2
+    }
+   ],
+   "activeId": "8A338CF2-E16A-633F-900D-38224D80CB7E",
+   "beginDate": "2026-10-15 00:00:00",
+   "endDate": "2026-10-21 23:59:59",
+   "title": "<en>7-Day Logins 10/15</en>\n<es>Acceso de 7 días 10/15</es>\n<pt>7-Dia Login 10/15</pt>\n<de>7-tägige Anmeldungen 10/15</de>\n<fr>Connexion 7J 10/15</fr>\n<tr>7 Günlük Giriş 10/15</tr>\n<ru>Вход 7 дней 10/15</ru>\n<zhtw>七天登錄 10/15</zhtw>\n<nl>7 Dagen Inloggen 10/15</nl>\n<id>Login 7 Hari 10/15</id>\n<th>ล็อกอิน 7 วัน 10/15</th>\n<pl>Logowanie przez 7 dni 10/15</pl>",
+   "detail": "<en>During the event, log in to the game daily to obtain rewards.</en>\n<es>Durante el evento, inicia sesión en el juego diariamente para obtener recompensas.</es>\n<pt>Durante o evento, faça login no jogo diariamente para obter recompensas.</pt>\n<de>Melde dich während des Events täglich im Spiel an, um Belohnungen zu bekommen.</de>\n<fr>Pendant l'événement, connectez-vous quotidiennement au jeu pour obtenir des récompenses.</fr>\n<tr>Etkinlik süresince her gün oyuna giriş yaparak ödülleri kazanın.</tr>\n<ru>Во время события заходите в игру в течение X дней для получения наград</ru>\n<zhtw>活動期間，累計登錄X天，即可獲得相應獎勵。</zhtw>\n<nl>Tijdens de eventperiode kun je door in totaal X dagen in te loggen de overeenkomstige beloningen ontvangen.</nl>\n<id>Selama periode event, login total X hari untuk mendapatkan hadiah yang sesuai.</id>\n<th>ในช่วงระยะเวลากิจกรรม ล็อกอินสะสมครบ X วัน เพื่อรับรางวัลที่สอดคล้องกัน</th>\n<pl>Podczas trwania wydarzenia zaloguj się łącznie X dni, aby otrzymać odpowiednie nagrody.</pl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 131,
+   "startTime": "2026-10-15 00:00:00",
+   "stopTime": "2026-10-21 23:59:59",
+   "order": 12,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 208009,
+       "templateType": 1,
+       "count": 5,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 200,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2127004,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 110,
+       "conditionValue": 3
+      }
+     ],
+     "packageId": "10D3DDF8-A0A0-E7AD-634C-5C25F4899C0B",
+     "order": 1
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 200000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 300,
+       "isbind": true
+      },
+      {
+       "templateId": 2125150,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 110,
+       "conditionValue": 5
+      }
+     ],
+     "packageId": "386ACAE2-FE7C-3E2D-A52D-5C25F48AFD21",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 300000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 500,
+       "isbind": true
+      },
+      {
+       "templateId": 2126203,
+       "templateType": 1,
+       "count": 5,
+       "isbind": true
+      },
+      {
+       "templateId": 2126801,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 110,
+       "conditionValue": 8
+      }
+     ],
+     "packageId": "ACA8F610-0810-6E94-E0A8-5C25F48A737D",
+     "order": 3
+    }
+   ],
+   "activeId": "8CCA11E8-4780-91A7-2891-5C25F489A59B",
+   "beginDate": "2026-10-22 00:00:00",
+   "endDate": "2026-10-28 23:59:59",
+   "title": "<en>Sylph Arena 10/22</en>\n<es>Arena de Sílfides 10/22</es>\n<pt>Arena dos Silfos 10/22</pt>\n<de>Sylph-Arena 10/22</de>\n<fr>Arène de Sylphide 10/22</fr>\n<tr>Peri Turnuvası 10/22</tr>\n<ru>Героическое соревнование 10/22</ru>\n<zhtw>英靈競技 10/22</zhtw>\n<nl>Heldenspirit Arena 10/22</nl>\n<id>Arena Spirit Heroik 10/22</id>\n<th>อารีนาวิญญาณวีรชน 10/22</th>\n<pl>Arena Duchów Bohaterów 10/22</pl>",
+   "detail": "<en>During the event, complete Sylph Arena to receive rewards. Each can only be claimed once daily.</en>\n<es>Completa Arena de Sílfides durante el evento para conseguir recompensas. Cada una se puede conseguir una vez al día.</es>\n<pt>Termine certos vezes de Arena dos Silfos para reivindicar recompensas durante o evento. Cada recompensa pode ser reivindicada uma vez por dia.</pt>\n<de>Beende während des Events die Sylph-Arena, um Belohnungen zu erhalten. Jede kann täglich nur einmal beansprucht werden.</de>\n<fr>Pendant l'événement, complétez l'Arène de Sylphide pour recevoir des récompenses. Chaque récompense ne peut être réclamée qu'une fois par jour.</fr>\n<tr>Etkinlik süresinde Peri Turnuvası'nı tamamlayarak ödülleri kazanın. Her bir ödül günde yalnızca bir kez alınabilir.</tr>\n<ru>Во время события участвуйте в Героических соревнованиях. Вы можете получать награды только один раз в день на каждом уровне.</ru>\n<zhtw>活動期間，完成X次英靈競技，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\n<nl>Tijdens de evenementperiode voltooi X keer de Heldenspirit Arena om beloningen te ontvangen. Elke categorie kan slechts eenmaal per dag worden opgehaald.</nl>\n<id>Selama periode acara, selesaikan X kali Arena Spirit Heroik untuk mendapatkan hadiah. Setiap kategori hanya dapat diklaim sekali per hari.</id>\n<th>ในช่วงระยะเวลากิจกรรม ทำอารีนาวิญญาณวีรชน X ครั้งเพื่อรับรางวัล แต่ละระดับสามารถรับได้วันละครั้งเท่านั้น</th>\n<pl>Podczas trwania wydarzenia ukończ X razy Arenę Duchów Bohaterów, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 110,
+   "startTime": "2026-10-22 00:00:00",
+   "stopTime": "2026-10-28 23:59:59",
+   "order": 13,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 200000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125083,
+       "templateType": 1,
+       "count": 7,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 47,
+       "conditionValue": 70
+      }
+     ],
+     "packageId": "27515C56-D3B5-F3AA-1117-5C25F48B056C",
+     "order": 4
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 250000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125083,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 47,
+       "conditionValue": 100
+      }
+     ],
+     "packageId": "34D93F29-327C-D654-1EAC-5C25F48BAE0F",
+     "order": 5
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 200000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125083,
+       "templateType": 1,
+       "count": 3,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 47,
+       "conditionValue": 30
+      }
+     ],
+     "packageId": "50E460A9-832D-1373-4753-5C25F48B05CD",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 250000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125083,
+       "templateType": 1,
+       "count": 5,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 47,
+       "conditionValue": 50
+      }
+     ],
+     "packageId": "AA927C44-890C-6189-37E8-5C25F48B3CF7",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 150000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125083,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 47,
+       "conditionValue": 10
+      }
+     ],
+     "packageId": "E282B602-102E-8C9E-3688-5C25F48BCE81",
+     "order": 1
+    }
+   ],
+   "activeId": "92CD821B-A624-5D58-184C-5C25F48A87FF",
+   "beginDate": "2026-10-22 00:00:00",
+   "endDate": "2026-10-28 23:59:59",
+   "title": "<en>Sylph Promotion 10/22</en>\n<es>Promoción de Sílfides 10/22</es>\n<de>Sylphen-Beförderung 10/22</de>\n<fr>Promotion des Sylphides 10/22</fr>\n<pt>Promoção Silfo 10/22</pt>\n<tr>Peri Geliştir 10/22</tr>\n<ru>Развитие фей 10/22</ru>\n<zhtw>英靈進階 10/22</zhtw>\n<nl>Evolutie van Heldenspirits 10/22</nl>\n<id>Evolusi Spirit Heroik 10/22</id>\n<th>พัฒนาวิญญาณวีรชน 10/22</th>\n<pl>Awans Duchów Bohaterów 10/22</pl>",
+   "detail": "<en>During the event, use the required number of Mahras to receive rewards. </en>\n<es>Durante el evento, usa un número específico de Mahras para recibir recompensas.</es>\n<de>Benutze während des Events die erforderliche Anzahl an Mahras, um Belohnungen zu erhalten.</de>\n<fr>Pendant l'événement, utilisez le nombre désigné de Mahras pour recevoir des récompenses.</fr>\n<pt>Durante o evento, use o número necessário de Mahras para receber as recompensas.</pt>\n<tr>Etkinlik sırasında ödül almak için gerekli sayıda Mahra kullanın.</tr>\n<ru>Во время события усиливайте фей, чтобы получать награды. Каждую награду можно получить один раз.</ru>\n<zhtw>活動期間，吞噬X個聖魂石，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\n<nl>Tijdens de evenementperiode consumeer X Heilige Zielstenen om beloningen te ontvangen. Elke categorie kan slechts eenmaal per dag worden opgehaald.</nl>\n<id>Selama periode acara, gunakan X Batu Jiwa Suci untuk mendapatkan hadiah. Setiap kategori hanya dapat diklaim sekali per hari.</id>\n<th>ในช่วงระยะเวลากิจกรรม กลืนศิลาแห่งวิญญาณศักดิ์สิทธิ์ X ก้อนเพื่อรับรางวัล แต่ละระดับสามารถรับได้วันละครั้งเท่านั้น</th>\n<pl>Podczas trwania wydarzenia pochłoń X Świętych Kamieni Duszy, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 47,
+   "startTime": "2026-10-22 00:00:00",
+   "stopTime": "2026-10-28 23:59:59",
+   "order": 15,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2127106,
+       "templateType": 1,
+       "count": 6,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2125042,
+       "conditionBak2": 10
+      }
+     ],
+     "packageId": "0ED94222-9754-7736-40FA-5C25F4916AD7",
+     "order": 12
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2125078,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 10,
+       "conditionBak": 2125042,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "0FB3C10E-2974-98B5-0890-5C25F490F928",
+     "order": 1
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2125128,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2125042,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "2422A1EF-C3E0-F42C-7311-5C25F490B68F",
+     "order": 6
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2127105,
+       "templateType": 1,
+       "count": 12,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2125042,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "3093780A-513C-4CB0-A1A1-5C25F4917091",
+     "order": 13
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2125059,
+       "templateType": 1,
+       "count": 30,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2125042,
+       "conditionBak2": 10
+      }
+     ],
+     "packageId": "400DD90E-48A4-DD2B-78C8-5C25F491BD3E",
+     "order": 10
+    },
+    {
+     "items": [
+      {
+       "templateId": 208067,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2125042,
+       "conditionBak2": 5
+      }
+     ],
+     "packageId": "4527555D-CB46-A637-3335-5C25F491671E",
+     "order": 11
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2125130,
+       "templateType": 1,
+       "count": 3,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2125042,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "535B323F-7486-539B-0D5A-5C25F4903BE4",
+     "order": 4
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2125125,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2125042,
+       "conditionBak2": 15
+      }
+     ],
+     "packageId": "63D98E09-4454-ED8D-9825-5C25F4919912",
+     "order": 9
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 4,
+       "isbind": true
+      },
+      {
+       "templateId": 2131051,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 4,
+       "conditionBak": 2125042,
+       "conditionBak2": 2
+      }
+     ],
+     "packageId": "7242B724-3F3C-1EB3-C911-5C25F49061F8",
+     "order": 8
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2125079,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 10,
+       "conditionBak": 2125042,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "813FCEC3-53A4-44FD-6BCB-5C25F4906822",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 4,
+       "isbind": true
+      },
+      {
+       "templateId": 2125072,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 4,
+       "conditionBak": 2125042,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "9653C5B9-B332-9ADF-2F06-5C25F490FA5C",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2125134,
+       "templateType": 1,
+       "count": 3,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 1,
+       "conditionBak": 2125042,
+       "conditionBak2": 20
+      }
+     ],
+     "packageId": "DAB286D5-4B7A-D15C-D9EE-5C25F49080D6",
+     "order": 5
+    },
+    {
+     "items": [
+      {
+       "templateId": 2125042,
+       "templateType": 4,
+       "count": 8,
+       "isbind": true
+      },
+      {
+       "templateId": 2131052,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 8,
+       "conditionBak": 2125042,
+       "conditionBak2": 2
+      }
+     ],
+     "packageId": "F8CF4BEC-DD1B-CEB1-5231-5C25F4909EF9",
+     "order": 7
+    }
+   ],
+   "activeId": "ACF4A699-592E-C40C-BF7D-5C25F49034CE",
+   "beginDate": "2026-10-22 00:00:00",
+   "endDate": "2026-10-29 23:59:59",
+   "title": "<en>Sylph Pact Exchange 10/22</en>\n<es>Canjeo de Pacto de Sílfides 10/22</es>\n<pt>Troca de Pacto de Silfo 10/22</pt>\n<de>Sylph-Pakt-Tausch 10/22</de>\n<fr>Échange de Pacte de Sylphide 10/22</fr>\n<tr>Peri Antlaşması Takası 10/22</tr>\n<ru>Призыв Фей 10/22</ru>\n<zhtw>英靈契約兌換 10/22</zhtw>\n<nl>Ruil voor Heldenspirit Contract 10/22</nl>\n<id>Penukaran Kontrak Spirit Heroik 10/22</id>\n<th>แลกสัญญาวิญญาณวีรชน 10/22</th>\n<pl>Wymiana Kontraktu Ducha Bohaterów 10/22</pl>",
+   "detail": "<en>Summon powerful Sylphs!</en>\n<es>¡Invoca a Sílfides poderosas!</es>\n<pt>Convoque Silfos poderosos para ajudá-lo!</pt>\n<de>Beschwörung mächtiger Sylphen!</de>\n<fr>Invoquez de puissantes Sylphides !</fr>\n<tr>Güçlü periler çağırın!</tr>\n<ru>Призовите могущественных Фей, чтобы они помогли вам в битве!</ru>\n<zhtw>召喚強力英靈！</zhtw>\n<nl>Roep krachtige Heldenspirits op!</nl>\n<id>Panggil Spirit Heroik yang kuat!</id>\n<th>อัญเชิญวิญญาณวีรชนสุดแกร่ง!</th>\n<pl>Przyzwij potężnego Ducha Bohaterów!</pl>",
+   "conditionDetail": "-",
+   "getway": 2,
+   "activeType": 10,
+   "startTime": "2026-10-22 00:00:00",
+   "stopTime": "2026-10-29 23:59:59",
+   "order": 18,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 300,
+       "isbind": true
+      },
+      {
+       "templateId": 2030501,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2300001,
+       "templateType": 1,
+       "count": 25,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 23,
+       "conditionValue": 8
+      }
+     ],
+     "packageId": "5462E051-A3BB-71C9-63C6-5C25F4888706",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 300000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 500,
+       "isbind": true
+      },
+      {
+       "templateId": 2060509,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2126801,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 23,
+       "conditionValue": 15
+      }
+     ],
+     "packageId": "B9B98975-A917-9224-CCA3-5C25F489BE3B",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 200000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 200,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2127106,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 23,
+       "conditionValue": 5
+      }
+     ],
+     "packageId": "F33C00E3-DEF3-5294-24B6-5C25F487713C",
+     "order": 1
+    }
+   ],
+   "activeId": "B4B1836F-4573-5F12-2A83-5C25F486EC1D",
+   "beginDate": "2026-10-22 00:00:00",
+   "endDate": "2026-10-28 23:59:59",
+   "title": "<en>Bounty Order 10/22</en>\n<es>Orden de Recompensa 10/22</es>\n<de>Kopfgeldbefehl 10/22</de>\n<fr>Ordre de prime 10/22</fr>\n<pt>Ordem de recompensa 10/22</pt>\n<tr>Ödül Görevi 10/22</tr>\n<ru>Наградной план 10/22</ru>\n<zhtw>懸賞任務 10/22</zhtw>\n<nl>Bounty-opdrachten 10/22</nl>\n<id>Tugas Bounty 10/22</id>\n<th>ภารกิจค่าหัว 10/22</th>\n<pl>Zadania Zlecone 10/22</pl>",
+   "detail": "<en>During the event, complete the required number of Bounty Quests to earn rewards. Each tier can only be claimed once per day.</en>\n<es>Durante el evento, completa un número específico de misiones de recompensa para ganar recompensas. Cada nivel se puede reclamar una vez al día.</es>\n<de>Beende während des Events die erforderliche Anzahl an Kopfgeld-Quests, um Belohnungen zu erhalten. Jede Phase kann nur einmal pro Tag beansprucht werden.</de>\n<fr>Pendant l'événement, complétez le nombre désigné de quêtes de butin pour gagner des récompenses. Les récompenses de chaque palier ne peuvent être réclamées qu'une seule fois par jour.</fr>\n<pt>Durante o evento, complete o número necessário de Missões de Recompensas para ganhar recompensas. Cada nível só pode ser resgatado uma vez por dia.</pt>\n<tr>Etkinlik sırasında, ödül kazanmak için gerekli sayıda ödül görevini tamamlayın. Her katman günde yalnızca bir kez talep edilebilir.</tr>\n<ru>Во время события выполните X Наградных заданий для получения наград. Каждую награду можно получить только один раз в день.</ru>\n<zhtw>活動期間，完成X次懸賞任務，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\n<nl>Tijdens de evenementperiode voltooi X Bounty-opdrachten om beloningen te ontvangen. Elke categorie kan slechts eenmaal per dag worden opgehaald.</nl>\n<id>Selama periode acara, selesaikan X kali Tugas Bounty untuk mendapatkan hadiah. Setiap kategori hanya dapat diklaim sekali per hari.</id>\n<th>ในช่วงระยะเวลากิจกรรม ทำภารกิจค่าหัว X ครั้งเพื่อรับรางวัล แต่ละระดับสามารถรับได้วันละครั้งเท่านั้น</th>\n<pl>Podczas trwania wydarzenia ukończ X Zadań Zleconych, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 23,
+   "startTime": "2026-10-22 00:00:00",
+   "stopTime": "2026-10-28 23:59:59",
+   "order": 11,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [],
+   "activeId": "B918FECB-B34A-F715-09D5-38224D7C9E2E",
+   "beginDate": "2026-10-15 00:00:00",
+   "endDate": "2026-10-21 23:59:59",
+   "title": "<en>Double Gold, Limited-Time Hunt!</en>\n<es>Oro Doble, Cacería por Tiempo Limitado!</es>\n<pt>Ouro em Dobro, Caçada por Tempo Limitado!</pt>\n<de>Doppeltes Gold, zeitlich begrenzte Jagd!</de>\n<fr>Or Double, Chasse à Durée Limitée !</fr>\n<tr>Altın iki kat, sınırlı süreli av!</tr>\n<ru>Удвоенное кол-во золота, временное приключение!</ru>\n<zhtw>黃金雙倍，限時狩獵！</zhtw>\n<nl>Dubbel Goud, Tijdelijke Jacht!</nl>\n<id>Emas Ganda, Perburuan Waktu Terbatas!</id>\n<th>ทองสองเท่า ล่าชั่วเวลาจำกัด!</th>\n<pl>Podwójne Złoto, Polowanie Czasowo Ograniczone!</pl>",
+   "detail": "<en>World BOSS appears with treasures—Gold Drops Doubled for a Limited Time! </en>\n<es>¡El Jefe Mundial aparece con tesoros — Caída de Oro Doblada por Tiempo Limitado! </es>\n<pt>O Chefão Mundial aparece com tesouros — Queda de Ouro em Dobro por Tempo Limitado! </pt>\n<de>Der Weltboss erscheint mit Schätzen — Gold-Drops für begrenzte Zeit verdoppelt!</de>\n<fr>Le Boss Mondial apparaît avec des trésors — Butin d’Or Doublé pour une Durée Limitée ! </fr>\n<tr>Dünya Boss'u hazinelerle ortaya çıkıyor, altın kazancı sınırlı süreyle iki kat!</tr>\n<ru>Появился Мировой Босс, кол-во золота временно удвоено!</ru>\n<zhtw>世界BOSS攜寶藏現身，黃金掉落限時翻倍！</zhtw>\n<nl>De Wereldbaas verschijnt met schatten — Gouddrops Verdubbeld voor Beperkte Tijd! </nl>\n<id>World BOSS muncul dengan harta — Jatuhan Emas Dilipatgandakan untuk Waktu Terbatas!</id>\n<th>บอสโลกปรากฏพร้อมสมบัติ — อัตราดรอปทองเพิ่มเป็นสองเท่าชั่วเวลาจำกัด!</th>\n<pl>Światowy BOSS pojawia się ze skarbami — Podwójny Drop Złota przez Ograniczony Czas!</pl>",
+   "conditionDetail": "-",
+   "getway": 4,
+   "activeType": 29,
+   "startTime": "2026-10-15 00:00:00",
+   "stopTime": "2026-10-21 23:59:59",
+   "order": 2,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 200000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125084,
+       "templateType": 1,
+       "count": 5,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 48,
+       "conditionValue": 50
+      }
+     ],
+     "packageId": "0BA474B6-A4E0-5719-7F3A-5C25F48AD9F6",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 150000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125084,
+       "templateType": 1,
+       "count": 7,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 48,
+       "conditionValue": 70
+      }
+     ],
+     "packageId": "445DC736-9EDE-E9B9-D3BB-5C25F48AB5B3",
+     "order": 4
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 200000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125084,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 48,
+       "conditionValue": 100
+      }
+     ],
+     "packageId": "84B7BC27-7853-B6F2-F491-5C25F48A290F",
+     "order": 5
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 150000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125084,
+       "templateType": 1,
+       "count": 3,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 48,
+       "conditionValue": 30
+      }
+     ],
+     "packageId": "DBF6BA84-3B0F-BDA8-C9EB-5C25F48AAC39",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 100000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125084,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 48,
+       "conditionValue": 10
+      }
+     ],
+     "packageId": "DD363829-CB74-478C-939F-5C25F48A1794",
+     "order": 1
+    }
+   ],
+   "activeId": "BC97C66F-4D37-7054-004A-5C25F48AF28E",
+   "beginDate": "2026-10-22 00:00:00",
+   "endDate": "2026-10-28 23:59:59",
+   "title": "<en>Sylph Enchantment 10/22</en>\n<es>Encantamiendo de Sílfides 10/22</es>\n<de>Sylphen-Verzauberung 10/22</de>\n<fr>Renforcement des Sylphides 10/22</fr>\n<pt>Encantamento de Silfo 10/22</pt>\n<tr>Peri Güçlendirme 10/22</tr>\n<ru>Усиление Фей 10/22</ru>\n<zhtw>英靈強化 10/22</zhtw>\n<nl>Versterking van Heldenspirits 10/22</nl>\n<id>Peningkatan Spirit Heroik 10/22</id>\n<th>เสริมพลังวิญญาณวีรชน 10/22</th>\n<pl>Wzmacnianie Duchów Bohaterów 10/22</pl>",
+   "detail": "<en>During the event, use the required number of Sylph Sepulcrums to receive rewards. Each tier can only be claimed once during the event.</en>\n<es>Durante el evento, usa un número específico de Sepulcros de Sílfide para recibir recompensas. Cada nivel solo se puede reclamar una vez durante el evento.</es>\n<de>Verwende während des Events die erforderliche Anzahl an Sylphen-Sepulcrum, um Belohnungen zu erhalten. Jede Phase kann während des Events nur einmal beansprucht werden.</de>\n<fr>Pendant l'événement, utilisez le nombre désigné de Sylphide Sepulcrum pour recevoir des récompenses. Les récompenses de chaque palier ne peuvent être réclamées qu'une seule fois pendant l'événement.</fr>\n<pt>Durante o evento, use o número necessário de Sepulcrums Silfo para receber recompensas. Cada nível só pode ser resgatado uma vez durante o evento.</pt>\n<tr>Etkinlik sırasında, ödül almak için gerekli sayıda Sylph Mezarı kullanın. Her kademe, etkinlik sırasında yalnızca bir kez talep edilebilir.</tr>\n<ru>Во время события используйте усиление фей X, чтобы получить награды. Каждый уровень можно получить только один раз.</ru>\n<zhtw>活動期間，吞噬X個英靈凝神珠，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\n<nl>Tijdens de evenementperiode consumeer X Spirit Focus Pearls om beloningen te ontvangen. Elke categorie kan slechts eenmaal per dag worden opgehaald.</nl>\n<id>Selama periode acara, gunakan X Mutiara Fokus Spirit untuk mendapatkan hadiah. Setiap kategori hanya dapat diklaim sekali per hari.</id>\n<th>ในช่วงระยะเวลากิจกรรม กลืนลูกแก้วรวมจิตวิญญาณวีรชน X ลูกเพื่อรับรางวัล แต่ละระดับสามารถรับได้วันละครั้งเท่านั้น</th>\n<pl>Podczas trwania wydarzenia pochłoń X Klejnotów Skupienia Ducha, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 48,
+   "startTime": "2026-10-22 00:00:00",
+   "stopTime": "2026-10-28 23:59:59",
+   "order": 15,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 300000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 1000,
+       "isbind": true
+      },
+      {
+       "templateId": 2125090,
+       "templateType": 1,
+       "count": 5,
+       "isbind": true
+      },
+      {
+       "templateId": 2126814,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 18,
+       "conditionValue": 100
+      }
+     ],
+     "packageId": "81AC4294-7068-35E3-7DAB-38224D8647A0",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 250000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 700,
+       "isbind": true
+      },
+      {
+       "templateId": 2125090,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 18,
+       "conditionValue": 50
+      }
+     ],
+     "packageId": "88AED3F1-CAAD-9C95-9D86-38224D859C49",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 150000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 300,
+       "isbind": true
+      },
+      {
+       "templateId": 2125090,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 18,
+       "conditionValue": 25
+      }
+     ],
+     "packageId": "A72E5318-78CA-E7C6-9E14-38224D857733",
+     "order": 1
+    }
+   ],
+   "activeId": "BEA6B3A3-CFA5-F6C8-19D4-38224D85DF76",
+   "beginDate": "2026-10-15 00:00:00",
+   "endDate": "2026-10-21 23:59:59",
+   "title": "<en>Train the Mount 10/15</en>\n<es>Entrenar la Montura 10/15</es>\n<de>Trainiere das Reittier 10/15</de>\n<fr>Entraîner la Monture 10/15</fr>\n<pt>Treine a Montaria 10/15</pt>\n<tr>Eğitimi Binek 10/15</tr>\n<ru>Тренировка скакунов 10/15</ru>\n<zhtw>坐騎培養 10/15</zhtw>\n<nl>Rijdier Ontwikkeling 10/15</nl>\n<id>Pengembangan Tunggang 10/15</id>\n<th>การฝึกฝนพาหนะ 10/15</th>\n<pl>Rozwój Wierzchowca 10/15</pl>",
+   "detail": "<en>During the event, train your mount for the required number of times to receive rewards. Each tier can only be claimed once during the event.</en>\n<es>Durante el evento, entrena a tu montura un número específico de veces para recibir recompensas. Cada nivel solo se puede reclamar una vez durante el evento.</es>\n<de>Trainiere dein Reittier während des Events die erforderliche Anzahl an Malen, um Belohnungen zu erhalten. Jede Phase kann während des Events nur einmal beansprucht werden.</de>\n<fr>Pendant l'événement, entraînez votre monture le nombre désigné de fois pour recevoir des récompenses. Les récompenses de chaque palier ne peuvent être réclamées qu'une seule fois pendant l'événement.</fr>\n<pt>Durante o evento, treine sua montaria o número necessário das vezes para receber as recompensas.  Cada nível só pode ser resgatado uma vez durante o evento.</pt>\n<tr>Etkinlik sırasında, ödül almak için bineğinizi gerekli sayıda eğitin. Her kademe, etkinlik sırasında yalnızca bir kez talep edilebilir.</tr>\n<ru>Во время события тренируйте своего скакуна X раз, чтобы получить награды. Каждый уровень можно получить только один раз.</ru>\n<zhtw>活動期間，坐騎培養X次，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\n<nl>Tijdens het evenement kun je door het rijdier X keer te ontwikkelen een beloning ontvangen. Elke fase kan slechts eenmaal per dag worden geclaimd.</nl>\n<id>Selama periode event, lakukan pengembangan tunggang sebanyak X kali untuk mendapatkan hadiah. Setiap tier hanya dapat diklaim satu kali per hari.</id>\n<th>ในช่วงเวลากิจกรรม ฝึกฝนพาหนะครบ X ครั้ง จะสามารถรับรางวัลได้ แต่ละขั้นรับได้เพียงวันละครั้ง</th>\n<pl>W trakcie wydarzenia wykonaj rozwój wierzchowca X razy, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 18,
+   "startTime": "2026-10-15 00:00:00",
+   "stopTime": "2026-10-21 23:59:59",
+   "order": 15,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 208052,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 300,
+       "isbind": true
+      },
+      {
+       "templateId": 2125057,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2126801,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 105,
+       "conditionValue": 1
+      }
+     ],
+     "packageId": "5787EE99-55FE-3A1E-B387-5C25F48906B5",
+     "order": 1
+    }
+   ],
+   "activeId": "C1545049-77EA-0F97-6E7E-5C25F489B839",
+   "beginDate": "2026-10-22 00:00:00",
+   "endDate": "2026-10-28 23:59:59",
+   "title": "<en>Tower of Kings 10/22</en>\n<es>Torre de Reyes 10/22</es>\n<de>Turm der Könige 10/22</de>\n<fr>Tour des Rois 10/22</fr>\n<pt>Torre dos Reis 10/22</pt>\n<tr>Kralın Kulesi 10/22</tr>\n<ru>Башня Королей 10/22</ru>\n<zhtw>王者之塔 10/22</zhtw>\n<nl>Toren van de Koning 10/22</nl>\n<id>Menara Raja 10/22</id>\n<th>หอคอยราชัน 10/22</th>\n<pl>Wieża Króla 10/22</pl>",
+   "detail": "<en>During the event, complete 1 battle in the Tower of Kings to receive rewards. Each tier can only be claimed once per day.</en>\n<es>Durante el evento, completa 1 batalla en la Torre de Reyes para recibir recompensas. Cada nivel se puede reclamar una vez al día.</es>\n<de>Beende während des Events einen Kampf im Turm der Könige, um Belohnungen zu erhalten. Jede Phase kann nur einmal pro Tag beansprucht werden.</de>\n<fr>Pendant l'événement, complétez 1 bataille dans la Tour des Rois pour recevoir des récompenses. Les récompenses de chaque palier ne peuvent être réclamées qu'une seule fois par jour.</fr>\n<pt>Durante o evento, complete 1 batalha na Torre dos Reis para receber recompensas. Cada nível só pode ser resgatado uma vez por dia.</pt>\n<tr>Etkinlik süresinde ödülleri almak için Kralın Kulesi'nde 1 kez savaşı tamamlayın. Her ödül sadece bir kez alınabilir.</tr>\n<ru>Во время события завершите 1 битву в Башне Королей, чтобы получить награды. Каждый уровень можно получить только один раз в день.</ru>\n<zhtw>活動期間，進入王者之塔參與1次戰鬥，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\n<nl>Tijdens de evenementperiode betreed de Toren van de Koning en neem deel aan 1 gevecht om beloningen te ontvangen. Elke categorie kan slechts eenmaal per dag worden opgehaald.</nl>\n<id>Selama periode acara, masuk ke Menara Raja dan ikut serta dalam 1 pertempuran untuk mendapatkan hadiah. Setiap kategori hanya dapat diklaim sekali per hari.</id>\n<th>ในช่วงระยะเวลากิจกรรม เข้าไปยังหอคอยราชันและเข้าร่วมการต่อสู้ 1 ครั้งเพื่อรับรางวัล แต่ละระดับสามารถรับได้วันละครั้งเท่านั้น</th>\n<pl>Podczas trwania wydarzenia wejdź do Wieży Króla i weź udział w 1 walce, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 105,
+   "startTime": "2026-10-22 00:00:00",
+   "stopTime": "2026-10-28 23:59:59",
+   "order": 13,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 208022,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 2126802,
+       "templateType": 4,
+       "count": 25,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 25,
+       "conditionBak": 2126802,
+       "conditionBak2": 2
+      }
+     ],
+     "packageId": "0F5C2DDA-E538-7D2D-2596-5C25F4914A77",
+     "order": 1
+    }
+   ],
+   "activeId": "F0D3FF1A-3323-671A-5FA9-5C25F4913A93",
+   "beginDate": "2026-10-23 00:00:00",
+   "endDate": "2026-10-25 23:59:59",
+   "title": "<en>Special Exchange-II 10/22</en>\n<es>Canjeo especial-II 10/22</es>\n<pt>Troca Especial-II 10/22</pt>\n<tr>Özel Takas-II 10/22</tr>\n<de>Spezialtausch-II 10/22</de>\n<fr>Échange spécial-II 10/22</fr>\n<ru>Специальный обмен-II 10/22</ru>\n<zhtw>特別兌換-II 10/22</zhtw>\n<nl>Speciale Ruil-II 10/22</nl>\n<id>Penukaran Khusus-II 10/22</id>\n<th>แลกพิเศษ-II 10/22</th>\n<pl>Specjalna Wymiana-II 10/22</pl>",
+   "detail": "<en>Exchange draw items for Solar Divine Tree!</en>\n<es>¡Intercambia objetos de sorteo por el Árbol Divino del Sol Ardiente!</es>\n<pt>Troque itens de sorteio pela Árvore Divina do Sol Ardente!</pt>\n<tr>Güneş Ağacı çekiliş eşyasıyla takas yap!</tr>\n<de>Tausche Ziehungsgegenstände für Göttlicher Baum der Glühenden Sonne!</de>\n<fr>Échangez des objets de tirage contre l’Arbre Divin du Soleil Ardent !</fr>\n<ru>Обменивайте на потрясающую одежду/скакунов, чтобы стать самым крутым в Облачном городе!</ru>\n<zhtw>兌換熾陽神樹抽獎道具！</zhtw>\n<nl>Wissel Goddelijke Boom van de Brandende Zon Loterij-items In!</nl>\n<id>Tukar Item Undian Pohon Ilahi Matahari Membara!</id>\n<th>แลกเปลี่ยนไอเทมสุ่มรางวัลต้นไม้ศักดิ์สิทธิ์สุริยันเพลิง!</th>\n<pl>Wymień Przedmioty Losowania Boskie Drzewo Płonącego Słońca!</pl>",
+   "conditionDetail": "-",
+   "getway": 2,
+   "activeType": 10,
+   "startTime": "2026-10-23 00:00:00",
+   "stopTime": "2026-10-25 23:59:59",
+   "order": 3,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 1108251,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126024,
+       "templateType": 4,
+       "count": 60,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 60,
+       "conditionBak": 2126024,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "0309EBA5-BE44-EF61-3DB1-38224D8B628E",
+     "order": 8
+    },
+    {
+     "items": [
+      {
+       "templateId": 1118251,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126024,
+       "templateType": 4,
+       "count": 60,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 60,
+       "conditionBak": 2126024,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "08A09EAC-BD68-DAD0-9731-38224D8B68EC",
+     "order": 7
+    },
+    {
+     "items": [
+      {
+       "templateId": 1098193,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126024,
+       "templateType": 4,
+       "count": 40,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 40,
+       "conditionBak": 2126024,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "2C0D5542-DB66-9D0D-E441-38224D8A688E",
+     "order": 1
+    },
+    {
+     "items": [
+      {
+       "templateId": 1108193,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126024,
+       "templateType": 4,
+       "count": 30,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 30,
+       "conditionBak": 2126024,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "7B7AFA45-B80C-25A4-CBDE-38224D8BBAAC",
+     "order": 4
+    },
+    {
+     "items": [
+      {
+       "templateId": 1118193,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126024,
+       "templateType": 4,
+       "count": 30,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 30,
+       "conditionBak": 2126024,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "8A619AF2-FC93-B7DA-C0C3-38224D8B0C61",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": 1128193,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126024,
+       "templateType": 4,
+       "count": 20,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 20,
+       "conditionBak": 2126024,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "8FB453D7-EAFE-2F11-C934-38224D8B0805",
+     "order": 2
+    },
+    {
+     "items": [
+      {
+       "templateId": 1098251,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126024,
+       "templateType": 4,
+       "count": 75,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 75,
+       "conditionBak": 2126024,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "93A96CF3-FBE2-1015-497C-38224D8BB2AF",
+     "order": 5
+    },
+    {
+     "items": [
+      {
+       "templateId": 1128251,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2126024,
+       "templateType": 4,
+       "count": 45,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 11,
+       "conditionValue": 45,
+       "conditionBak": 2126024,
+       "conditionBak2": 1
+      }
+     ],
+     "packageId": "F57C4E81-D0F6-11A2-A8AF-38224D8BD7BA",
+     "order": 6
+    }
+   ],
+   "activeId": "F43D930B-A22D-634C-BCA9-38224D8A804B",
+   "beginDate": "2026-10-15 00:00:00",
+   "endDate": "2026-10-21 23:59:59",
+   "title": "<en>Special Exchange 10/15</en>\n<es>Canjeo especial 10/15</es>\n<pt>Troca Especial 10/15</pt>\n<tr>Özel Takas 10/15</tr>\n<de>Spezialtausch 10/15</de>\n<fr>Échange spécial 10/15</fr>\n<ru>Специальный обмен 10/15</ru>\n<zhtw>特別兌換 10/15</zhtw>\n<nl>Speciale Ruil 10/15</nl>\n<id>Penukaran Khusus 10/15</id>\n<th>แลกพิเศษ 10/15</th>\n<pl>Specjalna Wymiana 10/15</pl>",
+   "detail": "<en>Exchange for stunning Clothing/Mounts to be the coolest in Cloud City!</en>\n<es>¡Canjea ropa/monturas impresionantes para ser el más genial de la Ciudad de las Nubes!</es>\n<de>Tausche atemberaubende Kleidung/Reittiere, um der Coolste in der Stadt im Himmel zu werden!</de>\n<fr>Échangez contre des Vêtements/Montures éblouissants pour être le plus cool de la Cité des Nuages !</fr>\n<pt>Troque por roupas/montarias deslumbrantes para ser o mais bacana da Cidade das Nuvens!</pt>\n<tr>Etkileyici moda ve bineklerle takas yapın. Gökyüzü Şehri'ndeki en göz kamaştırıcı savaşçı olun!</tr>\n<ru>Обменивайте на потрясающую одежду/скакунов, чтобы стать самым крутым в Облачном городе!</ru>\n<zhtw>兌換限定時裝！</zhtw>\n<nl>Ruil voor exclusieve outfits!</nl>\n<id>Tukar kostum eksklusif!</id>\n<th>แลกชุดแฟชั่นจำกัด!</th>\n<pl>Wymień limitowany strój!</pl>",
+   "conditionDetail": "-",
+   "getway": 2,
+   "activeType": 10,
+   "startTime": "2026-10-15 00:00:00",
+   "stopTime": "2026-10-21 23:59:59",
+   "order": 20,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 0,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 350000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 200,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 3,
+       "isbind": true
+      },
+      {
+       "templateId": 2127004,
+       "templateType": 1,
+       "count": 18,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 522,
+       "conditionValue": 5
+      }
+     ],
+     "packageId": "78C17976-2F37-6353-20A8-38224D85A742",
+     "order": 1
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 1200000,
+       "isbind": true
+      },
+      {
+       "templateId": 208052,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 500,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 6,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 522,
+       "conditionValue": 25
+      }
+     ],
+     "packageId": "9B04D221-AA50-2E04-DCDD-38224D856A30",
+     "order": 3
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 2000000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 1000,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 8,
+       "isbind": true
+      },
+      {
+       "templateId": 2300306,
+       "templateType": 1,
+       "count": 10,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 522,
+       "conditionValue": 30
+      }
+     ],
+     "packageId": "A4D1B950-DF1C-914A-D223-38224D85F848",
+     "order": 4
+    },
+    {
+     "items": [
+      {
+       "templateId": -100,
+       "templateType": 1,
+       "count": 650000,
+       "isbind": true
+      },
+      {
+       "templateId": 208101,
+       "templateType": 1,
+       "count": 300,
+       "isbind": true
+      },
+      {
+       "templateId": 2125148,
+       "templateType": 1,
+       "count": 100,
+       "isbind": true
+      },
+      {
+       "templateId": 2126815,
+       "templateType": 1,
+       "count": 4,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 522,
+       "conditionValue": 15
+      }
+     ],
+     "packageId": "DF65E754-1AE9-7567-7039-38224D8500E6",
+     "order": 2
+    }
+   ],
+   "activeId": "FD50FCDA-46E5-30C1-D4B7-38224D841385",
+   "beginDate": "2026-10-15 00:00:00",
+   "endDate": "2026-10-21 23:59:59",
+   "title": "<en>Guard Expedition 10/15</en>\n<es>Expedición de Guardia 10/15</es>\n<de>Wächter-Expedition 10/15</de>\n<fr>Expédition de Garde 10/15</fr>\n<pt>Expedição de Guardas 10/15</pt>\n<tr>Muhafız Seferi 10/15</tr>\n<ru>Экспедиция Стража 10/15</ru>\n<zhtw>守衛遠征 10/15</zhtw>\n<nl>BewakingsExpeditie 10/15</nl>\n<id>Ekspedisi Penjagaan 10/15</id>\n<th>การพิทักษ์การสำรวจ 10/15</th>\n<pl>Ekspedycja Straży 10/15</pl>",
+   "detail": "<en>Complete or Blitz the \"Guard Expedition\" X attempts to claim the reward. Each tier can only be claimed once during the event</en>\n<es>Durante el evento, al completar o barrer la Expedición de Guardia X veces, podrás recibir recompensas. Cada rango de recompensa solo se puede reclamar una vez durante el evento.</es>\n<de>Während des Events kannst du Belohnungen erhalten, indem du die Wächter-Expedition X-mal abschließt oder durchfegst. Jede Belohnungsstufe kann während des Events nur einmal beansprucht werden.</de>\n<fr>Pendant l’événement, en terminant ou en balayant l’Expédition de Garde X fois, vous pouvez obtenir des récompenses. Chaque palier de récompense ne peut être réclamé qu’une seule fois pendant l’événement.</fr>\n<pt>Durante o evento, ao completar ou varrer a Expedição de Guardas X vezes, você poderá receber recompensas. Cada faixa de recompensa só pode ser reivindicada uma vez durante o evento.</pt>\n<tr>Etkinlik süresinde Muhafız Seferi'ni toplamda X kez tamamlayarak veya baskın yaparak ödül kazan. Etkinlik süresinde her aşama ödülü yalnızca bir kez alınabilir.</tr>\n<ru>Во время события завершите или пройдите экспедицию Стража X раз, чтобы получить награды. Каждый ранг можно получить только один раз за событие.</ru>\n<zhtw>活動期間，累計完成或掃蕩守衛遠征X次，即可獲得獎勵。活動期間每檔僅可領取一次。</zhtw>\n<nl>Tijdens het evenement kun je door het cumulatief voltooien of vegen van de BewakingsExpeditie X keer een beloning ontvangen. Elke fase kan slechts eenmaal tijdens het evenement worden geclaimd.</nl>\n<id>Selama periode event, selesaikan atau sapu Ekspedisi Penjagaan sebanyak X kali secara kumulatif untuk mendapatkan hadiah. Setiap tier hanya dapat diklaim satu kali selama event.</id>\n<th>ในช่วงเวลากิจกรรม สะสมการผ่านหรือกวาดล้างการพิทักษ์การสำรวจครบ X ครั้ง จะสามารถรับรางวัลได้ แต่ละขั้นรับได้เพียงครั้งเดียวตลอดกิจกรรม</th>\n<pl>W trakcie wydarzenia łącznie ukończ lub wykonaj szybkie przejście Ekspedycji Straży X razy, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz w trakcie wydarzenia.</pl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 522,
+   "startTime": "2026-10-15 00:00:00",
+   "stopTime": "2026-10-21 23:59:59",
+   "order": 14,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 1,
+       "conditionBak": 60
+      }
+     ],
+     "packageId": "4FE3B855-C8D6-BE53-C202-5C5259127C5F",
+     "order": 1
+    }
+   ],
+   "activeId": "114F40F4-20C6-A313-F06A-5C5259120E17",
+   "beginDate": "2026-10-30 00:00:00",
+   "endDate": "2026-10-30 23:59:59",
+   "title": "<en>Total Recharge Days 10/30</en>\r<es>Días de Recarga total 10/30</es>\r<de>Gesamte Aufladetage 10/30</de>\r<fr>Nombre total de jours d'achat 10/30</fr>\r<pt>Total de Dias de Recarga 10/30</pt>\r<tr>Toplam Ödeme Günü 10/30</tr>\r<ru>Ежедневное пополнение 10/30</ru>\r<zhtw>每日充值 10/30</zhtw>\r<nl>Dagelijkse Oplading 10/30</nl>\r<id>Top-up Harian 10/30</id>\r<th>เติมเงินรายวัน 10/30</th>\r<pl>Codzienne Doładowanie 10/30</pl>",
+   "detail": "<en>During the event, recharge for the required number of days to claim rewards. Rewards can only be claimed once.</en>\r<es>Durante el evento, recarga por un número específico de días para reclamar recompensas. Las recompensas se pueden reclamar una vez.</es>\r<de>Lade während des Events für die erforderliche Anzahl an Tage lang auf, um Belohnungen zu erhalten. Belohnungen können nur einmal beansprucht werden.</de>\r<fr>Pendant l'événement, lorsque le nombre cumulé de jours d'achat atteint le nombre de jours spécifié, vous pouvez recevoir des récompenses. Les récompenses ne peuvent être réclamées qu'une seule fois.</fr>\r<pt>Durante o evento, recarregue o número necessário de dias para receber as recompensas. As recompensas só podem ser solicitadas uma vez.</pt>\r<tr>Etkinlik süresinde ödülleri almak için gereken gün sayısı kadar yükleme yapın. Ödüller sadece bir kez alınabilir.</tr>\r<ru>Во время события пополняйте счет в течение X дней, чтобы получить награды. Награды можно получить только один раз.</ru>\r<zhtw>活動期間內累計充值天數達到X天，即可領取獎勵。獎勵僅可領取一次。</zhtw>\r<nl>Tijdens de evenementperiode, wanneer het totale aantal oplaaddagen X bereikt, kan de beloning worden opgehaald. De beloning kan slechts eenmaal worden opgehaald.</nl>\r<id>Selama periode acara, total hari top-up mencapai X hari maka hadiah dapat diklaim. Hadiah hanya dapat diklaim sekali.</id>\r<th>ในช่วงระยะเวลากิจกรรม จำนวนวันสะสมที่เติมเงินครบ X วัน สามารถรับรางวัลได้ รางวัลสามารถรับได้เพียงครั้งเดียว</th>\r<pl>Podczas wydarzenia, gdy liczba dni doładowań osiągnie X, nagrodę można odebrać. Nagrodę można odebrać tylko raz.</pl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 166,
+   "startTime": "2026-10-30 00:00:00",
+   "stopTime": "2026-10-30 23:59:59",
+   "order": 16,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 1,
+       "conditionBak": 60
+      }
+     ],
+     "packageId": "E692E9AE-BB98-B992-80B4-5C5259129F04",
+     "order": 1
+    }
+   ],
+   "activeId": "167C4BA2-C15C-87A4-16C8-5C525912D7B4",
+   "beginDate": "2026-10-29 00:00:00",
+   "endDate": "2026-10-29 23:59:59",
+   "title": "<en>Total Recharge Days 10/29</en>\r<es>Días de Recarga total 10/29</es>\r<de>Gesamte Aufladetage 10/29</de>\r<fr>Nombre total de jours d'achat 10/29</fr>\r<pt>Total de Dias de Recarga 10/29</pt>\r<tr>Toplam Ödeme Günü 10/29</tr>\r<ru>Ежедневное пополнение 10/29</ru>\r<zhtw>每日充值 10/29</zhtw>\r<nl>Dagelijkse Oplading 10/29</nl>\r<id>Top-up Harian 10/29</id>\r<th>เติมเงินรายวัน 10/29</th>\r<pl>Codzienne Doładowanie 10/29</pl>",
+   "detail": "<en>During the event, recharge for the required number of days to claim rewards. Rewards can only be claimed once.</en>\r<es>Durante el evento, recarga por un número específico de días para reclamar recompensas. Las recompensas se pueden reclamar una vez.</es>\r<de>Lade während des Events für die erforderliche Anzahl an Tage lang auf, um Belohnungen zu erhalten. Belohnungen können nur einmal beansprucht werden.</de>\r<fr>Pendant l'événement, lorsque le nombre cumulé de jours d'achat atteint le nombre de jours spécifié, vous pouvez recevoir des récompenses. Les récompenses ne peuvent être réclamées qu'une seule fois.</fr>\r<pt>Durante o evento, recarregue o número necessário de dias para receber as recompensas. As recompensas só podem ser solicitadas uma vez.</pt>\r<tr>Etkinlik süresinde ödülleri almak için gereken gün sayısı kadar yükleme yapın. Ödüller sadece bir kez alınabilir.</tr>\r<ru>Во время события пополняйте счет в течение X дней, чтобы получить награды. Награды можно получить только один раз.</ru>\r<zhtw>活動期間內累計充值天數達到X天，即可領取獎勵。獎勵僅可領取一次。</zhtw>\r<nl>Tijdens de evenementperiode, wanneer het totale aantal oplaaddagen X bereikt, kan de beloning worden opgehaald. De beloning kan slechts eenmaal worden opgehaald.</nl>\r<id>Selama periode acara, total hari top-up mencapai X hari maka hadiah dapat diklaim. Hadiah hanya dapat diklaim sekali.</id>\r<th>ในช่วงระยะเวลากิจกรรม จำนวนวันสะสมที่เติมเงินครบ X วัน สามารถรับรางวัลได้ รางวัลสามารถรับได้เพียงครั้งเดียว</th>\r<pl>Podczas wydarzenia, gdy liczba dni doładowań osiągnie X, nagrodę można odebrać. Nagrodę można odebrać tylko raz.</pl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 166,
+   "startTime": "2026-10-29 00:00:00",
+   "stopTime": "2026-10-29 23:59:59",
+   "order": 16,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2100044,
+       "templateType": 1,
+       "count": 45,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 105,
+       "conditionValue": 1
+      }
+     ],
+     "packageId": "066CAC1A-A8C3-7C13-F13C-5C52590F72E8",
+     "order": 1
+    }
+   ],
+   "activeId": "214BDCF8-5BDD-BD27-E638-5C52590FD631",
+   "beginDate": "2026-10-26 00:00:00",
+   "endDate": "2026-11-01 23:59:59",
+   "title": "<en>Tower of Kings 10/26</en>\r<es>Torre de Reyes 10/26</es>\r<de>Turm der Könige 10/26</de>\r<fr>Tour des Rois 10/26</fr>\r<pt>Torre dos Reis 10/26</pt>\r<tr>Kralın Kulesi 10/26</tr>\r<ru>Башня Королей 10/26</ru>\r<zhtw>王者之塔 10/26</zhtw>\r<nl>Toren van de Koning 10/26</nl>\r<id>Menara Raja 10/26</id>\r<th>หอคอยราชัน 10/26</th>\r<pl>Wieża Króla 10/26</pl>",
+   "detail": "<en>During the event, complete 1 battle in the Tower of Kings to receive rewards. Each tier can only be claimed once per day.</en>\r<es>Durante el evento, completa 1 batalla en la Torre de Reyes para recibir recompensas. Cada nivel se puede reclamar una vez al día.</es>\r<de>Beende während des Events einen Kampf im Turm der Könige, um Belohnungen zu erhalten. Jede Phase kann nur einmal pro Tag beansprucht werden.</de>\r<fr>Pendant l'événement, complétez 1 bataille dans la Tour des Rois pour recevoir des récompenses. Les récompenses de chaque palier ne peuvent être réclamées qu'une seule fois par jour.</fr>\r<pt>Durante o evento, complete 1 batalha na Torre dos Reis para receber recompensas. Cada nível só pode ser resgatado uma vez por dia.</pt>\r<tr>Etkinlik süresinde ödülleri almak için Kralın Kulesi'nde 1 kez savaşı tamamlayın. Her ödül sadece bir kez alınabilir.</tr>\r<ru>Во время события завершите 1 битву в Башне Королей, чтобы получить награды. Каждый уровень можно получить только один раз в день.</ru>\r<zhtw>活動期間，進入王者之塔參與1次戰鬥，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\r<nl>Tijdens de evenementperiode betreed de Toren van de Koning en neem deel aan 1 gevecht om beloningen te ontvangen. Elke categorie kan slechts eenmaal per dag worden opgehaald.</nl>\r<id>Selama periode acara, masuk ke Menara Raja dan ikut serta dalam 1 pertempuran untuk mendapatkan hadiah. Setiap kategori hanya dapat diklaim sekali per hari.</id>\r<th>ในช่วงระยะเวลากิจกรรม เข้าไปยังหอคอยราชันและเข้าร่วมการต่อสู้ 1 ครั้งเพื่อรับรางวัล แต่ละระดับสามารถรับได้วันละครั้งเท่านั้น</th>\r<pl>Podczas trwania wydarzenia wejdź do Wieży Króla i weź udział w 1 walce, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 105,
+   "startTime": "2026-10-26 00:00:00",
+   "stopTime": "2026-11-01 23:59:59",
+   "order": 13,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2100044,
+       "templateType": 1,
+       "count": 45,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 522,
+       "conditionValue": 5
+      }
+     ],
+     "packageId": "A2181E14-3D54-4CE7-FB4F-5C5259116FAF",
+     "order": 1
+    }
+   ],
+   "activeId": "35BC9E6F-91F3-E46B-C429-5C5259119792",
+   "beginDate": "2026-10-26 00:00:00",
+   "endDate": "2026-11-01 23:59:59",
+   "title": "<en>Guard Expedition 10/26</en>\r<es>Expedición de Guardia 10/26</es>\r<de>Wächter-Expedition 10/26</de>\r<fr>Expédition de Garde 10/26</fr>\r<pt>Expedição de Guardas 10/26</pt>\r<tr>Muhafız Seferi 10/26</tr>\r<ru>Экспедиция Стража 10/26</ru>\r<zhtw>守衛遠征 10/26</zhtw>\r<nl>BewakingsExpeditie 10/26</nl>\r<id>Ekspedisi Penjagaan 10/26</id>\r<th>การพิทักษ์การสำรวจ 10/26</th>\r<pl>Ekspedycja Straży 10/26</pl>",
+   "detail": "<en>Complete or Blitz the \"Guard Expedition\" X attempts to claim the reward. Each tier can only be claimed once during the event</en>\r<es>Durante el evento, al completar o barrer la Expedición de Guardia X veces, podrás recibir recompensas. Cada rango de recompensa solo se puede reclamar una vez durante el evento.</es>\r<de>Während des Events kannst du Belohnungen erhalten, indem du die Wächter-Expedition X-mal abschließt oder durchfegst. Jede Belohnungsstufe kann während des Events nur einmal beansprucht werden.</de>\r<fr>Pendant l’événement, en terminant ou en balayant l’Expédition de Garde X fois, vous pouvez obtenir des récompenses. Chaque palier de récompense ne peut être réclamé qu’une seule fois pendant l’événement.</fr>\r<pt>Durante o evento, ao completar ou varrer a Expedição de Guardas X vezes, você poderá receber recompensas. Cada faixa de recompensa só pode ser reivindicada uma vez durante o evento.</pt>\r<tr>Etkinlik süresinde Muhafız Seferi'ni toplamda X kez tamamlayarak veya baskın yaparak ödül kazan. Etkinlik süresinde her aşama ödülü yalnızca bir kez alınabilir.</tr>\r<ru>Во время события завершите или пройдите экспедицию Стража X раз, чтобы получить награды. Каждый ранг можно получить только один раз за событие.</ru>\r<zhtw>活動期間，累計完成或掃蕩守衛遠征X次，即可獲得獎勵。活動期間每檔僅可領取一次。</zhtw>\r<nl>Tijdens het evenement kun je door het cumulatief voltooien of vegen van de BewakingsExpeditie X keer een beloning ontvangen. Elke fase kan slechts eenmaal tijdens het evenement worden geclaimd.</nl>\r<id>Selama periode event, selesaikan atau sapu Ekspedisi Penjagaan sebanyak X kali secara kumulatif untuk mendapatkan hadiah. Setiap tier hanya dapat diklaim satu kali selama event.</id>\r<th>ในช่วงเวลากิจกรรม สะสมการผ่านหรือกวาดล้างการพิทักษ์การสำรวจครบ X ครั้ง จะสามารถรับรางวัลได้ แต่ละขั้นรับได้เพียงครั้งเดียวตลอดกิจกรรม</th>\r<pl>W trakcie wydarzenia łącznie ukończ lub wykonaj szybkie przejście Ekspedycji Straży X razy, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz w trakcie wydarzenia.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 522,
+   "startTime": "2026-10-26 00:00:00",
+   "stopTime": "2026-11-01 23:59:59",
+   "order": 13,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2100044,
+       "templateType": 1,
+       "count": 45,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 13,
+       "conditionValue": 150
+      }
+     ],
+     "packageId": "903FBBBC-E18E-47FE-4878-5C52590FBC4D",
+     "order": 1
+    }
+   ],
+   "activeId": "6681BDDC-7858-3B84-EABB-5C52590E7F0E",
+   "beginDate": "2026-10-26 00:00:00",
+   "endDate": "2026-11-01 23:59:59",
+   "title": "<en>Devotion 10/26</en>\r<es>Devoción 10/26</es>\r<de>Aktivität 10/26</de>\r<fr>Dévotion 10/26</fr>\r<pt>Devoção 10/26</pt>\r<tr>Aktiflik 10/26</tr>\r<ru>Активность 10/26</ru>\r<zhtw>活躍度獎勵 10/26</zhtw>\r<nl>Activiteitsbeloningen 10/26</nl>\r<id>Hadiah Aktivitas 10/26</id>\r<th>รางวัลค่าความเคลื่อนไหว 10/26</th>\r<pl>Nagrody za Aktywność 10/26</pl>",
+   "detail": "<en>During the event, reach the required amount of Devotion to receive rewards. Each tier can only be claimed once per day.</en>\r<es>Durante el evento, alcanza un número específico de Devoción para recibir recompensas. Cada nivel se puede reclamar una vez al día.</es>\r<de>Erreiche während des Events die erforderliche Anzahl an Aktivität, um Belohnungen zu erhalten. Jede Phase kann nur einmal pro Tag beansprucht werden.</de>\r<fr>Pendant l'événement, atteignez le nombre désigné de points de Dévotion pour recevoir des récompenses. Les récompenses de chaque palier ne peuvent être réclamées qu'une seule fois par jour.</fr>\r<pt>Durante o evento, alcance a quantidade necessária de Devoção para receber as recompensas. Cada nível só pode ser resgatado uma vez por dia.</pt>\r<tr>Etkinlik sırasında ödül almak için gereken sayıda Özveriye ulaşın. Her katman günde yalnızca bir kez talep edilebilir.</tr>\r<ru>Во время события повышайте активность, чтобы получать награды. Каждую награду можно получить один раз в день.</ru>\r<zhtw>活動期間，達到150活躍度，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\r<nl>Tijdens het evenement kun je bij het bereiken van 150 activiteitspunten beloningen ontvangen. Elke categorie kan slechts één keer per dag worden geclaimd.</nl>\r<id>Selama periode acara, capai 150 poin aktivitas untuk mendapatkan hadiah. Setiap tingkat hanya dapat diklaim sekali per hari.</id>\r<th>ในช่วงเวลากิจกรรม เมื่อสะสมค่าความเคลื่อนไหวครบ 150 จะสามารถรับรางวัลได้ แต่ละระดับรับได้เพียงวันละหนึ่งครั้ง</th>\r<pl>W trakcie wydarzenia, po osiągnięciu 150 punktów aktywności, możesz otrzymać nagrody. Każdy poziom można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 12,
+   "startTime": "2026-10-26 00:00:00",
+   "stopTime": "2026-11-01 23:59:59",
+   "order": 11,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 1,
+       "conditionBak": 60
+      }
+     ],
+     "packageId": "A366BF9A-44A0-E95E-24F2-5C525913F19B",
+     "order": 1
+    }
+   ],
+   "activeId": "76DC8CF7-05AF-99D3-6738-5C525913A39B",
+   "beginDate": "2026-10-31 00:00:00",
+   "endDate": "2026-10-31 23:59:59",
+   "title": "<en>Total Recharge Days 10/31</en>\r<es>Días de Recarga total 10/31</es>\r<de>Gesamte Aufladetage 10/31</de>\r<fr>Nombre total de jours d'achat 10/31</fr>\r<pt>Total de Dias de Recarga 10/31</pt>\r<tr>Toplam Ödeme Günü 10/31</tr>\r<ru>Ежедневное пополнение 10/31</ru>\r<zhtw>每日充值 10/31</zhtw>\r<nl>Dagelijkse Oplading 10/31</nl>\r<id>Top-up Harian 10/31</id>\r<th>เติมเงินรายวัน 10/31</th>\r<pl>Codzienne Doładowanie 10/31</pl>",
+   "detail": "<en>During the event, recharge for the required number of days to claim rewards. Rewards can only be claimed once.</en>\r<es>Durante el evento, recarga por un número específico de días para reclamar recompensas. Las recompensas se pueden reclamar una vez.</es>\r<de>Lade während des Events für die erforderliche Anzahl an Tage lang auf, um Belohnungen zu erhalten. Belohnungen können nur einmal beansprucht werden.</de>\r<fr>Pendant l'événement, lorsque le nombre cumulé de jours d'achat atteint le nombre de jours spécifié, vous pouvez recevoir des récompenses. Les récompenses ne peuvent être réclamées qu'une seule fois.</fr>\r<pt>Durante o evento, recarregue o número necessário de dias para receber as recompensas. As recompensas só podem ser solicitadas uma vez.</pt>\r<tr>Etkinlik süresinde ödülleri almak için gereken gün sayısı kadar yükleme yapın. Ödüller sadece bir kez alınabilir.</tr>\r<ru>Во время события пополняйте счет в течение X дней, чтобы получить награды. Награды можно получить только один раз.</ru>\r<zhtw>活動期間內累計充值天數達到X天，即可領取獎勵。獎勵僅可領取一次。</zhtw>\r<nl>Tijdens de evenementperiode, wanneer het totale aantal oplaaddagen X bereikt, kan de beloning worden opgehaald. De beloning kan slechts eenmaal worden opgehaald.</nl>\r<id>Selama periode acara, total hari top-up mencapai X hari maka hadiah dapat diklaim. Hadiah hanya dapat diklaim sekali.</id>\r<th>ในช่วงระยะเวลากิจกรรม จำนวนวันสะสมที่เติมเงินครบ X วัน สามารถรับรางวัลได้ รางวัลสามารถรับได้เพียงครั้งเดียว</th>\r<pl>Podczas wydarzenia, gdy liczba dni doładowań osiągnie X, nagrodę można odebrać. Nagrodę można odebrać tylko raz.</pl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 166,
+   "startTime": "2026-10-31 00:00:00",
+   "stopTime": "2026-10-31 23:59:59",
+   "order": 16,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2100044,
+       "templateType": 1,
+       "count": 45,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 518,
+       "conditionValue": 1
+      }
+     ],
+     "packageId": "C7A1A93E-F846-C88F-9641-5C52591006ED",
+     "order": 1
+    }
+   ],
+   "activeId": "9CCCC258-0FFD-C225-5ECD-5C52590FCB24",
+   "beginDate": "2026-10-26 00:00:00",
+   "endDate": "2026-11-01 23:59:59",
+   "title": "<en>The Spire 10/26</en>\r<es>La Torre 10/26</es>\r<de>Der Gipfel 10/26</de>\r<fr>La Flèche 10/26</fr>\r<pt>O Pináculo 10/26</pt>\r<tr>Deneme Kulesi 10/26</tr>\r<ru>Башня Испытаний 10/26</ru>\r<zhtw>試煉之塔 10/26</zhtw>\r<nl>Toren der Beproevingen 10/26</nl>\r<id>Menara Ujian 10/26</id>\r<th>หอคอยบททดสอบ 10/26</th>\r<pl>Wieża Prób 10/26</pl>",
+   "detail": "<en>During the event, complete 1 battle in the The Spire to receive rewards. Each can only be claimed once daily.</en>\r<es>Durante el evento, completa una batalla en La Torre para recibir recompensas. Cada una solo se puede reclamar una vez al día.</es>\r<de>Während des Events betrete Der Gipfel und nimm an 1 Kampf teil, um eine Belohnung zu erhalten. Jede Belohnung der Stufen kann nur einmal pro Tag beansprucht werden.</de>\r<fr>Pendant l'événement, terminez une bataille dans La Flèche pour recevoir des récompenses. Chaque récompense ne peut être obtenue qu'une fois par jour.</fr>\r<pt>Durante o evento, conclua 1 batalha no Pináculo para receber recompensas. Cada uma só pode ser reivindicada uma vez por dia.</pt>\r<tr>Etkinlik süresinde, 1 kez Deneme Kulesi'ne girerek anında ödül kazanın. Her gün her ödül sadece bir kez alınır.</tr>\r<ru>Получайте награды за участие в 1 битве Башни Испытаний. Можно получить только один раз за уровень в день.</ru>\r<zhtw>活動期間，進入試煉之塔參與1次戰鬥，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\r<nl>Tijdens het evenement kun je door de Toren der Beproevingen te betreden en 1 gevecht te voltooien beloningen ontvangen. Elke categorie kan slechts één keer per dag worden geclaimd.</nl>\r<id>Selama periode acara, masuk ke Menara Ujian dan ikut serta dalam 1 pertempuran untuk mendapatkan hadiah. Setiap tingkat hanya dapat diklaim sekali per hari.</id>\r<th>ในช่วงเวลากิจกรรม เมื่อเข้าสู่หอคอยบททดสอบและเข้าร่วมการต่อสู้ 1 ครั้ง จะสามารถรับรางวัลได้ แต่ละระดับรับได้เพียงวันละหนึ่งครั้ง</th>\r<pl>W trakcie wydarzenia, po wejściu do Wieży Prób i wzięciu udziału w 1 walce, możesz otrzymać nagrody. Każdy poziom można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 518,
+   "startTime": "2026-10-26 00:00:00",
+   "stopTime": "2026-11-01 23:59:59",
+   "order": 13,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2100044,
+       "templateType": 1,
+       "count": 45,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 26,
+       "conditionValue": 10
+      }
+     ],
+     "packageId": "EC69823B-186E-549B-9E96-5C525910ED0E",
+     "order": 1
+    }
+   ],
+   "activeId": "9DD78337-A2BA-2F07-5AA8-5C52591037BE",
+   "beginDate": "2026-10-26 00:00:00",
+   "endDate": "2026-11-01 23:59:59",
+   "title": "<en>Solo Arena 10/26</en>\r<es>Arena individual 10/26</es>\r<de>Solo-Arena 10/26</de>\r<fr>Arène Solo 10/26</fr>\r<pt>Arena Solo 10/26</pt>\r<tr>Tek Kişilik Arena 10/26</tr>\r<ru>Одиночная Арена 10/26</ru>\r<zhtw>單人競技場 10/26</zhtw>\r<nl>Solo Arena 10/26</nl>\r<id>Arena Tunggal 10/26</id>\r<th>สนามประลองเดี่ยว 10/26</th>\r<pl>Arena Indywidualna 10/26</pl>",
+   "detail": "<en>During the event, complete the required number of challenges in the Solo Arena to earn rewards. Each tier can only be claimed once per day.</en>\r<es>Durante el evento, completa un número específico de desafíos en la Arena individual para ganar recompensas. Cada nivel se puede reclamar una vez al día.</es>\r<de>Beende während des Events die erforderliche Anzahl an Herausforderungen in der Solo-Arena, um Belohnungen zu erhalten. Jede Phase kann nur einmal pro Tag beansprucht werden.</de>\r<fr>Pendant l'événement, complétez le nombre désigné de défis dans l'Arène Solo pour gagner des récompenses. Les récompenses de chaque palier ne peuvent être réclamées qu'une seule fois par jour.</fr>\r<pt>Durante o evento, complete o número necessário de desafios na Arena Solo para ganhar recompensas. Cada nível só pode ser resgatado uma vez por dia.</pt>\r<tr>Etkinlik sırasında, ödüller kazanmak için Solo Arena'da gereken sayıda mücadeleyi tamamlayın. Her katman günde yalnızca bir kez talep edilebilir.</tr>\r<ru>Во время события выполните X испытаний на арене, чтобы получить награды. Каждую награду можно получить только один раз в день.</ru>\r<zhtw>活動期間，單人競技場完成X次挑戰，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\r<nl>Tijdens het evenement kun je door in de Solo Arena X uitdagingen te voltooien beloningen ontvangen. Elke dag kan elke drempel slechts één keer worden geclaimd.</nl>\r<id>Selama periode event, Arena Tunggal menyelesaikan X kali tantangan untuk mendapatkan hadiah. Setiap hari, setiap tingkat hanya dapat diklaim satu kali.</id>\r<th>ในช่วงกิจกรรม เมื่อสนามประลองเดี่ยวทำภารกิจครบ X ครั้ง จะสามารถรับรางวัลได้ แต่ละวัน แต่ละระดับสามารถรับได้เพียงหนึ่งครั้ง</th>\r<pl>Podczas wydarzenia, po ukończeniu X wyzwań na Arenie Indywidualnej, można otrzymać nagrody. Każdego dnia każdy próg można odebrać tylko jeden raz.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 26,
+   "startTime": "2026-10-26 00:00:00",
+   "stopTime": "2026-11-01 23:59:59",
+   "order": 12,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 1,
+       "conditionBak": 60
+      }
+     ],
+     "packageId": "592D08AA-6200-7105-6758-5C52591200A8",
+     "order": 1
+    }
+   ],
+   "activeId": "A265FBF2-EE65-481E-B7EA-5C525912E224",
+   "beginDate": "2026-10-28 00:00:00",
+   "endDate": "2026-10-28 23:59:59",
+   "title": "<en>Total Recharge Days 10/28</en>\r<es>Días de Recarga total 10/28</es>\r<de>Gesamte Aufladetage 10/28</de>\r<fr>Nombre total de jours d'achat 10/28</fr>\r<pt>Total de Dias de Recarga 10/28</pt>\r<tr>Toplam Ödeme Günü 10/28</tr>\r<ru>Ежедневное пополнение 10/28</ru>\r<zhtw>每日充值 10/28</zhtw>\r<nl>Dagelijkse Oplading 10/28</nl>\r<id>Top-up Harian 10/28</id>\r<th>เติมเงินรายวัน 10/28</th>\r<pl>Codzienne Doładowanie 10/28</pl>",
+   "detail": "<en>During the event, recharge for the required number of days to claim rewards. Rewards can only be claimed once.</en>\r<es>Durante el evento, recarga por un número específico de días para reclamar recompensas. Las recompensas se pueden reclamar una vez.</es>\r<de>Lade während des Events für die erforderliche Anzahl an Tage lang auf, um Belohnungen zu erhalten. Belohnungen können nur einmal beansprucht werden.</de>\r<fr>Pendant l'événement, lorsque le nombre cumulé de jours d'achat atteint le nombre de jours spécifié, vous pouvez recevoir des récompenses. Les récompenses ne peuvent être réclamées qu'une seule fois.</fr>\r<pt>Durante o evento, recarregue o número necessário de dias para receber as recompensas. As recompensas só podem ser solicitadas uma vez.</pt>\r<tr>Etkinlik süresinde ödülleri almak için gereken gün sayısı kadar yükleme yapın. Ödüller sadece bir kez alınabilir.</tr>\r<ru>Во время события пополняйте счет в течение X дней, чтобы получить награды. Награды можно получить только один раз.</ru>\r<zhtw>活動期間內累計充值天數達到X天，即可領取獎勵。獎勵僅可領取一次。</zhtw>\r<nl>Tijdens de evenementperiode, wanneer het totale aantal oplaaddagen X bereikt, kan de beloning worden opgehaald. De beloning kan slechts eenmaal worden opgehaald.</nl>\r<id>Selama periode acara, total hari top-up mencapai X hari maka hadiah dapat diklaim. Hadiah hanya dapat diklaim sekali.</id>\r<th>ในช่วงระยะเวลากิจกรรม จำนวนวันสะสมที่เติมเงินครบ X วัน สามารถรับรางวัลได้ รางวัลสามารถรับได้เพียงครั้งเดียว</th>\r<pl>Podczas wydarzenia, gdy liczba dni doładowań osiągnie X, nagrodę można odebrać. Nagrodę można odebrać tylko raz.</pl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 166,
+   "startTime": "2026-10-28 00:00:00",
+   "stopTime": "2026-10-28 23:59:59",
+   "order": 16,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2100044,
+       "templateType": 1,
+       "count": 50,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 14,
+       "conditionValue": 1
+      }
+     ],
+     "packageId": "21E202BF-69E6-700F-FAAB-5C52590E9DC8",
+     "order": 1
+    }
+   ],
+   "activeId": "B7FD9159-DF8A-DC7B-1371-5C52590E2F11",
+   "beginDate": "2026-10-26 00:00:00",
+   "endDate": "2026-11-01 23:59:59",
+   "title": "<en>Login Rewards 10/26</en>\r<es>Recompensas de inicio de sesión 10/26</es>\r<pt>Recompensas de login 10/26</pt>\r<de>Anmeldebelohnungen 10/26</de>\r<fr>Récompenses de connexion 10/26</fr>\r<tr>Giriş Hediyesi 10/26</tr>\r<ru>Подарок за вход 10/26</ru>\r<zhtw>登陸有禮 10/26</zhtw>\r<nl>Inlogbeloning 10/26</nl>\r<id>Hadiah Login 10/26</id>\r<th>ล็อกอินรับรางวัล 10/26</th>\r<pl>Nagrody za logowanie 10/26</pl>",
+   "detail": "<en>During the event, login in to claim rewards. You can claim once everyday.</en>\r<es>Durante el evento, inicia sesión para reclamar las recompensas. Puedes reclamarlas una vez al día.</es>\r<pt>Durante o evento, faça login para receber recompensas. Você pode resgatar uma vez por dia.</pt>\r<de>Während des Events einloggen, um Belohnungen abzuholen. Einmal täglich einlösbar.</de>\r<fr>Pendant l’événement, connectez-vous pour obtenir des récompenses. Une fois par jour.</fr>\r<tr>Etkinlik süresinde giriş yaparak ödül kazanın. Günde bir kez alınır.</tr>\r<ru>Во время события вы можете получить подарок за вход, один раз в день.\r</ru>\r<zhtw>活動期間，登陸即可獲得獎勵。每天可領取一次。</zhtw>\r<nl>Tijdens het evenement kun je door in te loggen een beloning ontvangen. Dagelijks eenmaal te claimen.</nl>\r<id>Selama periode event, login untuk mendapatkan hadiah. Dapat diklaim sekali setiap hari.</id>\r<th>ในช่วงเวลากิจกรรม เพียงล็อกอินก็สามารถรับรางวัลได้ รับได้วันละหนึ่งครั้ง</th>\r<pl>W trakcie wydarzenia zaloguj się, aby otrzymać nagrodę. Można odebrać raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 13,
+   "startTime": "2026-10-26 00:00:00",
+   "stopTime": "2026-11-01 23:59:59",
+   "order": 11,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 1,
+       "conditionBak": 60
+      }
+     ],
+     "packageId": "C7750146-AFE3-5379-C87F-5C525912DF7C",
+     "order": 1
+    }
+   ],
+   "activeId": "C691236C-E062-495F-5BCA-5C5259119DE3",
+   "beginDate": "2026-10-27 00:00:00",
+   "endDate": "2026-10-27 23:59:59",
+   "title": "<en>Total Recharge Days 10/27</en>\r<es>Días de Recarga total 10/27</es>\r<de>Gesamte Aufladetage 10/27</de>\r<fr>Nombre total de jours d'achat 10/27</fr>\r<pt>Total de Dias de Recarga 10/27</pt>\r<tr>Toplam Ödeme Günü 10/27</tr>\r<ru>Ежедневное пополнение 10/27</ru>\r<zhtw>每日充值 10/27</zhtw>\r<nl>Dagelijkse Oplading 10/27</nl>\r<id>Top-up Harian 10/27</id>\r<th>เติมเงินรายวัน 10/27</th>\r<pl>Codzienne Doładowanie 10/27</pl>",
+   "detail": "<en>During the event, recharge for the required number of days to claim rewards. Rewards can only be claimed once.</en>\r<es>Durante el evento, recarga por un número específico de días para reclamar recompensas. Las recompensas se pueden reclamar una vez.</es>\r<de>Lade während des Events für die erforderliche Anzahl an Tage lang auf, um Belohnungen zu erhalten. Belohnungen können nur einmal beansprucht werden.</de>\r<fr>Pendant l'événement, lorsque le nombre cumulé de jours d'achat atteint le nombre de jours spécifié, vous pouvez recevoir des récompenses. Les récompenses ne peuvent être réclamées qu'une seule fois.</fr>\r<pt>Durante o evento, recarregue o número necessário de dias para receber as recompensas. As recompensas só podem ser solicitadas uma vez.</pt>\r<tr>Etkinlik süresinde ödülleri almak için gereken gün sayısı kadar yükleme yapın. Ödüller sadece bir kez alınabilir.</tr>\r<ru>Во время события пополняйте счет в течение X дней, чтобы получить награды. Награды можно получить только один раз.</ru>\r<zhtw>活動期間內累計充值天數達到X天，即可領取獎勵。獎勵僅可領取一次。</zhtw>\r<nl>Tijdens de evenementperiode, wanneer het totale aantal oplaaddagen X bereikt, kan de beloning worden opgehaald. De beloning kan slechts eenmaal worden opgehaald.</nl>\r<id>Selama periode acara, total hari top-up mencapai X hari maka hadiah dapat diklaim. Hadiah hanya dapat diklaim sekali.</id>\r<th>ในช่วงระยะเวลากิจกรรม จำนวนวันสะสมที่เติมเงินครบ X วัน สามารถรับรางวัลได้ รางวัลสามารถรับได้เพียงครั้งเดียว</th>\r<pl>Podczas wydarzenia, gdy liczba dni doładowań osiągnie X, nagrodę można odebrać. Nagrodę można odebrać tylko raz.</pl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 166,
+   "startTime": "2026-10-27 00:00:00",
+   "stopTime": "2026-10-27 23:59:59",
+   "order": 16,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2100044,
+       "templateType": 1,
+       "count": 45,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 23,
+       "conditionValue": 20
+      }
+     ],
+     "packageId": "0EA0E3AF-21EE-CCA8-DBD8-5C52590FCF0D",
+     "order": 1
+    }
+   ],
+   "activeId": "E287F8B4-D62E-A3BF-D533-5C52590F98AD",
+   "beginDate": "2026-10-26 00:00:00",
+   "endDate": "2026-11-01 23:59:59",
+   "title": "<en>Bounty Order 10/26</en>\r<es>Orden de Recompensa 10/26</es>\r<de>Kopfgeldbefehl 10/26</de>\r<fr>Ordre de prime 10/26</fr>\r<pt>Ordem de recompensa 10/26</pt>\r<tr>Ödül Görevi 10/26</tr>\r<ru>Наградной план 10/26</ru>\r<zhtw>懸賞任務 10/26</zhtw>\r<nl>Bounty-opdrachten 10/26</nl>\r<id>Tugas Bounty 10/26</id>\r<th>ภารกิจค่าหัว 10/26</th>\r<pl>Zadania Zlecone 10/26</pl>",
+   "detail": "<en>During the event, complete the required number of Bounty Quests to earn rewards. Each tier can only be claimed once per day.</en>\r<es>Durante el evento, completa un número específico de misiones de recompensa para ganar recompensas. Cada nivel se puede reclamar una vez al día.</es>\r<de>Beende während des Events die erforderliche Anzahl an Kopfgeld-Quests, um Belohnungen zu erhalten. Jede Phase kann nur einmal pro Tag beansprucht werden.</de>\r<fr>Pendant l'événement, complétez le nombre désigné de quêtes de butin pour gagner des récompenses. Les récompenses de chaque palier ne peuvent être réclamées qu'une seule fois par jour.</fr>\r<pt>Durante o evento, complete o número necessário de Missões de Recompensas para ganhar recompensas. Cada nível só pode ser resgatado uma vez por dia.</pt>\r<tr>Etkinlik sırasında, ödül kazanmak için gerekli sayıda ödül görevini tamamlayın. Her katman günde yalnızca bir kez talep edilebilir.</tr>\r<ru>Во время события выполните X Наградных заданий для получения наград. Каждую награду можно получить только один раз в день.</ru>\r<zhtw>活動期間，完成X次懸賞任務，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\r<nl>Tijdens de evenementperiode voltooi X Bounty-opdrachten om beloningen te ontvangen. Elke categorie kan slechts eenmaal per dag worden opgehaald.</nl>\r<id>Selama periode acara, selesaikan X kali Tugas Bounty untuk mendapatkan hadiah. Setiap kategori hanya dapat diklaim sekali per hari.</id>\r<th>ในช่วงระยะเวลากิจกรรม ทำภารกิจค่าหัว X ครั้งเพื่อรับรางวัล แต่ละระดับสามารถรับได้วันละครั้งเท่านั้น</th>\r<pl>Podczas trwania wydarzenia ukończ X Zadań Zleconych, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 23,
+   "startTime": "2026-10-26 00:00:00",
+   "stopTime": "2026-11-01 23:59:59",
+   "order": 11,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 1,
+       "conditionBak": 60
+      }
+     ],
+     "packageId": "B6DAE830-3874-F53D-F497-5C525911D22E",
+     "order": 1
+    }
+   ],
+   "activeId": "F8060A6B-9606-AB02-C820-5C5259115221",
+   "beginDate": "2026-10-26 00:00:00",
+   "endDate": "2026-10-26 23:59:59",
+   "title": "<en>Total Recharge Days 10/26</en>\r<es>Días de Recarga total 10/26</es>\r<de>Gesamte Aufladetage 10/26</de>\r<fr>Nombre total de jours d'achat 10/26</fr>\r<pt>Total de Dias de Recarga 10/26</pt>\r<tr>Toplam Ödeme Günü 10/26</tr>\r<ru>Ежедневное пополнение 10/26</ru>\r<zhtw>每日充值 10/26</zhtw>\r<nl>Dagelijkse Oplading 10/26</nl>\r<id>Top-up Harian 10/26</id>\r<th>เติมเงินรายวัน 10/26</th>\r<pl>Codzienne Doładowanie 10/26</pl>",
+   "detail": "<en>During the event, recharge for the required number of days to claim rewards. Rewards can only be claimed once.</en>\r<es>Durante el evento, recarga por un número específico de días para reclamar recompensas. Las recompensas se pueden reclamar una vez.</es>\r<de>Lade während des Events für die erforderliche Anzahl an Tage lang auf, um Belohnungen zu erhalten. Belohnungen können nur einmal beansprucht werden.</de>\r<fr>Pendant l'événement, lorsque le nombre cumulé de jours d'achat atteint le nombre de jours spécifié, vous pouvez recevoir des récompenses. Les récompenses ne peuvent être réclamées qu'une seule fois.</fr>\r<pt>Durante o evento, recarregue o número necessário de dias para receber as recompensas. As recompensas só podem ser solicitadas uma vez.</pt>\r<tr>Etkinlik süresinde ödülleri almak için gereken gün sayısı kadar yükleme yapın. Ödüller sadece bir kez alınabilir.</tr>\r<ru>Во время события пополняйте счет в течение X дней, чтобы получить награды. Награды можно получить только один раз.</ru>\r<zhtw>活動期間內累計充值天數達到X天，即可領取獎勵。獎勵僅可領取一次。</zhtw>\r<nl>Tijdens de evenementperiode, wanneer het totale aantal oplaaddagen X bereikt, kan de beloning worden opgehaald. De beloning kan slechts eenmaal worden opgehaald.</nl>\r<id>Selama periode acara, total hari top-up mencapai X hari maka hadiah dapat diklaim. Hadiah hanya dapat diklaim sekali.</id>\r<th>ในช่วงระยะเวลากิจกรรม จำนวนวันสะสมที่เติมเงินครบ X วัน สามารถรับรางวัลได้ รางวัลสามารถรับได้เพียงครั้งเดียว</th>\r<pl>Podczas wydarzenia, gdy liczba dni doładowań osiągnie X, nagrodę można odebrać. Nagrodę można odebrać tylko raz.</pl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 166,
+   "startTime": "2026-10-26 00:00:00",
+   "stopTime": "2026-10-26 23:59:59",
+   "order": 16,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2100044,
+       "templateType": 1,
+       "count": 45,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 505,
+       "conditionValue": 300
+      }
+     ],
+     "packageId": "ED01FD70-1CC8-1085-076C-5C5259103465",
+     "order": 1
+    }
+   ],
+   "activeId": "FABD10D7-708B-D832-D6D1-5C5259103894",
+   "beginDate": "2026-10-26 00:00:00",
+   "endDate": "2026-11-01 23:59:59",
+   "title": "<en>Stamina Consumption 10/26</en>\r<es>Consumo de Aguante 10/26</es>\r<de>Ausdauerverbrauch 10/26</de>\r<fr>Consommation d'endurance 10/26</fr>\r<pt>Consumo de Estamina 10/26</pt>\r<tr>Beden Tüketimi 10/26</tr>\r<ru>Поглощение выносливости 10/26</ru>\r<zhtw>體力消耗 10/26</zhtw>\r<nl>Energieverbruik 10/26</nl>\r<id>Konsumsi Energi 10/26</id>\r<th>การใช้พลังงาน 10/26</th>\r<pl>Zużycie Energii 10/26</pl>",
+   "detail": "<en>During the event, use the required number of stamina points to receive rewards. Each tier can only be claimed once per day.</en>\r<es>Durante el evento, usa unos puntos de aguante para recibir recompensas. Cada nivel se puede reclamar una vez al día.</es>\r<de>Verbrauche während des Events die erforderliche Anzahl an Ausdauerpunkten, um Belohnungen zu erhalten. Jede Phase kann nur einmal pro Tag beansprucht werden.</de>\r<fr>Pendant l'événement, utilisez un certain nombre de points d'endurance pour recevoir des récompenses. Les récompenses de chaque palier ne peuvent être réclamées qu'une seule fois par jour.</fr>\r<pt>Durante o evento, use o número necessário de pontos de estamina para receber recompensas. Cada nível só pode ser resgatado uma vez por dia.</pt>\r<tr>Etkinlik sırasında, ödül almak için gereken sayıda dayanıklılık puanı kullanın. Her katman günde yalnızca bir kez talep edilebilir.</tr>\r<ru>Во время события используйте X очков выносливости, чтобы получить награды. Каждый уровень можно получить только один раз в день.</ru>\r<zhtw>活動期間，累計消耗X點體力，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\r<nl>Tijdens het evenement kun je door cumulatief X energiepunten te verbruiken beloningen ontvangen. Elke dag kan elke drempel slechts één keer worden geclaimd.</nl>\r<id>Selama periode event, kumulatif mengonsumsi X poin energi untuk mendapatkan hadiah. Setiap hari, setiap tingkat hanya dapat diklaim satu kali.</id>\r<th>ในช่วงกิจกรรม เมื่อใช้พลังงานสะสมครบ X หน่วย จะสามารถรับรางวัลได้ แต่ละวัน แต่ละระดับสามารถรับได้เพียงหนึ่งครั้ง</th>\r<pl>Podczas wydarzenia, po łącznym zużyciu X punktów energii, można otrzymać nagrody. Każdego dnia każdy próg można odebrać tylko jeden raz.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 505,
+   "startTime": "2026-10-26 00:00:00",
+   "stopTime": "2026-11-01 23:59:59",
+   "order": 11,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      },
+      {
+       "templateId": 2100044,
+       "templateType": 1,
+       "count": 45,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 1,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 110,
+       "conditionValue": 10
+      }
+     ],
+     "packageId": "63A00A12-6E44-6270-C0D0-5C52591176D3",
+     "order": 1
+    }
+   ],
+   "activeId": "FD1CA9F5-302A-40BA-DA4A-5C52591183F1",
+   "beginDate": "2026-10-26 00:00:00",
+   "endDate": "2026-11-01 23:59:59",
+   "title": "<en>Sylph Arena 10/26</en>\r<es>Arena de Sílfides 10/26</es>\r<pt>Arena dos Silfos 10/26</pt>\r<de>Sylph-Arena 10/26</de>\r<fr>Arène de Sylphide 10/26</fr>\r<tr>Peri Turnuvası 10/26</tr>\r<ru>Героическое соревнование 10/26</ru>\r<zhtw>英靈競技 10/26</zhtw>\r<nl>Heldenspirit Arena 10/26</nl>\r<id>Arena Spirit Heroik 10/26</id>\r<th>อารีนาวิญญาณวีรชน 10/26</th>\r<pl>Arena Duchów Bohaterów 10/26</pl>",
+   "detail": "<en>During the event, complete Sylph Arena to receive rewards. Each can only be claimed once daily.</en>\r<es>Completa Arena de Sílfides durante el evento para conseguir recompensas. Cada una se puede conseguir una vez al día.</es>\r<pt>Termine certos vezes de Arena dos Silfos para reivindicar recompensas durante o evento. Cada recompensa pode ser reivindicada uma vez por dia.</pt>\r<de>Beende während des Events die Sylph-Arena, um Belohnungen zu erhalten. Jede kann täglich nur einmal beansprucht werden.</de>\r<fr>Pendant l'événement, complétez l'Arène de Sylphide pour recevoir des récompenses. Chaque récompense ne peut être réclamée qu'une fois par jour.</fr>\r<tr>Etkinlik süresinde Peri Turnuvası'nı tamamlayarak ödülleri kazanın. Her bir ödül günde yalnızca bir kez alınabilir.</tr>\r<ru>Во время события участвуйте в Героических соревнованиях. Вы можете получать награды только один раз в день на каждом уровне.</ru>\r<zhtw>活動期間，完成X次英靈競技，即可獲得獎勵。每天每檔只能領取一次。</zhtw>\r<nl>Tijdens de evenementperiode voltooi X keer de Heldenspirit Arena om beloningen te ontvangen. Elke categorie kan slechts eenmaal per dag worden opgehaald.</nl>\r<id>Selama periode acara, selesaikan X kali Arena Spirit Heroik untuk mendapatkan hadiah. Setiap kategori hanya dapat diklaim sekali per hari.</id>\r<th>ในช่วงระยะเวลากิจกรรม ทำอารีนาวิญญาณวีรชน X ครั้งเพื่อรับรางวัล แต่ละระดับสามารถรับได้วันละครั้งเท่านั้น</th>\r<pl>Podczas trwania wydarzenia ukończ X razy Arenę Duchów Bohaterów, aby otrzymać nagrodę. Każdy próg można odebrać tylko raz dziennie.</pl>",
+   "conditionDetail": "-",
+   "getway": 3,
+   "activeType": 110,
+   "startTime": "2026-10-26 00:00:00",
+   "stopTime": "2026-11-01 23:59:59",
+   "order": 12,
+   "appendParam": "null"
+  },
+  {
+   "mainType": 3,
+   "packages": [
+    {
+     "items": [
+      {
+       "templateId": 2030102,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      },
+      {
+       "templateId": 2100045,
+       "templateType": 1,
+       "count": 2,
+       "isbind": true
+      }
+     ],
+     "conditions": [
+      {
+       "conditionId": 166,
+       "conditionValue": 1,
+       "conditionBak": 60
+      }
+     ],
+     "packageId": "BE24D89B-ADC8-82BF-19B9-5C5259137284",
+     "order": 1
+    }
+   ],
+   "activeId": "FE6E2666-F6CC-1E1B-67E8-5C5259136554",
+   "beginDate": "2026-11-01 00:00:00",
+   "endDate": "2026-11-01 23:59:59",
+   "title": "<en>Total Recharge Days 11/01</en>\r<es>Días de Recarga total 11/01</es>\r<de>Gesamte Aufladetage 11/01</de>\r<fr>Nombre total de jours d'achat 11/01</fr>\r<pt>Total de Dias de Recarga 11/01</pt>\r<tr>Toplam Ödeme Günü 11/01</tr>\r<ru>Ежедневное пополнение 11/01</ru>\r<zhtw>每日充值 11/01</zhtw>\r<nl>Dagelijkse Oplading 11/01</nl>\r<id>Top-up Harian 11/01</id>\r<th>เติมเงินรายวัน 11/01</th>\r<pl>Codzienne Doładowanie 11/01</pl>",
+   "detail": "<en>During the event, recharge for the required number of days to claim rewards. Rewards can only be claimed once.</en>\r<es>Durante el evento, recarga por un número específico de días para reclamar recompensas. Las recompensas se pueden reclamar una vez.</es>\r<de>Lade während des Events für die erforderliche Anzahl an Tage lang auf, um Belohnungen zu erhalten. Belohnungen können nur einmal beansprucht werden.</de>\r<fr>Pendant l'événement, lorsque le nombre cumulé de jours d'achat atteint le nombre de jours spécifié, vous pouvez recevoir des récompenses. Les récompenses ne peuvent être réclamées qu'une seule fois.</fr>\r<pt>Durante o evento, recarregue o número necessário de dias para receber as recompensas. As recompensas só podem ser solicitadas uma vez.</pt>\r<tr>Etkinlik süresinde ödülleri almak için gereken gün sayısı kadar yükleme yapın. Ödüller sadece bir kez alınabilir.</tr>\r<ru>Во время события пополняйте счет в течение X дней, чтобы получить награды. Награды можно получить только один раз.</ru>\r<zhtw>活動期間內累計充值天數達到X天，即可領取獎勵。獎勵僅可領取一次。</zhtw>\r<nl>Tijdens de evenementperiode, wanneer het totale aantal oplaaddagen X bereikt, kan de beloning worden opgehaald. De beloning kan slechts eenmaal worden opgehaald.</nl>\r<id>Selama periode acara, total hari top-up mencapai X hari maka hadiah dapat diklaim. Hadiah hanya dapat diklaim sekali.</id>\r<th>ในช่วงระยะเวลากิจกรรม จำนวนวันสะสมที่เติมเงินครบ X วัน สามารถรับรางวัลได้ รางวัลสามารถรับได้เพียงครั้งเดียว</th>\r<pl>Podczas wydarzenia, gdy liczba dni doładowań osiągnie X, nagrodę można odebrać. Nagrodę można odebrać tylko raz.</pl>",
+   "conditionDetail": "-",
+   "getway": 1,
+   "activeType": 166,
+   "startTime": "2026-11-01 00:00:00",
+   "stopTime": "2026-11-01 23:59:59",
+   "order": 16,
+   "appendParam": "null"
+  }
+ ]
+}

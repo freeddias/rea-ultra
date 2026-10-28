@@ -1,0 +1,19 @@
+{
+ "updatedType": 3,
+ "army": {
+  "armyPawn": [],
+  "userIds": [],
+  "armyId": 6834,
+  "playerId": 956,
+  "nickName": "finley9l",
+  "mapId": 5,
+  "curPosX": 361,
+  "curPosY": 1314,
+  "type": 2,
+  "fightingCapacity": 197,
+  "grades": 1,
+  "job": 3,
+  "heroTempId": 3,
+  "guardShowInfo": {}
+ }
+}

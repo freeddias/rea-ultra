@@ -1,0 +1,901 @@
+{
+ "source": "2026-10-23 live capture, U_C_BOTTLE_DROP_DATA (295) at login",
+ "dropItem": [
+  {
+   "tempId": 2131308,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "isSpecial": true,
+   "clientRate": 25
+  },
+  {
+   "tempId": 1098252,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "isSpecial": true,
+   "clientRate": 25
+  },
+  {
+   "tempId": 1108252,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "isSpecial": true,
+   "clientRate": 35
+  },
+  {
+   "tempId": 1118252,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "isSpecial": true,
+   "clientRate": 35
+  },
+  {
+   "tempId": 1128252,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "isSpecial": true,
+   "clientRate": 25
+  },
+  {
+   "tempId": 1096412,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 45
+  },
+  {
+   "tempId": 1106412,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 55
+  },
+  {
+   "tempId": 1116412,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 55
+  },
+  {
+   "tempId": 1126412,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 45
+  },
+  {
+   "tempId": 1093201,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 65
+  },
+  {
+   "tempId": 1103201,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 1113201,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 1123201,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 85
+  },
+  {
+   "tempId": 2126312,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2170003,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208020,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208021,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 208017,
+   "count": 3,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 208017,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 208017,
+   "count": 20,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 80
+  },
+  {
+   "tempId": 208051,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 208023,
+   "count": 3,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": 208023,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 208023,
+   "count": 50,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 3040001,
+   "count": 3,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": 3040001,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 3040001,
+   "count": 50,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 2125123,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 80
+  },
+  {
+   "tempId": 2125124,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 80
+  },
+  {
+   "tempId": 2125125,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 2125057,
+   "count": 2,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 2100035,
+   "count": 2,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 2125059,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2125042,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208061,
+   "count": 2,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 2131045,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 2131044,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 80
+  },
+  {
+   "tempId": 2127105,
+   "count": 3,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 80
+  },
+  {
+   "tempId": 2127104,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 2127103,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": -910,
+   "count": 50,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": -910,
+   "count": 100,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": -910,
+   "count": 500,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208067,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 208055,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 30
+  },
+  {
+   "tempId": 3020010,
+   "count": 3,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": 3020010,
+   "count": 5,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 3020010,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208072,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 208080,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2125087,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 2120100,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": 2120101,
+   "count": 3,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 300
+  },
+  {
+   "tempId": 2120100,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 80
+  },
+  {
+   "tempId": 2120101,
+   "count": 30,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 80
+  },
+  {
+   "tempId": 2127004,
+   "count": 6,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": 2127005,
+   "count": 2,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 2060010,
+   "count": 2,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2060011,
+   "count": 2,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 2060012,
+   "count": 2,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 30
+  },
+  {
+   "tempId": -1000,
+   "count": 50,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 120
+  },
+  {
+   "tempId": -1000,
+   "count": 200,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": -1000,
+   "count": 500,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 30
+  },
+  {
+   "tempId": 4010001,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 4010001,
+   "count": 2,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 60
+  },
+  {
+   "tempId": 208024,
+   "count": 3,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 208024,
+   "count": 5,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 208024,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208052,
+   "count": 3,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": 208052,
+   "count": 5,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 208052,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208053,
+   "count": 5,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208053,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208073,
+   "count": 2,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": 208076,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208079,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2030502,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": 2030503,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 208008,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 208005,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 2032101,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 208060,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 200
+  },
+  {
+   "tempId": 208058,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 2130005,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2013002,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2014801,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 2032201,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 2030102,
+   "count": 2,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2030102,
+   "count": 5,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 150
+  },
+  {
+   "tempId": 208001,
+   "count": 5,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 120
+  },
+  {
+   "tempId": 208001,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2271001,
+   "count": 10,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2271001,
+   "count": 50,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2271003,
+   "count": 3,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 100
+  },
+  {
+   "tempId": 2271003,
+   "count": 15,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 2127106,
+   "count": 1,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 50
+  },
+  {
+   "tempId": 2030101,
+   "count": 100,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 255
+  },
+  {
+   "tempId": 2300001,
+   "count": 15,
+   "isShow": true,
+   "isNewItems": true,
+   "clientRate": 250
+  }
+ ],
+ "score": [
+  {
+   "item": [
+    {
+     "tempId": 2131139,
+     "count": 1,
+     "isShow": true
+    }
+   ],
+   "param": 10
+  },
+  {
+   "item": [
+    {
+     "tempId": 208084,
+     "count": 2,
+     "isShow": true
+    }
+   ],
+   "param": 25
+  },
+  {
+   "item": [
+    {
+     "tempId": 2272001,
+     "count": 2,
+     "isShow": true
+    }
+   ],
+   "param": 50
+  },
+  {
+   "item": [
+    {
+     "tempId": 2125125,
+     "count": 10,
+     "isShow": true
+    }
+   ],
+   "param": 100
+  },
+  {
+   "item": [
+    {
+     "tempId": 208022,
+     "count": 10,
+     "isShow": true
+    }
+   ],
+   "param": 150
+  },
+  {
+   "item": [
+    {
+     "tempId": 208055,
+     "count": 1,
+     "isShow": true
+    }
+   ],
+   "param": 200
+  },
+  {
+   "item": [
+    {
+     "tempId": 208022,
+     "count": 15,
+     "isShow": true
+    }
+   ],
+   "param": 350
+  },
+  {
+   "item": [
+    {
+     "tempId": 208062,
+     "count": 1,
+     "isShow": true
+    }
+   ],
+   "param": 500
+  },
+  {
+   "item": [
+    {
+     "tempId": 2131140,
+     "count": 5,
+     "isShow": true
+    }
+   ],
+   "param": 750
+  },
+  {
+   "item": [
+    {
+     "tempId": 2300302,
+     "count": 10,
+     "isShow": true
+    }
+   ],
+   "param": 1000
+  },
+  {
+   "item": [
+    {
+     "tempId": 2273006,
+     "count": 150,
+     "isShow": true
+    }
+   ],
+   "param": 1250
+  },
+  {
+   "item": [
+    {
+     "tempId": 2273204,
+     "count": 3,
+     "isShow": true
+    }
+   ],
+   "param": 1500
+  },
+  {
+   "item": [
+    {
+     "tempId": 2131308,
+     "count": 1,
+     "isShow": true
+    }
+   ],
+   "param": 2000
+  }
+ ],
+ "storey": [
+  {
+   "item": [
+    {
+     "tempId": 2125150,
+     "count": 5,
+     "isShow": true
+    }
+   ],
+   "param": 150
+  },
+  {
+   "item": [
+    {
+     "tempId": 2273101,
+     "count": 20,
+     "isShow": true
+    }
+   ],
+   "param": 300
+  },
+  {
+   "item": [
+    {
+     "tempId": 208056,
+     "count": 2,
+     "isShow": true
+    }
+   ],
+   "param": 600
+  },
+  {
+   "item": [
+    {
+     "tempId": 2060014,
+     "count": 10,
+     "isShow": true
+    }
+   ],
+   "param": 1000
+  },
+  {
+   "item": [
+    {
+     "tempId": 2131058,
+     "count": 10,
+     "isShow": true
+    }
+   ],
+   "param": 2000
+  },
+  {
+   "item": [
+    {
+     "tempId": 208057,
+     "count": 2,
+     "isShow": true
+    }
+   ],
+   "param": 2500
+  },
+  {
+   "item": [
+    {
+     "tempId": 2100036,
+     "count": 1,
+     "isShow": true
+    }
+   ],
+   "param": 3000
+  }
+ ],
+ "atMostCount": 100
+}

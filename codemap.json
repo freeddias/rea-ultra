@@ -1,0 +1,5492 @@
+{
+ "s2c": {
+  "C_GROWTH_FUND_LEVEL_INFO": {
+   "code": 512,
+   "type": "growthfund.GrowthFundRes"
+  },
+  "C_WORLDBOSSWOUND_REWARD": {
+   "code": 4369,
+   "type": "campaign.WorldBossWoundRewardListMsg"
+  },
+  "U_APPELL_DATA": {
+   "code": 4484,
+   "type": "player.AppellsMsg"
+  },
+  "U_APPELL_GET": {
+   "code": 4491,
+   "type": "player.AppellExchangeMsg"
+  },
+  "U_BATTLE_CONTROL_BUFF_STATE": {
+   "code": 4999,
+   "type": "battle.ControlBuffStateMsg"
+  },
+  "U_BATTLE_REPORT": {
+   "code": 4103,
+   "type": "battle.BattleReportMsg"
+  },
+  "U_BATTLE_WITHDRAW_RSP": {
+   "code": 4978,
+   "type": "battle.WithdrawRespMsg"
+  },
+  "U_B_HERO_ORDER": {
+   "code": 75,
+   "type": "battle.HeroOrderMsg"
+  },
+  "U_B_USE_ITEM_RESULT": {
+   "code": 158,
+   "type": "battle.ItemUseResultMsg"
+  },
+  "U_CCC": {
+   "code": 4490,
+   "type": "simple.PropertyMsg"
+  },
+  "U_CHECK_WARFIELD_COUNT_RS": {
+   "code": 4493,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_CH_ADD_GROUP": {
+   "code": 4227,
+   "type": "simple.FriendGroupMsg"
+  },
+  "U_CH_ADD_RELATIONSHIP": {
+   "code": 78,
+   "type": "simple.FriendInfoMsg"
+  },
+  "U_CH_CHANNEL_CHA": {
+   "code": 83,
+   "type": "chat.ChatChannelMsg"
+  },
+  "U_CH_CHAT_STATE": {
+   "code": 4272,
+   "type": "chat.ChatStateListRspMsg"
+  },
+  "U_CH_CONSORTIA_FRESHINFO": {
+   "code": 164,
+   "type": "consortia.ConsortiaInfoMsg"
+  },
+  "U_CH_CONSORTIA_USERLOGIN": {
+   "code": 162,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_CH_CONSORTIA_USERLOGOUT": {
+   "code": 163,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_CH_DEL_GROUP": {
+   "code": 4228,
+   "type": "simple.FriendGroupMsg"
+  },
+  "U_CH_EXCHANGE_STATE": {
+   "code": 4232,
+   "type": "chat.ChatStateMsg"
+  },
+  "U_CH_FRIENDADD_CONFIRM": {
+   "code": 84,
+   "type": "friend.FriendRelationMsg"
+  },
+  "U_CH_FRIEND_ADDED": {
+   "code": 4246,
+   "type": "friend.FriendAddedMsg"
+  },
+  "U_CH_FRIEND_ADDED_LIST": {
+   "code": 4712,
+   "type": "friend.FriendAddMsgList"
+  },
+  "U_CH_FRIEND_LOGIN": {
+   "code": 160,
+   "type": "friend.FriendRelationMsg"
+  },
+  "U_CH_FRIEND_LOGOUT": {
+   "code": 161,
+   "type": "friend.FriendRelationMsg"
+  },
+  "U_CH_FRIEND_MOVE": {
+   "code": 4230,
+   "type": "friend.MoveFriendReqMsg"
+  },
+  "U_CH_FRIEND_REQMSG_ACT": {
+   "code": 4713,
+   "type": "friend.FriendAddedMsgAct"
+  },
+  "U_CH_FRIEND_SEARCH": {
+   "code": 4273,
+   "type": "simple.FriendSearchRspMsg"
+  },
+  "U_CH_FRIEND_SEARCH_NICKNAME": {
+   "code": 4274,
+   "type": "friend.FriendSearchNickNameRspMsg"
+  },
+  "U_CH_FRIEND_UPDATE": {
+   "code": 165,
+   "type": "simple.FriendInfoMsg"
+  },
+  "U_CH_FRIEND_UPDATE_PLAYINFO": {
+   "code": 174,
+   "type": "simple.FriendInfoMsg"
+  },
+  "U_CH_INBLACK_LIST": {
+   "code": 447,
+   "type": "chat.IsInBlackListMsg"
+  },
+  "U_CH_PRIVATE_CHAT": {
+   "code": 4231,
+   "type": "chat.ChatFriendMsg"
+  },
+  "U_CH_PRIVATE_CHAT_REPLY": {
+   "code": 4236,
+   "type": "chat.ChatFriendMsg"
+  },
+  "U_CH_RECOMMENDLIST": {
+   "code": 85,
+   "type": "friend.RecommendListMsg"
+  },
+  "U_CH_REMOVE_RELATIONSHIP": {
+   "code": 79,
+   "type": "friend.FriendRelationMsg"
+  },
+  "U_CH_RENAME_GROUP": {
+   "code": 4229,
+   "type": "simple.FriendGroupMsg"
+  },
+  "U_CH_SIMPLEUSER_INFO": {
+   "code": 4256,
+   "type": "simple.RelationPlayerMsg"
+  },
+  "U_CH_SNS_REQ": {
+   "code": 4245,
+   "type": "simple.SNSInfoMsg"
+  },
+  "U_CH_SNS_UPDATED": {
+   "code": 4239,
+   "type": "simple.SNSUpdatedMsg"
+  },
+  "U_CONSORTIA_ALTAR_USE_SKILL": {
+   "code": 4485,
+   "type": "campaign.AltarCampaignSkillMsg"
+  },
+  "U_C_ACCOUNT_BIND_RESP": {
+   "code": 4867,
+   "type": "player.UserIsBind"
+  },
+  "U_C_ACHIEVE_BOARD_LIST_INFO": {
+   "code": 531,
+   "type": "active.AchieveBoardListInfoMsg"
+  },
+  "U_C_ACHIEVE_LIST_INFO": {
+   "code": 532,
+   "type": "active.AchieveListInfoMsg"
+  },
+  "U_C_ACTIVE": {
+   "code": 4251,
+   "type": "active.ActiveRspMsg"
+  },
+  "U_C_ACTIVE_VEHICLE_SIMPLEMSG": {
+   "code": 201,
+   "type": "vehicle.SnowVehicleSimpleInfoMsg"
+  },
+  "U_C_ADD_BOSS_HP": {
+   "code": 4435,
+   "type": "battle.BossHpMsg"
+  },
+  "U_C_ALL_CHANGE": {
+   "code": 4720,
+   "type": "active.AllExchangeMsg"
+  },
+  "U_C_ALTAROVER_MSG": {
+   "code": 4449,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_ARMYPOS_SEND": {
+   "code": 4241,
+   "type": "army.ArmyPositionMsg"
+  },
+  "U_C_ARMY_CHANGESHARP": {
+   "code": 4164,
+   "type": "army.ArmyChangeSharpMsg"
+  },
+  "U_C_ARMY_EDIT": {
+   "code": 93,
+   "type": "army.ArmyEditRspMsg"
+  },
+  "U_C_ARMY_POSATION": {
+   "code": 4237,
+   "type": "army.ArmyPositionMsg"
+  },
+  "U_C_ARMY_RECRUITED": {
+   "code": 92,
+   "type": "army.ArmyPawnUpdatedMsg"
+  },
+  "U_C_ARMY_REMOVE": {
+   "code": 4168,
+   "type": "army.ArmyRemoveMsg"
+  },
+  "U_C_ARMY_RETURNHOME": {
+   "code": 98,
+   "type": "outercity.OutercityRspMsg"
+  },
+  "U_C_ARMY_SUPPROT": {
+   "code": 139,
+   "type": "campaign.CampaignTakeCardsMsg"
+  },
+  "U_C_ARMY_UPDATE_ARMYPAWN": {
+   "code": 100,
+   "type": "army.ArmyPawnUpdatedMsg"
+  },
+  "U_C_ARMY_UPDATE_GRID": {
+   "code": 169,
+   "type": "army.ArmyUpdatedGridMsg"
+  },
+  "U_C_BAG_EQUIPLOOK": {
+   "code": 4125,
+   "type": "simple.DetailRspMsg"
+  },
+  "U_C_BAG_MOVE_UPDATE": {
+   "code": 115,
+   "type": "item.ItemMovedListMsg"
+  },
+  "U_C_BATTLEGUARD_INFO": {
+   "code": 4631,
+   "type": "watch.HeroWatchMsg"
+  },
+  "U_C_BOTTLE_ACTIVE": {
+   "code": 4825,
+   "type": "item.BottleMsg"
+  },
+  "U_C_BOTTLE_DROP_DATA": {
+   "code": 295,
+   "type": "item.BottleDropListMsg"
+  },
+  "U_C_BOTTLE_PASS": {
+   "code": 4497,
+   "type": "item.BottlePassMsg"
+  },
+  "U_C_BOTTLE_RESULT": {
+   "code": 4526,
+   "type": "item.BottleScoreMsg"
+  },
+  "U_C_BROAD_POS": {
+   "code": 4167,
+   "type": "worldmap.PosMoveMsg"
+  },
+  "U_C_BUFFER_LIST": {
+   "code": 4165,
+   "type": "campaign.CampaignBufferMsg"
+  },
+  "U_C_BUGLE_REQ": {
+   "code": 4553,
+   "type": "vip.VipRouletteMsg"
+  },
+  "U_C_BUGLE_REWARDS": {
+   "code": 4554,
+   "type": "vip.VipRouletteMsg"
+  },
+  "U_C_BUILDINGINFO_LIST": {
+   "code": 4130,
+   "type": "building.BuildingInfoListMsg"
+  },
+  "U_C_BUILDING_ORDERADD": {
+   "code": 104,
+   "type": "building.OrderInfoMsg"
+  },
+  "U_C_BUILDING_ORDER_INFO": {
+   "code": 151,
+   "type": "building.OrderInfoMsg"
+  },
+  "U_C_BUILDING_ORDER_QUICK": {
+   "code": 102,
+   "type": "building.OrderQuickRspMsg"
+  },
+  "U_C_BUILDING_ORDER_SEND": {
+   "code": 4187,
+   "type": "building.BuildOrderList"
+  },
+  "U_C_BUY_DISCOUNT": {
+   "code": 4599,
+   "type": "shop.ShopMsg"
+  },
+  "U_C_BUY_MAGIC_DICE": {
+   "code": 4715,
+   "type": "campaign.RollDiceMsg"
+  },
+  "U_C_BUY_ROLL_DICE": {
+   "code": 4864,
+   "type": "campaign.RollDiceMsg"
+  },
+  "U_C_CAMPAGIN_ROOM_PLACESTATE": {
+   "code": 17,
+   "type": "room.PlaceStateRspMsg"
+  },
+  "U_C_CAMPAIGN_ARMYPOS_SEND": {
+   "code": 4186,
+   "type": "army.ArmyFightPosEditListMsg"
+  },
+  "U_C_CAMPAIGN_CARDS": {
+   "code": 135,
+   "type": "campaign.CampaignTakeCardsMsg"
+  },
+  "U_C_CAMPAIGN_CONFIRM": {
+   "code": 29,
+   "type": "campaign.CampaignConfirmMsg"
+  },
+  "U_C_CAMPAIGN_CREATE": {
+   "code": 125,
+   "type": "room.RoomCreatedMsg"
+  },
+  "U_C_CAMPAIGN_ENTER": {
+   "code": 21,
+   "type": "room.RoomEnterMsg"
+  },
+  "U_C_CAMPAIGN_MATCHSTATE": {
+   "code": 4995,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_CREATE": {
+   "code": 12,
+   "type": "room.RoomMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_EDIT": {
+   "code": 32,
+   "type": "room.EditRoomRspMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_EXIT": {
+   "code": 15,
+   "type": "room.RoomExitRspMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_INVITE": {
+   "code": 16,
+   "type": "room.RoomInviteMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_KILLPLAYER": {
+   "code": 28,
+   "type": "room.KillPlayerRspMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_LIST": {
+   "code": 13,
+   "type": "room.RoomListRspMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_MASTER": {
+   "code": 121,
+   "type": "room.ChangeMasterRspMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_MEMBER": {
+   "code": 120,
+   "type": "room.RoomPlayerListMsg"
+  },
+  "U_C_CAMPAIGN_STATE": {
+   "code": 4182,
+   "type": "campaign.WorldBossStateMsg"
+  },
+  "U_C_CAMPAIGN_SWEEP": {
+   "code": 4425,
+   "type": "campaign.CampaignSweepRsp"
+  },
+  "U_C_CAMPAIGN_SYSTEM_ARMY": {
+   "code": 20,
+   "type": "campaign.SystemArmyMsg"
+  },
+  "U_C_CAMPAIGN_TAKE_CARD": {
+   "code": 26,
+   "type": "campaign.CampaignTakeCardsMsg"
+  },
+  "U_C_CAMPAIGN_WAITING_PLAYER_LIST": {
+   "code": 11,
+   "type": "room.RoomPlayerListMsg"
+  },
+  "U_C_CANWATER_USERS": {
+   "code": 4190,
+   "type": "farm.LoadFarmRsp"
+  },
+  "U_C_CARNIVAL_DATA": {
+   "code": 4304,
+   "type": "carnival.CarnivalMsg"
+  },
+  "U_C_CARNIVAL_TASK_DATA": {
+   "code": 4305,
+   "type": "carnival.CarnivalTaskListMsg"
+  },
+  "U_C_CASTLE_DEFENSE": {
+   "code": 118,
+   "type": "outercity.CastleDefenseRspMsg"
+  },
+  "U_C_CASTLE_TIME": {
+   "code": 4452,
+   "type": "army.BaseCastleMsg"
+  },
+  "U_C_CASTLE_UPDATE": {
+   "code": 109,
+   "type": "castle.CastleYieldMsg"
+  },
+  "U_C_CHAIRS_INFO": {
+   "code": 458,
+   "type": "cccactive.ChairsListMsg"
+  },
+  "U_C_CHAIRS_OPENSTATE": {
+   "code": 457,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_CHALLENGE_INFO": {
+   "code": 4169,
+   "type": "simple.ChallengeInfoMsg"
+  },
+  "U_C_CHALLENGE_TIME": {
+   "code": 4176,
+   "type": "player.ChallengeCoolTimeMsg"
+  },
+  "U_C_CHANGE_FRAME": {
+   "code": 4728,
+   "type": "frame.ChangeFrameResp"
+  },
+  "U_C_CHANGE_PRODUCT_COUNT": {
+   "code": 4722,
+   "type": "charge.ChargeProductCountList"
+  },
+  "U_C_CHANNEL_ALERT": {
+   "code": 111,
+   "type": "chat.ChatChannelMsg"
+  },
+  "U_C_CHARGELOTTERYINFO": {
+   "code": 432,
+   "type": "active.ChargePointLotteryMsg"
+  },
+  "U_C_CHARGELOTTERY_STATE": {
+   "code": 433,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_CHARGE_ARRIVE": {
+   "code": 4746,
+   "type": "charge.ChargeOrderArrive"
+  },
+  "U_C_CHARGE_DATA": {
+   "code": 4747,
+   "type": "charge.ChargeData"
+  },
+  "U_C_CHARGE_ORDER": {
+   "code": 4710,
+   "type": "mall.ChargeOrderRsp"
+  },
+  "U_C_CHECK_NICK": {
+   "code": 4148,
+   "type": "player.CheckNickMsg"
+  },
+  "U_C_CHECK_SEND": {
+   "code": 4420,
+   "type": "player.CheckSend"
+  },
+  "U_C_CLICKDATA": {
+   "code": 4412,
+   "type": "leed.ClickDatasRspMsg"
+  },
+  "U_C_COMBAT_GUARDIAN_INFO": {
+   "code": 4873,
+   "type": "combatguardian.CombatGuardianOpRes"
+  },
+  "U_C_CONSORTIAUSER_LIST": {
+   "code": 4133,
+   "type": "simple.SimplePlayerListRspMsg"
+  },
+  "U_C_CONSORTIA_ADDFRESH": {
+   "code": 4143,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_ALTAR_REPORT": {
+   "code": 4437,
+   "type": "campaign.AltarCampaignReportMsg"
+  },
+  "U_C_CONSORTIA_ALTERINFO": {
+   "code": 4141,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_ALTERITEM": {
+   "code": 4142,
+   "type": "consortia.ConsortiaAltarInfoMsg"
+  },
+  "U_C_CONSORTIA_BATTLE_CAMPAIGN": {
+   "code": 515,
+   "type": "crossguild.CrossGuildCampaignInfoMsg"
+  },
+  "U_C_CONSORTIA_BATTLE_ICON": {
+   "code": 520,
+   "type": "crossguild.CrossGuildIconMsg"
+  },
+  "U_C_CONSORTIA_BATTLE_MAIN": {
+   "code": 516,
+   "type": "crossguild.CrossGuildGroupBordInfoMsg"
+  },
+  "U_C_CONSORTIA_BATTLE_RANK": {
+   "code": 519,
+   "type": "crossguild.CrossGuildRankMsg"
+  },
+  "U_C_CONSORTIA_BATTLE_RECORD": {
+   "code": 518,
+   "type": "crossguild.CrossGuildReportListMsg"
+  },
+  "U_C_CONSORTIA_BATTLE_SCHEDULE": {
+   "code": 517,
+   "type": "crossguild.CrossGuildGroupScheduleInfoMsg"
+  },
+  "U_C_CONSORTIA_BATTLT_PATH": {
+   "code": 521,
+   "type": "crossguild.RoadInfoMsg"
+  },
+  "U_C_CONSORTIA_BOSS_SKILL": {
+   "code": 4736,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_CONSORTIA_BOSS_START": {
+   "code": 4738,
+   "type": "consortia.ConsortiaInfoMsg"
+  },
+  "U_C_CONSORTIA_BOX_INFO": {
+   "code": 4466,
+   "type": "consortia.ConsortiaStorageInfoMsg"
+  },
+  "U_C_CONSORTIA_DUTYUPDATE": {
+   "code": 50,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_FRESHALTAR": {
+   "code": 45,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_INFO": {
+   "code": 4138,
+   "type": "consortia.ConsortiaInfoMsg"
+  },
+  "U_C_CONSORTIA_INVITE": {
+   "code": 41,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_INVITEDEL": {
+   "code": 36,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_INVITE_LIST": {
+   "code": 4140,
+   "type": "simple.SimplePlayerListRspMsg"
+  },
+  "U_C_CONSORTIA_LINK": {
+   "code": 4267,
+   "type": "consortia.ConsortiaLinkRspMsg"
+  },
+  "U_C_CONSORTIA_NOTICE_INFO": {
+   "code": 528,
+   "type": "crossguild.CrossGuildNoticeMsg"
+  },
+  "U_C_CONSORTIA_OCCPUY_INFO": {
+   "code": 530,
+   "type": "crossguild.CrossGuildChatMsg"
+  },
+  "U_C_CONSORTIA_OFF": {
+   "code": 42,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_OFFER_LIST": {
+   "code": 4134,
+   "type": "consortia.ConsortiaContributeRspMsg"
+  },
+  "U_C_CONSORTIA_PASS": {
+   "code": 40,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_PASS_USER": {
+   "code": 4266,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_PVE_BOSS_DATA": {
+   "code": 4889,
+   "type": "simple.WorldBossInfoMsg"
+  },
+  "U_C_CONSORTIA_PVE_CUR_NODE": {
+   "code": 4886,
+   "type": "consortiapve.ConsortiaPveCurNodeMsg"
+  },
+  "U_C_CONSORTIA_PVE_DATA": {
+   "code": 4884,
+   "type": "consortiapve.ConsortiaPveDataMsg"
+  },
+  "U_C_CONSORTIA_PVE_NODE_UPDATE": {
+   "code": 4885,
+   "type": "consortiapve.ConsortiaPveDataMsg"
+  },
+  "U_C_CONSORTIA_PVE_SEASON_DATA": {
+   "code": 4887,
+   "type": "consortiapve.ConsortiaPveSeasonMsg"
+  },
+  "U_C_CONSORTIA_RENAME": {
+   "code": 49,
+   "type": "consortia.ConsortiaRenameRspMsg"
+  },
+  "U_C_CONSORTIA_SEARCH": {
+   "code": 4139,
+   "type": "consortia.ConsortiaSearchRspMsg"
+  },
+  "U_C_CONSORTIA_SITE": {
+   "code": 4144,
+   "type": "consortia.ConsortiaInfoMsg"
+  },
+  "U_C_CONSORTIA_STATIC": {
+   "code": 117,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_TASK": {
+   "code": 454,
+   "type": "consortia.AllTaskInfoMsg"
+  },
+  "U_C_CONSORTIA_TREASURE_BOX": {
+   "code": 4465,
+   "type": "consortia.ConsortiaTreasureBoxMsg"
+  },
+  "U_C_CONSORTIA_USERINVITE": {
+   "code": 35,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_USERPASS": {
+   "code": 37,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_VOTING": {
+   "code": 4390,
+   "type": "consortia.ConsortiaVotingRspMsg"
+  },
+  "U_C_CONSORTIA_VOTING_LIST": {
+   "code": 4389,
+   "type": "consortia.ConsortiaVotingUsersMsg"
+  },
+  "U_C_COUNT_DOWN_ACTIVE_INFO": {
+   "code": 4871,
+   "type": "cccactive.CountDownMsg"
+  },
+  "U_C_CRAZY_SHOP_CONFIG": {
+   "code": 558,
+   "type": "active.CrazyShopTemplateRes"
+  },
+  "U_C_CRAZY_SHOP_RES": {
+   "code": 557,
+   "type": "active.CrazyShopInfoRes"
+  },
+  "U_C_CROSSMULTI_MATCHSTATE": {
+   "code": 299,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_CROSS_BIGBUGLE": {
+   "code": 4541,
+   "type": "cross.CrossBigBugleMsg"
+  },
+  "U_C_CROSS_SCORE_REWARD_RESULT": {
+   "code": 4482,
+   "type": "player.ChallengeRankRewardMsg"
+  },
+  "U_C_CROSS_USER_INFO": {
+   "code": 4464,
+   "type": "army.SimpleHeroInfoMsg"
+  },
+  "U_C_DAILY_TARGET_LIST": {
+   "code": 4883,
+   "type": "dailytarget.DailyTargetList"
+  },
+  "U_C_DATARESET": {
+   "code": 4202,
+   "type": "player.DataResetMsg"
+  },
+  "U_C_DAYACTION": {
+   "code": 4393,
+   "type": "active.DayActiveRspMsg"
+  },
+  "U_C_DAYGESTE_SEND": {
+   "code": 4471,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_DAYS_CHARGE_DATA": {
+   "code": 272,
+   "type": "active.PlanInfoMsg"
+  },
+  "U_C_DISCOUNT_MALL": {
+   "code": 389,
+   "type": "active.DiscountMallMsg"
+  },
+  "U_C_DOUBLE_MOUNT_NOTICE_MESSAGE": {
+   "code": 534,
+   "type": "campaign.DoubleMountInviteMsg"
+  },
+  "U_C_DRAGON_SOUL_INFO": {
+   "code": 555,
+   "type": "dragonsoul.DragonSoulOpRes"
+  },
+  "U_C_DUTY_LIST": {
+   "code": 4137,
+   "type": "consortia.ConsortiaDutyListRspMsg"
+  },
+  "U_C_ENGAGED_INFO": {
+   "code": 467,
+   "type": "marriage.EngageInfoMsg"
+  },
+  "U_C_ENGAGE_LIST": {
+   "code": 465,
+   "type": "marriage.EngageMsg"
+  },
+  "U_C_ENTER_COPY_NUM_REFRESH": {
+   "code": 4240,
+   "type": "player.MultiCampaignEnterCountMsg"
+  },
+  "U_C_ENTER_MONOPOLY_CAMPAIGN": {
+   "code": 4861,
+   "type": "campaign.RollDiceMsg"
+  },
+  "U_C_EVENT_LIST": {
+   "code": 4136,
+   "type": "consortia.ConsortiaEventListRspMsg"
+  },
+  "U_C_FACEIMG_LIST": {
+   "code": 4852,
+   "type": "active.FaceImgMsg"
+  },
+  "U_C_FAM_INFO": {
+   "code": 4453,
+   "type": "consortia.FamInfoMsg"
+  },
+  "U_C_FAM_TREE": {
+   "code": 4432,
+   "type": "consortia.FamInfoMsg"
+  },
+  "U_C_FARMLAND_INFO": {
+   "code": 4387,
+   "type": "farm.FarmInfoRspMsg"
+  },
+  "U_C_FARM_INFO": {
+   "code": 4386,
+   "type": "farm.FarmInfoRspMsg"
+  },
+  "U_C_FASHION_BOOK": {
+   "code": 4542,
+   "type": "fashion.FashionMsg"
+  },
+  "U_C_FASHION_COMPOSE": {
+   "code": 4487,
+   "type": "store.StoreRspMsg"
+  },
+  "U_C_FASHION_INFO": {
+   "code": 301,
+   "type": "simple.FashionInfoMsg"
+  },
+  "U_C_FAST_USE_BLOOD": {
+   "code": 170,
+   "type": "item.FastUseBloodMsg"
+  },
+  "U_C_FATE_REQUEST": {
+   "code": 4544,
+   "type": "fate.FateListMsg"
+  },
+  "U_C_FETCH_TOKEN": {
+   "code": 4721,
+   "type": "voice.FetchTokenRsp"
+  },
+  "U_C_FIRST_CHARGE_AWARD": {
+   "code": 173,
+   "type": "active.FirstChargeAwardMsg"
+  },
+  "U_C_FIVE_CARD_POKER_INFO": {
+   "code": 192,
+   "type": "carnival.FiveCardPokerMsg"
+  },
+  "U_C_FIVE_CARD_SCORE_REWARD": {
+   "code": 193,
+   "type": "carnival.FiveCardPokerRewardMsg"
+  },
+  "U_C_FLASHSALE_FRESH": {
+   "code": 4547,
+   "type": "shop.ShopMsg"
+  },
+  "U_C_FOISON_HORN": {
+   "code": 4877,
+   "type": "cccactive.FoisonHornMsg"
+  },
+  "U_C_FOLLOW_US": {
+   "code": 543,
+   "type": "follow_reward.AllStatusInfo"
+  },
+  "U_C_FRAME_LIST": {
+   "code": 4729,
+   "type": "frame.FrameInfoMsgList"
+  },
+  "U_C_GEMMAZE_INFO": {
+   "code": 4922,
+   "type": "minigame.GemMazeInfoMsg"
+  },
+  "U_C_GEMMAZE_UPDATE": {
+   "code": 4923,
+   "type": "minigame.GemInfoUpdateMsg"
+  },
+  "U_C_GOLDENROAD_CASTDICE": {
+   "code": 4934,
+   "type": "goldenroad.CastDiceMsg"
+  },
+  "U_C_GOLDENROAD_FRESH": {
+   "code": 4933,
+   "type": "goldenroad.GoldenRoadMsg"
+  },
+  "U_C_GOLDEN_SHEEP": {
+   "code": 4881,
+   "type": "cccactive.GoldenSheepMsg"
+  },
+  "U_C_GOLD_IMPOSERESULT": {
+   "code": 4242,
+   "type": "simple.GoldImposeMsg"
+  },
+  "U_C_GRADE_PACKET": {
+   "code": 4699,
+   "type": "active.GradePacketRsp"
+  },
+  "U_C_GRADE_PACKET_RECEIVE": {
+   "code": 4700,
+   "type": "active.GradeReceiveRsp"
+  },
+  "U_C_GROWTH_FUND_INFO": {
+   "code": 4706,
+   "type": "fund.GrowthFundDataInfoRsp"
+  },
+  "U_C_GUILDLAST_WEEK_ORDER": {
+   "code": 4458,
+   "type": "guildcampaign.GuildGroupListMsg"
+  },
+  "U_C_GUILDWAR_STATE": {
+   "code": 4451,
+   "type": "guildcampaign.GuildMsg"
+  },
+  "U_C_GUILDWAR_TEAM": {
+   "code": 4441,
+   "type": "guildcampaign.GuildGroupListMsg"
+  },
+  "U_C_HANGUP_PVP": {
+   "code": 4421,
+   "type": "campaign.HangupAttackMsg"
+  },
+  "U_C_HARVEST_MSG": {
+   "code": 146,
+   "type": "farm.TreeUpdateRsp"
+  },
+  "U_C_HERO_BROAD_EQUIPMENT": {
+   "code": 149,
+   "type": "army.HeroEquUpdatedMsg"
+  },
+  "U_C_HERO_HP_UPDATE": {
+   "code": 172,
+   "type": "army.SimpleHeroInfoMsg"
+  },
+  "U_C_HERO_INFO": {
+   "code": 113,
+   "type": "army.SimpleHeroInfoMsg"
+  },
+  "U_C_HERO_SETFASTKEY": {
+   "code": 64,
+   "type": "army.HeroFastKeyMsg"
+  },
+  "U_C_HERO_SKILLPOINT_RESET": {
+   "code": 61,
+   "type": "army.UpdatedSkillMsg"
+  },
+  "U_C_HERO_SKILL_UPGRADE": {
+   "code": 60,
+   "type": "army.UpdatedSkillMsg"
+  },
+  "U_C_HONOR_EQUIP": {
+   "code": 4556,
+   "type": "simple.HonorEquipInfoMsg"
+  },
+  "U_C_INVITEINFO_LIST": {
+   "code": 4135,
+   "type": "consortia.ConsortiaUserInviteInfoListRspMsg"
+  },
+  "U_C_INVITE_PLAYER_LIST": {
+   "code": 4161,
+   "type": "room.RoomPlayerListMsg"
+  },
+  "U_C_ISTAKE_CHALLENGEREWARD": {
+   "code": 4244,
+   "type": "player.ChallengeRankRewardMsg"
+  },
+  "U_C_ISTAKE_CROSS_SCORE_REWARD": {
+   "code": 4481,
+   "type": "player.ChallengeRankRewardMsg"
+  },
+  "U_C_ITEM_BUFFER": {
+   "code": 4188,
+   "type": "item.ItemBufferRspMsg"
+  },
+  "U_C_ITEM_COMPOSE": {
+   "code": 89,
+   "type": "store.StoreRspMsg"
+  },
+  "U_C_ITEM_SMITH": {
+   "code": 4184,
+   "type": "item.ItemSmithyMsg"
+  },
+  "U_C_ITEM_STRENGTHEN": {
+   "code": 86,
+   "type": "store.StoreRspMsg"
+  },
+  "U_C_KF_ISREPLY_RESP": {
+   "code": 4870,
+   "type": "customer.CustomerIsReplyMsg"
+  },
+  "U_C_KING_INFO": {
+   "code": 4900,
+   "type": "campaign.KingTowerInfoMsg"
+  },
+  "U_C_LEED_RECEIVE": {
+   "code": 4150,
+   "type": "leed.LeedFinishedRspMsg"
+  },
+  "U_C_LEED_UPDATE": {
+   "code": 4152,
+   "type": "leed.LeedUpdatedRspMsg"
+  },
+  "U_C_LIMITEDTIMEGIFT_LIST": {
+   "code": 4209,
+   "type": "limitedtimegift.LimitedTimeGiftRspMsg"
+  },
+  "U_C_LINK_GAME_INFO": {
+   "code": 196,
+   "type": "carnival.LinkGameMsg"
+  },
+  "U_C_LOAD_BUILD": {
+   "code": 4154,
+   "type": "building.BuildingInfoListMsg"
+  },
+  "U_C_LOAD_BUILD_ORDER": {
+   "code": 4155,
+   "type": "building.BuildOrderList"
+  },
+  "U_C_LOAD_CASTLE": {
+   "code": 4153,
+   "type": "army.BaseCastleMsg"
+  },
+  "U_C_LOAD_FRIEND_LIST": {
+   "code": 4156,
+   "type": "simple.FriendRelationList"
+  },
+  "U_C_LOAD_WATER": {
+   "code": 4157,
+   "type": "farm.LoadFarmRsp"
+  },
+  "U_C_LOCK_SCREEN": {
+   "code": 141,
+   "type": "campaign.LockScreenRspMsg"
+  },
+  "U_C_LORDS_ENTER_RESULT": {
+   "code": 4530,
+   "type": "lucky.LordsOrderListMsg"
+  },
+  "U_C_LORDS_FINAL_ORDERLIST": {
+   "code": 4531,
+   "type": "lucky.LordsOrderListMsg"
+  },
+  "U_C_LORDS_FINAL_TIPS": {
+   "code": 4538,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_LORDS_LOAD_MAINBORAD": {
+   "code": 4529,
+   "type": "lucky.LordsOrderListMsg"
+  },
+  "U_C_LORDS_LOCAL_FIANL_ORDER": {
+   "code": 4537,
+   "type": "lucky.LordsOrderListMsg"
+  },
+  "U_C_LORDS_OPENSTATE": {
+   "code": 4535,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_LOTTERY_RUNE_INFO": {
+   "code": 4742,
+   "type": "army.LotteryRuneRspMsg"
+  },
+  "U_C_LUCHYBOX_STATE": {
+   "code": 435,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_LUCKYBOX_INFO": {
+   "code": 434,
+   "type": "active.ChargePointLotteryMsg"
+  },
+  "U_C_LUCK_EXCHANGE_DATA_MSG": {
+   "code": 364,
+   "type": "active.LuckExchangeInfoListMsg"
+  },
+  "U_C_LUCK_EXCHANGE_TEMP_MSG": {
+   "code": 363,
+   "type": "active.LuckExchangeTempListMsg"
+  },
+  "U_C_MAILITEM_MOVE_RESULT": {
+   "code": 114,
+   "type": "mail.MailPickupRspMsg"
+  },
+  "U_C_MAIL_CHECK": {
+   "code": 337,
+   "type": "player.MailCheckMsg"
+  },
+  "U_C_MAIL_DEL_RESULT": {
+   "code": 4132,
+   "type": "mail.MailDelReqMsg"
+  },
+  "U_C_MAIL_INIT_LIST": {
+   "code": 4853,
+   "type": "mail.MailListRspMsg"
+  },
+  "U_C_MAIL_LIST": {
+   "code": 4131,
+   "type": "mail.ReceiveMailMsg"
+  },
+  "U_C_MAIL_READ_RESP": {
+   "code": 4854,
+   "type": "mail.MailReadRspMsg"
+  },
+  "U_C_MAPBOSS_BOX": {
+   "code": 4940,
+   "type": "army.MapBoxMsg"
+  },
+  "U_C_MAPBOSS_DATAS": {
+   "code": 4938,
+   "type": "army.MapBossMsg"
+  },
+  "U_C_MAPBOSS_FOG": {
+   "code": 4939,
+   "type": "army.MapBossMsg"
+  },
+  "U_C_MAPDATA_SYNC": {
+   "code": 140,
+   "type": "army.MapUpdatedMsg"
+  },
+  "U_C_MAPSHOPINFO": {
+   "code": 4946,
+   "type": "mapshop.MapShopInfoMsg"
+  },
+  "U_C_MARKET_ITEM_LIST": {
+   "code": 4353,
+   "type": "market.MarketItemListMsg"
+  },
+  "U_C_MARKET_MYORDER_LIST": {
+   "code": 4354,
+   "type": "market.MarketOrderListMsg"
+  },
+  "U_C_MARKET_ORDERACTION_RESP": {
+   "code": 4352,
+   "type": "market.MarketOrderRespMsg"
+  },
+  "U_C_MARKET_PURCHASEITEM_INFO": {
+   "code": 4357,
+   "type": "market.MarketItemPurchaseInfoMsg"
+  },
+  "U_C_MARKET_SELLITEM_INFO": {
+   "code": 4356,
+   "type": "market.MarketItemSellInfoMsg"
+  },
+  "U_C_MARRIAGE_CAMPAIGN": {
+   "code": 471,
+   "type": "marriage.MarriageCampaignProMsg"
+  },
+  "U_C_MARRIAGE_CAMPAIGN_MOVE": {
+   "code": 473,
+   "type": "marriage.MarriageMoveRes"
+  },
+  "U_C_MARRIAGE_CAMPAIGN_OATH": {
+   "code": 472,
+   "type": "marriage.MarriageOathRes"
+  },
+  "U_C_MARRIAGE_CREATE_TIPS": {
+   "code": 482,
+   "type": "marriage.MarriageCreateTipsRes"
+  },
+  "U_C_MARRIAGE_DATA": {
+   "code": 476,
+   "type": "marriage.MarriageDataMsg"
+  },
+  "U_C_MARRIAGE_DEAL_DIVORCE": {
+   "code": 478,
+   "type": "marriage.MarriageMsg"
+  },
+  "U_C_MARRIAGE_HEART_QUESTION": {
+   "code": 475,
+   "type": "marriage.MarriageHeartMsg"
+  },
+  "U_C_MARRIAGE_HEART_START": {
+   "code": 474,
+   "type": "marriage.MarriageHeartMsg"
+  },
+  "U_C_MARRIAGE_INFO": {
+   "code": 466,
+   "type": "marriage.MarriageMsg"
+  },
+  "U_C_MARRIAGE_PREVIEW_AWARD": {
+   "code": 484,
+   "type": "marriage.MarriagePreviewAwardRes"
+  },
+  "U_C_MARRIAGE_RECOMMENDLIST": {
+   "code": 477,
+   "type": "friend.RecommendListMsg"
+  },
+  "U_C_MARRIAGE_RESERVE_INFO": {
+   "code": 480,
+   "type": "marriage.MarriageReserveInfoRes"
+  },
+  "U_C_MARRIAGE_RESERVE_SUCCESS": {
+   "code": 481,
+   "type": "marriage.MarriageReserveMsg"
+  },
+  "U_C_MARRIAGE_RIDE": {
+   "code": 469,
+   "type": "marriage.MarriageHorseMsg"
+  },
+  "U_C_MATCH_COMFIRE": {
+   "code": 4994,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_MATCH_STATE": {
+   "code": 4201,
+   "type": "room.MatchStateMsg"
+  },
+  "U_C_MEMORY_CARD_INFO": {
+   "code": 194,
+   "type": "carnival.MemoryCardMsg"
+  },
+  "U_C_MEMORY_CARD_REWARD": {
+   "code": 195,
+   "type": "carnival.MemoryCardRewardMsg"
+  },
+  "U_C_MICRO_TERMINAL_REWARD": {
+   "code": 4851,
+   "type": "microterminal.MicroTerminalInfo"
+  },
+  "U_C_MINE_ACTIVE_STATE": {
+   "code": 4549,
+   "type": "guildcampaign.GuildMsg"
+  },
+  "U_C_MOLE_GAME_MESSAGE": {
+   "code": 540,
+   "type": "gamebox.MoleGameMessage"
+  },
+  "U_C_MOLE_GAME_START_INFO": {
+   "code": 539,
+   "type": "gamebox.MoleGameStartInfoRes"
+  },
+  "U_C_MOLE_GAME_STOP_RES": {
+   "code": 552,
+   "type": "gamebox.MoleGameStopRes"
+  },
+  "U_C_MOLE_INFO": {
+   "code": 538,
+   "type": "gamebox.MoleGameInfoRes"
+  },
+  "U_C_MONOFIGHT_GOBACK": {
+   "code": 4866,
+   "type": "campaign.RollDiceMsg"
+  },
+  "U_C_MONOPOLY_CAMPAIGN_OVER": {
+   "code": 4862,
+   "type": "campaign.RollDiceMsg"
+  },
+  "U_C_MONTH_CARD": {
+   "code": 4698,
+   "type": "active.MonthCardRsp"
+  },
+  "U_C_MOULD_ITEM": {
+   "code": 4558,
+   "type": "store.StoreRspMsg"
+  },
+  "U_C_MOUNT_AVATARLIST": {
+   "code": 4427,
+   "type": "campaign.MountAvatarMsg"
+  },
+  "U_C_MOUNT_INFO_SEND": {
+   "code": 4459,
+   "type": "campaign.MountInfoMsg"
+  },
+  "U_C_MOUNT_KING": {
+   "code": 771,
+   "type": "campaign.MountKingInfoMsg"
+  },
+  "U_C_MOUNT_KING_LIST": {
+   "code": 789,
+   "type": "campaign.MountKingListMsg"
+  },
+  "U_C_MOUNT_UPDATE": {
+   "code": 4426,
+   "type": "campaign.MountInfoMsg"
+  },
+  "U_C_MOUNT_UPGRADESTAR": {
+   "code": 4679,
+   "type": "campaign.AvatarInfoMsg"
+  },
+  "U_C_MSG": {
+   "code": 126,
+   "type": "campaign.CampaignNotifyMsg"
+  },
+  "U_C_MULITY_CAMPAIGN_REQUEST": {
+   "code": 4913,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_NEWBIE_GUIDE_INFO": {
+   "code": 533,
+   "type": "guide.GuideInfoMsg"
+  },
+  "U_C_NEWBIE_GUIDE_REDDOT": {
+   "code": 544,
+   "type": "guide.RedPointMsg"
+  },
+  "U_C_NEW_ACTIVE_STATE_INFO": {
+   "code": 496,
+   "type": "newactive.NewActiveStateRes"
+  },
+  "U_C_NEW_MEMORY_CARD_DATA": {
+   "code": 4301,
+   "type": "NewMemoryCardMsg"
+  },
+  "U_C_NEW_MEMORY_CARD_STATE": {
+   "code": 4300,
+   "type": "NewMemoryCardState"
+  },
+  "U_C_NEW_PLAYER_GIFT": {
+   "code": 4550,
+   "type": "active.SumActiveActivateRespMsg"
+  },
+  "U_C_NEW_RECOVER_RES": {
+   "code": 554,
+   "type": "recover.NewRecoverRes"
+  },
+  "U_C_NPC_CHASE_ARMY": {
+   "code": 4105,
+   "type": "campaign.NPCChaseMsg"
+  },
+  "U_C_NPC_CHAT": {
+   "code": 4163,
+   "type": "campaign.NPCChatMsg"
+  },
+  "U_C_ONLINE_REWARD": {
+   "code": 4697,
+   "type": "active.OnlineRewardInfoRsp"
+  },
+  "U_C_OPENVIPROULETTE": {
+   "code": 4414,
+   "type": "vip.VipRouletteMsg"
+  },
+  "U_C_OPEN_CONSORTIA__ALTAR": {
+   "code": 4436,
+   "type": "consortia.ConsortiaAltarOpenRspMsg"
+  },
+  "U_C_OPEN_SERVICE_ACTIVE_HISTORY": {
+   "code": 456,
+   "type": "active.OpenServiceRankInfoRes"
+  },
+  "U_C_OPRATE_REPLACEMENT_STATE": {
+   "code": 4424,
+   "type": "campaign.OprateReplacemntMsg"
+  },
+  "U_C_OPTIONPACK_BOARD_INFO": {
+   "code": 4880,
+   "type": "cccactive.OptionalPacksActiveBoardInfo"
+  },
+  "U_C_OPTIONPACK_TEMPLATE_INFO": {
+   "code": 4882,
+   "type": "cccactive.OptionalPacksActiveTotalTempInfo"
+  },
+  "U_C_OUTCITYWAR_BUILD_STATE": {
+   "code": 442,
+   "type": "outcitywar.BuildStateMsg"
+  },
+  "U_C_OUTCITYWAR_NODE_STATE": {
+   "code": 440,
+   "type": "outcitywar.OutCityWarStateMsg"
+  },
+  "U_C_OUTCITYWAR_PLAYER": {
+   "code": 441,
+   "type": "outcitywar.CastlePlayerMsg"
+  },
+  "U_C_OUTCITY_NODE_INFO": {
+   "code": 436,
+   "type": "army.OutCityAllInfoMsg"
+  },
+  "U_C_OUTCITY_ONE_NODE_INFO": {
+   "code": 438,
+   "type": "army.OutCityGoldNodeInfoMsg"
+  },
+  "U_C_OUTCITY_ONE_NODE_UPDATE_INFO": {
+   "code": 439,
+   "type": "army.OutCityNodeInfoMsg"
+  },
+  "U_C_OUTCITY_SON_NODE_INFO": {
+   "code": 437,
+   "type": "army.OneMineInfoMsg"
+  },
+  "U_C_OUTER_CITY_SHOP_PASS": {
+   "code": 294,
+   "type": "item.BottlePassMsg"
+  },
+  "U_C_OUT_CITY_VEHICLE_INFO": {
+   "code": 448,
+   "type": "outercity.VehicleAllInfoMsg"
+  },
+  "U_C_OUT_CITY_WAR_GUILD_INFO_UPDATE": {
+   "code": 443,
+   "type": "outcitywar.CastleMsg"
+  },
+  "U_C_OUT_CITY_WAR_GUILD_NOTICE": {
+   "code": 444,
+   "type": "outcitywar.GuildMsg"
+  },
+  "U_C_OUT_CITY_WAR_SCORE_INFO": {
+   "code": 446,
+   "type": "outcitywar.MonsterScoreMsg"
+  },
+  "U_C_PASS_REWARD_INFO": {
+   "code": 4725,
+   "type": "active.PassInfoResMsg"
+  },
+  "U_C_PASS_TASK_INFO": {
+   "code": 4726,
+   "type": "active.PassTaskAllInfoMsg"
+  },
+  "U_C_PAWN_INFO": {
+   "code": 116,
+   "type": "army.ArmyPawnInfoMsg"
+  },
+  "U_C_PETISLAND_BOSS_START": {
+   "code": 4686,
+   "type": "campaign.PetIslandDefendStateMsg"
+  },
+  "U_C_PETLAND_REWARDCOUNT": {
+   "code": 4643,
+   "type": "campaign.PetLandRewardMsg"
+  },
+  "U_C_PET_ARTIFACT_LIST": {
+   "code": 4623,
+   "type": "pet.PetDetailMsgList"
+  },
+  "U_C_PET_CHALLENGE_LIST": {
+   "code": 4611,
+   "type": "pet.PetChallengeInfoMsg"
+  },
+  "U_C_PET_CHALLENGE_LOG": {
+   "code": 4711,
+   "type": "pet.PetChallengeLogList"
+  },
+  "U_C_PET_OP_RESULT": {
+   "code": 4707,
+   "type": "pet.PlayerPetOpRes"
+  },
+  "U_C_PET_RANK_REWARD": {
+   "code": 4613,
+   "type": "pet.RankRewardMsg",
+   "source": "client"
+  },
+  "U_C_PET_SUCCINCT": {
+   "code": 4501,
+   "type": "pet.PetEquipRefreshRspMsg"
+  },
+  "U_C_PHYSIC_LIST_UPDATE": {
+   "code": 4129,
+   "type": "army.PhysicListUpdateMsg"
+  },
+  "U_C_PICK_HARVEST_MSG": {
+   "code": 4189,
+   "type": "farm.TreeUpdateRsp"
+  },
+  "U_C_PLAYER_AASREFRESH": {
+   "code": 4173,
+   "type": "player.PlayerAASRefreshMsg"
+  },
+  "U_C_PLAYER_ADDITION": {
+   "code": 4618,
+   "type": "player.AdditionMsg"
+  },
+  "U_C_PLAYER_EFFECT": {
+   "code": 110,
+   "type": "player.PropertyUpdatedMsg"
+  },
+  "U_C_PLAYER_INFO": {
+   "code": 3,
+   "type": "player.PlayerMsg"
+  },
+  "U_C_PLAYER_LOGINSTATEE": {
+   "code": 6,
+   "type": "player.LoginStateMsg"
+  },
+  "U_C_PLAYER_LOGIN_SYNC_MAPID": {
+   "code": 4598,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_PLAYER_MOVE": {
+   "code": 4162,
+   "type": "campaign.PlayerMoveMsg"
+  },
+  "U_C_PLAYER_NODE_STATE": {
+   "code": 4208,
+   "type": "campaign.PlayerNodeStateMsg"
+  },
+  "U_C_PLAYER_PETINFO": {
+   "code": 4540,
+   "type": "pet.PlayerPetMsg"
+  },
+  "U_C_PLAYER_READY_STATE": {
+   "code": 24,
+   "type": "room.PlayerReadyRspMsg"
+  },
+  "U_C_PLAYER_REMOVE_IN_SPACE": {
+   "code": 4607,
+   "type": "campaign.SpacePlayerMoveMsg"
+  },
+  "U_C_PLAYER_RENAME_RSP": {
+   "code": 4271,
+   "type": "player.PlayerRenameRspMsg"
+  },
+  "U_C_PLAYER_RETURN_TO_SPACE": {
+   "code": 4606,
+   "type": "room.RoomEnterMsg"
+  },
+  "U_C_PLAYER_SEARCH": {
+   "code": 4170,
+   "type": "simple.SimplePlayerSearchRspMsg"
+  },
+  "U_C_PLAYER_SETTING": {
+   "code": 4708,
+   "type": "player.PlayerSettingMsg"
+  },
+  "U_C_PLAYER_SIGN": {
+   "code": 4177,
+   "type": "player.PlayerSignRspMsg"
+  },
+  "U_C_PLAYER_SPACE_CREATE": {
+   "code": 4595,
+   "type": "room.RoomEnterMsg"
+  },
+  "U_C_PLAYER_SPACE_SEND_EXSIT": {
+   "code": 4597,
+   "type": "room.RoomEnterMsg"
+  },
+  "U_C_PLAYER_TOKENINFO": {
+   "code": 4714,
+   "type": "player.PlayerTokenInfoMsg"
+  },
+  "U_C_PLAY_GETMOIVE": {
+   "code": 4382,
+   "type": "simple.FightOverMoiveMsg"
+  },
+  "U_C_PVP_TIMER": {
+   "code": 4776,
+   "type": "timer.TimerInfoListMsg"
+  },
+  "U_C_QQ_DAWANKA_INFO": {
+   "code": 4969,
+   "type": "qq.UserQQDaWanKaMsg"
+  },
+  "U_C_QQ_GIFT_BAG": {
+   "code": 4977,
+   "type": "qq.QQGiftBagState"
+  },
+  "U_C_QQ_GIFT_RSP": {
+   "code": 4976,
+   "type": "qq.OpenGiftRsp"
+  },
+  "U_C_QUESTIONNARIE_ANSWER": {
+   "code": 4429,
+   "type": "questionnarie.QuestionDataRspMsg"
+  },
+  "U_C_QUESTIONNARIE_LIST": {
+   "code": 4428,
+   "type": "questionnarie.QuestionnarieInfoMsg"
+  },
+  "U_C_QUESTION_REPLAY": {
+   "code": 4376,
+   "type": "customer.ReplayListMsg"
+  },
+  "U_C_QUEST_FINISH": {
+   "code": 52,
+   "type": "quest.QuestFinishedRspMsg"
+  },
+  "U_C_QUEST_UPDAT": {
+   "code": 112,
+   "type": "quest.QuestUpdatedRspMsg"
+  },
+  "U_C_RANKER_INFO": {
+   "code": 497,
+   "type": "newactive.RankerRes"
+  },
+  "U_C_RANKER_SELF_INFO": {
+   "code": 498,
+   "type": "newactive.RankerSelfInfoRes"
+  },
+  "U_C_RANK_LIST": {
+   "code": 4151,
+   "type": "campaign.RankListRspMsg"
+  },
+  "U_C_RATE_INFO": {
+   "code": 4247,
+   "type": "player.RateUpdateReqMsg"
+  },
+  "U_C_REBATE_ACTIVE": {
+   "code": 4461,
+   "type": "rebate.RebateInfoMsg"
+  },
+  "U_C_REBATE_DATA": {
+   "code": 4463,
+   "type": "rebate.UserRebateMsg"
+  },
+  "U_C_RECEIVE_PET_DATA": {
+   "code": 4608,
+   "type": "pet.PetDetailMsg"
+  },
+  "U_C_RECOVER": {
+   "code": 4912,
+   "type": "recover.RecoverInfosMsg"
+  },
+  "U_C_REFUSEFRIEND_REFRESH": {
+   "code": 4193,
+   "type": "player.RefuseFriendRspMsg"
+  },
+  "U_C_REFUSEINVITE_REFRESH": {
+   "code": 4194,
+   "type": "player.RefuseFriendRspMsg"
+  },
+  "U_C_REFUSETEAMINVITE_REFRESH": {
+   "code": 4635,
+   "type": "player.RefuseFriendRspMsg"
+  },
+  "U_C_RELOADDIRTY": {
+   "code": 4265,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_REMOTE_PET_MSG": {
+   "code": 4964,
+   "type": "remotepet.RemotePetMsg"
+  },
+  "U_C_REMOTE_REWARLD": {
+   "code": 4967,
+   "type": "remotepet.RemoteItemMsg"
+  },
+  "U_C_REPEAT_REWARD_END": {
+   "code": 4615,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_REPEAT_REWARD_FINISH": {
+   "code": 4617,
+   "type": "reward.RewardUpdatedRspMsg"
+  },
+  "U_C_REPEAT_REWARD_FNISHED_SUM_UPDATE": {
+   "code": 4616,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_REPEAT_REWARD_UPDATE": {
+   "code": 4614,
+   "type": "reward.RewardUpdatedRspMsg"
+  },
+  "U_C_REPLACEMENT_STATE": {
+   "code": 4423,
+   "type": "campaign.ReplacementMsg"
+  },
+  "U_C_REQUEST_BET_LIST": {
+   "code": 4532,
+   "type": "lucky.LordsOrderListMsg"
+  },
+  "U_C_REQUEST_GUILDCHALLENGE": {
+   "code": 4377,
+   "type": "guildcampaign.GuildChallengeOrderListMsg"
+  },
+  "U_C_REQUEST_GUILDLIST": {
+   "code": 4379,
+   "type": "guildcampaign.GuildChallengeOrderListMsg"
+  },
+  "U_C_RESET_MARKET_USE_ORDERCOUNT": {
+   "code": 4358,
+   "type": "market.MarketItemListMsg"
+  },
+  "U_C_RES_SINGLEPASS_INFO": {
+   "code": 4552,
+   "type": "tollgate.SinglePassMsg"
+  },
+  "U_C_REWARD_COUNT": {
+   "code": 4360,
+   "type": "player.RewardCountUpdateRspMsg"
+  },
+  "U_C_REWARD_FRESH": {
+   "code": 4197,
+   "type": "reward.RewardFreshRspMsg"
+  },
+  "U_C_REWARD_UPDATE": {
+   "code": 4198,
+   "type": "reward.RewardUpdatedRspMsg"
+  },
+  "U_C_ROLL_DICE": {
+   "code": 4860,
+   "type": "campaign.RollDiceMsg"
+  },
+  "U_C_ROLL_DICE_CONFIRM": {
+   "code": 4863,
+   "type": "campaign.CampaignNodeInfoMsg"
+  },
+  "U_C_ROOM_FIND_RESULT": {
+   "code": 4370,
+   "type": "room.RoomMsg"
+  },
+  "U_C_ROOM_SEND": {
+   "code": 4270,
+   "type": "room.RoomMsg"
+  },
+  "U_C_ROOM_STATE": {
+   "code": 25,
+   "type": "room.RoomStateRspMsg"
+  },
+  "U_C_RUNE_HOLE_INFO": {
+   "code": 4980,
+   "type": "army.RuneHoleAllInfoMsg"
+  },
+  "U_C_RUNE_RESET": {
+   "code": 4527,
+   "type": "fate.FateListMsg"
+  },
+  "U_C_SEAL_ORDER": {
+   "code": 4979,
+   "type": "battle.SealOrderMsg"
+  },
+  "U_C_SECRET_GET_TREASURE": {
+   "code": 453,
+   "type": "secret.SecretTreasureMsg"
+  },
+  "U_C_SECRET_INFO": {
+   "code": 452,
+   "type": "secret.AllSecretInfoMsg"
+  },
+  "U_C_SECRET_LAYER_INFO": {
+   "code": 455,
+   "type": "secret.AllSecretInfoMsg"
+  },
+  "U_C_SECURITY_CODE": {
+   "code": 4402,
+   "type": "campaign.WorldBossInfoLoadMsg"
+  },
+  "U_C_SECURITY_INFO_UPDATE": {
+   "code": 152,
+   "type": "castle.CastleYieldMsg"
+  },
+  "U_C_SELECT_NEW_YEAR_BOX_NODE": {
+   "code": 4811,
+   "type": "player.QueryCollectCampaignNodeRspMsg"
+  },
+  "U_C_SENDFAMLORDS_INFO": {
+   "code": 4632,
+   "type": "consortia.FamLordsInfoMsg"
+  },
+  "U_C_SEND_FINALRWARD_STATE": {
+   "code": 4533,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_SEND_NEEDOFFER": {
+   "code": 4380,
+   "type": "guildcampaign.GuildGroupListMsg"
+  },
+  "U_C_SEND_SYSPROPERTY": {
+   "code": 4160,
+   "type": "player.SystemPropertyMsg"
+  },
+  "U_C_SEND_VERSION": {
+   "code": 4233,
+   "type": "player.VersionMsg"
+  },
+  "U_C_SEND_WATER_RESULT": {
+   "code": 4158,
+   "type": "farm.FarmLogRsp"
+  },
+  "U_C_SERIAL_ARMY": {
+   "code": 150,
+   "type": "army.ArmyMsg"
+  },
+  "U_C_SEVEN_LOGIN_INFO": {
+   "code": 499,
+   "type": "newactive.SevenLoginInfoRes"
+  },
+  "U_C_SEVEN_SIGN_INFO": {
+   "code": 4705,
+   "type": "active.SevenSignInfoRsp"
+  },
+  "U_C_SEVEN_SIGN_RECEIVE": {
+   "code": 4704,
+   "type": "active.SevenSignReceiveRsp"
+  },
+  "U_C_SEVEN_TARGET_GIFT_RECEIVE": {
+   "code": 4703,
+   "type": "active.GiftReceiveRsp"
+  },
+  "U_C_SEVEN_TARGET_INFO": {
+   "code": 4701,
+   "type": "active.SevenTargetInfoRsp"
+  },
+  "U_C_SEVEN_TARGET_TASK_RECEIVE": {
+   "code": 4702,
+   "type": "active.TaskReceiveRsp"
+  },
+  "U_C_SHARE_REWARD": {
+   "code": 4848,
+   "type": "seventarget.ShareRewardInfo"
+  },
+  "U_C_SHOPITEM_FRESH": {
+   "code": 4384,
+   "type": "mall.ShopFreshRspMsg"
+  },
+  "U_C_SHOP_BUY": {
+   "code": 90,
+   "type": "shop.ShopMsg"
+  },
+  "U_C_SHOP_DISCOUNT": {
+   "code": 4375,
+   "type": "shop.MainDiscountInfo"
+  },
+  "U_C_SHOP_HASBUY": {
+   "code": 4145,
+   "type": "shop.ShopMsg"
+  },
+  "U_C_SHOP_MAIN": {
+   "code": 4238,
+   "type": "shop.ShopMainRspMsg"
+  },
+  "U_C_SIMPLEUSER_INFO": {
+   "code": 4128,
+   "type": "simple.InfoRspMsg"
+  },
+  "U_C_SKILL_EDIT_INFO": {
+   "code": 4740,
+   "type": "skilledit.SkillEditResMsg"
+  },
+  "U_C_SLOT_MACHINE": {
+   "code": 4865,
+   "type": "campaign.CampaignNodeInfoMsg"
+  },
+  "U_C_SMALL_BUGLE_FREE_COUNT": {
+   "code": 4500,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_C_STACK_HEAD_BATTLE_DEFENCE": {
+   "code": 310,
+   "type": "stackhead.StackHeadBattleDefenceMsg"
+  },
+  "U_C_STACK_HEAD_FULL": {
+   "code": 307,
+   "type": "stackhead.StackHeadFullMsg"
+  },
+  "U_C_STACK_HEAD_REPORT": {
+   "code": 320,
+   "type": "stackhead.StackHeadReportListMsg"
+  },
+  "U_C_STACK_HEAD_RESP": {
+   "code": 313,
+   "type": "stackhead.StackHeadRespMsg"
+  },
+  "U_C_STACK_HEAD_SELF": {
+   "code": 311,
+   "type": "stackhead.StackHeadSelfMsg"
+  },
+  "U_C_STACK_HEAD_SERVERSTATE": {
+   "code": 312,
+   "type": "stackhead.StackHeadStateMsg"
+  },
+  "U_C_STACK_HEAD_STATE": {
+   "code": 306,
+   "type": "stackhead.StackHeadStateMsg"
+  },
+  "U_C_STACK_HEAD_UPDATE": {
+   "code": 308,
+   "type": "stackhead.StackHeadUpdateMsg"
+  },
+  "U_C_STACK_HEAD_USER_LIST": {
+   "code": 309,
+   "type": "stackhead.StackHeadGuildUserListMsg"
+  },
+  "U_C_STARGAZING_DIG_INFO": {
+   "code": 276,
+   "type": "stargazing.StargazingDigResponseMsg"
+  },
+  "U_C_STARGAZING_INFO": {
+   "code": 275,
+   "type": "stargazing.StargazingResponseMsg"
+  },
+  "U_C_STARSHOP_BUY": {
+   "code": 4261,
+   "type": "star.StarShopMsg"
+  },
+  "U_C_START_MOVE_UPDATE": {
+   "code": 4178,
+   "type": "star.StarMoveRspMsg"
+  },
+  "U_C_STAR_COMPOSE": {
+   "code": 4479,
+   "type": "star.StarRandRspMsg"
+  },
+  "U_C_STAR_PICK": {
+   "code": 4179,
+   "type": "star.StarRandRspMsg"
+  },
+  "U_C_STAR_RAND": {
+   "code": 4180,
+   "type": "star.StarRandRspMsg"
+  },
+  "U_C_STAR_UP_STAR_INFO": {
+   "code": 4953,
+   "type": "star.StarInfoMsg"
+  },
+  "U_C_STORE_RATINGS_NOTIFY": {
+   "code": 4849,
+   "type": "storeratings.StoreRatingsNotifyInfo"
+  },
+  "U_C_STORE_RATINGS_REPORT_RESP": {
+   "code": 4850,
+   "type": "storeratings.StoreRatingsResp"
+  },
+  "U_C_SUMACTIVE_ACTIVATEDATA_RESP": {
+   "code": 4496,
+   "type": "active.SumActiveActivateRespMsg"
+  },
+  "U_C_SUMACTIVE_DATA": {
+   "code": 4476,
+   "type": "active.SumActiveDataMsg"
+  },
+  "U_C_SUM_ACTIVE_TEMP": {
+   "code": 4475,
+   "type": "active.SumActivesMsg"
+  },
+  "U_C_SUPERGIFTOFGROUP_INFO": {
+   "code": 445,
+   "type": "active.GroupBuyMsg"
+  },
+  "U_C_SWITCH": {
+   "code": 4422,
+   "type": "switches.SwitchInfoListMsg"
+  },
+  "U_C_SYNCHRONIZED_TIME": {
+   "code": 4234,
+   "type": "player.SynchronizedTimeMsg"
+  },
+  "U_C_SYNC_BOSS_HP": {
+   "code": 4174,
+   "type": "simple.WorldBossInfoMsg"
+  },
+  "U_C_SYNC_MINE_TRAMCAR": {
+   "code": 4548,
+   "type": "campaign.TramcarInfoMsg"
+  },
+  "U_C_SYNC_ROOM_BOSS_HP": {
+   "code": 4985,
+   "type": "simple.SyncRoomBossHPMsg"
+  },
+  "U_C_SYSTEMOPEN_ALLREADY": {
+   "code": 537,
+   "type": "systemopen.SystemOpenHashOpenList"
+  },
+  "U_C_SYSTEMOPEN_NEW": {
+   "code": 536,
+   "type": "systemopen.SystemOpenNewOpenSys"
+  },
+  "U_C_TAKECHALLENGE_RESULT": {
+   "code": 4243,
+   "type": "player.ChallengeRankRewardMsg"
+  },
+  "U_C_TAKEDROP_FAIL": {
+   "code": 4268,
+   "type": "battle.BattleReportMsg"
+  },
+  "U_C_TAKEFINALREWARD_RESULT": {
+   "code": 4534,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_TALENT_GRADE_UP": {
+   "code": 4430,
+   "type": "army.TalentUpGradeMsg"
+  },
+  "U_C_TALENT_INFO": {
+   "code": 4431,
+   "type": "army.HeroTalentMsg"
+  },
+  "U_C_TATTOO_RSP": {
+   "code": 274,
+   "type": "player.TattooHoleRspMsg"
+  },
+  "U_C_TEAM_ADD_MEMBER": {
+   "code": 4626,
+   "type": "team.TeamInfoMsg"
+  },
+  "U_C_TEAM_CAPTAIN_CHANGE": {
+   "code": 4627,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_TEAM_CREATE": {
+   "code": 4622,
+   "type": "team.TeamInfoMsg"
+  },
+  "U_C_TEAM_DISMISS": {
+   "code": 4625,
+   "type": "team.TeamInfoMsg"
+  },
+  "U_C_TEAM_FIGHT_POS_CHANGE": {
+   "code": 4628,
+   "type": "team.MemberFightPosListMsg"
+  },
+  "U_C_TEAM_INVITE": {
+   "code": 4620,
+   "type": "team.InviteTeamMsg"
+  },
+  "U_C_TEAM_KICK_MEMBER": {
+   "code": 4630,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_TEAM_LEAVE_FOR_NOW": {
+   "code": 4621,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_TEAM_MEMBER_LEFT": {
+   "code": 4629,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_TEAM_PLAYER_INFO": {
+   "code": 4624,
+   "type": "team.TeamInfoMsg"
+  },
+  "U_C_TEMPLE_INFO": {
+   "code": 4709,
+   "type": "temple.TempleInfoRsp"
+  },
+  "U_C_TIME_ZONE": {
+   "code": 362,
+   "type": "player.TimeZoneMsg"
+  },
+  "U_C_TOP_CHALLENGE_INFO": {
+   "code": 4619,
+   "type": "pet.PetChallengeInfoMsg"
+  },
+  "U_C_TOP_TOOL_BTN": {
+   "code": 4590,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_TOWERINFO": {
+   "code": 4205,
+   "type": "campaign.TowerInfoMsg"
+  },
+  "U_C_TOWERLIST": {
+   "code": 4373,
+   "type": "campaign.TowerListMsg"
+  },
+  "U_C_TOWER_REPORT": {
+   "code": 4419,
+   "type": "campaign.TowerInfoMsg"
+  },
+  "U_C_TRANSLATE": {
+   "code": 4745,
+   "type": "translate.TranslateRespMsg"
+  },
+  "U_C_TREASUREMAP_INFO": {
+   "code": 4633,
+   "type": "treasuremap.PlayerTreasureMsg"
+  },
+  "U_C_TREASURE_MINE_INFO": {
+   "code": 4741,
+   "type": "treasuremine.TreasureMineMsg"
+  },
+  "U_C_TREEINFO_UPDATE": {
+   "code": 147,
+   "type": "farm.TreeUpdateRsp"
+  },
+  "U_C_TREE_FRIEND": {
+   "code": 4146,
+   "type": "farm.FriendTreeRsp"
+  },
+  "U_C_TREE_PICK": {
+   "code": 106,
+   "type": "farm.TreeUpdateRsp"
+  },
+  "U_C_UIPLAY_INFO": {
+   "code": 4744,
+   "type": "uiplay.UserUiPlayInfoMsg"
+  },
+  "U_C_UIPLAY_LIST": {
+   "code": 4743,
+   "type": "uiplay.UserUiPlayListMsg"
+  },
+  "U_C_UNOCCPWILDLAND": {
+   "code": 108,
+   "type": "building.GiveupWildLandMsg"
+  },
+  "U_C_UPACCOUNT_ARTIFACT_RECAST": {
+   "code": 4869,
+   "type": "store.StoreRspMsg"
+  },
+  "U_C_UPACCOUNT_REWARD_RESP": {
+   "code": 4868,
+   "type": "player.UserBindReward"
+  },
+  "U_C_VEHICLE_STATE": {
+   "code": 4512,
+   "type": "room.MatchStateMsg"
+  },
+  "U_C_VIPCUSTOM_NOTIFY": {
+   "code": 4648,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_VIPMOUNT_STATE": {
+   "code": 4610,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_VIPROULETTE_RESULT": {
+   "code": 4415,
+   "type": "vip.VipRouletteMsg"
+  },
+  "U_C_VIP_GIFT_RSP": {
+   "code": 4409,
+   "type": "vip.OpenGiftRsp"
+  },
+  "U_C_VIP_INFO": {
+   "code": 4410,
+   "type": "vip.VipInfoMsg"
+  },
+  "U_C_VIP_OPENTIPS": {
+   "code": 4416,
+   "type": "vip.VipRouletteMsg"
+  },
+  "U_C_VOTE_KILLPLAYE": {
+   "code": 4984,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_WARFIELD_STATE": {
+   "code": 4248,
+   "type": "campaign.WorldBossStateMsg"
+  },
+  "U_C_WARMOVIE": {
+   "code": 4269,
+   "type": "campaign.WarMovieMsg"
+  },
+  "U_C_WATERLOG_SEND": {
+   "code": 145,
+   "type": "farm.FarmLogRsp"
+  },
+  "U_C_WISH_POOL_ALL_INFO": {
+   "code": 197,
+   "type": "active.WishPoolAllMsg"
+  },
+  "U_C_WISH_POOL_RESP": {
+   "code": 198,
+   "type": "active.WishPoolRespMsg"
+  },
+  "U_C_WISH_POOL_UPDATE": {
+   "code": 199,
+   "type": "active.WishPoolInfoMsg"
+  },
+  "U_C_WORLDBOSS_LOAD": {
+   "code": 4381,
+   "type": "campaign.WorldBossInfoLoadMsg"
+  },
+  "U_C_WORLDBOSS_REPORT": {
+   "code": 4203,
+   "type": "campaign.WorldBossReportMsg"
+  },
+  "U_C_WORLD_LEVEL": {
+   "code": 556,
+   "type": "simple.WorldLevelMsgInfo"
+  },
+  "U_C_WORLD_PROSPERITY": {
+   "code": 4438,
+   "type": "simple.PropertyMsg"
+  },
+  "U_EXTRAJOB_DETAIL": {
+   "code": 451,
+   "type": "extrajob.UserExtraJobMsg"
+  },
+  "U_EXTRAJOB_EQUIP_LIST": {
+   "code": 450,
+   "type": "extrajob.ExtraJobEquipMsg"
+  },
+  "U_EXTRAJOB_LIST": {
+   "code": 449,
+   "type": "extrajob.ExtraJobMsg"
+  },
+  "U_GEMMAZE_BUYTIMES_RSP": {
+   "code": 4927,
+   "type": "minigame.GemMazeBuyTimesRspMsg"
+  },
+  "U_GEMMAZE_GETBOX_RSP": {
+   "code": 4928,
+   "type": "minigame.GetRewardBoxRspMsg"
+  },
+  "U_GEMMAZE_OPRST": {
+   "code": 4924,
+   "type": "minigame.GemInviteOpMsg"
+  },
+  "U_G_LOGIN_OTHER": {
+   "code": 3842,
+   "type": "gateway.GatewayMsg"
+  },
+  "U_L_CREATE_LOGIN_RSP": {
+   "code": 3846,
+   "type": "login.createLoginRsp"
+  },
+  "U_L_GET_PLAYER_LIST": {
+   "code": 3843,
+   "type": "login.GetPlayerListRsp"
+  },
+  "U_L_PREPARE_LOGIN": {
+   "code": 3844,
+   "type": "login.playerLoginRsp"
+  },
+  "U_L_REGISTER_ROLE_RSP": {
+   "code": 3845,
+   "type": "login.registerRoleRsp"
+  },
+  "U_RARE_WEAPON_MAIN_INFO": {
+   "code": 553,
+   "type": "rareweapon.RareWeaponMainInfo"
+  },
+  "U_RARE_WEAPON_OTHER_PLAYER_INFO": {
+   "code": 560,
+   "type": "rareweapon.RareWeaponMainInfo"
+  },
+  "U_WARFIELD_FORCE_QUIT": {
+   "code": 4483,
+   "type": "room.MatchStateMsg"
+  },
+  "U_C_HANGUP_ROOM_STATE": {
+   "code": 4204,
+   "type": "campaign.HangupStateListMsg"
+  },
+  "U_C_HANGUP_SYNC": {
+   "code": 4235,
+   "type": "campaign.HangupInfoMsg"
+  },
+  "U_C_HANGUP_STATE": {
+   "code": 4200,
+   "type": "campaign.HangupInfoMsg"
+  },
+  "U_C_LEFT_WEARY": {
+   "code": 4199,
+   "type": "campaign.HangupInfoMsg"
+  },
+  "U_C_OFFLINE_REWARD": {
+   "code": 4195,
+   "type": "player.OfflineRewardMsg"
+  },
+  "U_C_PLAYER_AASCHANGE": {
+   "code": 4172,
+   "type": "player.PlayerAASRspMsg"
+  },
+  "U_C_CONSORTIA_VIP": {
+   "code": 4455,
+   "type": "vip.VipToConsortiaMsg"
+  },
+  "U_B_FIGHT_MODE": {
+   "code": 77,
+   "type": "battle.AttackModeMsg"
+  },
+  "U_C_PLAYER_TIME": {
+   "code": 4,
+   "type": "box.BoxMsg"
+  },
+  "U_C_CAMPAIGN_FOG_UPDATE": {
+   "code": 19,
+   "type": "campaign.CampaignFogUpdateMsg"
+  },
+  "U_C_CAMPAIGN_EXIT": {
+   "code": 22,
+   "type": "campaign.CampaignExitMsg"
+  },
+  "U_C_RUNE_OP": {
+   "code": 4495,
+   "type": "army.HeroRuneOpMsg"
+  },
+  "U_C_BUILDING_UPENERGY": {
+   "code": 103,
+   "type": "building.TransInfoMsg"
+  },
+  "U_C_BUILDING_TRANSCASTLE": {
+   "code": 105,
+   "type": "castle.CastleReqMsg"
+  },
+  "U_C_TRASNBUILDING_RESULT": {
+   "code": 4159,
+   "type": "castle.CastleReqMsg"
+  },
+  "U_C_CAMPAIGN_LOGIN_OUT": {
+   "code": 123,
+   "type": "campaign.CampaignLoginMsg"
+  },
+  "U_C_CAMPAIGN_LOGIN_IN": {
+   "code": 124,
+   "type": "campaign.CampaignLoginMsg"
+  },
+  "U_C_CAMPAIGN_NODE": {
+   "code": 127,
+   "type": "campaign.CampaignNodeListMsg"
+  },
+  "U_C_CAMPAIGN_NODE_UPDATE": {
+   "code": 128,
+   "type": "campaign.CampaignNodeUpdateMsg"
+  },
+  "U_C_NODE_SUCCESS": {
+   "code": 129,
+   "type": "campaign.CampaignNodeSuccMsg"
+  },
+  "U_C_CAMPAIGN_FOG": {
+   "code": 130,
+   "type": "campaign.CampaignFogMsg"
+  },
+  "U_C_CAMPAIGN_ARMY_UPDATE": {
+   "code": 131,
+   "type": "army.ArmyMsg"
+  },
+  "U_C_CAMPAIGN_BOSS_ARMY_INVITE": {
+   "code": 132,
+   "type": "campaign.BossInviteMsg"
+  },
+  "U_C_CAMPAIGN_BOSS_ARMY_LIST": {
+   "code": 133,
+   "type": "army.BossArmyListMsg"
+  },
+  "U_C_GAME_PLOT": {
+   "code": 138,
+   "type": "gameplot.PlotMsg"
+  },
+  "U_C_CAMERA_MOVE": {
+   "code": 142,
+   "type": "player.PlayerMoveCameraMsg"
+  },
+  "U_B_ATTACKING": {
+   "code": 153,
+   "type": "battle.AttackOrderMsg"
+  },
+  "U_B_START": {
+   "code": 156,
+   "type": "battle.BattleStartMsg"
+  },
+  "U_B_PREPARE": {
+   "code": 157,
+   "type": "battle.BattlePrepareMsg"
+  },
+  "U_C_SNSINFO": {
+   "code": 4388,
+   "type": "player.SnsRspMsg"
+  },
+  "U_B_LOAD_RES": {
+   "code": 4149,
+   "type": "battle.ArmyResMsg"
+  },
+  "U_C_ARMY_POS_UPDATE": {
+   "code": 4104,
+   "type": "army.ArmyPosUpdatedMsg"
+  },
+  "U_C_ARMYPOS_BROAD": {
+   "code": 4185,
+   "type": "worldmap.PosMoveMsg"
+  },
+  "U_C_NPC_MOVE": {
+   "code": 4122,
+   "type": "campaign.NPCMoveMsg"
+  },
+  "U_C_ESCORT_NPC_FOLLOW": {
+   "code": 4124,
+   "type": "campaign.NPCFollowMsg"
+  },
+  "U_C_SEND_STANDPOS": {
+   "code": 4126,
+   "type": "campaign.StandPosMsg"
+  },
+  "U_C_PLAYER_DIE_STATE": {
+   "code": 4175,
+   "type": "simple.PlayerStateListMsg"
+  },
+  "U_C_MULTI_HPSYNC": {
+   "code": 4183,
+   "type": "campaign.MultiCampaignHpSyncMsg"
+  },
+  "U_C_LUCKY_REFRESH": {
+   "code": 4224,
+   "type": "lucky.PlayerLuckyMsg"
+  },
+  "U_C_REFININGSOUL_FRFRESH": {
+   "code": 4372,
+   "type": "lucky.PlayerRefiningSoulMsg"
+  },
+  "U_C_PLAYER_HANGUPSTATE": {
+   "code": 4206,
+   "type": "campaign.PlayerHangupStateListMsg"
+  },
+  "U_C_WARFIELD_INFO": {
+   "code": 4252,
+   "type": "campaign.WarFightInfoMsg"
+  },
+  "U_C_ORDERREQUEST": {
+   "code": 4255,
+   "type": "campaign.WarReportListMsg"
+  },
+  "U_C_NODEPOS_REFERSH": {
+   "code": 4253,
+   "type": "campaign.CampaignNodePosRefershListMsg"
+  },
+  "U_C_ITEM_REFRESHPROPERTY": {
+   "code": 4368,
+   "type": "store.RefreshPropertyRepMsg"
+  },
+  "U_C_REFRESHFORRANDOM": {
+   "code": 4258,
+   "type": "store.SmithFreshRspMsg"
+  },
+  "U_C_BROADBUFFER": {
+   "code": 4262,
+   "type": "army.ArmyBufferListMsg"
+  },
+  "U_C_CAMPAIGN_NODE_ADD": {
+   "code": 4264,
+   "type": "campaign.CampaignNodeListMsg"
+  },
+  "U_C_MALL_SELL_ITEM": {
+   "code": 4352,
+   "type": "simple.SellItemRspMsg"
+  },
+  "U_C_MALL_LIST_SELL": {
+   "code": 4353,
+   "type": "simple.AuctionItemsMsg"
+  },
+  "U_C_MALL_PLAYER_ITEMS": {
+   "code": 4354,
+   "type": "simple.AuctionItemsMsg"
+  },
+  "U_C_MALL_AUCTION": {
+   "code": 4355,
+   "type": "simple.AuctionItemRspMsg"
+  },
+  "U_C_MALL_LIST_AUCTION": {
+   "code": 4356,
+   "type": "simple.AuctionItemsMsg"
+  },
+  "U_C_MALL_FIX_AUCTION": {
+   "code": 4357,
+   "type": "mall.FixAuctionItemRspMsg"
+  },
+  "U_C_MALL_CANCEL_SELL": {
+   "code": 4358,
+   "type": "simple.CanceltemRspMsg"
+  },
+  "U_C_MALL_SEARCH": {
+   "code": 4359,
+   "type": "simple.AuctionItemsMsg"
+  },
+  "U_B_BATTLE_NOTICE": {
+   "code": 4361,
+   "type": "battle.BattleNoticeMsg"
+  },
+  "U_C_TIME_JUDGE": {
+   "code": 4371,
+   "type": "campaign.TimeJudgeMsg"
+  },
+  "U_C_SHOPITEM_BUY": {
+   "code": 4383,
+   "type": "mall.ShopItemBuyRspMsg"
+  },
+  "U_C_OPEN_CUSTOMER": {
+   "code": 4392,
+   "type": "customer.FastOpenCustomerMsg"
+  },
+  "U_C_BLESS_REFRESH": {
+   "code": 4391,
+   "type": "player.BlessingMsg"
+  },
+  "U_C_KING_CONTRACTE": {
+   "code": 4434,
+   "type": "player.KingContractMsg"
+  },
+  "U_C_GUILDWAR_SCORE": {
+   "code": 4439,
+   "type": "guildcampaign.GuildWarInfoListMsg"
+  },
+  "U_C_GUILDWAR_BUFFER": {
+   "code": 4440,
+   "type": "guildcampaign.GuildBufferListMsg"
+  },
+  "U_C_NODE_HP": {
+   "code": 4450,
+   "type": "guildcampaign.NodeHpListMsg"
+  },
+  "U_C_GUILDWAR_JOIN_PLAYER_COUNT": {
+   "code": 4462,
+   "type": "guildcampaign.GuildJoinPlayerInfoMsg"
+  },
+  "U_C_GUILDWAR_WOUND": {
+   "code": 4460,
+   "type": "simple.WorldBossInfoMsg"
+  },
+  "U_BUY_TRIAL_RESULT": {
+   "code": 4467,
+   "type": "battle.TrialInfoMsg"
+  },
+  "U_C_VEHICLE_NPC_NODE": {
+   "code": 4474,
+   "type": "vehicle.VehicleNpcNodeListMsg"
+  },
+  "U_HERO_TRIAL_IFNO": {
+   "code": 4468,
+   "type": "battle.PlayerTrialMsg"
+  },
+  "U_C_MYSTERYEVENT_LIST": {
+   "code": 4470,
+   "type": "mall.MysteryEventListMsg"
+  },
+  "U_C_FASHION_SHOP_BUY": {
+   "code": 4486,
+   "type": "shop.FashionShopMsg"
+  },
+  "U_C_CROSS_ARMY_UPDATE": {
+   "code": 4494,
+   "type": "army.CrossArmyListMsg"
+  },
+  "U_C_VEHICLE_LIST_RSP": {
+   "code": 4516,
+   "type": "vehicle.PlayerVehicleListMsg"
+  },
+  "U_C_VEHICLE_PROFILE_CHANGE": {
+   "code": 4515,
+   "type": "vehicle.PlayerVehicleProfileMsg"
+  },
+  "U_C_VEHICLE_ATTACK_RSP": {
+   "code": 4520,
+   "type": "vehicle.VehicleAttackRspMsg"
+  },
+  "U_C_VEHICLE_SYNC_SKILL": {
+   "code": 4521,
+   "type": "vehicle.SnowVehicleSkillListMsg",
+   "source": "client"
+  },
+  "U_C_VEHICLE_SYNC_BUFF": {
+   "code": 4522,
+   "type": "vehicle.VehicleBuffListMsg",
+   "source": "client"
+  },
+  "U_C_VEHICLE_EXIT": {
+   "code": 4523,
+   "type": "vehicle.VehicleExitMsg"
+  },
+  "U_C_VEHICLE_CAMPAIGN_LIST_RSP": {
+   "code": 4517,
+   "type": "vehicle.PlayerVehicleListMsg"
+  },
+  "U_C_VEHICLE_JOIN": {
+   "code": 4513,
+   "type": "vehicle.PlayerVehicleListMsg"
+  },
+  "U_C_VEHICLE_DETAILE": {
+   "code": 4518,
+   "type": "vehicle.VehicleCampaignDetailMsg"
+  },
+  "U_C_VEHICLE_END": {
+   "code": 4514,
+   "type": "vehicle.VehicleCampaignDetailMsg"
+  },
+  "U_C_VEHICLE_BOSS_ATTACK_TIP": {
+   "code": 4524,
+   "type": "vehicle.VehicleAttackRspMsg"
+  },
+  "U_C_VEHICLE_ROOM_START_COUNT": {
+   "code": 4525,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_VEHICLE_TECH_RSP": {
+   "code": 4501,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_REQUEST_360_REWARD": {
+   "code": 4543,
+   "type": "privilege.PrivilegeMsg"
+  },
+  "U_C_FATE_TURNREQUEST": {
+   "code": 4545,
+   "type": "fate.FateEditMsg"
+  },
+  "U_C_PLAYER_SPACE_ENTER": {
+   "code": 4592,
+   "type": "room.RoomEnterMsg"
+  },
+  "U_C_PLAYER_SPACE_LEAVE": {
+   "code": 4593,
+   "type": "campaign.CampaignExitMsg"
+  },
+  "U_C_PLAYER_SPACE_EVENT": {
+   "code": 4601,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_UPDATE_AWAKE": {
+   "code": 4600,
+   "type": "battle.AwakeMsg"
+  },
+  "U_C_NPC_LOCK": {
+   "code": 4609,
+   "type": "campaign.NodeLockReqMsg"
+  },
+  "U_C_ACTIVE_DEPOSIT": {
+   "code": 4612,
+   "type": "active.DepositActiveMsg"
+  },
+  "U_C_SERVEN_LEAD": {
+   "code": 4638,
+   "type": "leed.ServenDayLeadMsg"
+  },
+  "U_C_LOTTERY": {
+   "code": 4636,
+   "type": "lottery.LotteryMsg"
+  },
+  "U_C_LOTTERY_STATE": {
+   "code": 4637,
+   "type": "lottery.LotteryMsg"
+  },
+  "U_C_LOTTERY_NOTICE": {
+   "code": 4639,
+   "type": "lottery.LotteryMsg"
+  },
+  "U_C_LOTTERY_ITEMS": {
+   "code": 4641,
+   "type": "vip.VipRouletteMsg"
+  },
+  "U_C_LOTTERY_RESULT": {
+   "code": 4642,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_FRESHMAN_DEPOSIT": {
+   "code": 4640,
+   "type": "active.DepositActiveMsg"
+  },
+  "U_C_TOLLGATE_IS_OPEN": {
+   "code": 4645,
+   "type": "tollgate.TollgateMsg"
+  },
+  "U_C_TOLLGATE_SCORE": {
+   "code": 4646,
+   "type": "tollgate.TollgateMsg"
+  },
+  "U_C_TOLLGATE_REWARD": {
+   "code": 4647,
+   "type": "tollgate.TollgateRewardMsg"
+  },
+  "U_C_SLOTINFO": {
+   "code": 4901,
+   "type": "active.SlotActiveMsg"
+  },
+  "U_C_POWCARD_BUF_ON": {
+   "code": 4903,
+   "type": "powcard.PowCardBufListMsg"
+  },
+  "U_C_POWCARD_ALL": {
+   "code": 4905,
+   "type": "powcard.PowCardSuiteListMsg"
+  },
+  "U_C_FBEVENT": {
+   "code": 4906,
+   "type": "player.FbEventMsg"
+  },
+  "U_C_ANSWER_PLAYER_INFO": {
+   "code": 4907,
+   "type": "answerquestion.playeranswerquestionMsg"
+  },
+  "U_C_ANSWER_SINGLER_QUESTION": {
+   "code": 4909,
+   "type": "answerquestion.singleranswerquestionMsg"
+  },
+  "U_C_ANSWER_SYSTEM_STATE": {
+   "code": 4908,
+   "type": "answerquestion.SysAnswerQuestionStateMsg"
+  },
+  "U_C_ANSWER_RANK_LIST": {
+   "code": 4910,
+   "type": "answerquestion.TenAnswerQuestionOrderMsg"
+  },
+  "U_C_ACTIVE_CODE": {
+   "code": 4911,
+   "type": "item.UseConvertCodeMsg"
+  },
+  "U_C_SEEK_LOADNODEINFO": {
+   "code": 4914,
+   "type": "seek.PlayerSeekInfoMsg"
+  },
+  "U_C_SEEK_MESSAGE": {
+   "code": 4915,
+   "type": "seek.MessageForSeekMsg"
+  },
+  "U_C_FISH_POOL": {
+   "code": 4916,
+   "type": "fish.FishPoolMsg"
+  },
+  "U_C_FISH_CHECK": {
+   "code": 4917,
+   "type": "fish.FishResultMsg"
+  },
+  "U_C_FISH_INFOS": {
+   "code": 4918,
+   "type": "fish.FishInfosMsg"
+  },
+  "U_C_FISH_HELPOVER": {
+   "code": 4919,
+   "type": "fish.HelpOverMsg"
+  },
+  "U_C_FISH_CRAZY": {
+   "code": 4920,
+   "type": "fish.CrazyFishInfoMsg"
+  },
+  "U_C_FBEVENT2": {
+   "code": 4921,
+   "type": "player.FbShareMsg"
+  },
+  "U_GEMMAZE_INVIDE_NOTICE": {
+   "code": 4925,
+   "type": "minigame.GemMoveInviteReqMsg"
+  },
+  "U_C_VICEPASSWORD": {
+   "code": 4696,
+   "type": "player.VicePasswordMsg"
+  },
+  "U_C_CHANGE_PRODUCT_TODAYCOUNT": {
+   "code": 4723,
+   "type": "charge.ChargeProductCountList"
+  },
+  "U_C_PASS_TASK_FRESH_INFO": {
+   "code": 4727,
+   "type": "active.PassTaskInfoRsp"
+  },
+  "U_C_GET_ALL_BUBBLE": {
+   "code": 4729,
+   "type": "bubble.AllBubbleInfoMsg"
+  },
+  "U_C_CHANGE_BUBBLE": {
+   "code": 4728,
+   "type": "bubble.ChangeBubbleInfoMsg"
+  },
+  "U_C_TURNTABLE_REWARD": {
+   "code": 4561,
+   "type": "active.TurnTableRewardMsg"
+  },
+  "U_C_TURNTABLE_RSP": {
+   "code": 4559,
+   "type": "shop.GrouponShopMsg"
+  },
+  "U_C_TURNTABLE_SINGLE_RSP": {
+   "code": 4560,
+   "type": "active.TurnTableMsg"
+  },
+  "U_C_TURNTABLE_RECEIVE_RESP": {
+   "code": 4562,
+   "type": "active.TurnTableReceiveResp"
+  },
+  "U_C_MULTILORDS_INFO": {
+   "code": 4716,
+   "type": "multilords.MultiLordsMsg"
+  },
+  "U_C_MULTILORDS_OPENSTATE": {
+   "code": 4719,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_MULTILORDS_FINALORDER": {
+   "code": 4855,
+   "type": "multilords.MultiLordsMsg"
+  },
+  "U_C_MULTILORDS_SIGN_NOTIC": {
+   "code": 4856,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_MULTILORDS_MAININFO": {
+   "code": 4857,
+   "type": "multilords.MultiLordsMsg"
+  },
+  "U_C_MULTILORDS_LOCAL_FINAL": {
+   "code": 4858,
+   "type": "multilords.MultiLordsMsg"
+  },
+  "U_C_REQUEST_MULTIBET_LIST": {
+   "code": 4859,
+   "type": "multilords.MultiLordsMsg"
+  },
+  "U_C_SUPER_SIGNIN_CARD": {
+   "code": 513,
+   "type": "cccactive.SuperSigninCardRespMsg",
+   "source": "client"
+  },
+  "U_C_SUPER_SIGNIN_CARD_TEMP": {
+   "code": 514,
+   "type": "cccactive.SuperSigninRewardMsg",
+   "source": "client"
+  },
+  "U_C_ALL_GUARD_INFO": {
+   "type": "carnival.GuardTotalInfoMsg",
+   "source": "client"
+  },
+  "U_C_SINGLE_GUARD_INFO": {
+   "type": "carnival.GuardInfoMsg",
+   "source": "client"
+  },
+  "U_C_GUARD_FORMATION_INFO": {
+   "type": "carnival.ChallengeGuardInfoMsg",
+   "source": "client"
+  },
+  "U_C_LOOK_GUARD_INFO": {
+   "type": "carnival.GuardInfoMsg",
+   "source": "client"
+  },
+  "U_C_GUARD_PROP_CHANGE": {
+   "type": "carnival.GuardFightTotalMsg",
+   "source": "client"
+  },
+  "U_C_CAMPAIGN_REPORT": {
+   "code": 137,
+   "type": "campaign.CampaignReportMsg",
+   "source": "client"
+  },
+  "U_C_CONSORTIA_BOSS_SYNC_HP": {
+   "code": 4737,
+   "type": "simple.WorldBossInfoMsg",
+   "source": "client"
+  },
+  "U_C_CONSORTIA_BOSS_STATE": {
+   "code": 4739,
+   "type": "consortia.ConsortiaBossStateMsg",
+   "source": "client"
+  },
+  "U_C_GUARD_WAR_BOSS_BUFFER": {
+   "type": "simple.PropertyMsg",
+   "source": "client"
+  },
+  "U_C_TRANSFER_INFO": {
+   "type": "recover.TransferInfoRes",
+   "source": "client"
+  },
+  "U_C_SHOP_GIFT_PACKAGE_TOTAL_INFO": {
+   "type": "giftpackage.GiftPackageTotalInfo",
+   "source": "client"
+  },
+  "U_C_SHOP_CAR_BUY_RES": {
+   "type": "shop.ShopCarMsg",
+   "source": "client"
+  },
+  "U_C_ANGEL_BLESS_PLAYER_INFO": {
+   "type": "cccactive.AngelBlessingActiveInfoRes",
+   "source": "client"
+  },
+  "U_C_ANGEL_BLESS_TEMPLATE": {
+   "type": "cccactive.AngelBlessingTemplateRes",
+   "source": "client"
+  },
+  "U_C_NEBULA_INFO": {
+   "type": "active.NebulaPrayActiveRes",
+   "source": "client"
+  },
+  "U_C_NEBULA_TEMPLATE_INFO": {
+   "type": "active.NebulaPrayActiveMsg",
+   "source": "client"
+  },
+  "U_C_STAR_MOON_RUINS_TEMPLETE_INFO": {
+   "type": "cccactive.StarMoonRemainsTotalTempInfo",
+   "source": "client"
+  },
+  "U_C_STAR_MOON_RUINS_PLAYER_INFO": {
+   "type": "cccactive.StarMoonRemainsPlayerInfo",
+   "source": "client"
+  },
+  "U_C_STAR_MOON_RUINS_SHOP_INFO": {
+   "type": "cccactive.StarMoonRemainsShopInfos",
+   "source": "client"
+  },
+  "U_C_STAR_MOON_RUINS_LOTTERY_RECORD_INFO": {
+   "type": "cccactive.StarMoonRemainsLotteryRecordInfos",
+   "source": "client"
+  },
+  "U_C_STAR_MOON_LOTTERY_DRAW_INFO": {
+   "type": "cccactive.StarMoonRemainsLotteryItemsInfoMsg",
+   "source": "client"
+  },
+  "U_C_ARCANE_FEAST_TEMP_INFO": {
+   "type": "cccactive.ArcaneFeastActiveTemplateRes",
+   "source": "client"
+  },
+  "U_C_ARCANE_FEAST_PLAYER_INFO": {
+   "type": "cccactive.ArcaneFeastPlayerInfoRes",
+   "source": "client"
+  },
+  "U_C_ARCANE_FEAST_EXCHANGE_INFO": {
+   "type": "cccactive.ArcaneFeastExchangeInfoRes",
+   "source": "client"
+  },
+  "U_C_CHARGE_LOTTERY_V2_ACTIVE_TEMP_INFO": {
+   "type": "cccactive.ChargePointLotteryV2TempMsg",
+   "source": "client"
+  },
+  "U_C_CHARGE_LOTTERY_V2_ACTIVE_PLAYER_INF0": {
+   "type": "cccactive.ChargePointLotteryV2InfoMsg",
+   "source": "client"
+  },
+  "U_C_CHARGE_LOTTERY_V2_ACTIVE_LOTTERY_RECORD": {
+   "type": "cccactive.ChargePointLotteryV2RecordsMsg",
+   "source": "client"
+  },
+  "U_C_ACHIEVE_TOTAL_POINT_INFO": {
+   "code": 541,
+   "type": "active.AchieveTotalPointInfoMsg",
+   "source": "client"
+  },
+  "U_C_CONSORTIA_PVE_PLAYER_DATA": {
+   "type": "consortiapve.ConsortiaPlayerDataMsg",
+   "source": "client"
+  },
+  "U_CONSORTIA_PVE_HURT_RANK": {
+   "type": "consortiapve.ConsortiaPveDmgRankInfos",
+   "source": "client"
+  },
+  "U_C_C_GUARD_EXPEDITIONARY_INFO": {
+   "type": "carnival.GuardExpeditionResInfoMsg",
+   "source": "client"
+  },
+  "U_C_GUILD_MAZE_DATA": {
+   "type": "guildmaze.GuildMazeMsg",
+   "source": "client"
+  },
+  "U_C_GUILD_MAZE_GRID_UPDATE": {
+   "type": "guildmaze.GuildMazeGridUpdateMsg",
+   "source": "client"
+  },
+  "U_C_GUILD_MAZE_BOSS_UPDATE": {
+   "type": "guildmaze.GuildMazeBossUpdateMsg",
+   "source": "client"
+  },
+  "U_C_GUILD_MAZE_TASK_DATA": {
+   "type": "guildmaze.GuildMazeTaskListMsg",
+   "source": "client"
+  },
+  "U_C_GUILD_MAZE_TASK_UPDATE": {
+   "type": "guildmaze.GuildMazeTaskUpdateMsg",
+   "source": "client"
+  },
+  "U_C_GUILD_MAZE_USER_DATA": {
+   "type": "guildmaze.GuildMazeUserMsg",
+   "source": "client"
+  },
+  "U_C_GUILD_MAZE_RED_POINT": {
+   "type": "guildmaze.GuildMazeRedPointMsg",
+   "source": "client"
+  },
+  "U_C_GUILD_MAZE_ORDER": {
+   "type": "guildmaze.GuildMazeOrderListMsg",
+   "source": "client"
+  },
+  "U_C_GUILD_MAZE_ACTIVE": {
+   "type": "guildmaze.GuildMazeActiveMsg",
+   "source": "client"
+  },
+  "U_C_CROSS_ROOM_RES": {
+   "type": "room.CrossRoomRsp",
+   "source": "client"
+  },
+  "U_C_CROSS_ROOM_INFO": {
+   "type": "room.CrossRoomMsg",
+   "source": "client"
+  },
+  "U_C_CROSS_ROOM_INVITE_LIST": {
+   "type": "room.CrossRoomInviterListRes",
+   "source": "client"
+  },
+  "U_C_CROSS_ROOM_KICK_OUT_MSG": {
+   "type": "room.CrossRoomKickOutMsg",
+   "source": "client"
+  },
+  "U_C_CROSS_ROOM_INVITE_MSG": {
+   "type": "room.CrossRoomInviteMsg",
+   "source": "client"
+  },
+  "U_C_CRISIS_CAMPAIGN_INVITE_INFO": {
+   "type": "crisis.InviteInfo",
+   "source": "client"
+  },
+  "U_C_CRISIS_CAMPAIGN_ON_FIGHT": {
+   "type": "crisis.FightInfo",
+   "source": "client"
+  },
+  "U_C_GAME_BOX_INFO": {
+   "type": "gamebox.GameBoxInfoRes",
+   "source": "client"
+  },
+  "U_C_LORD_PRIVILEGE_INFO": {
+   "type": "active.LordPrivilegePlayerInfoRes",
+   "source": "client"
+  },
+  "U_C_SKY_TREASURE_RANK_INFO": {
+   "code": 545,
+   "type": "cccactive.SkyTreasureRankInfoRes",
+   "source": "client"
+  },
+  "U_C_SKY_TREASURE_RANK_HISTORY": {
+   "code": 546,
+   "type": "cccactive.SkyTreasureAwardHistoryRes",
+   "source": "client"
+  },
+  "U_C_SKY_TREASURE_LOTTERY_INFO": {
+   "code": 547,
+   "type": "cccactive.SkyTreasurePlayerInfoRes",
+   "source": "client"
+  },
+  "U_C_SKY_TREASURE_LOTTERY_RECORD": {
+   "code": 548,
+   "type": "cccactive.SkyTreasureLotteryRecordRes",
+   "source": "client"
+  },
+  "U_C_SKY_TREASURE_EXCHANGE_INFO": {
+   "code": 549,
+   "type": "cccactive.SkyTreasureExchangeInfoRes",
+   "source": "client"
+  },
+  "U_C_SKY_TREASURE_EXCHANGE_RES": {
+   "code": 550,
+   "type": "cccactive.SkyTreasureExchangeRes",
+   "source": "client"
+  },
+  "U_C_SKY_TREASURE_ACTIVE_CONFIG": {
+   "code": 551,
+   "type": "cccactive.SkyTreasureActiveTempInfoRes",
+   "source": "client"
+  },
+  "U_C_EXCHANGE_CENTER_RES": {
+   "type": "active.ExchangeCenterRes",
+   "source": "client"
+  },
+  "U_C_EXCHANGE_CENTER_TEMPLATE": {
+   "type": "active.ExchangeCenterTemplatePB",
+   "source": "client"
+  },
+  "U_C_ACTIVE_NOTICE": {
+   "type": "active.CommonActiveNoticeMessage",
+   "source": "client"
+  },
+  "U_C_LUCKYDISCOUNT_BOARD_INFO": {
+   "type": "cccactive.LuckyDisCountActivePlayerInfo",
+   "source": "client"
+  },
+  "U_C_LUCKYDISCOUNT_TEMPLATE_INFO": {
+   "type": "cccactive.LuckyDisCountActiveTempInfo",
+   "source": "client"
+  },
+  "U_C_SHOPPING_BLIND_BOX_PLAYER_INFO": {
+   "type": "cccactive.ShopBlindBoxPlayerInfo",
+   "source": "client"
+  },
+  "U_C_SHOPPING_BLIND_BOX_TEMPLETE_INFO": {
+   "type": "cccactive.ShopBlindBoxTotalTempInfo",
+   "source": "client"
+  },
+  "U_C_SHOPPING_BLIND_BOX_REWARD_INFO": {
+   "type": "cccactive.ShopBlindBoxLotteryItemsInfoMsg",
+   "source": "client"
+  },
+  "U_C_FREE_RECHARGE_TEMP": {
+   "type": "active.FreeRechargeTemplateRes",
+   "source": "client"
+  },
+  "U_C_FIRST_RECHARGE_TEMP": {
+   "type": "active.FirstRechargeTemplateRes",
+   "source": "client"
+  },
+  "U_C_FIRST_RECHARGE_INFO": {
+   "type": "active.FirstRechargeInfoRes",
+   "source": "client"
+  },
+  "U_C_SPRING_FESTIVAL_TOTAL_TEMP_INFO": {
+   "type": "cccactive.SpringFestivalTotalTempInfo",
+   "source": "client"
+  },
+  "U_C_SYNODIC_MONTH_PASSWORD_CONTRACT_TEMP": {
+   "type": "cccactive.DayPasswordTempInfos",
+   "source": "client"
+  },
+  "U_C_SYNODIC_MONTH_PASSWORD_CONTRACT_INFO": {
+   "type": "cccactive.DayPasswordPlayerInfo",
+   "source": "client"
+  },
+  "U_C_SYNODIC_MONTH_DAILY_FIRST_CHARGE_TEMP": {
+   "type": "cccactive.DayFirstRechargeTempMsgInfos",
+   "source": "client"
+  },
+  "U_C_SYNODIC_MONTH_DAILY_FIRST_CHARGE_INFO": {
+   "type": "cccactive.DayFirstRechargeInfo",
+   "source": "client"
+  },
+  "U_C_SYNODIC_MONTH_DAILY_SIGN_IN_TEMP": {
+   "type": "cccactive.DaySignInTempMsgInfos",
+   "source": "client"
+  },
+  "U_C_SYNODIC_MONTH_DAILY_SIGN_IN_INFO": {
+   "type": "cccactive.DaySignInInfo",
+   "source": "client"
+  },
+  "U_C_SYNODIC_MONTH_DAILY_TASK_TEMP": {
+   "type": "cccactive.NewMoonTempMsgInfos",
+   "source": "client"
+  },
+  "U_C_SYNODIC_MONTH_DAILY_TASK_INFO": {
+   "type": "cccactive.NewMoonInfos",
+   "source": "client"
+  },
+  "U_C_SYNODIC_MONTH_FULL_MOON_INVASION_TEMP": {
+   "type": "cccactive.FullMoonTempInfo",
+   "source": "client"
+  },
+  "U_C_SYNODIC_MONTH_FULL_MOON_INVASION_INFO": {
+   "type": "cccactive.FullMoonPlayerInfo",
+   "source": "client"
+  },
+  "U_C_LADDER_RANK_INVITE_LIST": {
+   "type": "gamebox.SeasonPvpTeamInviteTotalMsg",
+   "source": "client"
+  },
+  "U_C_LADDER_RANK_TEAM_INFO": {
+   "type": "gamebox.SeasonPvpTeamTotalMsg",
+   "source": "client"
+  },
+  "U_C_SEASON_PVP_RANK_INFO": {
+   "type": "gamebox.SeasonPvpTotalRankMsg",
+   "source": "client"
+  },
+  "U_C_SEASON_STATE_INFO": {
+   "type": "gamebox.SeasonPvpStateMsg",
+   "source": "client"
+  },
+  "U_C_SEASON_PVP_INFO": {
+   "type": "gamebox.TopTeamTotalMsg",
+   "source": "client"
+  },
+  "U_C_SEASON_GUESS_TEAM_INFO": {
+   "type": "gamebox.SeasonPvpBetTotalTempMsg",
+   "source": "client"
+  },
+  "U_C_SEASON_GUESS_STATUS_INFO": {
+   "type": "gamebox.SeasonPvpBetTotalMsg",
+   "source": "client"
+  },
+  "U_C_LOOK_TEAM_INFO": {
+   "type": "gamebox.TeamMemberTotalInfo",
+   "source": "client"
+  },
+  "U_C_SEASON_GUESS_REWARD_STATUS_INFO": {
+   "type": "gamebox.SeasonPvpBetRewardsTempMsg",
+   "source": "client"
+  },
+  "U_C_SEASON_PVP_TOP_RANK_INFO": {
+   "type": "gamebox.SeasonPvpRankMsg",
+   "source": "client"
+  },
+  "U_C_SEASON_INVITE_ALERT": {
+   "type": "gamebox.SeasonInviteWindowMsg",
+   "source": "client"
+  },
+  "U_C_SEASON_TOP_TEAM_INFO": {
+   "type": "gamebox.TeamMemberTotalInfo",
+   "source": "client"
+  },
+  "U_C_SEASON_NOTICE_LEADER_TEAM_INFO": {
+   "type": "gamebox.SeasonNotifyMsg",
+   "source": "client"
+  },
+  "U_C_SEASON_ACTIVITY_INFO": {
+   "type": "gamebox.SeasonModuleStateRes",
+   "source": "client"
+  },
+  "U_C_SEASON_SHOP_INFO": {
+   "type": "gamebox.SeasonShopInfoRes",
+   "source": "client"
+  },
+  "U_C_SEASON_PASS_INFO": {
+   "type": "gamebox.SeasonPassInfoRes",
+   "source": "client"
+  },
+  "U_C_CHAT_HALL_INFO_MSG": {
+   "type": "chathall.ChatHallInfoMsgRes",
+   "source": "client"
+  },
+  "U_C_SEASON_PASS_TASK_UPDATE": {
+   "type": "gamebox.SeasonTaskUpdateMsg",
+   "source": "client"
+  },
+  "U_C_GUARD_DRAW_INFO": {
+   "type": "carnival.GuardDrawInfoRes",
+   "source": "client"
+  },
+  "U_C_GUARD_DRAW_RECORD_RES": {
+   "type": "carnival.GuardDrawRecordRes",
+   "source": "client"
+  },
+  "U_C_GUARD_DRAW_AWARD_RES": {
+   "type": "carnival.GuardDrawAwardRes",
+   "source": "client"
+  },
+  "U_C_WISH_RECRUIT_TEMPLATE_INFO": {
+   "type": "active.WishRecruitActiveMsg",
+   "source": "client"
+  },
+  "U_C_WISH_RECRUIT_ALL_RES": {
+   "type": "active.WishRecruitActiveAllRes",
+   "source": "client"
+  },
+  "U_C_WISH_RECRUIT_REWARD_RES": {
+   "type": "active.WishRecruitAwardsRes",
+   "source": "client"
+  },
+  "U_C_TWILIGHT_LAND_STATE": {
+   "type": "treasuremine.TwilightLandStateMsg",
+   "source": "client"
+  },
+  "U_C_TWILIGHT_LAND_INFO": {
+   "type": "treasuremine.TwilightLandTeamInfoMsg",
+   "source": "client"
+  },
+  "U_C_SHARE_FOR_GIFT_INFO": {
+   "type": "share.ShareForGiftRsp",
+   "source": "client"
+  },
+  "U_C_SHARE_FOR_GIFT_INVITEE_INFO": {
+   "type": "share.ShareForGiftInviteePlayerRsp",
+   "source": "client"
+  },
+  "U_C_SERVER_GATHERING_ACTIVE_TEMP_INFO": {
+   "type": "active.ServerGatheringActiveTemplateRes",
+   "source": "client"
+  },
+  "U_C_SERVER_GATHERING_ACTIVE_PLAYER_INFO": {
+   "type": "active.ServerGatherPlayerInfoRes",
+   "source": "client"
+  },
+  "U_C_CHARM_VALUE_RES": {
+   "type": "active.CharmValueActiveRsp",
+   "source": "client"
+  },
+  "U_C_CHARM_VALUE_TEMPLATE_RES": {
+   "type": "active.CharmValueActiveTemplateRes",
+   "source": "client"
+  },
+  "U_C_RECHARGE_RANK_TEMPLATE_INFO": {
+   "type": "active.RechargeRankTemplateRes",
+   "source": "client"
+  },
+  "U_C_RECHARGE_RANK_PLAYER_INFO": {
+   "type": "active.RechargeRankPlayerInfoRes",
+   "source": "client"
+  },
+  "U_C_PHANTOM_COLOR_ACTIVE_TEMP_INFO": {
+   "type": "cccactive.PhantomColorTotalTempInfo",
+   "source": "client"
+  },
+  "U_C_PHANTOM_COLOR_ACTIVE_PLAYER_INFO": {
+   "type": "cccactive.PhantomColorTotalPlayerTotalLotteryInfo",
+   "source": "client"
+  },
+  "U_C_PHANTOM_COLOR_ACTIVE_SHOP_INFO": {
+   "type": "cccactive.PhantomColorTotalPlayerTotalBuyInfo",
+   "source": "client"
+  },
+  "U_C_PHANTOM_COLOR_ACTIVE_DRAW_LOG": {
+   "type": "cccactive.PhantomColorRecordsMsg",
+   "source": "client"
+  },
+  "U_C_PHANTOM_COLOR_ACTIVE_DRAW_INFO": {
+   "type": "cccactive.PhantomColorDrawTotalMsg",
+   "source": "client"
+  },
+  "U_C_CRISIS_COLLECT_INFO": {
+   "type": "crisis.CrisisCollectTotalInfo",
+   "source": "client"
+  },
+  "U_C_RECALL_PLAYER_INFO": {
+   "type": "active.RecallPlayerInfoRes",
+   "source": "client"
+  },
+  "U_C_REGRESS_PLAYER_INFO": {
+   "type": "active.RegressPlayerInfoRes",
+   "source": "client"
+  },
+  "U_C_RECALL_REGRESS_TEMPLATE_INFO": {
+   "type": "active.RecallRegressActiveTemplateRes",
+   "source": "client"
+  },
+  "U_C_RECALL_ROULETTE_RECORD": {
+   "type": "active.RecallRouletteHistoryMsg",
+   "source": "client"
+  },
+  "U_C_RECALL_ROULETTE_ITEM_INFO": {
+   "type": "active.RecallRouletteItemRes",
+   "source": "client"
+  },
+  "U_C_RECALL_REGRESS_TASK_UPDATE": {
+   "type": "active.RecallRegressUpdateTaskRes",
+   "source": "client"
+  },
+  "U_C_GACHA_MACHINE_PLAYER_INFO": {
+   "type": "active.GachaMachinePlayerInfoRes",
+   "source": "client"
+  },
+  "U_C_GACHA_MACHINE_TEMPLATE_INFO": {
+   "type": "active.GachaMachineTemplateRes",
+   "source": "client"
+  },
+  "U_C_GACHA_MACHINE_DRAW_RES": {
+   "type": "active.GachaMachineDrawRes",
+   "source": "client"
+  },
+  "U_C_GACHA_MACHINE_RECORD_MSG": {
+   "type": "active.GachaMachineRecordListMsg",
+   "source": "client"
+  },
+  "U_C_SKY_TRIAL_INFO": {
+   "code": 4552,
+   "type": "skytrial.SkyTrialInfoMsg",
+   "source": "client"
+  },
+  "U_C_UPDATE_AREA": {
+   "code": 4551,
+   "type": "skytrial.SkyTrialSearchMsg",
+   "source": "client"
+  },
+  "U_C_SKY_LOTTERY_INFO": {
+   "code": 4997,
+   "type": "skytrial.SkyLotteryPlayerInfoMsg",
+   "source": "client"
+  },
+  "U_C_SKY_LOTTERY_REWARD_INFO": {
+   "code": 4998,
+   "type": "skytrial.SkyLotteryItemsInfoMsg",
+   "source": "client"
+  },
+  "U_C_SKYTRIAL_SHOP_INFO": {
+   "code": 4888,
+   "type": "skytrial.SkyShopInfoMsg",
+   "source": "client"
+  },
+  "U_C_SKYTRIAL_BAG_INFO": {
+   "code": 4896,
+   "type": "skytrial.SkyShopInfoMsg",
+   "source": "client"
+  },
+  "U_C_SKY_TRIAL_SWEEP_RSP": {
+   "type": "skytrial.SkySweepRspMsg",
+   "source": "client"
+  },
+  "U_C_GUARD_ARENA_INFO_RES": {
+   "type": "carnival.GuardArenaInfoRes",
+   "source": "client"
+  },
+  "U_C_GUARD_ARENA_RANK_INFO_RES": {
+   "type": "carnival.GuardArenaRankRes",
+   "source": "client"
+  },
+  "U_C_GUARD_ARENA_BATTLE_RESULT": {
+   "type": "carnival.GuardBattleResultRes",
+   "source": "client"
+  },
+  "U_C_GUARD_PATRO_BASE_INFO": {
+   "type": "guardpatrol.GuardPatrolBaseCampMsg",
+   "source": "client"
+  },
+  "U_C_DIVINE_TREE_DATA": {
+   "type": "farm.DivineTreeRspMsg",
+   "source": "client"
+  },
+  "U_C_ACTIVE_VEHICLE_ENDREWARD": {
+   "code": 208,
+   "type": "vehicle.SnowVehicleEndRewardMsg",
+   "source": "client"
+  },
+  "U_C_DIGITAL_WAR_PLAYER": {
+   "type": "campaign.DigitalWarPlayerMsg",
+   "source": "client"
+  },
+  "U_C_DEBT_INFO": {
+   "type": "dragonsoul.DebtInfoRes",
+   "source": "client"
+  },
+  "U_C_TIMESPACE_REPORT": {
+   "type": "campaign.TimeSpaceFaultReportMsg",
+   "source": "client"
+  },
+  "U_C_NEW_AVATAR_INFO": {
+   "code": 863,
+   "type": "avatar.AvatarInfoRes",
+   "source": "client"
+  },
+  "U_C_PLAY_MOVIE": {
+   "code": 143,
+   "type": "player.PlayerMovieMsg",
+   "source": "client"
+  },
+  "U_B_USER_STOP": {
+   "code": 69,
+   "type": "battle.UserStopMsg",
+   "source": "client"
+  },
+  "U_C_UPDATE_UPANIVALUE": {
+   "type": "battle.AwakeMsg",
+   "source": "client"
+  },
+  "U_C_BATTLE_CLEAR_DEAD_LIVING": {
+   "type": "battle.BattleDeadCleanMsg",
+   "source": "client"
+  },
+  "U_C_MINI_GAME_OPEN": {
+   "code": 381,
+   "type": "player.CommonMsg",
+   "source": "client"
+  },
+  "U_C_MATE_MAININFO": {
+   "type": "matelords.MateLordsListMsg",
+   "source": "client"
+  },
+  "U_C_MATEINFO": {
+   "type": "matelords.MateLordsListMsg",
+   "source": "client"
+  },
+  "U_C_MATE_SKILL_SHOP": {
+   "type": "matelords.MateShopListMsg",
+   "source": "client"
+  },
+  "U_C_NAVIGATION_MSG": {
+   "type": "navigation.NavigationResMsg",
+   "source": "client"
+  },
+  "U_C_NAVIGATION_DATA_MSG": {
+   "type": "navigation.NavigationMsg",
+   "source": "client"
+  },
+  "U_C_NAVIGATION_BOAT_UPGRADE_INVITE_EVENT": {
+   "type": "navigation.NavigationBoatUpgradeInviteMsg",
+   "source": "client"
+  },
+  "U_C_CONFUSION_INFO": {
+   "type": "uiplay.ConfusionTowerInfoRes",
+   "source": "client"
+  },
+  "U_C_HOME_HOUSE_INFO": {
+   "type": "home.HomeHouseResp",
+   "source": "client"
+  },
+  "U_C_HOME_HOUSE_FRIEND_STATUS_LIST": {
+   "type": "home.HomeHouseFriendStateResp",
+   "source": "client"
+  },
+  "U_C_HOME_BONFIRE_STATE_MSG": {
+   "type": "home.BonFireCampaignStateMsg",
+   "source": "client"
+  },
+  "U_C_HOME_BONFIRE_FRIEND_STATUS_MSG": {
+   "type": "home.BonFireFriendsStateResp",
+   "source": "client"
+  },
+  "U_C_HOME_BONFIRE_INVITE_LIST": {
+   "type": "home.BonFireInviteResp",
+   "source": "client"
+  },
+  "U_C_DRAGON_CRYSTAL_MINE_RES": {
+   "type": "dragoncrystal.DragonCrystalRoomRes",
+   "source": "client"
+  },
+  "U_C_DRAGON_CRYSTAL_MINE_UPDATE": {
+   "type": "dragoncrystal.DragonCrystalUpdateMsg",
+   "source": "client"
+  },
+  "U_C_DRAGON_CRYSTAL_MINE_TIPS": {
+   "type": "dragoncrystal.DragonCrystalTipsMsg",
+   "source": "client"
+  },
+  "U_C_DRAGON_CRYSTAL_MINE_RECORD": {
+   "type": "dragoncrystal.DragonCrystalRecordPB",
+   "source": "client"
+  },
+  "U_C_MINE_GAME_STATE": {
+   "type": "minigame.MineGameStateMsg",
+   "source": "client"
+  },
+  "U_C_MINE_GAME_STEP_RESULT": {
+   "type": "minigame.MineGameStepResultMsg",
+   "source": "client"
+  },
+  "U_C_MINE_GAME_OVER": {
+   "type": "minigame.MineGameOverMsg",
+   "source": "client"
+  },
+  "U_C_MAGIC_DRAGON_CAMPAIGN_INFO": {
+   "type": "gamebox.SeasonMagicDragonCampaignRes",
+   "source": "client"
+  },
+  "U_C_RARE_WEAPON_DRAW_MAIN_INFO": {
+   "type": "rareweapon.RareWeaponDrawMainInfo",
+   "source": "client"
+  },
+  "U_C_RARE_WEAPON_DRAW_REWARD_INFO": {
+   "type": "rareweapon.RareWeaponDrawShowInfo",
+   "source": "client"
+  },
+  "U_C_GUARD_WAR_ENTER_COUNT": {
+   "type": "player.MultiCampaignEnterCountMsg",
+   "source": "client"
+  },
+  "U_C_FEARWASTELAND_ENTER_COUNT": {
+   "type": "player.MultiCampaignEnterCountMsg",
+   "source": "client"
+  },
+  "U_C_TIMESPACE_ENTER_COUNT": {
+   "type": "player.MultiCampaignEnterCountMsg",
+   "source": "client"
+  },
+  "U_C_CAMPAIGN_SPECIALDROPS_ITEM": {
+   "type": "campaign.CampaignSpecialDropsRspMsg",
+   "source": "client"
+  },
+  "U_C_MAGIC_DRAGON_ENTER_COUNT": {
+   "type": "player.MultiCampaignEnterCountMsg",
+   "source": "client"
+  },
+  "U_C_HERO_ADVANCEDTALENT_INFO": {
+   "type": "advancedtalent.AdvancedTalentInfoMsg",
+   "source": "client"
+  },
+  "U_B_SHOW_BUFF": {
+   "type": "battle.ShowPermanentBuffMsg",
+   "source": "client"
+  },
+  "U_C_SUDOKU_GAME_INFO": {
+   "code": 200,
+   "type": "pb.minigame.SudokuGameMsg"
+  }
+ },
+ "c2s": {
+  "ARRIVE_ALTAR": {
+   "code": 8549,
+   "type": "campaign.ArriveAltarReqMsg"
+  },
+  "B_BATTLE_CHAT": {
+   "code": 10509,
+   "type": "chat.ChatChannelMsg"
+  },
+  "B_BATTLE_OVER": {
+   "code": 10508,
+   "type": "battle.BattleReqMsg"
+  },
+  "B_PAUSE_FINISHED": {
+   "code": 10022,
+   "type": "battle.BattleReqMsg"
+  },
+  "B_REMOTE_PET_ORDER": {
+   "code": 14001,
+   "type": "battle.UseSkillMsg"
+  },
+  "B_SET_ATUO_ATTACK": {
+   "code": 10020,
+   "type": "battle.AttackModeMsg"
+  },
+  "B_USE_ITEM": {
+   "code": 10499,
+   "type": "battle.BattleItemMsg"
+  },
+  "B_USE_MARRIAGE_SKILL": {
+   "code": 10506,
+   "type": "battle.BattleItemMsg"
+  },
+  "B_USE_TRIAL": {
+   "code": 10507,
+   "type": "battle.BattleItemMsg"
+  },
+  "B_WITHDRAW_BATTLE": {
+   "code": 10518,
+   "type": "battle.BattleReqMsg"
+  },
+  "CH_ADD_GROUP": {
+   "code": 15025,
+   "type": "simple.FriendGroupMsg"
+  },
+  "CH_BATCHADD_RELATIONSHIP": {
+   "code": 15024,
+   "type": "friend.BatchFriendRelationMsg"
+  },
+  "CH_CHAT_STATE": {
+   "code": 15043,
+   "type": "chat.RecentContractsStateReqMsg"
+  },
+  "CH_DEL_GROUP": {
+   "code": 15026,
+   "type": "simple.FriendGroupMsg"
+  },
+  "CH_EXCHANGE_STATE": {
+   "code": 15029,
+   "type": "chat.ChatStateMsg"
+  },
+  "CH_FARM_OPER_CHECK": {
+   "code": 15044,
+   "type": "farm.FarmOperReqMsg"
+  },
+  "CH_FRIEND_MOVE": {
+   "code": 15028,
+   "type": "friend.MoveFriendReqMsg"
+  },
+  "CH_FRIEND_REQMSG_ACT": {
+   "code": 15050,
+   "type": "friend.FriendAddedMsgAct"
+  },
+  "CH_FRIEND_SEARCH": {
+   "code": 15042,
+   "type": "simple.FriendSearchConditionReqMsg"
+  },
+  "CH_FRIEND_SEARCH_NICKNAME": {
+   "code": 15049,
+   "type": "simple.FriendSearchNickNameReqMsg"
+  },
+  "CH_HOUSE_REQ": {
+   "code": 15058,
+   "type": "home.HomeHouseReq"
+  },
+  "CH_INBLACK_LIST": {
+   "code": 15054,
+   "type": "chat.IsInBlackListMsg"
+  },
+  "CH_PRIVATE_CHAT": {
+   "code": 15023,
+   "type": "chat.ChatFriendMsg"
+  },
+  "CH_RENAME_GROUP": {
+   "code": 15027,
+   "type": "simple.FriendGroupMsg"
+  },
+  "CH_SIMPLEUSER_INFO": {
+   "code": 15038,
+   "type": "simple.InfoReqMsg"
+  },
+  "CH_SNS_UPDATE": {
+   "code": 15033,
+   "type": "simple.SNSInfoMsg"
+  },
+  "CH_TREE_WATER": {
+   "code": 15017,
+   "type": "building.BuildingReqMsg"
+  },
+  "CR_FIGHTPOS_EDIT": {
+   "code": 25160,
+   "type": "army.ArmyFightPosEditListMsg"
+  },
+  "CR_FIGHTPOS_REQ": {
+   "code": 25159,
+   "type": "room.RoomReqMsg"
+  },
+  "CR_MULTICAMPAIGN_MATCH": {
+   "code": 25156,
+   "type": "room.RoomReqMsg"
+  },
+  "CR_MULTI_MATCH_CHOOSE": {
+   "code": 25157,
+   "type": "simple.PropertyMsg"
+  },
+  "CR_VOTEKILL_CHOOSE": {
+   "code": 25152,
+   "type": "room.RoomReqMsg"
+  },
+  "CR_WARFIELD_USER_INFO": {
+   "code": 25097,
+   "type": "simple.DetailReqMsg"
+  },
+  "C_ACHIEVE_OP": {
+   "code": 8780,
+   "type": "active.AchieveRequestInfoMsg"
+  },
+  "C_ACTIVE_SECONDSKILL": {
+   "code": 8479,
+   "type": "player.PayTypeMsg"
+  },
+  "C_ACTIVE_SECONDTALENT": {
+   "code": 5190,
+   "type": "player.PayTypeMsg"
+  },
+  "C_ACTIVE_VEHICLE_ATTACK": {
+   "code": 25216,
+   "type": "vehicle.VehicleAttackReqMsg"
+  },
+  "C_ACTIVE_VEHICLE_MOVE": {
+   "code": 25218,
+   "type": "vehicle.VehicleMoveMsg"
+  },
+  "C_ACTIVE_VEHICLE_PICK": {
+   "code": 25217,
+   "type": "vehicle.VehiclePickPropMsg"
+  },
+  "C_ALL_CHANGE_OP": {
+   "code": 8800,
+   "type": "simple.PropertyMsg"
+  },
+  "C_ARMYMOUNT_AVATARCHANGE": {
+   "code": 8533,
+   "type": "campaign.MountEditMsg"
+  },
+  "C_ARMYPOS_EDIT": {
+   "code": 8276,
+   "type": "army.ArmyFightPosEditMsg"
+  },
+  "C_ARMY_POSATION": {
+   "code": 8326,
+   "type": "army.ArmyPositionMsg"
+  },
+  "C_ARTIFACT_APPLRAISAL": {
+   "code": 9609,
+   "type": "store.StoreReqMsg"
+  },
+  "C_ARTIFACT_RECAST": {
+   "code": 9611,
+   "type": "store.StoreReqMsg"
+  },
+  "C_BAG_ARRANGE": {
+   "code": 8220,
+   "type": "item.ArrangeReq"
+  },
+  "C_BAG_BATCH_MOVE": {
+   "code": 8643,
+   "type": "item.ItemMoveReqMsg"
+  },
+  "C_BAG_BATCH_SELL": {
+   "code": 8624,
+   "type": "item.ItemSellReqMsg"
+  },
+  "C_BAG_EQUIPLOOK": {
+   "code": 8199,
+   "type": "simple.DetailReqMsg"
+  },
+  "C_BAG_REMOVE": {
+   "code": 8346,
+   "type": "item.ItemRemoveMsg"
+  },
+  "C_BAG_USESTORE": {
+   "code": 8484,
+   "type": "item.ItemUseStoreReqMsg"
+  },
+  "C_BATTER_COUNT": {
+   "code": 8282,
+   "type": "campaign.BatterLastInfoMsg"
+  },
+  "C_BATTLEGUARD_OP": {
+   "code": 8742,
+   "type": "watch.HeroWatchOpMsg"
+  },
+  "C_BOTTLE_OP": {
+   "code": 8604,
+   "type": "item.BottleOpMsg"
+  },
+  "C_BUILDING_CREATE": {
+   "code": 8202,
+   "type": "building.BuildingOptionReqMsg"
+  },
+  "C_BUILDING_UPGRADE": {
+   "code": 8203,
+   "type": "building.BuildingOptionReqMsg"
+  },
+  "C_BUY_DISCOUNT": {
+   "code": 8693,
+   "type": "shop.ShopMsg"
+  },
+  "C_BUY_TRIAL": {
+   "code": 8582,
+   "type": "battle.TrialInfoMsg"
+  },
+  "C_CAMPAIGN_SPECIALDROPS": {
+   "code": 8612,
+   "type": "campaign.CampaignSpecialDropsReqMsg"
+  },
+  "C_CAMPAIGN_SWEEP": {
+   "code": 8528,
+   "type": "campaign.CampaignSweepReq"
+  },
+  "C_CAMPIAGN_ARMYPOS_EDIT": {
+   "code": 8277,
+   "type": "army.ArmyFightPosEditListMsg"
+  },
+  "C_CAPTAIN_SPEAK": {
+   "code": 8353,
+   "type": "campaign.CaptainSpeakMsg"
+  },
+  "C_CASERN_AUTO_SETTING": {
+   "code": 9586,
+   "type": "army.AutoRecruitMsg"
+  },
+  "C_CASTLE_ATTACK": {
+   "code": 9506,
+   "type": "outercity.OutercityReqMsg"
+  },
+  "C_CCCACTIVE_CLIENTOP": {
+   "code": 9645,
+   "type": "active.ChargePointLotteryMsg"
+  },
+  "C_CHAIRS_CLIENT_OP": {
+   "code": 9645,
+   "type": "cccactive.ChairsListMsg"
+  },
+  "C_CHALLENGE": {
+   "code": 8253,
+   "type": "player.ChallengeMsg"
+  },
+  "C_CHALLENGEINFO_REQUEST": {
+   "code": 8256,
+   "type": "pet.ChallengeRequestMsg"
+  },
+  "C_CHALLENGE_PET": {
+   "code": 8724,
+   "type": "player.ChallengeMsg"
+  },
+  "C_CHALLENGE_REQUEST": {
+   "code": 8879,
+   "type": "simple.ChallengeRewardReq"
+  },
+  "C_CHALLENGE_SELF": {
+   "code": 8635,
+   "type": "quest.QuestInfo"
+  },
+  "C_CHANGE_SKILL": {
+   "code": 8480,
+   "type": "army.HeroSkillChangeMsg"
+  },
+  "C_CHARGE_LOTTERY_V2_ACTIVE_REQ": {
+   "code": 9645,
+   "type": "cccactive.ChargePointLotteryV2RequestMsg"
+  },
+  "C_CHARGE_ORDER": {
+   "code": 8797,
+   "type": "mall.ChargeOrderReq"
+  },
+  "C_CHARGE_ORDER_STATUS": {
+   "code": 8798,
+   "type": "mall.ChargeOrderStatus"
+  },
+  "C_CHAT_HALL_MINE_GAME_STOP": {
+   "code": 9089,
+   "type": "minigame.MineGameStepReq"
+  },
+  "C_CHAT_HALL_SWITCH_CAMPAIGN": {
+   "code": 9088,
+   "type": "chathall.ChatHallSwitchReq"
+  },
+  "C_CHECK_PHONE_MAIN_INFO": {
+   "code": 9587,
+   "type": "player.VertifyReqMsg"
+  },
+  "C_CHECK_SEND": {
+   "code": 8524,
+   "type": "player.CheckSend"
+  },
+  "C_CHECK_WARFIELD_COUNT": {
+   "code": 8599,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "C_COMBAT_GUARDIAN_REQ": {
+   "code": 9034,
+   "type": "combatguardian.CombatGuardianOpReq"
+  },
+  "C_COMPREHEND": {
+   "code": 8455,
+   "type": "army.ComprehendMsg"
+  },
+  "C_CONFUSION_TOWER": {
+   "code": 9063,
+   "type": "uiplay.ConfusionTowerOpReq"
+  },
+  "C_CONSORTIA_ADDFRESH": {
+   "code": 8216,
+   "type": "simple.PropertyMsg"
+  },
+  "C_CONSORTIA_ALTAR_BUY_SCENE": {
+   "code": 8593,
+   "type": "consortia.ConsortiaAltarOpenReqMsg"
+  },
+  "C_CONSORTIA_BATTLE_REQUEST": {
+   "code": 8779,
+   "type": "crossguild.CrossGuildRequestMsg"
+  },
+  "C_CONSORTIA_BOSS_CALL": {
+   "code": 8847,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "C_CONSORTIA_BOX_SEND_CONFIRM": {
+   "code": 8578,
+   "type": "consortia.ConsortiaTreasureBoxMsg"
+  },
+  "C_CONSORTIA_BOX_SEND_INFO": {
+   "code": 8579,
+   "type": "consortia.ConsortiaTreasureBoxMsg"
+  },
+  "C_CONSORTIA_LINK": {
+   "code": 8343,
+   "type": "consortia.ConsortiaLinkReqMsg"
+  },
+  "C_CONSORTIA_PVE_REQ": {
+   "code": 8554,
+   "type": "player.PlayerOpMsg"
+  },
+  "C_CONSORTIA_QUICK": {
+   "code": 8545,
+   "type": "player.PayTypeMsg"
+  },
+  "C_CONSORTIA_SPEAK": {
+   "code": 8335,
+   "type": "consortia.ConditionSpeakMsg"
+  },
+  "C_CONSORTIA_TASK_REFRESH": {
+   "code": 9691,
+   "type": "consortia.TaskUpdateReqMsg"
+  },
+  "C_CONSORTIA_TASK_REWARD": {
+   "code": 9690,
+   "type": "consortia.TaskRewardReqMsg"
+  },
+  "C_CONSORTIA_VOTING": {
+   "code": 8481,
+   "type": "consortia.ConsortiaVotingReqMsg"
+  },
+  "C_CRISIS_CAMPAIGN": {
+   "code": 9077,
+   "type": "crisis.CrisisReq"
+  },
+  "C_CRISIS_COLLECT": {
+   "code": 9079,
+   "type": "crisis.CrisisCollectReq"
+  },
+  "C_CROSS_INVITE_CHOOSE": {
+   "code": 9557,
+   "type": "room.RoomReqMsg"
+  },
+  "C_CROSS_ROOM_OP": {
+   "code": 9087,
+   "type": "room.CrossRoomReq"
+  },
+  "C_DISCOUNT_MALL_OP": {
+   "code": 9628,
+   "type": "active.DiscountMallRequestMsg"
+  },
+  "C_DIVINE_TREE_REQUEST": {
+   "code": 8773,
+   "type": "farm.DivineTreeReqMsg"
+  },
+  "C_DOUBLE_MOUNT_OP": {
+   "code": 8992,
+   "type": "campaign.DoubleMountMsg"
+  },
+  "C_DRAGON_CRYSTAL_MINING": {
+   "code": 9071,
+   "type": "dragoncrystal.DragonCrystalMineReq"
+  },
+  "C_DRAGON_SOUL_REQ": {
+   "code": 9033,
+   "type": "dragonsoul.DragonSoulOpReq"
+  },
+  "C_EDIT_TEAM_FIGHT_POS": {
+   "code": 8737,
+   "type": "team.MemberFightPosListMsg"
+  },
+  "C_ENTER_ACTIVE_VEHICLE": {
+   "code": 9971,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "C_ENTER_CASTLE": {
+   "code": 8747,
+   "type": "simple.PropertyMsg"
+  },
+  "C_ENTER_PETISLAND": {
+   "code": 8694,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "C_ENTER_TOWER": {
+   "code": 8296,
+   "type": "campaign.EnterTowerInfoMsg"
+  },
+  "C_ENTER_WARFIELD": {
+   "code": 8332,
+   "type": "worldmap.WorldBossMsg"
+  },
+  "C_EQUIP_RUNE_STOME": {
+   "code": 8853,
+   "type": "army.RuneMosReqMsg"
+  },
+  "C_EXTRAJOBEQUIP_REQ": {
+   "code": 8609,
+   "type": "extrajob.ExtraJobEquipReqMsg"
+  },
+  "C_EXTRAJOB_REQ": {
+   "code": 8608,
+   "type": "extrajob.ExtraJobReqMsg"
+  },
+  "C_FASHION_APPLRAISAL": {
+   "code": 8781,
+   "type": "fashion.FashionMsg"
+  },
+  "C_FASHION_SHOP_BUY": {
+   "code": 8592,
+   "type": "shop.FashionShopMsg"
+  },
+  "C_FASHION_SPECIAL": {
+   "code": 8631,
+   "type": "fashion.FashionMsg"
+  },
+  "C_FASHION_SWITCH": {
+   "code": 8595,
+   "type": "fashion.FashionMsg"
+  },
+  "C_FAST_USE_BLOOD": {
+   "code": 5633,
+   "type": "shop.ShopMsg"
+  },
+  "C_FATE_HIDE": {
+   "code": 8641,
+   "type": "fate.FateEditMsg"
+  },
+  "C_FETCH_TOKEN": {
+   "code": 8801,
+   "type": "voice.FetchTokenReq"
+  },
+  "C_FOLLOW_US_OP": {
+   "code": 9039,
+   "type": "follow_reward.ReqInfo"
+  },
+  "C_FRAME_CHANGE": {
+   "code": 8808,
+   "type": "frame.ChangeFrameReq"
+  },
+  "C_GAME_BOX_REQ": {
+   "code": 9075,
+   "type": "gamebox.GameBoxStartReq"
+  },
+  "C_GEMMAZE_BUYTIMES": {
+   "code": 9516,
+   "type": "minigame.GemMazeBuyTimesMsg"
+  },
+  "C_GEMMAZE_GEMMOVE": {
+   "code": 9509,
+   "type": "minigame.GemMoveMsg"
+  },
+  "C_GEMMAZE_GETREWARDBOX": {
+   "code": 9513,
+   "type": "minigame.GetRewardBoxMsg"
+  },
+  "C_GEMMAZE_INVITE": {
+   "code": 9510,
+   "type": "minigame.GemMoveInviteMsg"
+  },
+  "C_GET_AREA_REWARD": {
+   "code": 8637,
+   "type": "tollgate.RankInfoMsg"
+  },
+  "C_GET_PET_ARTIFACT_LIST": {
+   "code": 8701,
+   "type": "pet.PlayerPetOpMsg"
+  },
+  "C_GET_SPACE_PLAYER_ARMY_INFO": {
+   "code": 8701,
+   "type": "campaign.SpacePlayerArmyInfoReqMsg"
+  },
+  "C_GOLDENROAD_BROADCAST": {
+   "code": 9522,
+   "type": "goldenroad.GoldenRoadClientRequestMsg"
+  },
+  "C_GOLDENROAD_CASTDICE": {
+   "code": 9521,
+   "type": "goldenroad.GoldenRoadClientRequestMsg"
+  },
+  "C_GOLDENROAD_FRESH": {
+   "code": 9520,
+   "type": "goldenroad.GoldenRoadClientRequestMsg"
+  },
+  "C_GOLD_IMPOSE": {
+   "code": 8327,
+   "type": "simple.GoldImposeReqMsg"
+  },
+  "C_GRADE_PACKET": {
+   "code": 8784,
+   "type": "active.GradePacketReq"
+  },
+  "C_GROWTH_FUND_LEVEL": {
+   "code": 9972,
+   "type": "growthfund.GrowthFundReq"
+  },
+  "C_GROWTH_FUND_RECEIVE": {
+   "code": 8792,
+   "type": "fund.GrowthFundRecReq"
+  },
+  "C_GUARD_ARENA_REQ": {
+   "code": 9060,
+   "type": "carnival.GuardArenaReq"
+  },
+  "C_GUARD_DRAW": {
+   "code": 9059,
+   "type": "carnival.GuardDrawInfoReq"
+  },
+  "C_GUARD_EXPEDITIONARY": {
+   "code": 9058,
+   "type": "carnival.GuardExpeditionReqInfoMsg"
+  },
+  "C_GUARD_PATRO_REQ": {
+   "code": 9091,
+   "type": "guardpatrol.GuardPatrolReq"
+  },
+  "C_GUARD_REQ": {
+   "code": 9057,
+   "type": "carnival.GuardReqInfoMsg"
+  },
+  "C_GUILDTEAM_PLAYER_EDIT": {
+   "code": 8473,
+   "type": "guildcampaign.TeamEditMsg"
+  },
+  "C_GUILD_BUYBUFFER": {
+   "code": 8547,
+   "type": "guildcampaign.GuildMsg"
+  },
+  "C_GUILD_MAZE_OP": {
+   "code": 9098,
+   "type": "guildmaze.GuildMazeClientOpMsg"
+  },
+  "C_HANGUP_PVP": {
+   "code": 8525,
+   "type": "campaign.HangupAttackMsg"
+  },
+  "C_HERO_ADVANCEDTALENT_REQ": {
+   "code": 5192,
+   "type": "advancedtalent.AdvancedTalentReqMsg"
+  },
+  "C_HERO_SKILLPOINT_RESET": {
+   "code": 5184,
+   "type": "player.PayTypeMsg"
+  },
+  "C_HERO_SKILL_UPGRADE": {
+   "code": 5185,
+   "type": "army.HeroAddPointReqMsg"
+  },
+  "C_HERO_TALENT_CHANGE": {
+   "code": 5191,
+   "type": "army.HeroSkillChangeMsg"
+  },
+  "C_HERO_TALENT_GRADE_UP": {
+   "code": 5187,
+   "type": "army.TalentUpGradeReq"
+  },
+  "C_HONOR_EQUIP_LEVELUP": {
+   "code": 8877,
+   "type": "simple.HonorEquipReq"
+  },
+  "C_HOUSE_BONFIRE_REQ": {
+   "code": 9069,
+   "type": "home.BonFireReq"
+  },
+  "C_ITEM_REFRESHFORRANDOM": {
+   "code": 8336,
+   "type": "store.SmithFreshReqMsg"
+  },
+  "C_ITEM_REFRESHPROPERTY": {
+   "code": 8464,
+   "type": "store.RefreshPropertyReqMsg"
+  },
+  "C_KING_CONTRACT": {
+   "code": 8543,
+   "type": "player.KingContractBuyMsg"
+  },
+  "C_LANDER_RANK_REQ": {
+   "code": 9080,
+   "type": "gamebox.SeasonPvpReqMsg"
+  },
+  "C_LEAVE_ACTIVE_VEHICLE": {
+   "code": 25220,
+   "type": "vehicle.VehicleMoveMsg"
+  },
+  "C_LONIG_LOAD_REQ": {
+   "code": 8224,
+   "type": "player.PlayerDataMsg"
+  },
+  "C_LOTTERY_RUNE": {
+   "code": 8857,
+   "type": "army.LotteryRuneReqMsg"
+  },
+  "C_LUCK_EXCHANGE": {
+   "code": 9610,
+   "type": "active.LuckExchangeOpMsg"
+  },
+  "C_MAIL_CHECK": {
+   "code": 9591,
+   "type": "player.MailCheckMsg"
+  },
+  "C_MAPBOSS_DATAS": {
+   "code": 9525,
+   "type": "army.MapBossQuestMsg"
+  },
+  "C_MAPBOSS_REVIVE": {
+   "code": 9526,
+   "type": "army.MapBossQuestMsg"
+  },
+  "C_MAPSHOPINFO": {
+   "code": 9528,
+   "type": "mapshop.MapShopquestMsg"
+  },
+  "C_MARRIAGE_CAMPAIGN_REQ": {
+   "code": 9714,
+   "type": "marriage.MarriageOpReq"
+  },
+  "C_MARRIAGE_HEART": {
+   "code": 9713,
+   "type": "marriage.MarriageHeartReq"
+  },
+  "C_MARRIAGE_REQUEST": {
+   "code": 9712,
+   "type": "marriage.MarriageOpReq"
+  },
+  "C_MEDAL_ITEM": {
+   "code": 8869,
+   "type": "medal.MedalOpReq"
+  },
+  "C_MICRO_CLIENT_INFO": {
+   "code": 5041,
+   "type": "simple.PropertyMsg"
+  },
+  "C_MOLE_GAME_OP": {
+   "code": 9021,
+   "type": "gamebox.MoleGameOpReq"
+  },
+  "C_MONOPOLY_CAMPAIGN_BUY_MAGIC_DICE": {
+   "code": 8817,
+   "type": "campaign.TriggerEventMsg"
+  },
+  "C_MONOPOLY_CAMPAIGN_LEAVE": {
+   "code": 8815,
+   "type": "campaign.TriggerEventMsg"
+  },
+  "C_MONOPOLY_CAMPAIGN_ROLL_DICE": {
+   "code": 8812,
+   "type": "campaign.RollDiceMsg"
+  },
+  "C_MONTH_CARD": {
+   "code": 8783,
+   "type": "active.MonthCardReqMsg"
+  },
+  "C_MOUNTAVATAR_ACTIVE": {
+   "code": 8536,
+   "type": "campaign.MountEditMsg"
+  },
+  "C_MOUNT_CHANGE": {
+   "code": 8532,
+   "type": "campaign.MountEditMsg"
+  },
+  "C_MOUNT_EDIT": {
+   "code": 8529,
+   "type": "campaign.MountEditMsg"
+  },
+  "C_MOUNT_INFO_SEND": {
+   "code": 8567,
+   "type": "campaign.MountEditMsg"
+  },
+  "C_MOUNT_KING_ADD_GP": {
+   "code": 8540,
+   "type": "campaign.MountEditMsg"
+  },
+  "C_MOUNT_UPSTAR": {
+   "code": 8802,
+   "type": "campaign.MountEditMsg"
+  },
+  "C_MULITY_CAMPAIGN_REQUEST": {
+   "code": 9504,
+   "type": "simple.PropertyMsg"
+  },
+  "C_NAVIGATION": {
+   "code": 9062,
+   "type": "navigation.NavigationOpMsg"
+  },
+  "C_NEWBIE_GUIDE_OP": {
+   "code": 9037,
+   "type": "guide.GuideRequestInfoMsg"
+  },
+  "C_NEW_ACTIVE_OP": {
+   "code": 9984,
+   "type": "newactive.NewActiveClientReq"
+  },
+  "C_NEW_MEMORY_CARD_OP": {
+   "code": 8682,
+   "type": "NewMemoryCardMsgReq"
+  },
+  "C_NEW_RECOVER_REQ": {
+   "code": 9032,
+   "type": "recover.NewRecoverOpReq"
+  },
+  "C_NEW_YEAR_BOX_ACTIVE": {
+   "code": 8994,
+   "type": "simple.PropertyMsg"
+  },
+  "C_NODE_LOCKSTATE": {
+   "code": 8196,
+   "type": "campaign.NodeLockReqMsg"
+  },
+  "C_ONLINE_REWARD": {
+   "code": 8782,
+   "type": "active.OnlinerewardReq"
+  },
+  "C_ONLINE_REWARD_ENSURE": {
+   "code": 8788,
+   "type": "active.AddItemReq"
+  },
+  "C_OPEN_CONSORTIA__ALTAR": {
+   "code": 8541,
+   "type": "consortia.ConsortiaAltarOpenReqMsg"
+  },
+  "C_OPRATE_REPLACEMENTS": {
+   "code": 8526,
+   "type": "campaign.OprateReplacemntMsg"
+  },
+  "C_OUT_CITY_FIGHT": {
+   "code": 9589,
+   "type": "campaign.HangupAttackMsg"
+  },
+  "C_OUT_CITY_GOLDN_LIST": {
+   "code": 9588,
+   "type": "worldmap.MapPhysicAttackMsg"
+  },
+  "C_OUT_CITY_VEHICLE_ATTACK": {
+   "code": 9684,
+   "type": "outercity.VehicleReqMsg"
+  },
+  "C_OUT_CITY_VEHICLE_CHANGE_PLAYER": {
+   "code": 9683,
+   "type": "outercity.VehicleReqMsg"
+  },
+  "C_OUT_CITY_VEHICLE_FIXPOS": {
+   "code": 9685,
+   "type": "outercity.VehicleReqMsg"
+  },
+  "C_OUT_CITY_VEHICLE_INFO": {
+   "code": 9682,
+   "type": "outercity.VehicleReqMsg"
+  },
+  "C_OUT_CITY_WAR_ARRANGE_GARRISON": {
+   "code": 9604,
+   "type": "outcitywar.NodeStateReqMsg"
+  },
+  "C_OUT_CITY_WAR_ATTACK": {
+   "code": 9606,
+   "type": "outcitywar.NodeStateReqMsg"
+  },
+  "C_OUT_CITY_WAR_BUY_ACTION_POINT": {
+   "code": 9607,
+   "type": "outcitywar.NodeStateReqMsg"
+  },
+  "C_OUT_CITY_WAR_CANCEL_OCCUPY": {
+   "code": 9680,
+   "type": "outcitywar.NodeStateReqMsg"
+  },
+  "C_OUT_CITY_WAR_EDIT_GUILD_NOTICE": {
+   "code": 9608,
+   "type": "outcitywar.NodeStateReqMsg"
+  },
+  "C_OUT_CITY_WAR_NODE_STATE": {
+   "code": 9602,
+   "type": "outcitywar.NodeStateReqMsg"
+  },
+  "C_OUT_CITY_WAR_OBSERVE_LEFT": {
+   "code": 9679,
+   "type": "outcitywar.NodeStateReqMsg"
+  },
+  "C_OUT_CITY_WAR_ONE_PLAYER_STATUS": {
+   "code": 9681,
+   "type": "outcitywar.NodeStateReqMsg"
+  },
+  "C_PASS_BUY": {
+   "code": 8807,
+   "type": "active.PassBuyReqMsg"
+  },
+  "C_PASS_REWARD_INFO": {
+   "code": 8803,
+   "type": "active.PassInfoReqMsg"
+  },
+  "C_PASS_TASK_FRESH": {
+   "code": 8805,
+   "type": "active.PassTaskReceiveReq"
+  },
+  "C_PAWN_CHANGE": {
+   "code": 8580,
+   "type": "army.PawnChangeMsg"
+  },
+  "C_PET_CHALLENGE_END_BATTLE": {
+   "code": 8727,
+   "type": "battle.BattleReqMsg"
+  },
+  "C_PET_CHALLENGE_FORMATION": {
+   "code": 8725,
+   "type": "pet.PlayerPetMsg"
+  },
+  "C_PET_CHALLENGE_SKILL": {
+   "code": 8726,
+   "type": "pet.PetInfoMsg"
+  },
+  "C_PET_EQUIP_RESOLVE": {
+   "code": 8862,
+   "type": "pet.PetEquipResolveReqMsg"
+  },
+  "C_PET_EQUIP_STRENTH": {
+   "code": 8860,
+   "type": "pet.PetEquipReqMsg"
+  },
+  "C_PET_EQUIP_SUCCINCT": {
+   "code": 8866,
+   "type": "pet.PetEquipReqMsg"
+  },
+  "C_PET_RANK_REWARD": {
+   "code": 8728,
+   "type": "pet.RankRewardMsg"
+  },
+  "C_PHYSICLIST_BYGRID": {
+   "code": 8201,
+   "type": "army.PhysicUpdateReqMsg"
+  },
+  "C_PLAYER_PET_OP": {
+   "code": 8621,
+   "type": "pet.PlayerPetOpMsg"
+  },
+  "C_PLAYER_REFAIRE": {
+   "code": 8548,
+   "type": "guildcampaign.GuildMsg"
+  },
+  "C_PLAYER_REINFORCE": {
+   "code": 8255,
+   "type": "campaign.CampaignNodeMsg"
+  },
+  "C_PLAYER_RENAME_REQ": {
+   "code": 8345,
+   "type": "player.PlayerRenameReqMsg"
+  },
+  "C_PLAYER_SEARCH": {
+   "code": 8257,
+   "type": "simple.SimplePlayerSearchReqMsg"
+  },
+  "C_PLAYER_SETTING": {
+   "code": 8793,
+   "type": "player.PlayerSettingMsg"
+  },
+  "C_PLAYER_SIGN_CMD": {
+   "code": 8266,
+   "type": "player.PlayerSignReqMsg"
+  },
+  "C_PLAYER_SPACE_ENTER": {
+   "code": 8688,
+   "type": "simple.PropertyMsg"
+  },
+  "C_PLAYER_SPACE_LEAVE": {
+   "code": 8689,
+   "type": "simple.PropertyMsg"
+  },
+  "C_PLAYER_SPACE_MOVE": {
+   "code": 8690,
+   "type": "campaign.SpacePlayerMoveMsg"
+  },
+  "C_PLAYER_SPACE_NODE_TRIGGER": {
+   "code": 8692,
+   "type": "simple.PropertyMsg"
+  },
+  "C_QUESTIONNARIE_ANSWER": {
+   "code": 8534,
+   "type": "questionnarie.QuestionDataRspMsg"
+  },
+  "C_QUICKCOOL_CHALLENGE_TIME": {
+   "code": 8265,
+   "type": "player.PayTypeMsg"
+  },
+  "C_RARE_WEAPON_MAIN_DRAW_REQ": {
+   "code": 9068,
+   "type": "rareweapon.RareWeaponDrawMainReq"
+  },
+  "C_RARE_WEAPON_MAIN_REQ": {
+   "code": 9040,
+   "type": "rareweapon.RareWeaponMainReq"
+  },
+  "C_REBATE_DATA": {
+   "code": 8574,
+   "type": "rebate.RebateOpMsg"
+  },
+  "C_RECOVER": {
+   "code": 9503,
+   "type": "recover.RecoverReqMsg"
+  },
+  "C_REPEAT_REWARD_FINISH_IMMEDIATELY": {
+   "code": 8730,
+   "type": "simple.PropertyMsg"
+  },
+  "C_REQ_FRIEND_FARM_STATE": {
+   "code": 8231,
+   "type": "farm.FriendUserIdsMsg"
+  },
+  "C_REWARD_ADD": {
+   "code": 8288,
+   "type": "reward.RewardAddedMsg"
+  },
+  "C_REWARD_ARREST": {
+   "code": 8298,
+   "type": "reward.RewardArrestMsg"
+  },
+  "C_REWARD_FINISH": {
+   "code": 8291,
+   "type": "reward.RewardFinishedReqMsg"
+  },
+  "C_REWARD_FRESH": {
+   "code": 8290,
+   "type": "reward.RewardFreshReqMsg"
+  },
+  "C_REWARD_REMOVE": {
+   "code": 8289,
+   "type": "reward.RewardRemovedMsg"
+  },
+  "C_ROOM_PWDCHANGE": {
+   "code": 8344,
+   "type": "room.RoomEditMsg"
+  },
+  "C_RUNE_HOLE_OP": {
+   "code": 9585,
+   "type": "army.RuneHoleOpMsg"
+  },
+  "C_RUNE_RESOLVE": {
+   "code": 8854,
+   "type": "army.RuneResolveReqMsg"
+  },
+  "C_RUNE_UNLOAD": {
+   "code": 8856,
+   "type": "army.RuneUnloadReqMsg"
+  },
+  "C_RUNE_UP": {
+   "code": 8855,
+   "type": "army.RuneStoneUpReqMsg"
+  },
+  "C_SAVESPECIAL": {
+   "code": 8456,
+   "type": "army.ComprehendMsg"
+  },
+  "C_SEASON_SHOP_REQ": {
+   "code": 9078,
+   "type": "gamebox.SeasonShopReq"
+  },
+  "C_SECRET_CHOOSE": {
+   "code": 9687,
+   "type": "secret.SecretReqMsg"
+  },
+  "C_SECRET_OP": {
+   "code": 9688,
+   "type": "secret.SecretReqMsg"
+  },
+  "C_SET_ATUO_ATTACK": {
+   "code": 8232,
+   "type": "battle.AttackModeMsg"
+  },
+  "C_SEVEN_TARGET_GIFT_RECEIVE": {
+   "code": 8787,
+   "type": "active.GiftReceiveReq"
+  },
+  "C_SEVEN_TARGET_INFO": {
+   "code": 8785,
+   "type": "active.SevenTargetInfoReq"
+  },
+  "C_SEVEN_TARGET_TASK_RECEIVE": {
+   "code": 8786,
+   "type": "active.TaskReceiveReq"
+  },
+  "C_SHARE_FOR_GIFT": {
+   "code": 9575,
+   "type": "share.ShareForGiftReq"
+  },
+  "C_SHOP_CAR_BUY": {
+   "code": 9070,
+   "type": "shop.ShopCarMsg"
+  },
+  "C_SHOP_GIFT_PACKAGE_TOTAL_INFO": {
+   "code": 9061,
+   "type": "giftpackage.GiftPackageReqInfo"
+  },
+  "C_SIMPLEUSER_INFO": {
+   "code": 8200,
+   "type": "simple.InfoReqMsg"
+  },
+  "C_SKILL_EDIT": {
+   "code": 8851,
+   "type": "skilledit.SkillEditReqMsg"
+  },
+  "C_SKY_LOTTERY_REQ": {
+   "code": 8559,
+   "type": "skytrial.SkyLotteryReqInfoMsg"
+  },
+  "C_SKY_TREASURE_EXCHANGE_REQ": {
+   "code": 9027,
+   "type": "cccactive.SkyTreasureExchangeReq"
+  },
+  "C_SKY_TREASURE_LOTTERY_INFO_REQ": {
+   "code": 9025,
+   "type": "cccactive.SkyTreasureLotteryReq"
+  },
+  "C_SKY_TREASURE_LOTTERY_RECORD_REQ": {
+   "code": 9026,
+   "type": "cccactive.SkyTreasureLotteryRecordReq"
+  },
+  "C_SPACEMAP_ATTACK": {
+   "code": 9547,
+   "type": "campaign.HangupAttackMsg"
+  },
+  "C_SPACE_COLLECTION_FINISHED": {
+   "code": 8733,
+   "type": "simple.PropertyMsg"
+  },
+  "C_STACK_HEAD_REQUEST": {
+   "code": 9599,
+   "type": "stackhead.StackHeadRequestMsg"
+  },
+  "C_STARGAZING_OP": {
+   "code": 9041,
+   "type": "stargazing.StargazingOpMsg"
+  },
+  "C_STARSHOP_BUY": {
+   "code": 8341,
+   "type": "star.StarShopMsg"
+  },
+  "C_STAR_BATCH_OP": {
+   "code": 8794,
+   "type": "star.OpStarReqMsg"
+  },
+  "C_STAR_BUY": {
+   "code": 8270,
+   "type": "player.PayTypeMsg"
+  },
+  "C_STAR_COMPOSE": {
+   "code": 8331,
+   "type": "star.StarComposeReqMsg"
+  },
+  "C_STAR_LOCK": {
+   "code": 8330,
+   "type": "star.StarLockReqMsg"
+  },
+  "C_STAR_MOVE": {
+   "code": 8267,
+   "type": "star.StarMoveReqMsg"
+  },
+  "C_STAR_PICK": {
+   "code": 8268,
+   "type": "star.StarPickReqMsg"
+  },
+  "C_STAR_RAND": {
+   "code": 8269,
+   "type": "star.StarRandReqMsg"
+  },
+  "C_STAR_SPECIAL": {
+   "code": 8876,
+   "type": "star.StarVipEventMsg"
+  },
+  "C_STORE_RATINGS_REPORT": {
+   "code": 8864,
+   "type": "storeratings.StoreRatingsReport"
+  },
+  "C_SUMACTIVE_GATE": {
+   "code": 8586,
+   "type": "active.SumActiveGetPackageMsg"
+  },
+  "C_TAKE_CHALLENGEREWARD": {
+   "code": 8329,
+   "type": "player.ChallengeRankRewardMsg"
+  },
+  "C_TAKE_CROSS_SCORE_REWARD": {
+   "code": 8590,
+   "type": "player.ChallengeRankRewardMsg"
+  },
+  "C_TAKE_FIRST_CHARGE_REWARD": {
+   "code": 8704,
+   "type": "active.TakeFirstChargeAwardReq"
+  },
+  "C_TATTOO_REQ": {
+   "code": 9568,
+   "type": "player.TattooHoleReqMsg"
+  },
+  "C_TELENT_SORT": {
+   "code": 5188,
+   "type": "army.HeroTalentReq"
+  },
+  "C_TELENT_TREE": {
+   "code": 5189,
+   "type": "army.HeroTalentReq"
+  },
+  "C_TEMPLE_INFO": {
+   "code": 8795,
+   "type": "temple.TempleInfoReq"
+  },
+  "C_TEMPLE_RECEIVE": {
+   "code": 8796,
+   "type": "temple.TempleReceiveReq"
+  },
+  "C_TOKEN_CHARGE": {
+   "code": 8806,
+   "type": "mall.ChargeOrderReq"
+  },
+  "C_TOLLGATE_REQUEST": {
+   "code": 8753,
+   "type": "player.ChallengeMsg"
+  },
+  "C_TOLLGATE_REQUEST_ATTACK": {
+   "code": 8755,
+   "type": "player.ChallengeMsg"
+  },
+  "C_TOWER_INFO": {
+   "code": 8297,
+   "type": "campaign.TowerInfoReqMsg"
+  },
+  "C_TOWER_LIVE": {
+   "code": 8300,
+   "type": "player.PayTypeMsg"
+  },
+  "C_TOWER_RESET": {
+   "code": 8299,
+   "type": "campaign.TowerInfoReqMsg"
+  },
+  "C_TRANSFER_REQ": {
+   "code": 8556,
+   "type": "recover.TransferOpReq"
+  },
+  "C_TRANSLATE_TEXT": {
+   "code": 8861,
+   "type": "translate.TranslateReqMsg"
+  },
+  "C_TREASUREMAP_BATTLE_REINFORCE": {
+   "code": 8745,
+   "type": "guildcampaign.GuildMsg"
+  },
+  "C_TREASUREMAP_OP": {
+   "code": 8744,
+   "type": "treasuremap.PlayerTreasureMsg"
+  },
+  "C_TREASURE_MINE_LIVE": {
+   "code": 8852,
+   "type": "player.PayTypeMsg"
+  },
+  "C_TREASURE_MINE_UNOCCP": {
+   "code": 8859,
+   "type": "building.BuildingReqMsg"
+  },
+  "C_TREE_FRIEND": {
+   "code": 8219,
+   "type": "farm.FriendTreeReq"
+  },
+  "C_TWILIGHT_LAND_ENTER": {
+   "code": 9066,
+   "type": "treasuremine.TwilightLandEnterReq"
+  },
+  "C_UIPLAY_CHALLENGE": {
+   "code": 8757,
+   "type": "uiplay.UiPlayChallengeMsg"
+  },
+  "C_UPDATE_AREA": {
+   "code": 8636,
+   "type": "skytrial.SkyTrialRequestMsg"
+  },
+  "C_USER_EXTRAJOB_REQ": {
+   "code": 8610,
+   "type": "extrajob.UserExtraJobReqMsg"
+  },
+  "C_USER_PIN_CHECK": {
+   "code": 8352,
+   "type": "player.UserPin"
+  },
+  "C_VICEPASSWORD": {
+   "code": 8806,
+   "type": "player.VicePasswordMsg"
+  },
+  "C_VIPROULETTE": {
+   "code": 8519,
+   "type": "vip.VipRouletteMsg"
+  },
+  "C_VIP_OPEN": {
+   "code": 8513,
+   "type": "vip.VipOpenInfoMsg"
+  },
+  "C_VIP_OPEN_GIFT": {
+   "code": 8504,
+   "type": "vip.OpenGiftReq"
+  },
+  "C_WARFIELD_ATTACK": {
+   "code": 8334,
+   "type": "campaign.WarFieldAttackMsg"
+  },
+  "C_WISH_POOL_OP": {
+   "code": 9020,
+   "type": "active.WishPoolReqMsg"
+  },
+  "C_WORLDBOSS_BUFFER": {
+   "code": 8470,
+   "type": "campaign.WorldBossBufferMsg"
+  },
+  "C_WORLDBOSS_PLAYER_LIVE": {
+   "code": 8264,
+   "type": "player.PayTypeMsg"
+  },
+  "C_WORLDMAP_PVPFIGHT": {
+   "code": 8488,
+   "type": "player.ChallengeMsg"
+  },
+  "C_WORLD_BOSS_CMD": {
+   "code": 8258,
+   "type": "worldmap.WorldBossMsg"
+  },
+  "C_WORLD_BOSS_REQ": {
+   "code": 8259,
+   "type": "worldmap.WorldBossMsg"
+  },
+  "G_ACCELERATOR": {
+   "code": 20009,
+   "type": "simple.PropertyMsg"
+  },
+  "G_LOGIN_GATEWAY": {
+   "code": 20001,
+   "type": "player.LoginReqMsg"
+  },
+  "L_CREATE_LOGIN": {
+   "code": 28678,
+   "type": "login.createLoginReq"
+  },
+  "L_GET_PLAYER_LIST": {
+   "code": 28672,
+   "type": "login.GetPlayerListReq"
+  },
+  "L_PREPARE_LOGIN": {
+   "code": 28674,
+   "type": "login.playerLoginReq"
+  },
+  "L_REGISTER_ROLE": {
+   "code": 28676,
+   "type": "login.registerRoleReq"
+  },
+  "U_B_FIGHT_MODE": {
+   "code": 10016,
+   "type": "battle.AttackModeMsg"
+  },
+  "U_B_HERO_ORDER": {
+   "code": 10008,
+   "type": "battle.UseSkillMsg"
+  },
+  "U_B_QTE": {
+   "code": 10015,
+   "type": "battle.QteMsg"
+  },
+  "U_B_USR_STOP_CMD": {
+   "code": 10010,
+   "type": "battle.BattleReqMsg"
+  },
+  "U_CH_ADD_RELATIONSHIP": {
+   "code": 15003,
+   "type": "friend.FriendRelationMsg"
+  },
+  "U_CH_FRIENDADD_CONFIRM": {
+   "code": 15012,
+   "type": "friend.FriendRelationMsg"
+  },
+  "U_CH_REMOVE_RELATIONSHIP": {
+   "code": 15004,
+   "type": "friend.FriendRelationMsg"
+  },
+  "U_C_ARMY_ATTACK": {
+   "code": 5160,
+   "type": "worldmap.MapPhysicAttackMsg"
+  },
+  "U_C_ARMY_DEMOBPAWN": {
+   "code": 5157,
+   "type": "army.ArmyPawnInfoMsg"
+  },
+  "U_C_ARMY_EDIT": {
+   "code": 5156,
+   "type": "army.ArmyPawnInfoMsg"
+  },
+  "U_C_ARMY_RECRUITED": {
+   "code": 5155,
+   "type": "army.ArmyPawnInfoMsg"
+  },
+  "U_C_ARMY_RETURNHOME": {
+   "code": 5161,
+   "type": "player.PayTypeMsg"
+  },
+  "U_C_ARMY_UPDATE_GRID": {
+   "code": 5181,
+   "type": "outercity.OutercityReqMsg"
+  },
+  "U_C_ARMY_UPGRADEPAWN": {
+   "code": 5158,
+   "type": "army.ArmyPawnInfoMsg"
+  },
+  "U_C_BAG_BUY": {
+   "code": 5010,
+   "type": "player.PayTypeMsg"
+  },
+  "U_C_BAG_MOVE": {
+   "code": 5005,
+   "type": "item.ItemReqMsg"
+  },
+  "U_C_BAG_SELL": {
+   "code": 5007,
+   "type": "item.ItemReqMsg"
+  },
+  "U_C_BAG_USEITEM": {
+   "code": 5006,
+   "type": "item.ItemUseMsg"
+  },
+  "U_C_BUIDLING_TRANS_COOL": {
+   "code": 5173,
+   "type": "player.PayTypeMsg"
+  },
+  "U_C_BUILDING_ORDERADD": {
+   "code": 5175,
+   "type": "player.PayTypeMsg"
+  },
+  "U_C_BUILDING_ORDER_QUICK": {
+   "code": 5172,
+   "type": "building.BuildingReqMsg"
+  },
+  "U_C_BUILDING_TRANSCASTLE": {
+   "code": 5176,
+   "type": "castle.CastleReqMsg"
+  },
+  "U_C_BUILDING_UPENERGY": {
+   "code": 5174,
+   "type": "player.PayTypeMsg"
+  },
+  "U_C_CAMPAGIN_ROOM_PLACESTATE": {
+   "code": 5029,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_CAMPAIGN_ARMY": {
+   "code": 5121,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_C_CAMPAIGN_ARRIVE": {
+   "code": 5125,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_C_CAMPAIGN_CALLBACK": {
+   "code": 5032,
+   "type": "campaign.CallBackReqMsg"
+  },
+  "U_C_CAMPAIGN_CONFIRM": {
+   "code": 5033,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_C_CAMPAIGN_ENTER": {
+   "code": 5039,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_C_CAMPAIGN_EXIT": {
+   "code": 5120,
+   "type": "room.RoomExitMsg"
+  },
+  "U_C_CAMPAIGN_FINISH": {
+   "code": 5180,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_C_CAMPAIGN_FOG_UPDATE": {
+   "code": 5126,
+   "type": "campaign.CampaignFogDataListReqMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_CREATE": {
+   "code": 5023,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_EDIT": {
+   "code": 5034,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_ENTER": {
+   "code": 5024,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_EXIT": {
+   "code": 5025,
+   "type": "room.RoomExitMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_INVITE": {
+   "code": 5028,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_KILLPLAYER": {
+   "code": 5031,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_LIST": {
+   "code": 5026,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_CAMPAIGN_ROOM_MASTER_CHANGE": {
+   "code": 5030,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_C_CAMPAIGN_SYNCPOS": {
+   "code": 5124,
+   "type": "worldmap.PosMoveMsg"
+  },
+  "U_C_CAMPAIGN_SYSTEM_ARMY": {
+   "code": 5038,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_C_CAMPAIGN_TAKE_CARD": {
+   "code": 5122,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_C_CAMPAIGN_TRAINING": {
+   "code": 5127,
+   "type": "novice.NoviceReqMsgMsg"
+  },
+  "U_C_CHECK_NICK": {
+   "code": 8223,
+   "type": "player.CheckNickMsg"
+  },
+  "U_C_CONSORTIA_CHANGE": {
+   "code": 5131,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_CREATE": {
+   "code": 5130,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_DELUSER": {
+   "code": 5132,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_DUTYUPDATE": {
+   "code": 5137,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_FRESHALTAR": {
+   "code": 5145,
+   "type": "simple.PropertyMsg"
+  },
+  "U_C_CONSORTIA_GROUP_PLACARD": {
+   "code": 8544,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_INFO": {
+   "code": 8212,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_INVITE": {
+   "code": 5142,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_INVITEDEL": {
+   "code": 5141,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_INVITE_LIST": {
+   "code": 8214,
+   "type": "consortia.SearchConditionMsg"
+  },
+  "U_C_CONSORTIA_LEARN": {
+   "code": 5147,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_LEVEL": {
+   "code": 5133,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_MODIFYBBS": {
+   "code": 5139,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_MODIFYDESC": {
+   "code": 5140,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_OFF": {
+   "code": 5144,
+   "type": "consortia.ConsortiaUserOfferReqMsg"
+  },
+  "U_C_CONSORTIA_OFFER_LIST": {
+   "code": 8208,
+   "type": "consortia.ConsortiaOfferReqMsg"
+  },
+  "U_C_CONSORTIA_OPENAPP": {
+   "code": 5149,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_PASS": {
+   "code": 5134,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_QUIT": {
+   "code": 5146,
+   "type": "consortia.ConsortiaQuitReqMsg"
+  },
+  "U_C_CONSORTIA_RENAME": {
+   "code": 5148,
+   "type": "consortia.ConsortiaRenameReqMsg"
+  },
+  "U_C_CONSORTIA_SEARCH": {
+   "code": 8213,
+   "type": "consortia.SearchConditionMsg"
+  },
+  "U_C_CONSORTIA_USERINVITE": {
+   "code": 5135,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_CONSORTIA_USERPASS": {
+   "code": 5143,
+   "type": "consortia.ConsortiaMsg"
+  },
+  "U_C_DROPITEM_TAKE": {
+   "code": 5129,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "U_C_FATE_TRAIN": {
+   "code": 8626,
+   "type": "fate.FateEditMsg"
+  },
+  "U_C_HERO_RUNE_OP": {
+   "code": 8605,
+   "type": "army.HeroRuneOpMsg"
+  },
+  "U_C_HERO_SETFASTKEY": {
+   "code": 5167,
+   "type": "army.HeroFastKeyMsg"
+  },
+  "U_C_HERO_UPDATE_EQUIPMENT": {
+   "code": 5008,
+   "type": "army.HeroHideFashionReqMsg"
+  },
+  "U_C_ITEM_INLAYJOIN": {
+   "code": 5152,
+   "type": "store.StoreReqMsg"
+  },
+  "U_C_PLAYER_ADD_ATTACKCOUNT": {
+   "code": 5021,
+   "type": "player.ChallengeMsg"
+  },
+  "U_C_PLAYER_NOVICE": {
+   "code": 5017,
+   "type": "novice.NoviceReqMsgMsg"
+  },
+  "U_C_PLAYER_READY_STATE": {
+   "code": 5036,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_QUEST_ADD": {
+   "code": 5012,
+   "type": "quest.QuestAddedMsg"
+  },
+  "U_C_QUEST_FINISH": {
+   "code": 5014,
+   "type": "quest.QuestFinishedReqMsg"
+  },
+  "U_C_ROOM_FIND": {
+   "code": 8465,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_ROOM_STATE": {
+   "code": 5037,
+   "type": "room.RoomReqMsg"
+  },
+  "U_C_SHOP_BUY": {
+   "code": 5154,
+   "type": "shop.ShopMsg"
+  },
+  "U_C_STAR_MOON_RUINS_REQUEST": {
+   "code": 9645,
+   "type": "cccactive.StarMoonRemainsReqInfo"
+  },
+  "U_C_TREE_PICK": {
+   "code": 5178,
+   "type": "building.BuildingReqMsg"
+  },
+  "U_C_UNOCCPWILDLAND": {
+   "code": 5179,
+   "type": "building.BuildingReqMsg"
+  },
+  "U_C_USER_DISPLAY": {
+   "code": 5004,
+   "type": "outercity.OutercityReqMsg"
+  },
+  "U_PLAYER_CLIENT_STATE": {
+   "code": 5035,
+   "type": "player.LoginStateMsg"
+  },
+  "C_QUICK_HANGUP_TIME": {
+   "code": 8293,
+   "type": "player.PayTypeMsg"
+  },
+  "C_BET_ADDLORDS": {
+   "code": 8716,
+   "type": "simple.PropertyMsg"
+  },
+  "C_TAKE_OFFLINE_REWARD": {
+   "code": 8287,
+   "type": "player.OfflineRewardMsg"
+  },
+  "C_PLAYER_AASCHANGE": {
+   "code": 8260,
+   "type": "player.PlayerAASReqMsg"
+  },
+  "C_PLAYER_AASREFRESH": {
+   "code": 8261,
+   "type": "player.PlayerAASRefreshMsg"
+  },
+  "U_C_PLAYER_GRADE": {
+   "code": 5018,
+   "type": "box.BoxMsg"
+  },
+  "U_C_PLAYER_TIME": {
+   "code": 5019,
+   "type": "box.BoxMsg"
+  },
+  "U_C_MAILITEM_MOVE": {
+   "code": 5022,
+   "type": "mail.MailMsg"
+  },
+  "U_C_MAIL_DEL": {
+   "code": 8206,
+   "type": "mail.MailDelReqMsg"
+  },
+  "U_C_MAIL_SEND": {
+   "code": 8205,
+   "type": "mail.MailSendReqMsg"
+  },
+  "C_ITEM_TRANSFORM": {
+   "code": 8538,
+   "type": "store.StoreReqMsg"
+  },
+  "U_C_ITEM_INLAY": {
+   "code": 5151,
+   "type": "store.StoreReqMsg"
+  },
+  "U_C_ITEM_COMPOSE": {
+   "code": 5153,
+   "type": "store.StoreReqMsg"
+  },
+  "C_BAG_USEBIGBUGLE": {
+   "code": 5011,
+   "type": "chat.ChatChannelMsg"
+  },
+  "C_BAG_USESMALLBUGLE": {
+   "code": 8198,
+   "type": "chat.ChatChannelMsg"
+  },
+  "U_G_LOGIN_GATEWAY": {
+   "code": 20001,
+   "type": "player.LoginReqMsg"
+  },
+  "C_LEED_CLIENT": {
+   "code": 8322,
+   "type": "leed.ClientReqMsg"
+  },
+  "C_LEED_FINISH": {
+   "code": 8235,
+   "type": "leed.LeedFinishedReqMsg"
+  },
+  "C_LUCKY_FRFRESH": {
+   "code": 8320,
+   "type": "lucky.PlayerLuckyMsg"
+  },
+  "C_LUCKY_SWAP": {
+   "code": 8321,
+   "type": "lucky.PlayerLuckyMsg"
+  },
+  "C_REFININGSOUL_FRFRESH": {
+   "code": 8466,
+   "type": "lucky.PlayerRefiningSoulMsg"
+  },
+  "C_REFININGSOUL_SWAP": {
+   "code": 8467,
+   "type": "lucky.PlayerRefiningSoulMsg"
+  },
+  "C_MALL_SELL_ITEM": {
+   "code": 8448,
+   "type": "mall.SellItemReqMsg"
+  },
+  "C_MALL_LIST_SELL": {
+   "code": 8449,
+   "type": "mall.MallItemViewReqMsg"
+  },
+  "C_MALL_PLAYER_ITEMS": {
+   "code": 8450,
+   "type": "mall.MallItemViewReqMsg"
+  },
+  "C_MALL_AUCTION": {
+   "code": 8451,
+   "type": "mall.AuctionItemReqMsg"
+  },
+  "C_MALL_LIST_AUCTION": {
+   "code": 8452,
+   "type": "mall.MallItemViewReqMsg"
+  },
+  "C_MALL_FIX_AUCTION": {
+   "code": 8453,
+   "type": "mall.AuctionItemReqMsg"
+  },
+  "C_MALL_CANCEL_SELL": {
+   "code": 8454,
+   "type": "mall.AuctionItemReqMsg"
+  },
+  "C_SHOPITEM_BUY": {
+   "code": 8482,
+   "type": "mall.ShopItemBuyMsg"
+  },
+  "C_SHOPITEM_FRESH": {
+   "code": 8483,
+   "type": "mall.ShopFreshReqMsg"
+  },
+  "C_PLAYER_RELOGIN_CMD": {
+   "code": 8496,
+   "type": "player.TakeLoginReward"
+  },
+  "C_CHECK_CODE": {
+   "code": 8514,
+   "type": "simple.CheckImageMsg"
+  },
+  "C_CHECK_SHOW_CODE": {
+   "code": 8516,
+   "type": "simple.CheckImageMsg"
+  },
+  "DEBUG_BATTLE": {
+   "code": 10003,
+   "type": "battle.BattleCreateMsg"
+  },
+  "B_REMOVE_BATTLE": {
+   "code": 10497,
+   "type": "battle.BattleReqMsg"
+  },
+  "C_APPELL_EXCHANGE": {
+   "code": 8597,
+   "type": "player.AppellExchangeMsg"
+  },
+  "C_CC": {
+   "code": 8598,
+   "type": "simple.PropertyMsg"
+  },
+  "C_FASHION_COMPOSE": {
+   "code": 8594,
+   "type": "store.StoreReqMsg"
+  },
+  "C_VEHICLE_CHOOSE_VEHICLE": {
+   "code": 8611,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "C_VEHICLE_MOVE": {
+   "code": 8615,
+   "type": "vehicle.VehicleMoveMsg"
+  },
+  "C_VEHICLE_ATTACK": {
+   "code": 8616,
+   "type": "vehicle.VehicleAttackReqMsg"
+  },
+  "C_VEHICLE_PICK_PROP": {
+   "code": 8617,
+   "type": "vehicle.VehiclePickPropMsg"
+  },
+  "C_ACTIVE_VEHICLE": {
+   "code": 8619,
+   "type": "simple.PropertyMsg"
+  },
+  "C_SMALL_BUGLE_FREE_COUNT": {
+   "code": 8705,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "C_PLAYER_AAS_SWITCH_CHANGE": {
+   "code": 8620,
+   "type": "player.PlayerAASRefreshMsg"
+  },
+  "C_TAKE_360_REWARD": {
+   "code": 8722,
+   "type": "privilege.PrivilegeMsg"
+  },
+  "C_GAME_STORY_REQUEST": {
+   "code": 8629,
+   "type": "active.GameStoryMsg"
+  },
+  "C_SEND_CROSS_BIGBUGLE": {
+   "code": 8623,
+   "type": "cross.CrossBigBugleMsg"
+  },
+  "C_FATE_TURN": {
+   "code": 8627,
+   "type": "fate.FateEditMsg"
+  },
+  "C_GET_PLAYER_PET_INFO": {
+   "code": 8702,
+   "type": "pet.PlayerPetOpMsg"
+  },
+  "C_U_ACTIVE_DEPOSIT": {
+   "code": 8703,
+   "type": "active.DepositActiveMsg"
+  },
+  "C_APPLY_INVITE_TEAM": {
+   "code": 8734,
+   "type": "simple.PropertyMsg"
+  },
+  "C_CHANGE_CAPTAIN": {
+   "code": 8736,
+   "type": "simple.PropertyMsg"
+  },
+  "C_INVITE_TEAM": {
+   "code": 8738,
+   "type": "simple.PropertyMsg"
+  },
+  "C_KICK_TEAM_MEMBER": {
+   "code": 8739,
+   "type": "simple.PropertyMsg"
+  },
+  "C_SERVEN_LEAD": {
+   "code": 8749,
+   "type": "leed.GetRewardMsg"
+  },
+  "C_FRESHMAN_DEPOSIT": {
+   "code": 8751,
+   "type": "active.DepositActiveMsg"
+  },
+  "C_BUGLE_ROULETTE": {
+   "code": 8639,
+   "type": "vip.VipRouletteMsg"
+  },
+  "C_MOULD_ITEM": {
+   "code": 8644,
+   "type": "player.PayTypeMsg"
+  },
+  "C_SLOT_ACTIVE_REQ": {
+   "code": 9500,
+   "type": "active.SlotActiveRequest"
+  },
+  "C_ANSWER_REQUEST_OPTION": {
+   "code": 9501,
+   "type": "answerquestion.AnswerquestionReqMsg"
+  },
+  "C_SEEK_REQ": {
+   "code": 9502,
+   "type": "seek.PlayerSeekInfoMsg"
+  },
+  "C_FISH_POOL": {
+   "code": 9507,
+   "type": "fish.FreshPoolMsg"
+  },
+  "C_GEMMAZE_INVITE_OP": {
+   "code": 9515,
+   "type": "minigame.GemInviteOpMsg"
+  },
+  "C_LOCK_OR_UNLOCK": {
+   "code": 8809,
+   "type": "player.LockAndUnlockMsg"
+  },
+  "C_SEVEN_SIGN_RECEIVE": {
+   "code": 8789,
+   "type": "active.SevenSignReceiveReq"
+  },
+  "C_CAMPAIGN_START": {
+   "code": 5039,
+   "type": "campaign.CampaignReqMsg"
+  },
+  "C_CAMPAIGN_ROOM_KILLPLAYER": {
+   "code": 5031,
+   "type": "room.RoomReqMsg"
+  },
+  "C_TURNTABLE_REQ": {
+   "code": 8649,
+   "type": "active.TurnTableReqMsg"
+  },
+  "C_MULTILORDS_INSPIRE": {
+   "code": 8645,
+   "type": "shop.ShopMsg"
+  },
+  "C_MARKET_ORDER_ACTION": {
+   "code": 8448,
+   "type": "market.MarketOrderReqMsg",
+   "source": "client"
+  },
+  "C_MARKET_INFO_REQ": {
+   "code": 8450,
+   "type": "market.MarketInfoReqMsg",
+   "source": "client"
+  },
+  "C_CLIENT_EVENT": {
+   "code": 8519,
+   "type": "clientevent.ClientEventReqMsg",
+   "source": "client"
+  },
+  "C_OPTION_PACKS_REQ": {
+   "code": 9645,
+   "type": "active.OreActiveClientOpMsg"
+  },
+  "C_MAIL_LIST": {
+   "code": 8204,
+   "type": "mail.MailListReqMsg",
+   "source": "client"
+  },
+  "C_OUT_CITY_DECLEAR_WAR": {
+   "code": 9590,
+   "type": "outcitywar.OutCityWarDeclearReq",
+   "source": "client"
+  },
+  "C_OUT_CITY_WAR_GIVE_UP_CASTLE": {
+   "code": 9603,
+   "type": "outcitywar.OutCityWarDeclearReq",
+   "source": "client"
+  },
+  "C_OUT_CITY_WAR_OCCUPY_BUILD": {
+   "code": 9605,
+   "type": "outcitywar.OutCityWarDeclearReq",
+   "source": "client"
+  },
+  "C_QQ_DAWANKA_REQ": {
+   "code": 8878,
+   "type": "qq.DaWanKaReq",
+   "source": "client"
+  },
+  "C_SEASON_PASS_REQ": {
+   "code": 9076,
+   "type": "gamebox.SeasonPassInfoReq",
+   "source": "client"
+  },
+  "C_REMOTE_PET_OP": {
+   "code": 9544,
+   "type": "remotepet.RemotePetOpMsg",
+   "source": "client"
+  },
+  "CH_REMOTE_FRIEND_PET": {
+   "code": 15057,
+   "type": "remotepet.RemoteFriendPetOpMsg",
+   "source": "client"
+  },
+  "C_LIMITEDTIMEGIFT_REQ": {
+   "code": 8237,
+   "type": "limitedtimegift.LimitedTimeGiftReqMsg",
+   "source": "client"
+  },
+  "C_BUBBLE_CHANGE": {
+   "code": 8808,
+   "type": "bubble.ChangeBubbleReq",
+   "source": "client"
+  },
+  "C_FIVE_CARD_POKER_OP": {
+   "code": 5443,
+   "type": "carnival.FiveCardPokerMsg",
+   "source": "client"
+  },
+  "C_MEMORY_CARD_OP": {
+   "code": 5444,
+   "type": "carnival.MemoryCardMsg",
+   "source": "client"
+  },
+  "C_LINKGAME_OP": {
+   "code": 5442,
+   "type": "carnival.LinkGameMsg",
+   "source": "client"
+  },
+  "C_MATE_SKILL_SHOP": {
+   "code": 8974,
+   "type": "matelords.MateShopListMsg",
+   "source": "client"
+  },
+  "C_CARNIVAL_OP": {
+   "code": 9019,
+   "type": "player.PlayerOpMsg",
+   "source": "client"
+  },
+  "C_OPEN_SERVICE_HISTORY_INFO": {
+   "code": 9695,
+   "type": "active.OpenServiceRankInfoReq",
+   "source": "client"
+  },
+  "C_FASHION_EXCHANGE": {
+   "code": 9582,
+   "type": "simple.FashionInfoMsg"
+  },
+  "C_SUDOKU_OP": {
+   "code": 5445,
+   "type": "pb.minigame.SudokuGameReqMsg"
+  }
+ }
+}

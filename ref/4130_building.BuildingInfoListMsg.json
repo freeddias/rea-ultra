@@ -1,0 +1,25 @@
+{
+ "building": [
+  {
+   "userId": 956,
+   "buildingId": 4101,
+   "templateId": 120101,
+   "sonType": 1201,
+   "propterty1": 900
+  },
+  {
+   "userId": 956,
+   "buildingId": 4102,
+   "templateId": 40201,
+   "sonType": 402
+  },
+  {
+   "userId": 956,
+   "buildingId": 4100,
+   "templateId": 90101,
+   "sonType": 901,
+   "propterty2": 5
+  }
+ ],
+ "result": true
+}

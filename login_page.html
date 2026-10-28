@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Wartune Ultra</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  /* portal before the game: a dark stage with the game's own sky-trial art, one gold-rimmed card in the middle */
+  :root {
+    color-scheme: dark;
+    --ink: #0b0d13; --panel: rgba(16, 19, 28, .88); --line: #3a3324; --line-soft: #262a35;
+    --text: #ece6d6; --muted: #a39d8e; --gold: #d8a948; --gold-hi: #f3cf7a; --ok: #6fcf86; --bad: #e57d6c;
+    --display: "Trajan Pro", "Palatino Linotype", "Book Antiqua", Georgia, serif;   /* local faces only: the page must not wait on the network */ --body: "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    background: var(--ink) url("/res/animation/images/skytrial/scene/Img_SkyTrailDun_Bg1-7b153258b0.jpg") center / cover fixed no-repeat;
+    color: var(--text); font: 15px/1.55 var(--body); display: flex; flex-direction: column; min-height: 100vh;
+  }
+  body::after { content: ""; position: fixed; inset: 0; background: radial-gradient(ellipse at 50% 35%, rgba(11,13,19,.35), rgba(11,13,19,.92) 70%); z-index: -1; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px max(16px, 4vw); }
+  .brand { font-family: var(--display); font-size: 18px; letter-spacing: .14em; color: var(--gold-hi); text-transform: uppercase; }
+  .brand b { color: var(--text); font-weight: 400; }
+  .status { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); padding: 4px 12px; border: 1px solid var(--line-soft); border-radius: 999px; background: rgba(0,0,0,.35); }
+  .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+  main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 24px 16px 40px; }
+  h1 { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(34px, 7vw, 60px); letter-spacing: .08em; text-align: center; line-height: 1.05;
+    color: var(--gold-hi); text-shadow: 0 2px 0 #6b4a12, 0 0 28px rgba(216,169,72,.35); }
+  h1 small { display: block; font-size: .32em; letter-spacing: .5em; color: var(--text); text-shadow: none; margin-top: 6px; }
+  .lead { margin: -8px 0 0; color: var(--muted); text-align: center; }
+  .card { width: 100%; max-width: 380px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 22px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.55), inset 0 1px 0 rgba(243,207,122,.08); backdrop-filter: blur(4px); }
+  .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 18px; }
+  .tabs button { font: inherit; font-size: 14px; padding: 8px; border: 1px solid var(--line-soft); border-radius: 8px; background: transparent; color: var(--muted); cursor: pointer; }
+  .tabs button[aria-selected="true"] { border-color: var(--gold); color: var(--gold-hi); background: rgba(216,169,72,.08); }
+  form { display: flex; flex-direction: column; gap: 12px; }
+  label { display: flex; flex-direction: column; gap: 5px; font-size: 13px; color: #c9c2b0; }
+  input[type=text], input[type=password] { font: inherit; padding: 10px 12px; border-radius: 8px; border: 1px solid #3a3f4c; background: rgba(8,10,15,.8); color: var(--text); }
+  input:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .check { flex-direction: row; align-items: flex-start; gap: 8px; color: var(--muted); }
+  .check input { margin-top: 3px; accent-color: var(--gold); }
+  .btn { font: inherit; font-weight: 700; letter-spacing: .06em; padding: 12px; border: 1px solid #f0c66b; border-radius: 8px; cursor: pointer; color: #22170a;
+    background: linear-gradient(#f3cf7a, #c8902f); box-shadow: 0 4px 0 #6b4a12, 0 0 18px rgba(216,169,72,.25); text-transform: uppercase; }
+  .btn:hover { filter: brightness(1.06); } .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #6b4a12; }
+  .btn:disabled { opacity: .55; cursor: default; }
+  .msg { min-height: 1.3em; font-size: 13px; color: var(--bad); margin: 0; }
+  .links { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 13px; margin-top: 6px; }
+  .links a, .linkbtn { color: var(--gold); text-decoration: none; background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
+  .links a:hover, .linkbtn:hover { color: var(--gold-hi); text-decoration: underline; }
+  .who { display: flex; align-items: center; gap: 14px; padding: 14px; border: 1px solid var(--line-soft); border-radius: 10px; background: rgba(0,0,0,.3); margin-bottom: 14px; }
+  .crest { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-size: 22px; color: #22170a;
+    background: radial-gradient(circle at 35% 30%, #f8dc95, #b7812a); box-shadow: 0 0 0 2px #6b4a12, 0 0 14px rgba(216,169,72,.4); }
+  .who small { display: block; font-size: 12px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+  .who strong { font-size: 18px; } .who span { display: block; font-size: 13px; color: var(--muted); }
+  .note { font-size: 13px; color: var(--muted); margin: 0 0 14px; }
+  footer { padding: 16px max(16px, 4vw) 22px; font-size: 12px; color: #807a6c; text-align: center; }
+  footer a { color: var(--gold); }
+  dialog { max-width: 480px; background: #151821; color: var(--text); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  dialog::backdrop { background: rgba(0,0,0,.6); }
+  dialog h2 { margin: 0 0 8px; font-family: var(--display); color: var(--gold-hi); font-size: 18px; }
+  dialog p { color: #c9c2b0; font-size: 14px; }
+  [hidden] { display: none !important; }
+  @media (prefers-reduced-motion: reduce) { .btn:active { transform: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Wartune <b>Ultra</b></div>
+  <div class="status"><i></i>Servidor ativo</div>
+</header>
+
+<main>
+  <h1>WARTUNE<small>ULTRA</small></h1>
+  <p class="lead" id="lead">Entre ou crie uma nova conta</p>
+
+  <section class="card" aria-live="polite">
+    <!-- an open session: the account, then "Devam et" opens the game (server list) -->
+    <div id="v-session" hidden>
+      <div class="who">
+        <div class="crest" id="crest">W</div>
+        <div><small>Jogador</small><strong id="who-user"></strong><span id="who-char"></span></div>
+      </div>
+      <p class="note">Sua sessão está aberta. Se continuar, você irá direto para a seleção de servidores.</p>
+      <button class="btn" id="go" type="button" style="width:100%">Continuar</button>
+      <div class="links">
+        <button class="linkbtn" id="other" type="button">Entrar com outra conta</button>
+        <button class="linkbtn" id="newacc" type="button">Criar nova conta</button>
+      </div>
+    </div>
+
+    <div id="v-forms" hidden>
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="t-login" aria-selected="true">Entrar</button>
+        <button type="button" role="tab" id="t-register" aria-selected="false">Criar conta</button>
+      </div>
+
+      <form id="f-login" autocomplete="on">
+        <label>Nome de usuário <input type="text" id="l-user" name="username" autocomplete="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_.\-]{3,20}"></label>
+        <label>Senha <input type="password" id="l-pass" name="password" autocomplete="current-password" required minlength="4" maxlength="64"></label>
+        <p class="msg" id="l-msg" role="alert"></p>
+        <button class="btn" type="submit" id="l-btn">Entrar</button>
+        <div class="links">
+          <button class="linkbtn" type="button" id="to-register">Não tem uma conta? Crie uma nova</button>
+          <button class="linkbtn" type="button" id="forgot">Esqueci minha senha</button>
+        </div>
+      </form>
+
+      <form id="f-register" autocomplete="on" hidden>
+        <label>Nome de usuário <input type="text" id="r-user" name="username" autocomplete="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_.\-]{3,20}"></label>
+        <label>Senha <input type="password" id="r-pass" name="new-password" autocomplete="new-password" required minlength="4" maxlength="64"></label>
+        <label>Senha (repetir) <input type="password" id="r-pass2" autocomplete="new-password" required minlength="4" maxlength="64"></label>
+        <label class="check"><input type="checkbox" id="r-terms" required> <span>Li e aceito os <button class="linkbtn" type="button" id="show-terms">termos de uso</button>.</span></label>
+        <p class="msg" id="r-msg" role="alert"></p>
+        <button class="btn" type="submit" id="r-btn">Criar conta</button>
+        <div class="links"><button class="linkbtn" type="button" id="to-login">Já tem uma conta? Entre</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>Wartune Ultra é um servidor privado independente; não possui ligação com a 7Road. O nome de usuário pode ter de 3 a 20 caracteres (letras, números, _ . -). <a href="/admin">Administração</a></footer>
+
+<dialog id="terms">
+  <h2>Termos de uso</h2>
+  <p>Este servidor é apenas para fins pessoais e educacionais. Não compartilhe sua conta com terceiros, evite trapaças (cheats) ou comportamentos que possam incomodar outros jogadores. Os dados do jogo são salvos pelo administrador do servidor e podem ser reiniciados quando necessário.</p>
+  <form method="dialog"><button class="btn" value="ok">Li e aceito</button></form>
+</dialog>
+<dialog id="forgot-d">
+  <h2>Esqueci minha senha</h2>
+  <p>O administrador do servidor pode redefinir sua senha (no computador do servidor: <code>node tools/set_password.js &lt;nome de usuário&gt; &lt;nova senha&gt;</code>).</p>
+  <form method="dialog"><button class="btn" value="ok">Fechar</button></form>
+</dialog>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var me = null;
+  function show(view, tab) {
+    $('v-session').hidden = view !== 'session';
+    $('v-forms').hidden = view !== 'forms';
+    $('lead').textContent = view === 'session' ? 'Bem-vindo(a) de volta, continue sua aventura de onde parou' : 'Entre ou crie uma nova conta';
+    if (view === 'forms') setTab(tab || 'login');
+  }
+  function setTab(t) {
+    $('t-login').setAttribute('aria-selected', String(t === 'login'));
+    $('t-register').setAttribute('aria-selected', String(t === 'register'));
+    $('f-login').hidden = t !== 'login'; $('f-register').hidden = t !== 'register';
+    var first = t === 'login' ? $('l-user') : $('r-user');
+    if (t === 'login') { try { var last = localStorage.getItem('wt-last-user'); if (last && !first.value) first.value = last; } catch (e) {} }
+    setTimeout(function () { (t === 'login' && first.value ? $('l-pass') : first).focus(); }, 0);
+  }
+  function play() { if (me) location.href = '/?user=' + encodeURIComponent(me.user) + '&from=WAN'; }
+  function load() {
+    fetch('/me', { credentials: 'same-origin' }).then(function (r) { return r.json(); }).then(function (j) {
+      me = j && j.user ? j : null;
+      if (!me) return show('forms', 'login');
+      $('who-user').textContent = me.user;
+      $('who-char').textContent = me.nickName ? 'Personagem: ' + me.nickName : 'Ainda sem personagem — você o criará ao selecionar o servidor';
+      $('crest').textContent = (me.nickName || me.user).charAt(0).toUpperCase();
+      show('session');
+      $('go').focus();
+    }).catch(function () { show('forms', 'login'); });
+  }
+  function logout(then) { fetch('/logout', { credentials: 'same-origin' }).finally(function () { me = null; then(); }); }
+  function submit(mode, user, pass, msg, btn) {
+    msg.textContent = ''; btn.disabled = true;
+    fetch('/auth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify({ user: user, pass: pass, mode: mode }) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        btn.disabled = false;
+        if (!j.ok) { msg.textContent = j.error || 'A operação não pôde ser realizada'; return; }
+        try { localStorage.setItem('wt-last-user', user); } catch (e) {}
+        load();   // the session view: "Devam et" opens the game
+      })
+      .catch(function () { btn.disabled = false; msg.textContent = 'Não foi possível conectar ao servidor'; });
+  }
+  $('f-login').addEventListener('submit', function (e) { e.preventDefault(); submit('login', $('l-user').value.trim(), $('l-pass').value, $('l-msg'), $('l-btn')); });
+  $('f-register').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if ($('r-pass').value !== $('r-pass2').value) { $('r-msg').textContent = 'As senhas não coincidem'; return; }
+    submit('register', $('r-user').value.trim(), $('r-pass').value, $('r-msg'), $('r-btn'));
+  });
+  $('t-login').onclick = $('to-login').onclick = function () { setTab('login'); };
+  $('t-register').onclick = $('to-register').onclick = function () { setTab('register'); };
+  $('go').onclick = play;
+  $('other').onclick = function () { logout(function () { show('forms', 'login'); }); };
+  $('newacc').onclick = function () { logout(function () { show('forms', 'register'); }); };
+  $('show-terms').onclick = function () { $('terms').showModal(); };
+  $('forgot').onclick = function () { $('forgot-d').showModal(); };
+  load();
+})();
+</script>
+</body>
+</html>

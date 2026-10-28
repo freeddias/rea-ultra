@@ -1,0 +1,80 @@
+// Login server: createLogin -> getPlayerList -> prepareLogin (-> registerRole) -> hand off to gateway.
+// With passwords on (auth.js), the account is the one of the browser's session cookie: the name typed into
+// the game's own login window (it has no password field) is ignored, so typing someone else's name does
+// nothing. No session -> VERIFY_ERROR (the client shows its "verification failed" text).
+const db = require('./db');
+const cfg = require('./config');
+const auth = require('./auth');
+const sites = require('./sites');
+const { sysTime } = require('./util');
+
+const NO_ROLE = 'Login Succeed No Visualize';   // SH.SUCCEED_NOVISUALIZE -> client opens character creation
+const VERIFY_ERROR = 7;                          // client rZ.VERIFY_ERROR
+
+// Advertise the host the browser used for the login WS (LAN IP / localhost), not only cfg.HOST.
+// Cookie and gate must stay on the same hostname or the gateway handshake loses the session.
+function gateInfo(c) {
+  const host = String((c && c.host) || cfg.HOST).replace(/^\[|\]$/g, '');
+  return { gateIp: host || cfg.HOST, port: cfg.GATE_PORT };
+}
+
+module.exports = (log) => {
+  // the account name this connection may use: the session's, or (passwords off) what the client sent
+  function name(c, typed) {
+    if (!auth.ENABLED) return typed;
+    const s = auth.session(c.cookie);
+    return s ? s.userName : null;
+  }
+  return {
+    L_CREATE_LOGIN(c, body) {
+      const m = c.decode('login.createLoginReq', body);
+      const site = m.site || cfg.SITE_NAME, userName = name(c, m.userName);
+      log(`[#${c.id}] createLogin`, { typed: m.userName, userName, site, from: m.from, platId: m.platId, ip: c.ip });
+      if (!userName) {
+        log(`[#${c.id}] refused: no password session (open the page again and log in)`);
+        return c.send('U_L_CREATE_LOGIN_RSP', { userName: m.userName, site, result: VERIFY_ERROR });
+      }
+      const info = sites.find(site);
+      if (!info || !info.isOpen) {
+        log(`[#${c.id}] refused: site ${site} missing or closed`);
+        return c.send('U_L_CREATE_LOGIN_RSP', { userName, site, result: VERIFY_ERROR });
+      }
+      c.session.userName = userName; c.session.site = site;
+      db.account(userName, site);
+      c.send('U_L_CREATE_LOGIN_RSP', { userName, site, result: 0 });
+    },
+    L_GET_PLAYER_LIST(c, body) {
+      const m = c.decode('login.GetPlayerListReq', body);
+      const userName = c.session.userName || name(c, m.userName); if (!userName) return;
+      const a = db.account(userName, m.site || c.session.site);
+      const infoList = a.char ? [{ userId: a.userId, nickName: a.char.nickName }] : [];
+      c.send('U_L_GET_PLAYER_LIST', { infoList, userName: a.userName, site: a.site, loginState: 0 });
+    },
+    L_PREPARE_LOGIN(c, body) {
+      const m = c.decode('login.playerLoginReq', body);
+      const userName = c.session.userName || name(c, m.userName); if (!userName) return;
+      const a = db.account(userName, m.site || c.session.site);
+      a.password = m.password;   // the client's per-login value; the gateway key is md5(it) (logic.js checks)
+      db.save();
+      c.send('U_L_PREPARE_LOGIN', {
+        userName: a.userName, site: a.site, result: true, userId: a.userId,
+        message: a.char ? 'Login Succeed' : NO_ROLE, todayFirstLogin: false, ...gateInfo(c),
+      });
+    },
+    L_REGISTER_ROLE(c, body) {
+      const m = c.decode('login.registerRoleReq', body);
+      log(`[#${c.id}] registerRole`, m);
+      const userName = c.session.userName || name(c, m.userName); if (!userName) return;
+      const a = db.account(userName, m.site || c.session.site);
+      if (a.char) { log(`[#${c.id}] registerRole refused: ${userName} already has a character`); return; }
+      // RegisterSWnd icons: 1..3 male, 4..6 female; job = (icon-1)%3+1 (1 warrior, 2 archer, 3 mage)
+      a.char = { nickName: m.nickName, sex: m.sex, camp: m.camp, icon: m.icon, job: ((m.icon - 1) % 3) + 1, created: Date.now() };
+      db.save();
+      c.send('U_L_REGISTER_ROLE_RSP', { userName: a.userName, site: a.site, value: true, type: 0, message: 'ok', userId: a.userId, ...gateInfo(c) });
+    },
+    L_SYNC_TIME(c) {
+      c.quiet = c.quiet || new Set(['U_C_SYNCHRONIZED_TIME']);
+      c.send('U_C_SYNCHRONIZED_TIME', { sysCurtime: sysTime() });
+    },
+  };
+};

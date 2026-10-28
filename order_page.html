@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Recarga — Wartune Ultra</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0d13">
+<style>
+:root{
+  color-scheme:dark;
+  --ink:#0b0d13;--panel:#141821;--line:#3a3324;--soft:#2a2f3a;
+  --text:#ece6d6;--mute:#a39d8e;--gold:#d8a948;--gold-hi:#f3cf7a;--ok:#6fcf86;--bad:#e57d6c;
+  --display:"Palatino Linotype","Book Antiqua",Georgia,serif;
+  --body:"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:
+  radial-gradient(1200px 600px at 10% -10%,rgba(216,169,72,.12),transparent 60%),
+  radial-gradient(900px 500px at 100% 0%,rgba(80,60,20,.25),transparent 50%),
+  var(--ink);color:var(--text);font:15px/1.45 var(--body);padding:20px 16px 48px}
+.wrap{max-width:920px;margin:0 auto}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:20px}
+h1{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(26px,4vw,34px);color:var(--gold-hi);letter-spacing:.04em}
+h1 small{display:block;font:500 11px/1.2 var(--body);letter-spacing:.22em;color:var(--mute);margin-top:4px}
+.who{text-align:right;color:var(--mute);font-size:13px}
+.who b{color:var(--gold-hi);font-weight:650}
+.who .bal{display:block;margin-top:4px;font-variant-numeric:tabular-nums;color:var(--text);font-size:16px}
+.hint{color:var(--mute);margin:0 0 16px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;gap:8px;min-width:0;
+  transition:border-color .15s,transform .15s}
+.card:hover{border-color:#c8902f}
+.card .amt{font-family:var(--display);font-size:28px;color:var(--gold-hi);font-weight:600;line-height:1}
+.card .amt span{font-size:13px;color:var(--mute);font-family:var(--body);font-weight:500;margin-left:4px}
+.card .bonus{font-size:12px;color:var(--ok)}
+.card .vip{font-size:12px;color:var(--mute)}
+.card .price{font-size:14px;color:#c9c2b0;margin-top:auto;padding-top:6px}
+.card .name{font-size:13px;color:var(--mute)}
+button{font:inherit;font-weight:700;letter-spacing:.03em;padding:10px 14px;border:1px solid #f0c66b;border-radius:9px;cursor:pointer;color:#22170a;
+  background:linear-gradient(#f3cf7a,#c8902f);width:100%;min-height:44px;margin-top:4px}
+button:disabled{opacity:.45;cursor:default}
+button.alt{background:#1b1f28;color:var(--text);border-color:#3a3f4c}
+.log{margin-top:18px;background:#0f1218;border:1px solid var(--soft);border-radius:10px;padding:12px 14px;min-height:48px;white-space:pre-wrap;color:#c9c2b0;font-size:13px}
+.err{color:var(--bad)}.ok{color:var(--ok)}
+.sec{margin:28px 0 10px;font-family:var(--display);font-size:18px;color:var(--gold-hi)}
+a{color:var(--gold)}
+@media (max-width:520px){
+  body{padding:14px 12px 36px}
+  .who{text-align:left}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Recarga<small>WARTUNE ULTRA</small></h1>
+    <div class="who" id="who">Carregando…</div>
+  </header>
+  <p class="hint">Servidor local: a compra credita diamantes e EXP VIP na hora no personagem <b>online</b>. Sem cobrança real.</p>
+  <div class="grid" id="gems"><div class="hint">Carregando pacotes…</div></div>
+  <h2 class="sec">Passes e fundos</h2>
+  <div class="grid" id="extra"></div>
+  <div class="log" id="log">Escolha um pacote.</div>
+  <p class="hint" style="margin-top:16px"><a href="/">Voltar ao jogo</a> · precisa estar logado no portal e com o personagem no servidor</p>
+</div>
+<script>
+var $ = function (id) { return document.getElementById(id); };
+var state = { packs: [], online: false, user: null };
+
+function fmt(n) { return Number(n || 0).toLocaleString('pt-BR'); }
+function money(p) {
+  if (!p.money) return 'Grátis (local)';
+  return (p.currency === 'USD' ? 'US$ ' : '') + Number(p.money).toFixed(2);
+}
+
+function paintWho(j) {
+  var el = $('who');
+  if (!j.user) {
+    el.innerHTML = 'Não logado<br><a href="/">Abrir portal</a>';
+    return;
+  }
+  el.innerHTML = 'Conta <b>' + j.user + '</b>'
+    + (j.nickName ? '<br>Personagem <b>' + j.nickName + '</b>' : '')
+    + '<span class="bal">' + (j.online ? ('Diamantes: ' + fmt(j.point)) : 'Offline — entre no jogo para receber') + '</span>';
+}
+
+function card(p, extras) {
+  var d = document.createElement('div');
+  d.className = 'card';
+  var title = extras
+    ? '<div class="name">' + p.name + '</div>'
+    : '<div class="amt">' + fmt(p.diamonds) + '<span>diamantes</span></div>';
+  var bonus = (!extras && p.show > p.diamonds)
+    ? '<div class="bonus">Exibe ' + fmt(p.show) + ' no cliente</div>' : '';
+  var vip = p.vip ? '<div class="vip">+' + fmt(p.vip) + ' EXP VIP</div>' : '';
+  d.innerHTML = title + bonus + vip
+    + '<div class="price">' + money(p) + '</div>';
+  var b = document.createElement('button');
+  b.textContent = 'Recarregar';
+  b.disabled = !state.online;
+  b.onclick = function () { buy(p.id, b); };
+  d.appendChild(b);
+  return d;
+}
+
+function render() {
+  var gems = $('gems'), extra = $('extra');
+  gems.textContent = ''; extra.textContent = '';
+  var g = state.packs.filter(function (p) { return !p.kind; });
+  var e = state.packs.filter(function (p) { return p.kind; });
+  if (!g.length) gems.innerHTML = '<div class="hint">Nenhum pacote de diamantes</div>';
+  g.forEach(function (p) { gems.appendChild(card(p, false)); });
+  if (!e.length) extra.innerHTML = '<div class="hint">Nenhum passe listado</div>';
+  e.forEach(function (p) { extra.appendChild(card(p, true)); });
+}
+
+function buy(id, btn) {
+  if (!state.online) { $('log').innerHTML = '<span class="err">Personagem offline.</span>'; return; }
+  btn.disabled = true;
+  $('log').textContent = 'Processando…';
+  fetch('/order/buy', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ productId: id }) })
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      btn.disabled = !state.online;
+      if (!j.ok) { $('log').innerHTML = '<span class="err">' + (j.error || (j.out || []).join(' · ') || 'Falhou') + '</span>'; return; }
+      $('log').innerHTML = '<span class="ok">' + (j.out || []).join(' · ') + '</span>';
+      if (j.point != null) {
+        var bal = document.querySelector('.who .bal');
+        if (bal) bal.textContent = 'Diamantes: ' + fmt(j.point);
+      }
+    })
+    .catch(function () { btn.disabled = !state.online; $('log').innerHTML = '<span class="err">Falha de rede</span>'; });
+}
+
+fetch('/order/packs').then(function (r) { return r.json(); }).then(function (j) {
+  state.packs = j.packs || [];
+  state.online = !!j.online;
+  state.user = j.user;
+  paintWho(j);
+  render();
+  if (!j.user) $('log').innerHTML = '<span class="err">Faça login no portal do jogo e abra esta página de novo.</span>';
+  else if (!j.online) $('log').textContent = 'Conta ok — entre no jogo com o personagem para liberar os botões.';
+  else $('log').textContent = 'Pronto. Escolha um pacote.';
+}).catch(function () {
+  $('gems').innerHTML = '<div class="hint err">Não foi possível carregar os pacotes.</div>';
+});
+</script>
+</body>
+</html>
