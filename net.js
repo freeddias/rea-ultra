@@ -1,5 +1,6 @@
 // WebSocket connection wrapper: framing, cipher state, proto encode/decode, dispatch by code.
 const { WebSocketServer } = require('ws');
+const { URL } = require('url');
 const P = require('./packet');
 const { type, u8 } = require('./proto');
 const codes = require('./codes.json');
@@ -105,20 +106,50 @@ class Conn {
   }
 }
 
-function listen(port, handlers, logger, host) {
-  log = logger || log;
-  const wss = new WebSocketServer({ port, host, path: '/ws' });
+function wireConn(wss, handlers, label) {
   wss.on('connection', (ws, req) => {
     const c = new Conn(ws, handlers);
-    c.cookie = req.headers.cookie || '';   // the browser session (auth.js) rides on the handshake
+    // Cloudflare Quick Tunnel often strips Cookie on WS upgrade; fall back to ?wt= from loginUrl.
+    let cookie = req.headers.cookie || '';
+    try {
+      const u = new URL(req.url || '/', 'http://x');
+      const wt = u.searchParams.get('wt') || u.searchParams.get('wtsession');
+      if (wt && !/(?:^|;\s*)wtsession=/.test(cookie)) {
+        cookie = (cookie ? cookie + '; ' : '') + 'wtsession=' + decodeURIComponent(wt);
+      }
+    } catch (e) { }
+    c.cookie = cookie;
     c.ip = req.socket.remoteAddress;
-    // Host the client used (LAN IP vs localhost) — login.js advertises this as gateIp
     c.host = String(req.headers.host || '').replace(/:\d+$/, '');
-    log(`[#${c.id}] connect ${req.socket.remoteAddress} port ${port}` + (c.cookie ? '' : ' (no cookie)'));
+    log(`[#${c.id}] connect ${req.socket.remoteAddress} ${label}` + (c.cookie ? '' : ' (no cookie)'));
     handlers.onOpen && handlers.onOpen(c);
   });
+}
+
+function listen(port, handlers, logger, host) {
+  log = logger || log;
+  // no path filter: LAN uses /ws; Cloudflare single-tunnel uses / and /gate on the HTTP server
+  const wss = new WebSocketServer({ port, host });
+  wireConn(wss, handlers, `port ${port}`);
   log('WS listening on', port);
   return wss;
 }
 
-module.exports = { listen, Conn, S2C, C2S };
+/** Attach WS to an existing HTTP server (upgrade). One Cloudflare tunnel on :8899 can carry login + gate. */
+function attach(server, handlers, logger, { name = 'ws', test } = {}) {
+  log = logger || log;
+  const wss = new WebSocketServer({ noServer: true });
+  wireConn(wss, handlers, name);
+  const ok = typeof test === 'function' ? test : () => true;
+  server.on('upgrade', (req, socket, head) => {
+    let pathname = '/';
+    try { pathname = new URL(req.url || '/', 'http://x').pathname || '/'; } catch (e) { }
+    if (!ok(pathname)) return;
+    // keep req.url (incl. ?wt=) on the connection event
+    wss.handleUpgrade(req, socket, head, ws => wss.emit('connection', ws, req));
+  });
+  log('WS attached on HTTP upgrade:', name);
+  return wss;
+}
+
+module.exports = { listen, attach, Conn, S2C, C2S };

@@ -57,6 +57,7 @@ module.exports = (ctx) => {
           if (!pay(c, [[bound ? -500 : -400, price]])) { alert(c, 'Diamantes insuficientes'); return send(c); }
           if (!grant(c, [[g.ItemId, g.Count || 1]])) { grant(c, [[bound ? -500 : -400, price]], { quiet: true }); alert(c, 'Mochila cheia'); return send(c); }
           it.bought = true; s.score += price;
+          ctx.stat(c, 'mysteryShop');   // daily activity Type 36
         } else if (m.para1 === 1) {
           const g = BY_ID.get(m.para2), n = Math.max(1, m.count || 1);
           if (!g || g.Type !== 1) return send(c);
@@ -66,6 +67,7 @@ module.exports = (ctx) => {
           else if (g.Score) { if (s.score < g.Score * n) { alert(c, 'Pontos insuficientes'); return send(c); } s.score -= g.Score * n; }
           if (!grant(c, [[g.ItemId, (g.Count || 1) * n]])) { alert(c, 'Mochila cheia'); return send(c); }
           s.weekly[g.MapShopId] = (s.weekly[g.MapShopId] || 0) + n;
+          ctx.stat(c, 'mysteryShop');   // daily activity Type 36
         }
         p.save();
       } else if (m.op === 3) {

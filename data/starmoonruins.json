@@ -1,0 +1,146 @@
+{
+  "price": 20,
+  "minTimes": 1,
+  "desc": "<pt>Explore as Ruínas da Estrela da Lua: abra estrelas, explore casas e troque Fragmentos no Tesouro Estrela-Lua.</pt><en>Explore the Star-Moon Ruins: open stars, seek tiles and exchange Shards in the Star-Moon Treasure.</en>",
+  "stars": [
+    {
+      "starId": 1,
+      "maxLimit": 10,
+      "drawRewards": [
+        { "order": 1, "itemId": 2100038, "amount": 2, "rewardType": 0, "clientWeight": 40 },
+        { "order": 2, "itemId": 2100038, "amount": 5, "rewardType": 0, "clientWeight": 25 },
+        { "order": 3, "itemId": 2100037, "amount": 1, "rewardType": 0, "clientWeight": 15 },
+        { "order": 4, "itemId": 208023, "amount": 5, "rewardType": 0, "clientWeight": 10 },
+        { "order": 5, "itemId": 2100039, "amount": 1, "rewardType": 2, "clientWeight": 8 },
+        { "order": 6, "itemId": -100, "amount": 50000, "rewardType": 0, "clientWeight": 2 }
+      ],
+      "processRewards": [
+        { "order": 1, "process": 3, "itemList": [{ "itemId": 2100038, "amount": 5 }] },
+        { "order": 2, "process": 6, "itemList": [{ "itemId": 2100038, "amount": 10 }] },
+        { "order": 3, "process": 10, "itemList": [{ "itemId": 2100039, "amount": 1 }] }
+      ]
+    },
+    {
+      "starId": 2,
+      "maxLimit": 12,
+      "drawRewards": [
+        { "order": 1, "itemId": 2100038, "amount": 3, "rewardType": 0, "clientWeight": 35 },
+        { "order": 2, "itemId": 2100038, "amount": 8, "rewardType": 0, "clientWeight": 25 },
+        { "order": 3, "itemId": 2100037, "amount": 1, "rewardType": 0, "clientWeight": 15 },
+        { "order": 4, "itemId": 2271001, "amount": 10, "rewardType": 0, "clientWeight": 12 },
+        { "order": 5, "itemId": 2100039, "amount": 1, "rewardType": 2, "clientWeight": 10 },
+        { "order": 6, "itemId": -100, "amount": 100000, "rewardType": 0, "clientWeight": 3 }
+      ],
+      "processRewards": [
+        { "order": 1, "process": 4, "itemList": [{ "itemId": 2100038, "amount": 8 }] },
+        { "order": 2, "process": 8, "itemList": [{ "itemId": 2100037, "amount": 2 }] },
+        { "order": 3, "process": 12, "itemList": [{ "itemId": 2100039, "amount": 1 }] }
+      ]
+    },
+    {
+      "starId": 3,
+      "maxLimit": 14,
+      "drawRewards": [
+        { "order": 1, "itemId": 2100038, "amount": 4, "rewardType": 0, "clientWeight": 35 },
+        { "order": 2, "itemId": 2100038, "amount": 10, "rewardType": 0, "clientWeight": 22 },
+        { "order": 3, "itemId": 208017, "amount": 2, "rewardType": 0, "clientWeight": 15 },
+        { "order": 4, "itemId": 2040111, "amount": 1, "rewardType": 0, "clientWeight": 12 },
+        { "order": 5, "itemId": 2100039, "amount": 1, "rewardType": 2, "clientWeight": 12 },
+        { "order": 6, "itemId": -100, "amount": 150000, "rewardType": 0, "clientWeight": 4 }
+      ],
+      "processRewards": [
+        { "order": 1, "process": 5, "itemList": [{ "itemId": 2100038, "amount": 12 }] },
+        { "order": 2, "process": 10, "itemList": [{ "itemId": 2100039, "amount": 1 }] },
+        { "order": 3, "process": 14, "itemList": [{ "itemId": 2100037, "amount": 3 }] }
+      ]
+    },
+    {
+      "starId": 4,
+      "maxLimit": 16,
+      "drawRewards": [
+        { "order": 1, "itemId": 2100038, "amount": 5, "rewardType": 0, "clientWeight": 32 },
+        { "order": 2, "itemId": 2100038, "amount": 12, "rewardType": 0, "clientWeight": 22 },
+        { "order": 3, "itemId": 208023, "amount": 10, "rewardType": 0, "clientWeight": 15 },
+        { "order": 4, "itemId": 2271001, "amount": 20, "rewardType": 0, "clientWeight": 12 },
+        { "order": 5, "itemId": 2100039, "amount": 1, "rewardType": 2, "clientWeight": 14 },
+        { "order": 6, "itemId": -100, "amount": 200000, "rewardType": 0, "clientWeight": 5 }
+      ],
+      "processRewards": [
+        { "order": 1, "process": 5, "itemList": [{ "itemId": 2100038, "amount": 15 }] },
+        { "order": 2, "process": 10, "itemList": [{ "itemId": 2100039, "amount": 1 }] },
+        { "order": 3, "process": 16, "itemList": [{ "itemId": 2100037, "amount": 5 }] }
+      ]
+    },
+    {
+      "starId": 5,
+      "maxLimit": 18,
+      "drawRewards": [
+        { "order": 1, "itemId": 2100038, "amount": 6, "rewardType": 0, "clientWeight": 30 },
+        { "order": 2, "itemId": 2100038, "amount": 15, "rewardType": 0, "clientWeight": 22 },
+        { "order": 3, "itemId": 2040111, "amount": 2, "rewardType": 0, "clientWeight": 14 },
+        { "order": 4, "itemId": 208017, "amount": 3, "rewardType": 0, "clientWeight": 14 },
+        { "order": 5, "itemId": 2100039, "amount": 1, "rewardType": 2, "clientWeight": 15 },
+        { "order": 6, "itemId": -100, "amount": 300000, "rewardType": 0, "clientWeight": 5 }
+      ],
+      "processRewards": [
+        { "order": 1, "process": 6, "itemList": [{ "itemId": 2100038, "amount": 20 }] },
+        { "order": 2, "process": 12, "itemList": [{ "itemId": 2100039, "amount": 2 }] },
+        { "order": 3, "process": 18, "itemList": [{ "itemId": 2100037, "amount": 5 }] }
+      ]
+    },
+    {
+      "starId": 6,
+      "maxLimit": 20,
+      "drawRewards": [
+        { "order": 1, "itemId": 2100038, "amount": 8, "rewardType": 0, "clientWeight": 28 },
+        { "order": 2, "itemId": 2100038, "amount": 18, "rewardType": 0, "clientWeight": 22 },
+        { "order": 3, "itemId": 208023, "amount": 20, "rewardType": 0, "clientWeight": 14 },
+        { "order": 4, "itemId": 2271001, "amount": 30, "rewardType": 0, "clientWeight": 12 },
+        { "order": 5, "itemId": 2100039, "amount": 1, "rewardType": 2, "clientWeight": 18 },
+        { "order": 6, "itemId": -100, "amount": 500000, "rewardType": 0, "clientWeight": 6 }
+      ],
+      "processRewards": [
+        { "order": 1, "process": 7, "itemList": [{ "itemId": 2100038, "amount": 25 }] },
+        { "order": 2, "process": 14, "itemList": [{ "itemId": 2100039, "amount": 2 }] },
+        { "order": 3, "process": 20, "itemList": [{ "itemId": 2100037, "amount": 8 }] }
+      ]
+    },
+    {
+      "starId": 7,
+      "maxLimit": 30,
+      "drawRewards": [
+        { "order": 1, "itemId": 2100038, "amount": 10, "rewardType": 0, "clientWeight": 30 },
+        { "order": 2, "itemId": 2100038, "amount": 25, "rewardType": 0, "clientWeight": 22 },
+        { "order": 3, "itemId": 2100039, "amount": 1, "rewardType": 2, "clientWeight": 18 },
+        { "order": 4, "itemId": 208023, "amount": 30, "rewardType": 0, "clientWeight": 12 },
+        { "order": 5, "itemId": -100, "amount": 800000, "rewardType": 0, "clientWeight": 8 },
+        { "order": 6, "itemId": 2100037, "amount": 3, "rewardType": 0, "clientWeight": 5 },
+        { "order": 7, "itemId": 0, "amount": 0, "rewardType": 3, "clientWeight": 5 }
+      ],
+      "processRewards": [
+        { "order": 1, "process": 8, "itemList": [{ "itemId": 2100038, "amount": 30 }] },
+        { "order": 2, "process": 16, "itemList": [{ "itemId": 2100039, "amount": 3 }] },
+        { "order": 3, "process": 24, "itemList": [{ "itemId": 2100037, "amount": 10 }] }
+      ]
+    }
+  ],
+  "boxRewards": [
+    { "itemId": 2100038, "amount": 20 },
+    { "itemId": 2100037, "amount": 3 },
+    { "itemId": -100, "amount": 100000 }
+  ],
+  "processRewards": [
+    { "order": 1, "process": 20, "itemList": [{ "itemId": 2100038, "amount": 30 }, { "itemId": 2100037, "amount": 5 }] },
+    { "order": 2, "process": 50, "itemList": [{ "itemId": 2100039, "amount": 3 }, { "itemId": 2100038, "amount": 50 }] },
+    { "order": 3, "process": 100, "itemList": [{ "itemId": 2100039, "amount": 5 }, { "itemId": -100, "amount": 1000000 }] }
+  ],
+  "storeTemps": [
+    { "order": 1, "itemId": 208023, "amount": 50, "limitType": 2, "limitNum": 20, "cost": 20, "limitStarCnt": 0 },
+    { "order": 2, "itemId": 2271001, "amount": 50, "limitType": 2, "limitNum": 20, "cost": 25, "limitStarCnt": 0 },
+    { "order": 3, "itemId": 208017, "amount": 10, "limitType": 2, "limitNum": 10, "cost": 40, "limitStarCnt": 1 },
+    { "order": 4, "itemId": 2040111, "amount": 5, "limitType": 2, "limitNum": 10, "cost": 60, "limitStarCnt": 2 },
+    { "order": 5, "itemId": 2100037, "amount": 5, "limitType": 2, "limitNum": 15, "cost": 30, "limitStarCnt": 0 },
+    { "order": 6, "itemId": 2100039, "amount": 1, "limitType": 2, "limitNum": 5, "cost": 100, "limitStarCnt": 3 },
+    { "order": 7, "itemId": -100, "amount": 500000, "limitType": 2, "limitNum": 5, "cost": 80, "limitStarCnt": 4 }
+  ]
+}

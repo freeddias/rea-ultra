@@ -102,17 +102,17 @@ function fields(it) {
 
 // equipment sets (t_s_suitetemplate; client: an item's SuiteId): with k pieces of one set worn, the set's PropertyK
 // skill (k = 2..8) counts — its t_s_skillpropertytemplate AddType 1 values are flat attributes. Property1 of the
-// one-piece rows is the item's own battle effect (not modelled). Set 1 (test items 1000..1005, +5,000,000) is left out.
+// one-piece rows is the item's own battle effect (not modelled). Suite 1 = Escudo de Sengolar (items 1000..1005).
 const SUITS = new Map(T.table('t_s_suitetemplate').map(r => [r.TemplateId, r]));
 const SUIT_KEYS = ['Power', 'Agility', 'Intellect', 'Physique', 'Captain', 'Attack', 'MagicAttack', 'Defence', 'MagicDefence', 'Live', 'ForceHit', 'Parry', 'Conat'];
 function suitAdds(items) {
   const count = {}, add = {};
-  for (const it of items) { const tp = D.items.get(it.templateId); if (tp && tp.SuiteId > 1) count[tp.SuiteId] = (count[tp.SuiteId] || 0) + 1; }
+  for (const it of items) { const tp = D.items.get(it.templateId); if (tp && tp.SuiteId >= 1) count[tp.SuiteId] = (count[tp.SuiteId] || 0) + 1; }
   for (const [id, n] of Object.entries(count)) {
     const s = SUITS.get(Number(id)); if (!s) continue;
     for (let k = 2; k <= Math.min(8, n); k++) {
       const pr = PROPS.get(Number(s['Property' + k])); if (!pr || pr.AddType !== 1) continue;
-      for (const key of SUIT_KEYS) if (pr[key] && Math.abs(pr[key]) < 1e6) add[key] = (add[key] || 0) + pr[key];
+      for (const key of SUIT_KEYS) if (pr[key]) add[key] = (add[key] || 0) + pr[key];
     }
   }
   return add;

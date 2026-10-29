@@ -4,288 +4,921 @@
 <meta charset="utf-8">
 <title>Admin — Wartune Ultra</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b0d13">
+<meta name="theme-color" content="#07090f">
 <style>
 :root{
-  color-scheme:dark;
-  --ink:#0b0d13;--panel:#141821;--line:#3a3324;--soft:#2a2f3a;
-  --text:#ece6d6;--mute:#a39d8e;--gold:#d8a948;--gold-hi:#f3cf7a;
-  --ok:#6fcf86;--bad:#e57d6c;--sel:rgba(216,169,72,.14);
-  --display:"Palatino Linotype","Book Antiqua",Georgia,serif;
-  --body:"Segoe UI",system-ui,sans-serif;
-  --nav-h:58px;--safe-b:env(safe-area-inset-bottom,0px);
+    color-scheme: dark;
+  --bg-app: #07090f;
+  --bg-sidebar: #0b0f19;
+  --bg-card: #10141f;
+  --bg-card-hover: #151a28;
+  --bg-input: #0b0e16;
+  --border: #1f2739;
+  --border-focus: #d8a948;
+  --text: #e4ded4;
+  --text-muted: #8c8576;
+  --gold: #d8a948;
+  --gold-hi: #f3cf7a;
+  --ok: #4ade80;
+  --bad: #f87171;
+  --sel: rgba(216, 169, 72, 0.12);
+    --display: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --body: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --sidebar-w: 240px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --radius: 10px;
+  }
+
+  * { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: var(--bg-app);
+  color: var(--text);
+  font: 14.5px/1.5 var(--body);
+  display: flex;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;background:var(--ink);color:var(--text);font:15px/1.45 var(--body);
-  padding:0;padding-bottom:calc(var(--nav-h) + var(--safe-b) + 8px)}
-a{color:var(--gold)}
-.top{position:sticky;top:0;z-index:20;background:linear-gradient(#12151d,#0b0d13 92%);
-  border-bottom:1px solid var(--line);padding:12px 16px 10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.brand{font-family:var(--display);font-weight:600;font-size:20px;color:var(--gold-hi);letter-spacing:.04em;margin:0;line-height:1.1}
-.brand small{display:block;font:500 10px/1.2 var(--body);letter-spacing:.22em;color:var(--mute);margin-top:3px}
-.who-pill{font-size:12px;color:var(--mute);text-align:right;max-width:48%}
-.who-pill b{color:var(--gold-hi);font-weight:650}
-.shell{display:grid;grid-template-columns:minmax(240px,300px) 1fr;gap:14px;padding:14px 14px 0;align-items:start;max-width:1400px;margin:0 auto}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}
-h2{margin:0 0 10px;font-family:var(--display);font-size:17px;color:var(--gold-hi);font-weight:600}
-h3{margin:14px 0 8px;font-size:13px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
-.hint{margin:0 0 10px;color:var(--mute);font-size:13px}
-.plist{max-height:min(70vh,560px);overflow:auto;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%}
-th,td{padding:8px 8px;border-bottom:1px solid var(--soft);text-align:left}
-th{color:var(--mute);font-weight:500;font-size:11px;letter-spacing:.04em;text-transform:uppercase}
-tbody tr{cursor:pointer} tr.sel td{background:var(--sel)}
-td.n{font-variant-numeric:tabular-nums;text-align:right}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#444;margin-right:6px;vertical-align:middle}
-.dot.on{background:var(--ok);box-shadow:0 0 8px var(--ok)}
-.panel{display:none}.panel.on{display:block}
-.tabs-desk{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.tabs-desk button{flex:0 0 auto}
-.nav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;
-  height:calc(var(--nav-h) + var(--safe-b));padding:0 4px var(--safe-b);
-  background:#10131a;border-top:1px solid var(--line);justify-content:space-around;align-items:stretch}
-.nav button{flex:1;border:0;background:transparent;color:var(--mute);font:600 11px/1.1 var(--body);
-  padding:8px 2px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-width:0}
-.nav button.on{color:var(--gold-hi)}
-.nav button span{font-size:18px;line-height:1}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0 14px}
-.stat{background:#10141b;border:1px solid var(--soft);border-radius:8px;padding:8px 10px}
-.stat b{display:block;font-size:11px;color:var(--mute);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
-.stat span{font-variant-numeric:tabular-nums;font-size:17px}
-.field{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin-bottom:12px}
-label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:#c9c2b0;flex:1;min-width:120px}
-input,textarea,select{font:inherit;padding:10px 12px;border-radius:8px;border:1px solid #3a3f4c;background:#0f1218;color:var(--text);width:100%;min-width:0}
-button{font:inherit;font-weight:700;letter-spacing:.03em;padding:10px 14px;border:1px solid #f0c66b;border-radius:8px;cursor:pointer;color:#22170a;
-  background:linear-gradient(#f3cf7a,#c8902f);min-height:42px}
-button.alt{background:#1b1f28;color:var(--text);border-color:#3a3f4c;font-weight:600}
-button:disabled{opacity:.45;cursor:default}
-.row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.log{background:#0f1218;border:1px solid var(--soft);border-radius:8px;padding:10px 12px;min-height:44px;white-space:pre-wrap;color:#c9c2b0;font-size:13px}
-.empty{color:var(--mute);font-size:13px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
-.chip{padding:6px 12px;border-radius:999px;border:1px solid #3a3f4c;background:#10141b;color:var(--text);font-weight:500;font-size:13px;min-height:0}
-.chip b{color:var(--mute);font-weight:400;margin-left:4px}.chip.on{background:var(--sel);border-color:#c8902f;color:var(--gold)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px}
-.it{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 6px;border-radius:8px;border:1px solid var(--soft);background:#10141b;cursor:pointer;text-align:center}
-.it:hover,.it:active{border-color:#c8902f}
-.ic{width:52px;height:52px;border-radius:8px;border:2px solid #555;background:#1a1e27 center/contain no-repeat;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mute)}
-.it .nm{font-size:12px;line-height:1.25;overflow-wrap:anywhere}.it .meta{font-size:11px;color:var(--mute)}
-.q1{border-color:#9aa0a6}.q2{border-color:#4fbf5a}.q3{border-color:#3e8ef0}.q4{border-color:#b05cf0}.q5{border-color:#f09a2c}.q6{border-color:#e8453c}.q7{border-color:#f5d142}
-.cart{display:flex;flex-direction:column;gap:6px;max-height:280px;overflow:auto;margin-bottom:10px}
-.ci{display:grid;grid-template-columns:40px 1fr 82px 36px;gap:8px;align-items:center}
-.ci .ic{width:40px;height:40px;font-size:9px}.ci input{width:82px;padding:8px}.x{padding:0;width:36px;background:#2a1a1a;border-color:#5a2a2a;color:#f0a0a0}
-.filters{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:10px}
-.filters .lbl{color:var(--mute);font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-right:4px}
-.badge{display:inline-block;padding:0 7px;border-radius:999px;font-size:11px;font-weight:600;line-height:18px;border:1px solid}
-.j0{color:#c9c2b0;border-color:#4a4f5c}.j2{color:#f08a6a;border-color:#7a3a2a}.j4{color:#7ad07a;border-color:#2f6a35}.j8{color:#8ab4ff;border-color:#2f4a80}
-.sets{display:flex;flex-direction:column;gap:8px;max-height:360px;overflow:auto}
-.set{display:grid;grid-template-columns:1fr auto;gap:6px 10px;align-items:center;padding:10px;border:1px solid var(--soft);border-radius:8px;background:#10141b}
-.set .t{font-weight:600;min-width:0}.set .t small{color:var(--mute);font-weight:400;margin-left:6px}
-.set .pcs{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px}.set .pcs .ic{width:36px;height:36px;font-size:9px}
-.set .act{display:flex;flex-wrap:wrap;gap:6px}.set .act button{padding:8px 10px;font-size:13px}
-.ev-grid{display:grid;gap:10px}
-.ev-row{display:grid;grid-template-columns:minmax(140px,1.2fr) auto minmax(200px,1fr);gap:10px;align-items:center;padding:10px 12px;background:#10141b;border:1px solid var(--soft);border-radius:8px}
-.ev-row .lbl{font-weight:650;color:var(--gold-hi)}.ev-row .hint{display:block;color:var(--mute);font-size:12px;font-weight:400;margin-top:2px}
-.ev-row .state{font-size:13px;color:var(--mute)}.ev-row .state.on{color:var(--ok)}.ev-row .state.off{color:var(--bad)}
-.seg{display:inline-flex;flex-wrap:wrap;gap:4px}.seg button{padding:8px 10px;font-size:13px;min-height:0}
-.seg button.on{box-shadow:0 0 0 1px var(--gold-hi)}
-.group-title{margin:12px 0 6px;color:var(--mute);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.stack{display:flex;flex-direction:column;gap:12px}
-.side-title{display:none}
-@media (max-width:900px){
-  .shell{grid-template-columns:1fr;padding:10px 10px 0}
-  .top{padding:10px 12px}
-  .brand{font-size:18px}
-  .tabs-desk{display:none}
-  .nav{display:flex}
-  .side{display:none}.side.on{display:block}
-  .side-title{display:block}
-  .plist{max-height:none}
-  .stats{grid-template-columns:1fr}
-  .ev-row{grid-template-columns:1fr}
-  .set{grid-template-columns:1fr}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Menu Lateral (Sidebar) */
+.sidebar {
+  width: var(--sidebar-w);
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; bottom: 0; left: 0;
+  z-index: 50;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease;
 }
-@media (min-width:901px){
-  body{padding-bottom:24px}
-  .side{display:block !important}
-  .panel-jogadores{display:none !important}
+.sidebar-brand {
+  padding: 20px 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--gold-hi);
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1.1;
+}
+.brand small {
+  display: block;
+  font: 600 9px/1.2 var(--body);
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+.sidebar-menu {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sidebar-menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font: 600 13.5px var(--body);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  min-height: 40px;
+  box-shadow: none;
+}
+.sidebar-menu button span { font-size: 16px; opacity: 0.8; }
+.sidebar-menu button:hover { background: rgba(255,255,255,0.03); color: var(--text); }
+.sidebar-menu button.on {
+  background: var(--sel);
+  color: var(--gold-hi);
+  border: 1px solid rgba(216, 169, 72, 0.2);
+}
+.sidebar-menu button.on span { opacity: 1; }
+
+.sidebar-footer {
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  font-size: 11.5px;
+  color: var(--text-muted);
+  background: rgba(0,0,0,0.2);
+}
+.sidebar-footer b { color: var(--gold-hi); display: block; font-weight: 600; margin-top: 2px; }
+
+/* Mobile Header & Overlay */
+.mobile-topbar {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--gold-hi);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  min-height: 38px;
+  box-shadow: none;
+}
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 45;
+  backdrop-filter: blur(2px);
+}
+
+/* Barra de Seleção de Personagem Compacta */
+.player-bar {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+}
+.player-bar-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+}
+.player-bar select {
+  max-width: 280px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-w);
+  padding: 24px;
+  max-width: calc(100% - var(--sidebar-w));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Cards & Containers */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  min-width: 0;
+  box-shadow: var(--shadow);
+}
+h2 {
+  margin: 0 0 10px;
+  font-family: var(--display);
+  font-size: 17.5px;
+  color: var(--gold-hi);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+h3 {
+  margin: 16px 0 10px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.hint {
+  margin: 0 0 14px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+/* Tabelas */
+.plist {
+  max-height: min(72vh, 580px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+}
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 9px 12px; border-bottom: 1px solid var(--border); text-align: left; }
+th {
+  background: #141a26;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+tbody tr { cursor: pointer; transition: background 0.15s ease; }
+tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
+tr.sel td { background: var(--sel) !important; color: var(--gold-hi); font-weight: 500; }
+  td.n { font-variant-numeric: tabular-nums; text-align: right; }
+
+.dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #555;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.dot.on { background: var(--ok); box-shadow: 0 0 6px var(--ok); }
+
+.panel { display: none; }
+.panel.on { display: block; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Stats Grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 12px 0 18px;
+}
+.stat {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.stat b {
+  display: block;
+  font-size: 10.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+.stat span {
+  font-variant-numeric: tabular-nums;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gold-hi);
+}
+
+/* Form Elements */
+.field {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+  margin-bottom: 14px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  flex: 1;
+  min-width: 130px;
+  font-weight: 500;
+}
+input, textarea, select {
+  font: inherit;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: var(--text);
+  width: 100%;
+  min-width: 0;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input[type="radio"], input[type="checkbox"] {
+  width: auto;
+  min-width: 0;
+  padding: 0;
+  flex: 0 0 auto;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(216, 169, 72, 0.15);
+}
+button {
+  font: inherit;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  padding: 9px 16px;
+  border: 1px solid #e2bc68;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #1a1205;
+  background: linear-gradient(135deg, #f3cf7a 0%, #c8902f 100%);
+  min-height: 40px;
+  box-shadow: 0 2px 6px rgba(200,144,47,0.2);
+  transition: filter 0.2s, transform 0.1s;
+}
+button:hover { filter: brightness(1.06); }
+button:active { transform: translateY(1px); }
+button.alt {
+  background: #141926;
+  color: var(--text);
+  border-color: var(--border);
+  font-weight: 600;
+  box-shadow: none;
+}
+button.alt:hover { background: #1b2234; border-color: var(--text-muted); }
+button:disabled { opacity: 0.4; cursor: default; filter: none; transform: none; box-shadow: none; }
+
+.row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.log {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-height: 42px;
+  white-space: pre-wrap;
+  color: #c9c2b0;
+  font-size: 12.5px;
+  font-family: monospace;
+}
+.empty { color: var(--text-muted); font-size: 13px; padding: 12px; text-align: center; }
+
+/* Chips & Tags */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.chip {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: var(--text);
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.chip:hover { border-color: var(--text-muted); }
+.chip b { color: var(--text-muted); font-weight: 400; margin-left: 6px; }
+.chip.on { background: var(--sel); border-color: var(--gold); color: var(--gold-hi); }
+
+/* Item Grid & Catalog */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 8px; }
+.it {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.it:hover { border-color: var(--gold); background: var(--bg-card-hover); transform: translateY(-1px); }
+.ic {
+  width: 48px; height: 48px;
+  border-radius: 8px;
+  border: 2px solid #444;
+  background: #141925 center/contain no-repeat;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: var(--text-muted);
+}
+.it .nm { font-size: 11px; line-height: 1.2; overflow-wrap: anywhere; color: var(--text); font-weight: 500; }
+.it .meta { font-size: 10px; color: var(--text-muted); }
+
+/* Qualidades de Itens */
+.q1 { border-color: #8c929a; }
+.q2 { border-color: #4ade80; }
+.q3 { border-color: #3b82f6; }
+.q4 { border-color: #a855f7; }
+.q5 { border-color: #f97316; }
+.q6 { border-color: #ef4444; }
+.q7 { border-color: #eab308; }
+
+/* Carrinho */
+.cart { display: flex; flex-direction: column; gap: 6px; max-height: 280px; overflow: auto; margin-bottom: 12px; }
+.ci {
+  display: grid;
+  grid-template-columns: 38px 1fr 85px 36px;
+  gap: 8px;
+  align-items: center;
+  background: var(--bg-input);
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.ci .ic { width: 38px; height: 38px; font-size: 8px; }
+.ci input { width: 85px; padding: 6px 8px; text-align: center; }
+.x {
+  padding: 0; width: 36px; height: 36px;
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.3);
+  color: var(--bad);
+  box-shadow: none;
+  font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+}
+.x:hover { background: rgba(248, 113, 113, 0.2); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-bottom: 12px; }
+.filters .lbl { color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin-right: 4px; }
+
+/* Badges e Grupos */
+.badge { display: inline-block; padding: 0 7px; border-radius: 999px; font-size: 10px; font-weight: 600; line-height: 16px; border: 1px solid; }
+.j0 { color: #d1c9b8; border-color: #4a5265; background: rgba(74,82,101,0.15); }
+.j2 { color: #f87171; border-color: #7a3a2a; background: rgba(122,58,42,0.15); }
+.j4 { color: #4ade80; border-color: #2f6a35; background: rgba(47,106,53,0.15); }
+.j8 { color: #93c5fd; border-color: #2f4a80; background: rgba(47,74,128,0.15); }
+
+.sets { display: flex; flex-direction: column; gap: 8px; max-height: 340px; overflow: auto; }
+.set {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 10px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-input);
+}
+.set .t { font-weight: 600; min-width: 0; color: var(--gold-hi); font-size: 13.5px; }
+.set .t small { color: var(--text-muted); font-weight: 400; margin-left: 6px; font-size: 11.5px; }
+.set .pcs { grid-column: 1/-1; display: flex; flex-wrap: wrap; gap: 4px; }
+.set .pcs .ic { width: 34px; height: 34px; font-size: 8px; }
+.set .act { display: flex; flex-wrap: wrap; gap: 6px; }
+.set .act button { padding: 6px 10px; font-size: 12px; min-height: 32px; }
+
+/* Eventos & Servidores */
+.ev-grid { display: grid; gap: 10px; }
+.ev-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 1.2fr) auto minmax(200px, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.ev-row .lbl { font-weight: 650; color: var(--gold-hi); font-size: 13.5px; }
+.ev-row .hint { display: block; color: var(--text-muted); font-size: 11.5px; font-weight: 400; margin-top: 2px; }
+.ev-row .state { font-size: 12.5px; color: var(--text-muted); font-weight: 500; }
+.ev-row .state.on { color: var(--ok); }
+.ev-row .state.off { color: var(--bad); }
+
+.seg { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.seg button { padding: 6px 10px; font-size: 12px; min-height: 32px; }
+.seg button.on { box-shadow: 0 0 0 2px var(--gold-hi); background: #262010; color: var(--gold-hi); }
+
+.group-title { margin: 12px 0 6px; color: var(--gold); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+
+/* Mobile Adaptations */
+@media (max-width: 900px) {
+  body { display: block; }
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-overlay.open { display: block; }
+  .mobile-topbar { display: flex; }
+  .main-content {
+    margin-left: 0;
+    max-width: 100%;
+    padding: 12px;
+  }
 }
 </style>
 </head>
 <body>
-<header class="top">
-  <h1 class="brand">Wartune Ultra<small>ADMIN / GM</small></h1>
-  <div class="who-pill">Selecionado<br><b id="whoTop">—</b></div>
-</header>
 
-<div class="shell">
-  <aside class="card side" id="sidePlayers">
-    <h2>Personagens</h2>
-    <p class="hint">Online recebe na hora; offline só correio / save.</p>
-    <div class="plist">
-      <table>
-        <thead><tr><th>Nome</th><th>Nv</th><th class="n">Ouro</th></tr></thead>
-        <tbody id="players"><tr><td colspan="3">Carregando…</td></tr></tbody>
-      </table>
+<!-- Mobile Header & Menu Sanduíche -->
+<div class="mobile-topbar">
+  <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">☰</button>
+  <h1 class="brand" style="font-size:16px;">Wartune Ultra<small style="font-size:8px;">ADMIN</small></h1>
+  <div style="width:38px;"></div>
     </div>
-  </aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <main class="stack">
-    <div class="tabs-desk" id="tabsDesk" role="tablist">
-      <button type="button" data-tab="economia" class="on">Economia</button>
-      <button type="button" class="alt" data-tab="comandos">Comandos</button>
-      <button type="button" class="alt" data-tab="correio">Correio</button>
-      <button type="button" class="alt" data-tab="eventos">Eventos</button>
-      <button type="button" class="alt" data-tab="servidores">Servidores</button>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <h1 class="brand">Wartune Ultra<small>ADMIN PANEL</small></h1>
+    <button type="button" class="menu-toggle" id="menuClose" style="display:none; font-size:14px; padding:4px 8px;">✕</button>
+  </div>
+  <nav class="sidebar-menu" id="sidebarMenu">
+    <button type="button" data-tab="economia" class="on"><span>💰</span>Economia</button>
+    <button type="button" data-tab="comandos"><span>⚡</span>Comandos</button>
+    <button type="button" data-tab="correio"><span>✉</span>Correio</button>
+    <button type="button" data-tab="codigos"><span>🎟</span>Códigos</button>
+    <button type="button" data-tab="eventos"><span>📅</span>Eventos</button>
+    <button type="button" data-tab="servidores"><span>🖥</span>Servidores</button>
+    <button type="button" data-tab="cloudflare"><span>☁</span>Cloudflare</button>
+    <button type="button" data-tab="banco"><span>🗄</span>Banco</button>
+    <button type="button" data-tab="jogadores"><span>👤</span>Personagens</button>
+  </nav>
+  <div class="sidebar-footer">
+    Selecionado:
+    <b id="whoTop">—</b>
+  </div>
+</aside>
+
+<main class="main-content">
+  <!-- Barra Superior de Seleção Rápida de Personagem (Nome / UID) -->
+  <div class="player-bar">
+    <div class="player-bar-info">
+      <span id="playerStatusDot" class="dot"></span>
+      <span>Personagem Ativo:</span>
     </div>
+    <div style="flex: 1; min-width: 220px; max-width: 400px;">
+      <select id="playerQuickSelect" aria-label="Selecionar personagem">
+        <option value="">Carregando personagens...</option>
+      </select>
+    </div>
+  </div>
 
-    <section class="panel panel-jogadores" id="panel-jogadores">
-      <div class="card">
-        <h2 class="side-title">Personagens</h2>
-        <div class="plist">
-          <table>
-            <thead><tr><th>Nome</th><th>Nv</th><th class="n">Ouro</th><th class="n">♦</th></tr></thead>
-            <tbody id="playersMobile"><tr><td colspan="4">Carregando…</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel on" id="panel-economia">
-      <div class="card">
-        <h2>Economia</h2>
-        <p class="hint">Ouro, diamantes e XP. Teto de moeda: 2.147.483.647.</p>
-        <div class="stats">
-          <div class="stat"><b>Ouro</b><span id="s-gold">—</span></div>
-          <div class="stat"><b>Diamantes</b><span id="s-point">—</span></div>
-          <div class="stat"><b>XP do nível</b><span id="s-xp">—</span></div>
-        </div>
-        <div class="field">
-          <label>Ouro <input id="gold" type="number" step="1" inputmode="numeric" placeholder="quantidade"></label>
-          <button type="button" data-k="gold" data-op="set">Definir</button>
-          <button type="button" class="alt" data-k="gold" data-op="add">Somar</button>
-        </div>
-        <div class="field">
-          <label>Diamantes <input id="point" type="number" step="1" inputmode="numeric" placeholder="quantidade"></label>
-          <button type="button" data-k="point" data-op="set">Definir</button>
-          <button type="button" class="alt" data-k="point" data-op="add">Somar</button>
-        </div>
-        <div class="field">
-          <label>XP <input id="xp" type="number" step="1" inputmode="numeric" placeholder="quantidade"></label>
-          <button type="button" data-k="xp" data-op="set">Definir barra</button>
-          <button type="button" class="alt" data-k="xp" data-op="add">Dar XP</button>
-        </div>
-        <p class="hint">Dar XP sobe de nível. Definir barra só ajusta o XP deste nível. Número negativo em Somar/Dar XP reduz sem descer o nível.</p>
-        <div class="log" id="elog">Escolha um personagem e um valor.</div>
-      </div>
-    </section>
-
-    <section class="panel" id="panel-comandos">
-      <div class="card">
-        <h2>Comandos GM</h2>
-        <p class="hint">Só funcionam com o personagem <b>online</b>.</p>
-        <div class="row">
-          <button data-c="seviye 80">Nível 80</button>
-          <button data-c="altin 2000000000">2 bi ouro</button>
-          <button data-c="elmas 2000000000">2 bi diamantes</button>
-          <button data-c="kilitli 2000000000">2 bi vincul.</button>
-          <button data-c="vip 100000" class="alt">+100k VIP</button>
-          <button data-c="beden" class="alt">Energia cheia</button>
-          <button data-c="onur 100000" class="alt">+100k honra</button>
-          <button data-c="missoes">Missões</button>
-          <button data-c="classe">Avançar classe</button>
-        </div>
-        <h3>Passes</h3>
-        <div class="row">
-          <button data-c="passe todos">Todos</button>
-          <button data-c="passe guerreiro" class="alt">Guerreiro</button>
-          <button data-c="passe temporada" class="alt">Temporada</button>
-          <button data-c="passe mensal" class="alt">Mensal</button>
-          <button data-c="passe lorde" class="alt">Lorde</button>
-          <button data-c="passe fundo" class="alt">Fundo</button>
-          <button data-c="passe retorno" class="alt">Retorno</button>
-          <button data-c="passe guarda" class="alt">Guarda</button>
-        </div>
-        <div class="row"><input id="cmd" placeholder="ex. esya 208023 50 · seviye 40 · labirent 100" style="flex:1"><button id="run" class="alt">Executar</button></div>
-        <div class="log" id="clog">Pronto.</div>
-      </div>
-    </section>
-
-    <section class="panel" id="panel-correio">
-      <div class="stack">
+  <div class="stack">
+      <section class="panel on" id="panel-economia">
         <div class="card">
-          <h2>Carrinho do correio</h2>
-          <p class="hint">Até 5 anexos por carta; o excedente vira várias cartas. Funciona offline.</p>
-          <div class="cart" id="cart"><div class="empty">Toque num item do catálogo para adicionar.</div></div>
-          <div class="row"><input id="title" value="Presente do GM" maxlength="40" style="flex:1"></div>
-          <div class="row"><textarea id="text" rows="2" maxlength="300" placeholder="Mensagem (opcional)" style="flex:1;resize:vertical"></textarea></div>
-          <div class="row"><button id="send" disabled>Enviar por correio</button><button id="clear" class="alt">Esvaziar</button></div>
-          <div class="log" id="mlog">Máx. 5 itens por correio.</div>
+          <h2>Economia</h2>
+          <p class="hint">Ouro, diamantes e XP. Teto de moeda: 2.147.483.647.</p>
+    <div class="stats">
+      <div class="stat"><b>Ouro</b><span id="s-gold">—</span></div>
+      <div class="stat"><b>Diamantes</b><span id="s-point">—</span></div>
+      <div class="stat"><b>XP do nível</b><span id="s-xp">—</span></div>
+    </div>
+    <div class="field">
+      <label>Ouro <input id="gold" type="number" step="1" inputmode="numeric" placeholder="quantidade"></label>
+      <button type="button" data-k="gold" data-op="set">Definir</button>
+      <button type="button" class="alt" data-k="gold" data-op="add">Somar</button>
+    </div>
+    <div class="field">
+      <label>Diamantes <input id="point" type="number" step="1" inputmode="numeric" placeholder="quantidade"></label>
+      <button type="button" data-k="point" data-op="set">Definir</button>
+      <button type="button" class="alt" data-k="point" data-op="add">Somar</button>
+    </div>
+    <div class="field">
+      <label>XP <input id="xp" type="number" step="1" inputmode="numeric" placeholder="quantidade"></label>
+      <button type="button" data-k="xp" data-op="set">Definir barra</button>
+      <button type="button" class="alt" data-k="xp" data-op="add">Dar XP</button>
+    </div>
+          <p class="hint">Dar XP sobe de nível. Definir barra só ajusta o XP deste nível. Número negativo em Somar/Dar XP reduz sem descer o nível.</p>
+          <div class="log" id="elog">Escolha um personagem e um valor.</div>
         </div>
+  </section>
+
+      <section class="panel" id="panel-comandos">
         <div class="card">
-          <div class="filters">
-            <div><span class="lbl">Classe</span><span class="chips" id="classes"></span></div>
-            <div><span class="lbl">Nível</span><select id="lv">
-              <option value="">Todos</option><option value="1-19">1–19</option><option value="20-39">20–39</option><option value="40-59">40–59</option>
-              <option value="60-69">60–69</option><option value="70-79">70–79</option><option value="80-999">80+</option></select></div>
+          <h2>Comandos GM</h2>
+          <p class="hint">Só funcionam com o personagem <b>online</b>.</p>
+          <div class="row">
+            <button data-c="seviye 80">Nível 80</button>
+            <button data-c="altin 2000000000">2 bi ouro</button>
+            <button data-c="elmas 2000000000">2 bi diamantes</button>
+            <button data-c="kilitli 2000000000">2 bi vincul.</button>
+            <button data-c="vip 100000" class="alt">+100k VIP</button>
+            <button data-c="beden" class="alt">Energia cheia</button>
+            <button data-c="onur 100000" class="alt">+100k honra</button>
+            <button data-c="missoes">Missões</button>
+            <button data-c="classe">Avançar classe</button>
+            <button data-c="fazenda" class="alt">Fazenda máx.</button>
+            <button data-c="fogueira" class="alt">Fogueira máx.</button>
+</div>
+          <h3>Passes</h3>
+          <div class="row">
+            <button data-c="passe todos">Todos</button>
+            <button data-c="passe guerreiro" class="alt">Guerreiro</button>
+            <button data-c="passe temporada" class="alt">Temporada</button>
+            <button data-c="passe mensal" class="alt">Mensal</button>
+            <button data-c="passe lorde" class="alt">Lorde</button>
+            <button data-c="passe fundo" class="alt">Fundo</button>
+            <button data-c="passe retorno" class="alt">Retorno</button>
+            <button data-c="passe guarda" class="alt">Guarda</button>
+          </div>
+          <div class="row"><input id="cmd" placeholder="ex. esya 208023 50 · seviye 40 · labirent 100" style="flex:1"><button id="run" class="alt">Executar</button></div>
+          <div class="log" id="clog">Pronto.</div>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-correio">
+        <div class="stack">
+          <div class="card">
+            <h2>Carrinho do correio</h2>
+            <p class="hint">Até 5 anexos por carta; o excedente vira várias cartas. Funciona offline. Moedas (Ouro, Diamantes…) também entram pelo catálogo.</p>
+            <div class="cart" id="cart"><div class="empty">Toque num item do catálogo para adicionar.</div></div>
+            <div class="row"><input id="title" value="Presente do GM" maxlength="40" style="flex:1"></div>
+            <div class="row"><textarea id="text" rows="2" maxlength="300" placeholder="Mensagem (opcional)" style="flex:1;resize:vertical"></textarea></div>
+            <div class="row">
+              <button id="send" disabled>Enviar ao selecionado</button>
+              <button id="sendAll" class="alt" disabled>Enviar a todos</button>
+              <button id="clear" class="alt">Esvaziar</button>
+            </div>
+            <div class="log" id="mlog">Máx. 5 itens por correio. “Enviar a todos” entrega a cada personagem do servidor.</div>
+          </div>
+          <div class="card">
+            <h2>Pacote de boas-vindas</h2>
+            <p class="hint">Enviado no primeiro login do personagem. Use <code>{nick}</code> no texto para o nome. Não altera quem já recebeu — para esses use o correio em massa.</p>
+            <div class="cart" id="wcart"><div class="empty">Carregando…</div></div>
+            <div class="row" style="flex-wrap:wrap;gap:6px" id="wcurrencies"></div>
+            <div class="row"><input id="wtitle" maxlength="40" placeholder="Título" style="flex:1"></div>
+            <div class="row"><textarea id="wtext" rows="3" maxlength="500" placeholder="Mensagem" style="flex:1;resize:vertical"></textarea></div>
+            <div class="row">
+              <button id="wsave" type="button">Salvar pacote</button>
+              <button id="wfromCart" type="button" class="alt">Usar carrinho atual</button>
+              <button id="wreset" type="button" class="alt">Restaurar padrão</button>
+            </div>
+            <div class="log" id="wlog">Carregando pacote…</div>
+          </div>
+          <div class="card">
+            <div class="filters">
+              <div><span class="lbl">Classe</span><span class="chips" id="classes"></span></div>
+              <div><span class="lbl">Nível</span><select id="lv">
+                <option value="">Todos</option><option value="1-19">1–19</option><option value="20-39">20–39</option><option value="40-59">40–59</option>
+                <option value="60-69">60–69</option><option value="70-79">70–79</option><option value="80-999">80+</option></select></div>
+            </div>
+          </div>
+          <div class="card">
+            <h2>Conjuntos prontos</h2>
+            <div class="sets" id="sets"><div class="empty">Carregando…</div></div>
+          </div>
+          <div class="card">
+            <h2>Catálogo</h2>
+            <div class="row"><input id="q" placeholder="Pesquisar: nome ou ID" style="flex:1"></div>
+            <div class="chips" id="groups"></div>
+            <div class="grid" id="grid"><div class="empty">Carregando…</div></div>
+            <button class="alt" id="more" hidden style="margin-top:10px;width:100%">Mostrar mais</button>
           </div>
         </div>
+      </section>
+
+      <section class="panel" id="panel-codigos">
+        <div class="stack">
+          <div class="card">
+            <h2>Pacotes de código</h2>
+            <p class="hint">Monte o pacote com o carrinho do Correio (ou adicione itens abaixo). Depois vincule códigos com validade. O jogador resgata em Bem-estar → código de ativação.</p>
+            <div class="field">
+              <label>Nome do pacote <input id="gc-pack-name" maxlength="60" placeholder="ex. Pacote lançamento"></label>
+              <label>Título do correio <input id="gc-pack-title" maxlength="40" placeholder="Código de ativação"></label>
+            </div>
+            <div class="row"><textarea id="gc-pack-text" rows="2" maxlength="300" placeholder="Mensagem do correio (opcional)" style="flex:1;resize:vertical"></textarea></div>
+            <div class="field">
+              <label>Máx. por personagem <input id="gc-pack-max" type="number" min="1" max="99" value="1"></label>
+            </div>
+            <div class="cart" id="gc-cart"><div class="empty">Use “Importar carrinho do Correio” ou o catálogo na aba Correio.</div></div>
+            <div class="row">
+              <button type="button" id="gc-from-cart" class="alt">Importar carrinho do Correio</button>
+              <button type="button" id="gc-clear-cart" class="alt">Esvaziar</button>
+              <button type="button" id="gc-create-pack">Criar pacote</button>
+            </div>
+            <div class="log" id="gc-log">Carregando…</div>
+            <div id="gc-packs" class="sets" style="margin-top:12px"></div>
+          </div>
+          <div class="card">
+            <h2>Gerar / vincular códigos</h2>
+            <div class="field">
+              <label>Pacote
+                <select id="gc-pack-sel"><option value="">— selecione —</option></select>
+              </label>
+              <label>Validade (opcional)
+                <input id="gc-expires" type="datetime-local">
+              </label>
+              <label>Usos máximos (0 = ilimitado)
+                <input id="gc-maxuses" type="number" min="0" max="99999" value="1">
+              </label>
+            </div>
+            <div class="field">
+              <label>Código manual (opcional)
+                <input id="gc-manual" maxlength="40" placeholder="ex. ULTRA-NATAL-2026" style="text-transform:uppercase">
+              </label>
+              <label>Ou gerar N códigos
+                <input id="gc-count" type="number" min="1" max="200" value="1">
+              </label>
+              <label>Prefixo
+                <input id="gc-prefix" maxlength="12" value="ULTRA" style="text-transform:uppercase">
+              </label>
+            </div>
+            <div class="row">
+              <button type="button" id="gc-gen">Gerar / salvar códigos</button>
+            </div>
+            <div class="log" id="gc-gen-log">Escolha um pacote e gere códigos.</div>
+            <div id="gc-created" class="log" style="margin-top:8px;display:none"></div>
+          </div>
+          <div class="card">
+            <h2>Códigos emitidos</h2>
+            <div class="row">
+              <input id="gc-filter" placeholder="Filtrar por código ou pacote" style="flex:1">
+              <button type="button" class="alt" id="gc-refresh">Atualizar</button>
+            </div>
+            <div class="plist" style="max-height:420px">
+              <table>
+                <thead><tr><th>Código</th><th>Pacote</th><th>Validade</th><th>Usos</th><th>Estado</th><th></th></tr></thead>
+                <tbody id="gc-codes"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-eventos">
         <div class="card">
-          <h2>Conjuntos prontos</h2>
-          <div class="sets" id="sets"><div class="empty">Carregando…</div></div>
+          <h2>Eventos sazonais</h2>
+          <p class="hint">Aberto força ligado · Calendário segue o servidor · Fechado força desligado. Persistente.</p>
+          <div class="row"><button type="button" class="alt" id="ev-reset">Todos no calendário</button></div>
+          <div id="ev-log" class="log" style="margin-bottom:12px">Carregando…</div>
+          <div class="ev-grid" id="ev-list"></div>
         </div>
+        <div class="card" style="margin-top:16px">
+          <h2>Chefe Global (CG) — vida</h2>
+          <p class="hint">Altera HP atual e máximo do CG. Se estiver inativo, invoca o chefe com o máximo indicado.</p>
+          <div id="cg-status" class="log" style="margin-bottom:12px">Carregando…</div>
+          <div class="field">
+            <label>HP atual
+              <input id="cg-hp" type="number" min="0" step="1" placeholder="ex. 5000000">
+            </label>
+            <label>HP máximo
+              <input id="cg-max" type="number" min="1" step="1" placeholder="ex. 10000000">
+            </label>
+          </div>
+          <div class="row">
+            <button type="button" id="cg-apply">Aplicar vida</button>
+            <button type="button" class="alt" id="cg-refresh">Atualizar</button>
+          </div>
+          <div id="cg-log" class="log" style="margin-top:12px"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-servidores">
         <div class="card">
-          <h2>Catálogo</h2>
-          <div class="row"><input id="q" placeholder="Pesquisar: nome ou ID" style="flex:1"></div>
-          <div class="chips" id="groups"></div>
-          <div class="grid" id="grid"><div class="empty">Carregando…</div></div>
-          <button class="alt" id="more" hidden style="margin-top:10px;width:100%">Mostrar mais</button>
+          <h2>Servidores</h2>
+          <p class="hint">Cada servidor tem personagens próprios. O nome aparece na lista de escolha do cliente.</p>
+          <div class="field">
+            <label>Nome do novo servidor <input id="site-name" maxlength="32" placeholder="ex. Ultra BR, S2, Teste"></label>
+            <button type="button" id="site-create">Abrir servidor</button>
+          </div>
+          <div id="site-log" class="log" style="margin-bottom:12px">Carregando…</div>
+          <div class="ev-grid" id="site-list"></div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="panel" id="panel-eventos">
-      <div class="card">
-        <h2>Eventos sazonais</h2>
-        <p class="hint">Aberto força ligado · Calendário segue o servidor · Fechado força desligado. Persistente.</p>
-        <div class="row"><button type="button" class="alt" id="ev-reset">Todos no calendário</button></div>
-        <div id="ev-log" class="log" style="margin-bottom:12px">Carregando…</div>
-        <div class="ev-grid" id="ev-list"></div>
-      </div>
-    </section>
-
-    <section class="panel" id="panel-servidores">
-      <div class="card">
-        <h2>Servidores</h2>
-        <p class="hint">Cada servidor tem personagens próprios. O nome aparece na lista de escolha do cliente.</p>
-        <div class="field">
-          <label>Nome do novo servidor <input id="site-name" maxlength="32" placeholder="ex. Ultra BR, S2, Teste"></label>
-          <button type="button" id="site-create">Abrir servidor</button>
+      <section class="panel" id="panel-cloudflare">
+        <div class="stack">
+          <div class="card">
+            <h2>Cloudflare Tunnel</h2>
+            <p class="hint">Exponha o jogo na internet com <b>um</b> Quick Tunnel na porta HTTP. Login e gate sobem no mesmo host (<code>/</code> e <code>/gate</code>). Cole a URL <code>https://….trycloudflare.com</code> gerada pelo cloudflared.</p>
+            <div class="field" style="flex-direction:column;align-items:stretch;gap:10px">
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+                <input type="checkbox" id="cf-enabled">
+                <span><b>Ativar URLs públicas</b> (desligado = só LAN)</span>
+              </label>
+              <label>URL pública HTTP (túnel → porta <code id="cf-port-http">8899</code>)
+                <input id="cf-http" type="url" placeholder="https://xxxx.trycloudflare.com" autocomplete="off" spellcheck="false">
+              </label>
+              <label>Login WebSocket (opcional — vazio = mesmo host do HTTP)
+                <input id="cf-login" type="url" placeholder="deixe vazio para usar o HTTP" autocomplete="off" spellcheck="false">
+              </label>
+              <label>Gate WebSocket (opcional — vazio = <code>wss://mesmo-host/gate</code>)
+                <input id="cf-gate" type="url" placeholder="deixe vazio para /gate no mesmo host" autocomplete="off" spellcheck="false">
+              </label>
+              <label>Notas
+                <input id="cf-notes" type="text" placeholder="ex. túnel do PC da sala, renovar se a URL mudar" autocomplete="off">
+              </label>
+            </div>
+            <div class="row" style="margin-top:12px;flex-wrap:wrap">
+              <button type="button" id="cf-save">Salvar</button>
+              <button type="button" class="alt" id="cf-disable">Desligar (LAN)</button>
+              <button type="button" class="alt" id="cf-copy-cmd">Copiar comando cloudflared</button>
+            </div>
+            <div class="log" id="cf-log" style="margin-top:12px">Carregando…</div>
+            <div class="stats" style="margin-top:12px">
+              <div class="stat"><b>Estado</b><span id="cf-st-on">—</span></div>
+              <div class="stat"><b>Login</b><span id="cf-st-login">—</span></div>
+              <div class="stat"><b>Gate</b><span id="cf-st-gate">—</span></div>
+            </div>
+            <p class="hint" style="margin-top:12px">Comando sugerido (rode no PC do servidor, com o jogo ligado):</p>
+            <pre id="cf-cmd" style="margin:0;padding:12px;background:var(--bg-input);border:1px solid var(--border);border-radius:8px;overflow:auto;font-size:12px;color:var(--gold-hi)">cloudflared tunnel --url http://127.0.0.1:8899</pre>
+            <p class="hint">Admins: contas em <code>ADMIN_USERS</code> no <code>server/.env</code> — agora: <code id="cf-admins">—</code></p>
+          </div>
         </div>
-        <div id="site-log" class="log" style="margin-bottom:12px">Carregando…</div>
-        <div class="ev-grid" id="site-list"></div>
-      </div>
-    </section>
-  </main>
-</div>
+      </section>
 
-<nav class="nav" id="navMobile" aria-label="Navegação">
-  <button type="button" data-tab="jogadores"><span>👤</span>Jogadores</button>
-  <button type="button" data-tab="economia" class="on"><span>💰</span>Economia</button>
-  <button type="button" data-tab="comandos"><span>⚡</span>Comandos</button>
-  <button type="button" data-tab="correio"><span>✉</span>Correio</button>
-  <button type="button" data-tab="eventos"><span>📅</span>Eventos</button>
-  <button type="button" data-tab="servidores"><span>🖥</span>Servidores</button>
-</nav>
+      <section class="panel" id="panel-banco">
+        <div class="stack">
+          <div class="card">
+            <h2>Banco de dados</h2>
+            <p class="hint">Escolha SQLite local (arquivo neste PC) ou Turso na nuvem. Em Turso o jogo continua rodando no arquivo local e espelha contas/personagens para a nuvem.</p>
+            <div class="field" style="flex-direction:column;align-items:stretch;gap:10px">
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+                <input type="radio" name="db-mode" id="db-mode-local" value="local" checked>
+                <span><b>Local</b> — arquivo <code id="db-file-name">wartune.db</code> em <code>server/data/</code></span>
+              </label>
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+                <input type="radio" name="db-mode" id="db-mode-turso" value="turso">
+                <span><b>Turso</b> — SQLite/libSQL na nuvem (URL + Auth Token)</span>
+              </label>
+            </div>
+            <div id="db-turso-fields" hidden>
+              <div class="field" style="flex-direction:column;align-items:stretch;gap:8px;margin-top:12px">
+                <label>URL do banco
+                  <input id="db-turso-url" type="url" placeholder="libsql://nome-org.turso.io" autocomplete="off" spellcheck="false">
+                </label>
+                <label>Auth Token
+                  <input id="db-turso-token" type="password" placeholder="Cole o token (deixe em branco para manter o atual)" autocomplete="new-password" spellcheck="false">
+                </label>
+                <p class="hint" id="db-token-hint" style="margin:0">Nenhum token salvo.</p>
+                <label>Intervalo de sync (minutos)
+                  <input id="db-sync-min" type="number" min="1" max="1440" value="5">
+                </label>
+              </div>
+              <p class="hint">No painel Turso: Database → Connect → copie a URL e crie um token (<code>turso db tokens create …</code>). A primeira sync cria as tabelas no remoto.</p>
+            </div>
+            <div class="row" style="margin-top:12px;flex-wrap:wrap">
+              <button type="button" id="db-save">Salvar</button>
+              <button type="button" class="alt" id="db-test">Testar conexão</button>
+              <button type="button" class="alt" id="db-push">Enviar → Turso</button>
+              <button type="button" class="alt" id="db-pull">Baixar ← Turso</button>
+            </div>
+            <div class="log" id="db-log" style="margin-top:12px">Carregando…</div>
+            <div class="stats" style="margin-top:12px">
+              <div class="stat"><b>Modo</b><span id="db-st-mode">—</span></div>
+              <div class="stat"><b>Último sync</b><span id="db-st-sync">—</span></div>
+              <div class="stat"><b>Estado</b><span id="db-st-ready">—</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-jogadores">
+        <div class="card">
+          <h2>Lista completa de Personagens</h2>
+          <p class="hint">Selecione um personagem para gerenciar.</p>
+          <div class="plist">
+            <table>
+              <thead><tr><th>Nome</th><th>UID</th><th>Nv</th><th class="n">Ouro</th><th class="n">♦</th></tr></thead>
+              <tbody id="playersFullMobile"><tr><td colspan="5" class="empty">Carregando…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+  </div>
+</main>
 
 <script>
 var NL = String.fromCharCode(10), PAGE = 240;
 var $ = function (i) { return document.getElementById(i); };
-var sel = null, players = [], CAT = null, group = -1, shown = PAGE, cart = [];
+var sel = null, players = [], CAT = null, group = -1, shown = PAGE, cart = [], wcart = [];
+var welcomeDefaults = null, welcomeCurrencies = [];
 var cls = 0, lvr = null, QNAME = ['', 'Branco', 'Verde', 'Azul', 'Roxo', 'Laranja', 'Vermelho', 'Dourado'];
 var tab = 'economia';
 var fmt = function (n) { return Number(n || 0).toLocaleString('pt-BR'); };
+
+// Controle do Menu Sanduíche Mobile
+var sidebar = $('sidebar'), overlay = $('sidebarOverlay');
+function toggleSidebar(open) {
+  sidebar.classList.toggle('open', open);
+  overlay.classList.toggle('open', open);
+}
+$('menuToggle').onclick = function() { toggleSidebar(true); };
+$('menuClose').onclick = function() { toggleSidebar(false); };
+overlay.onclick = function() { toggleSidebar(false); };
+
+function findCatItem(tid) {
+  if (CAT && CAT.items) {
+    for (var i = 0; i < CAT.items.length; i++) if (CAT.items[i][0] === tid) return CAT.items[i];
+  }
+  for (var j = 0; j < welcomeCurrencies.length; j++) if (welcomeCurrencies[j].id === tid)
+    return [tid, welcomeCurrencies[j].name, 0, 6, 0, '', 0];
+  return [tid, 'ID ' + tid, 0, 0, 0, '', 0];
+}
 
 function post(url, o) { return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(o) }).then(function (r) { return r.json(); }); }
 function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -309,47 +942,74 @@ function icon(it, extra) {
 function setTab(name) {
   tab = name;
   document.querySelectorAll('.panel').forEach(function (p) { p.classList.toggle('on', p.id === 'panel-' + name); });
-  document.querySelectorAll('#tabsDesk [data-tab], #navMobile [data-tab]').forEach(function (b) {
-    var on = b.getAttribute('data-tab') === name;
-    b.classList.toggle('on', on);
-    if (b.parentElement && b.parentElement.id === 'tabsDesk') b.classList.toggle('alt', !on);
+  document.querySelectorAll('#sidebarMenu [data-tab]').forEach(function (b) {
+    b.classList.toggle('on', b.getAttribute('data-tab') === name);
   });
-  if (name === 'jogadores') $('sidePlayers').classList.add('on');
-  else $('sidePlayers').classList.remove('on');
+  toggleSidebar(false);
   window.scrollTo(0, 0);
 }
-document.querySelectorAll('#tabsDesk [data-tab], #navMobile [data-tab]').forEach(function (b) {
+document.querySelectorAll('#sidebarMenu [data-tab]').forEach(function (b) {
   b.onclick = function () { setTab(b.getAttribute('data-tab')); };
 });
 
 function paintPlayers() {
-  function fill(tbody, cols) {
-    tbody.textContent = '';
-    if (!players.length) { tbody.innerHTML = '<tr><td colspan="' + cols + '" class="empty">Nenhum personagem</td></tr>'; return; }
-    if (sel == null || !players.some(function (p) { return p.id === sel; })) sel = players[0].id;
+  var select = $('playerQuickSelect');
+  select.textContent = '';
+
+  if (!players.length) {
+    select.appendChild(new Option('Nenhum personagem encontrado', ''));
+  } else {
+  if (sel == null || !players.some(function (p) { return p.id === sel; })) sel = players[0].id;
+  players.forEach(function (p) {
+      var displayName = (p.nickName || ('#' + p.id)) + ' (UID: ' + p.id + ' · Nv ' + p.grades + ')';
+      var opt = new Option(displayName, p.id);
+      if (p.id === sel) opt.selected = true;
+      select.appendChild(opt);
+    });
+  }
+
+  // Tabela completa na aba dedicada de Personagens
+  var tb = $('playersFullMobile');
+  tb.textContent = '';
+  if (!players.length) {
+    tb.innerHTML = '<tr><td colspan="5" class="empty">Nenhum personagem</td></tr>';
+  } else {
     players.forEach(function (p) {
       var tr = el('tr'); if (p.id === sel) tr.className = 'sel';
-      var name = el('td'); name.appendChild(el('span', 'dot' + (p.online ? ' on' : '')));
-      name.appendChild(document.createTextNode(p.nickName || ('#' + p.id))); tr.appendChild(name);
-      tr.appendChild(el('td', 'n', p.grades));
+      var nameTd = el('td'); nameTd.appendChild(el('span', 'dot' + (p.online ? ' on' : '')));
+      nameTd.appendChild(document.createTextNode(p.nickName || ('#' + p.id))); tr.appendChild(nameTd);
+      tr.appendChild(el('td', '', String(p.id)));
+      tr.appendChild(el('td', 'n', String(p.grades)));
       tr.appendChild(el('td', 'n', fmt(p.gold)));
-      if (cols > 3) tr.appendChild(el('td', 'n', fmt(p.point)));
+      tr.appendChild(el('td', 'n', fmt(p.point)));
       tr.onclick = function () {
         sel = p.id;
         if (p.job && CAT && CAT.jobs[p.job] && cls !== p.job) { cls = p.job; refreshCat(); }
         paintPlayers(); paintEconomy(); updateSend();
-        if (window.matchMedia('(max-width:900px)').matches) setTab('economia');
+        setTab('economia');
       };
-      tbody.appendChild(tr);
+      tb.appendChild(tr);
     });
   }
-  fill($('players'), 3);
-  fill($('playersMobile'), 4);
+
   var p = current();
   $('whoTop').textContent = p ? ((p.nickName || '#' + p.id) + (p.online ? ' · online' : ' · offline')) : '—';
+  $('playerStatusDot').className = 'dot' + (p && p.online ? ' on' : '');
   paintEconomy();
   document.querySelectorAll('button[data-k]').forEach(function (b) { b.disabled = !p; });
 }
+
+$('playerQuickSelect').onchange = function(e) {
+  var val = e.target.value;
+  if (!val) return;
+  sel = val;
+  var p = current();
+  if (p && p.job && CAT && CAT.jobs[p.job] && cls !== p.job) { cls = p.job; refreshCat(); }
+  paintPlayers();
+  paintEconomy();
+  updateSend();
+};
+
 function paintEconomy() {
   var p = current();
   $('s-gold').textContent = p ? fmt(p.gold) : '—';
@@ -475,21 +1135,113 @@ function renderCart() {
 function updateSend() {
   var mails = Math.ceil(cart.length / 5) || 0;
   $('send').disabled = !cart.length || sel == null;
-  $('send').textContent = cart.length ? 'Enviar (' + cart.length + ' · ' + mails + ' cartas)' : 'Enviar por correio';
+  $('sendAll').disabled = !cart.length;
+  $('send').textContent = cart.length ? 'Enviar ao selecionado (' + cart.length + ' · ' + mails + ')' : 'Enviar ao selecionado';
+  $('sendAll').textContent = cart.length ? 'Enviar a todos (' + players.length + ')' : 'Enviar a todos';
 }
 $('clear').onclick = function () { cart = []; renderCart(); };
-function mail(items, title, text, done) {
-  if (sel == null) { $('mlog').textContent = 'Selecione um jogador.'; return; }
-  post('/gm/mail', { id: sel, title: title, text: text || '', items: items })
+function mail(items, title, text, opts, done) {
+  opts = opts || {};
+  var body = { title: title, text: text || '', items: items };
+  if (opts.all) body.all = true; else body.id = sel;
+  if (!opts.all && sel == null) { $('mlog').textContent = 'Selecione um jogador.'; return; }
+  post('/gm/mail', body)
     .then(function (j) { $('mlog').textContent = (j.out || []).join(NL); if (done) done(j.ok); })
     .catch(function () { $('mlog').textContent = 'Falha ao enviar.'; if (done) done(false); });
 }
 $('send').onclick = function () {
   if (!cart.length || sel == null) return;
-  $('send').disabled = true;
-  mail(cart.map(function (e) { return [e.it[0], e.n]; }), $('title').value, $('text').value, function (ok) {
+  $('send').disabled = true; $('sendAll').disabled = true;
+  mail(cart.map(function (e) { return [e.it[0], e.n]; }), $('title').value, $('text').value, {}, function (ok) {
     if (ok) { cart = []; renderCart(); } else updateSend();
   });
+};
+$('sendAll').onclick = function () {
+  if (!cart.length) return;
+  var n = players.length || '?';
+  if (!window.confirm('Enviar este pacote a TODOS os ' + n + ' personagem(ns) do servidor?')) return;
+  $('send').disabled = true; $('sendAll').disabled = true;
+  mail(cart.map(function (e) { return [e.it[0], e.n]; }), $('title').value, $('text').value, { all: true }, function (ok) {
+    if (ok) { cart = []; renderCart(); } else updateSend();
+  });
+};
+
+function renderWCart() {
+  var box = $('wcart'); box.textContent = '';
+  if (!wcart.length) box.appendChild(el('div', 'empty', 'Adicione itens pelo catálogo (botão abaixo) ou moedas rápidas.'));
+  wcart.forEach(function (e, i) {
+    var r = el('div', 'ci'); r.appendChild(icon(e.it)); r.appendChild(el('div', 'nm', e.it[1]));
+    var inp = el('input'); inp.type = 'number'; inp.min = 1; inp.max = 99999; inp.value = e.n;
+    inp.onchange = function () { e.n = Math.max(1, Math.min(99999, parseInt(inp.value, 10) || 1)); inp.value = e.n; };
+    r.appendChild(inp);
+    var x = el('button', 'x', '×'); x.onclick = function () { wcart.splice(i, 1); renderWCart(); }; r.appendChild(x);
+    box.appendChild(r);
+  });
+}
+function addWelcomeItem(tid, n, name) {
+  n = Math.max(1, Math.floor(Number(n) || 1));
+  var it = findCatItem(tid); if (name) it = [tid, name, it[2], it[3], it[4], it[5], it[6]];
+  var e = wcart.filter(function (x) { return x.it[0] === tid; })[0];
+  if (e) e.n += n; else wcart.push({ it: it, n: n });
+  renderWCart();
+}
+function fillWelcome(w) {
+  $('wtitle').value = (w && w.title) || '';
+  $('wtext').value = (w && w.contents) || '';
+  wcart = ((w && w.annex) || []).map(function (a) { return { it: findCatItem(a[0]), n: a[1] }; });
+  renderWCart();
+}
+function loadWelcome() {
+  return fetch('/admin/welcome').then(function (r) {
+    if (!r.ok) throw new Error('Sem acesso ao pacote de boas-vindas');
+    return r.json();
+  }).then(function (j) {
+    welcomeDefaults = j.defaults || null;
+    welcomeCurrencies = j.currencies || [];
+    var box = $('wcurrencies'); box.textContent = '';
+    welcomeCurrencies.forEach(function (c) {
+      var b = el('button', 'alt', '+ ' + c.name); b.type = 'button';
+      b.onclick = function () {
+        var q = window.prompt('Quantidade de ' + c.name, c.id === -100 ? '5000' : '50');
+        if (q == null) return;
+        addWelcomeItem(c.id, q, c.name);
+      };
+      box.appendChild(b);
+    });
+    var addCat = el('button', 'alt', 'Do catálogo → boas-vindas'); addCat.type = 'button';
+    addCat.onclick = function () {
+      if (!cart.length) { $('wlog').textContent = 'Monte o carrinho do correio e use “Usar carrinho atual”, ou toque itens e depois copie.'; return; }
+      cart.forEach(function (e) { addWelcomeItem(e.it[0], e.n, e.it[1]); });
+      $('wlog').textContent = 'Itens do carrinho acrescentados ao pacote (ainda não salvo).';
+    };
+    box.appendChild(addCat);
+    fillWelcome(j.welcome);
+    if (!$('wlog').dataset.locked) $('wlog').textContent = 'Edite e salve. Vale para o próximo primeiro login.';
+  });
+}
+$('wsave').onclick = function () {
+  if (!wcart.length) { $('wlog').textContent = 'Adicione ao menos um anexo.'; return; }
+  $('wlog').dataset.locked = '1';
+  post('/admin/welcome', {
+    title: $('wtitle').value,
+    text: $('wtext').value,
+    items: wcart.map(function (e) { return [e.it[0], e.n]; }),
+  }).then(function (j) {
+    $('wlog').textContent = (j.out || []).join(NL);
+    if (j.welcome) fillWelcome(j.welcome);
+  }).catch(function () { $('wlog').textContent = 'Falha ao salvar.'; });
+};
+$('wfromCart').onclick = function () {
+  if (!cart.length) { $('wlog').textContent = 'Carrinho do correio vazio.'; return; }
+  wcart = cart.map(function (e) { return { it: e.it.slice(), n: e.n }; });
+  renderWCart();
+  $('wlog').textContent = 'Carrinho copiado para boas-vindas (ainda não salvo).';
+};
+$('wreset').onclick = function () {
+  if (!welcomeDefaults) { $('wlog').textContent = 'Padrão indisponível.'; return; }
+  if (!window.confirm('Restaurar o pacote padrão e salvar?')) return;
+  fillWelcome(welcomeDefaults);
+  $('wsave').click();
 };
 
 function evStateText(e) {
@@ -545,6 +1297,42 @@ $('ev-reset').onclick = function () {
     $('ev-log').textContent = (j.out || []).join(NL);
     renderEvents(j.events || []);
   });
+};
+
+function fillCgBoss(b) {
+  if (!b) {
+    $('cg-status').textContent = 'Chefe Global indisponível.';
+    return;
+  }
+  if (b.active) {
+    $('cg-status').textContent = 'Ativo · campanha ' + b.campaign + ' · nível ' + b.level
+      + ' · HP ' + Number(b.hp).toLocaleString('pt-BR') + ' / ' + Number(b.max).toLocaleString('pt-BR');
+  } else {
+    $('cg-status').textContent = 'Inativo · nível ' + b.level
+      + ' · próximo máximo padrão ' + Number(b.max).toLocaleString('pt-BR')
+      + (b.pendingMax ? ' (override ' + Number(b.pendingMax).toLocaleString('pt-BR') + ')' : '');
+  }
+  if (document.activeElement !== $('cg-hp')) $('cg-hp').value = b.active ? b.hp : '';
+  if (document.activeElement !== $('cg-max')) $('cg-max').value = b.max || '';
+}
+function loadCgBoss() {
+  return fetch('/admin/worldboss').then(function (r) {
+    if (!r.ok) throw new Error('Sem acesso ao CG');
+    return r.json();
+  }).then(function (j) {
+    fillCgBoss(j.boss);
+  }).catch(function () {
+    $('cg-status').textContent = 'Não foi possível carregar o Chefe Global.';
+  });
+}
+$('cg-refresh').onclick = function () { loadCgBoss(); };
+$('cg-apply').onclick = function () {
+  var hp = $('cg-hp').value, max = $('cg-max').value;
+  $('cg-log').textContent = 'Aplicando…';
+  post('/admin/worldboss', { hp: hp === '' ? null : hp, max: max === '' ? null : max }).then(function (j) {
+    $('cg-log').textContent = (j.out || []).join(NL) || (j.ok ? 'OK' : 'Falha');
+    if (j.boss) fillCgBoss(j.boss);
+  }).catch(function () { $('cg-log').textContent = 'Não foi possível alterar a vida.'; });
 };
 
 function renderSites(list) {
@@ -609,13 +1397,334 @@ $('site-create').onclick = function () {
 };
 $('site-name').onkeydown = function (e) { if (e.key === 'Enter') $('site-create').click(); };
 
+/* ---- Códigos de ativação ---- */
+var gcCart = [], gcData = { packs: [], codes: [] };
+function renderGcCart() {
+  var box = $('gc-cart'); box.textContent = '';
+  if (!gcCart.length) box.appendChild(el('div', 'empty', 'Use “Importar carrinho do Correio” ou monte itens na aba Correio.'));
+  gcCart.forEach(function (e, i) {
+    var r = el('div', 'ci'); r.appendChild(icon(e.it)); r.appendChild(el('div', 'nm', e.it[1]));
+    var inp = el('input'); inp.type = 'number'; inp.min = 1; inp.max = 99999; inp.value = e.n;
+    inp.onchange = function () { e.n = Math.max(1, Math.min(99999, parseInt(inp.value, 10) || 1)); inp.value = e.n; };
+    r.appendChild(inp);
+    var x = el('button', 'x', '×'); x.onclick = function () { gcCart.splice(i, 1); renderGcCart(); }; r.appendChild(x);
+    box.appendChild(r);
+  });
+}
+$('gc-from-cart').onclick = function () {
+  if (!cart.length) { $('gc-log').textContent = 'Carrinho do Correio vazio — adicione itens na aba Correio.'; return; }
+  gcCart = cart.map(function (e) { return { it: e.it, n: e.n }; });
+  renderGcCart();
+  $('gc-log').textContent = gcCart.length + ' tipo(s) importado(s) do carrinho.';
+};
+$('gc-clear-cart').onclick = function () { gcCart = []; renderGcCart(); };
+function fillPackSelect() {
+  var sel = $('gc-pack-sel'), cur = sel.value;
+  sel.textContent = '';
+  sel.appendChild(new Option('— selecione —', ''));
+  (gcData.packs || []).forEach(function (p) {
+    sel.appendChild(new Option(p.name + ' (' + (p.items || []).length + ' itens)', p.id));
+  });
+  if (cur) sel.value = cur;
+}
+function renderGcPacks() {
+  var box = $('gc-packs'); box.textContent = '';
+  var list = gcData.packs || [];
+  if (!list.length) { box.appendChild(el('div', 'empty', 'Nenhum pacote ainda.')); return; }
+  list.forEach(function (p) {
+    var r = el('div', 'set');
+    var t = el('div', 't');
+    t.appendChild(document.createTextNode(p.name));
+    t.appendChild(el('small', '', (p.codeCount || 0) + ' código(s) · máx. ' + (p.maxPerPlayer || 1) + '/jogador'));
+    r.appendChild(t);
+    var pcs = el('div', 'pcs');
+    (p.itemLabels || []).forEach(function (lab) { pcs.appendChild(el('span', 'meta', lab)); });
+    r.appendChild(pcs);
+    var act = el('div', 'act');
+    var use = el('button', 'alt', 'Usar neste gerador');
+    use.onclick = function () { $('gc-pack-sel').value = p.id; };
+    var del = el('button', 'alt', 'Apagar');
+    del.onclick = function () {
+      if (!window.confirm('Apagar pacote “' + p.name + '” e todos os códigos dele?')) return;
+      gcAction({ action: 'deletePack', id: p.id });
+    };
+    act.appendChild(use); act.appendChild(del); r.appendChild(act);
+    box.appendChild(r);
+  });
+}
+function gcStatus(c) {
+  if (!c.enabled) return { t: 'Desativado', cls: 'off' };
+  if (c.expired) return { t: 'Expirado', cls: 'off' };
+  if (c.maxUses > 0 && c.left === 0) return { t: 'Esgotado', cls: 'off' };
+  return { t: 'Ativo', cls: 'on' };
+}
+function renderGcCodes() {
+  var q = ($('gc-filter').value || '').trim().toLowerCase();
+  var tb = $('gc-codes'); tb.textContent = '';
+  var list = (gcData.codes || []).filter(function (c) {
+    if (!q) return true;
+    return (c.code + ' ' + c.packName).toLowerCase().indexOf(q) >= 0;
+  });
+  if (!list.length) {
+    var tr = document.createElement('tr');
+    var td = document.createElement('td'); td.colSpan = 6; td.className = 'empty'; td.textContent = 'Nenhum código';
+    tr.appendChild(td); tb.appendChild(tr); return;
+  }
+  list.forEach(function (c) {
+    var tr = document.createElement('tr');
+    var st = gcStatus(c);
+    function cell(txt, cls) { var td = document.createElement('td'); if (cls) td.className = cls; td.textContent = txt; return td; }
+    tr.appendChild(cell(c.code));
+    tr.appendChild(cell(c.packName));
+    tr.appendChild(cell(c.expiresAt ? String(c.expiresAt).replace('T', ' ').slice(0, 16) : 'Sem prazo'));
+    tr.appendChild(cell(c.maxUses > 0 ? (c.used + '/' + c.maxUses) : (c.used + '/∞')));
+    var tdSt = document.createElement('td');
+    tdSt.appendChild(el('span', 'state ' + st.cls, st.t));
+    tr.appendChild(tdSt);
+    var tdAct = document.createElement('td');
+    var copy = el('button', 'alt', 'Copiar'); copy.style.padding = '5px 8px'; copy.style.minHeight = '0';
+    copy.onclick = function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(c.code);
+      else { var i = document.createElement('input'); i.value = c.code; document.body.appendChild(i); i.select(); document.execCommand('copy'); i.remove(); }
+      $('gc-log').textContent = 'Copiado: ' + c.code;
+    };
+    tdAct.appendChild(copy);
+    var tog = el('button', 'alt', c.enabled ? 'Desativar' : 'Ativar'); tog.style.padding = '5px 8px'; tog.style.minHeight = '0';
+    tog.onclick = function () { gcAction({ action: c.enabled ? 'disable' : 'enable', code: c.code }); };
+    tdAct.appendChild(tog);
+    var del = el('button', 'alt', '×'); del.style.padding = '5px 8px'; del.style.minHeight = '0';
+    del.onclick = function () {
+      if (!window.confirm('Remover código ' + c.code + '?')) return;
+      gcAction({ action: 'deleteCode', code: c.code });
+    };
+    tdAct.appendChild(del);
+    tr.appendChild(tdAct);
+    tb.appendChild(tr);
+  });
+}
+function applyGcData(j) {
+  gcData = { packs: j.packs || [], codes: j.codes || [] };
+  fillPackSelect();
+  renderGcPacks();
+  renderGcCodes();
+}
+function loadGiftCodes() {
+  return fetch('/admin/giftcodes').then(function (r) {
+    if (!r.ok) throw new Error('Sem acesso aos códigos');
+    return r.json();
+  }).then(function (j) {
+    applyGcData(j);
+    if (!$('gc-log').dataset.locked) $('gc-log').textContent = 'Crie um pacote e gere códigos com validade.';
+  });
+}
+function gcAction(body) {
+  $('gc-log').dataset.locked = '1';
+  return post('/admin/giftcodes', body).then(function (j) {
+    $('gc-log').textContent = (j.out || []).join(NL);
+    if (body.action === 'createCodes') {
+      $('gc-gen-log').textContent = (j.out || []).join(NL);
+      if (j.created && j.created.length) {
+        var box = $('gc-created');
+        box.style.display = 'block';
+        box.textContent = j.created.map(function (c) { return c.code; }).join(NL);
+      }
+    }
+    applyGcData(j);
+    return j;
+  }).catch(function () { $('gc-log').textContent = 'Falha ao salvar.'; });
+}
+$('gc-create-pack').onclick = function () {
+  if (!gcCart.length) { $('gc-log').textContent = 'Adicione itens ao pacote.'; return; }
+  var name = $('gc-pack-name').value.trim() || 'Pacote';
+  gcAction({
+    action: 'createPack',
+    name: name,
+    title: $('gc-pack-title').value.trim() || 'Código de ativação',
+    text: $('gc-pack-text').value,
+    maxPerPlayer: parseInt($('gc-pack-max').value, 10) || 1,
+    items: gcCart.map(function (e) { return [e.it[0], e.n]; }),
+  }).then(function (j) {
+    if (j && j.ok) {
+      gcCart = []; renderGcCart();
+      $('gc-pack-name').value = '';
+      if (j.pack) $('gc-pack-sel').value = j.pack.id;
+    }
+  });
+};
+$('gc-gen').onclick = function () {
+  var packId = $('gc-pack-sel').value;
+  if (!packId) { $('gc-gen-log').textContent = 'Selecione um pacote.'; return; }
+  var exp = $('gc-expires').value;
+  var body = {
+    action: 'createCodes',
+    packId: packId,
+    maxUses: parseInt($('gc-maxuses').value, 10),
+    expiresAt: exp ? exp.replace('T', ' ') + ':00' : null,
+    prefix: $('gc-prefix').value.trim() || 'ULTRA',
+  };
+  var manual = ($('gc-manual').value || '').trim();
+  if (manual) body.code = manual;
+  else body.count = parseInt($('gc-count').value, 10) || 1;
+  gcAction(body).then(function (j) {
+    if (j && j.ok) $('gc-manual').value = '';
+  });
+};
+$('gc-refresh').onclick = function () { loadGiftCodes(); };
+$('gc-filter').oninput = function () { renderGcCodes(); };
+
+function paintCf(j) {
+  var c = (j && j.config) || {}, d = c.derived || {};
+  var p = c.ports || {};
+  if (p.http) $('cf-port-http').textContent = p.http;
+  $('cf-enabled').checked = !!c.enabled;
+  $('cf-http').value = c.httpPublic || '';
+  $('cf-login').value = c.loginPublic || '';
+  $('cf-gate').value = c.gatePublic || '';
+  $('cf-notes').value = c.notes || '';
+  $('cf-st-on').textContent = d.enabled ? 'Ativo' : 'LAN';
+  $('cf-st-login').textContent = d.login || '—';
+  $('cf-st-gate').textContent = d.gate || '—';
+  if (d.cloudflaredCmd) $('cf-cmd').textContent = d.cloudflaredCmd;
+  if (j && j.adminUsers) $('cf-admins').textContent = j.adminUsers.length ? j.adminUsers.join(', ') : '(vazio)';
+}
+function loadCf() {
+  return fetch('/admin/netconfig').then(function (r) {
+    if (!r.ok) throw new Error('Sem acesso admin (conta precisa estar em ADMIN_USERS no .env)');
+    return r.json();
+  }).then(function (j) {
+    paintCf(j);
+    $('cf-log').textContent = j.config && j.config.enabled
+      ? 'Túnel configurado. Use a URL pública no navegador e recarregue o cliente após salvar.'
+      : 'Modo LAN. Marque “Ativar”, cole a URL do cloudflared e salve.';
+  });
+}
+$('cf-save').onclick = function () {
+  $('cf-log').textContent = 'Salvando…';
+  post('/admin/netconfig', {
+    enabled: $('cf-enabled').checked,
+    httpPublic: $('cf-http').value.trim(),
+    loginPublic: $('cf-login').value.trim(),
+    gatePublic: $('cf-gate').value.trim(),
+    notes: $('cf-notes').value.trim(),
+  }).then(function (j) {
+    paintCf(j);
+    $('cf-log').textContent = (j.out || []).join(NL) || (j.ok ? 'Salvo.' : 'Falha.');
+  }).catch(function () { $('cf-log').textContent = 'Falha ao salvar.'; });
+};
+$('cf-disable').onclick = function () {
+  $('cf-enabled').checked = false;
+  $('cf-save').click();
+};
+$('cf-copy-cmd').onclick = function () {
+  var t = $('cf-cmd').textContent;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(t).then(function () { $('cf-log').textContent = 'Comando copiado.'; });
+  } else { $('cf-log').textContent = t; }
+};
+
+function dbMode() {
+  return ($('db-mode-turso').checked ? 'turso' : 'local');
+}
+function toggleDbFields() {
+  var turso = dbMode() === 'turso';
+  $('db-turso-fields').hidden = !turso;
+  $('db-test').disabled = !turso;
+  $('db-push').disabled = !turso;
+  $('db-pull').disabled = !turso;
+}
+// keepUrl: when true (after Test/failed save), do not blank the URL the GM just typed
+function paintDb(j, keepUrl) {
+  var c = (j && j.config) || {}, st = (j && j.status) || {};
+  var typedUrl = ($('db-turso-url').value || '').trim();
+  if (j && j.file) $('db-file-name').textContent = j.file;
+  $('db-mode-local').checked = c.mode !== 'turso';
+  $('db-mode-turso').checked = c.mode === 'turso';
+  if (c.tursoUrl) $('db-turso-url').value = c.tursoUrl;
+  else if (!keepUrl) $('db-turso-url').value = '';
+  else if (typedUrl) $('db-turso-url').value = typedUrl;
+  $('db-sync-min').value = c.syncMinutes || 5;
+  $('db-token-hint').textContent = c.hasToken
+    ? ('Token salvo: ' + (c.tokenHint || '••••'))
+    : 'Nenhum token salvo — cole um Auth Token ao escolher Turso.';
+  $('db-st-mode').textContent = c.mode === 'turso' ? 'Turso' : 'Local';
+  $('db-st-sync').textContent = st.lastSync ? String(st.lastSync).replace('T', ' ').slice(0, 19) : '—';
+  $('db-st-ready').textContent = st.syncing ? 'Sincronizando…' : (st.lastError ? ('Erro: ' + st.lastError) : (st.ready ? 'OK' : (c.mode === 'turso' ? 'Incompleto' : 'Local')));
+  toggleDbFields();
+}
+function loadDbConfig() {
+  return fetch('/admin/dbconfig').then(function (r) {
+    if (!r.ok) throw new Error('Sem acesso (só rede local)');
+    return r.json();
+  }).then(function (j) {
+    paintDb(j, false);
+    if (j.config && j.config.mode === 'turso') {
+      $('db-log').textContent = 'Turso configurado. Use Testar / Enviar / Baixar conforme precisar.';
+    } else {
+      $('db-log').textContent = 'Banco local ativo (server/data/' + (j.file || 'wartune.db') + ').';
+    }
+  });
+}
+$('db-mode-local').onchange = toggleDbFields;
+$('db-mode-turso').onchange = toggleDbFields;
+$('db-save').onclick = function () {
+  var body = {
+    action: 'save',
+    mode: dbMode(),
+    tursoUrl: $('db-turso-url').value.trim(),
+    syncMinutes: parseInt($('db-sync-min').value, 10) || 5,
+  };
+  var tok = $('db-turso-token').value.trim();
+  if (tok) body.tursoAuthToken = tok;
+  $('db-log').textContent = 'Salvando…';
+  post('/admin/dbconfig', body).then(function (j) {
+    paintDb(j, !j.ok);
+    $('db-log').textContent = (j.out || []).join(NL) || (j.ok ? 'Salvo.' : 'Falha.');
+    if (j.ok) $('db-turso-token').value = '';
+  }).catch(function () { $('db-log').textContent = 'Falha ao salvar.'; });
+};
+$('db-test').onclick = function () {
+  var body = { action: 'test', tursoUrl: $('db-turso-url').value.trim() };
+  var tok = $('db-turso-token').value.trim();
+  if (tok) body.tursoAuthToken = tok;
+  $('db-log').textContent = 'Testando…';
+  post('/admin/dbconfig', body).then(function (j) {
+    // keep typed URL — test does not persist config by itself
+    paintDb(j, true);
+    $('db-log').textContent = (j.out || [j.error || 'Falha']).join(NL);
+  }).catch(function () { $('db-log').textContent = 'Falha no teste.'; });
+};
+function dbSync(direction) {
+  $('db-log').textContent = direction === 'pull' ? 'Baixando do Turso…' : 'Enviando para o Turso…';
+  post('/admin/dbconfig', { action: 'sync', direction: direction }).then(function (j) {
+    paintDb(j, true);
+    $('db-log').textContent = (j.out || [j.error || 'Falha']).join(NL);
+  }).catch(function () { $('db-log').textContent = 'Falha na sincronização.'; });
+}
+$('db-push').onclick = function () { dbSync('push'); };
+$('db-pull').onclick = function () { dbSync('pull'); };
+
 loadPlayers().catch(function (e) {
-  $('players').innerHTML = '<tr><td colspan="3" class="empty">' + e.message + '</td></tr>';
-  $('playersMobile').innerHTML = '<tr><td colspan="4" class="empty">' + e.message + '</td></tr>';
+  $('playerQuickSelect').innerHTML = '<option value="">Erro ao carregar personagens</option>';
+  $('playersFullMobile').innerHTML = '<tr><td colspan="5" class="empty">' + e.message + '</td></tr>';
 });
 loadEvents().catch(function (e) { $('ev-log').textContent = e.message; });
+loadCgBoss();
 loadSites().catch(function (e) { $('site-log').textContent = e.message; });
-fetch('/gm/items').then(function (r) { return r.json(); }).then(function (c) { CAT = c; refreshCat(); }).catch(function () {});
+loadWelcome().catch(function (e) { $('wlog').textContent = e.message; });
+loadGiftCodes().catch(function (e) { $('gc-log').textContent = e.message; });
+loadCf().catch(function (e) { $('cf-log').textContent = e.message; });
+loadDbConfig().catch(function (e) { $('db-log').textContent = e.message; });
+fetch('/gm/items').then(function (r) { return r.json(); }).then(function (c) {
+  CAT = c; refreshCat();
+  if (wcart.length) {
+    wcart.forEach(function (e) { e.it = findCatItem(e.it[0]); });
+    renderWCart();
+  }
+  if (gcCart.length) {
+    gcCart.forEach(function (e) { e.it = findCatItem(e.it[0]); });
+    renderGcCart();
+  }
+}).catch(function () {});
 setInterval(loadPlayers, 8000);
 </script>
 </body>

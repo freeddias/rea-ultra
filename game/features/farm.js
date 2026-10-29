@@ -15,23 +15,48 @@
 //  farm EXP: +1 per watering, clearing (FarmCrop_Operate_GP 1) and pick; a level per 5 EXP (capture: Lv2
 //   after the 5th point, "Sua fazenda 2 evoluiu para o nível"; the real curve is not in the data).
 //  opens with the "Ev" guide system at character Lv12 (t_s_system_introduce).
-const OPEN_LEVEL = 12, LANDS = 3, NEVER = '2000-01-01 00:00:00';
-const TREE_COOLDOWN = 600, FRUIT_AT = 5, GP_PER_LEVEL = 5;
+const OPEN_LEVEL = 12, LANDS_DEFAULT = 3, LANDS_MAX = 12, LAND_GRADE_MAX = 10;
+const NEVER = '2000-01-01 00:00:00';
+const TREE_COOLDOWN = 600, FRUIT_AT = 5;
 const pad = n => String(n).padStart(2, '0');
 const dayKey = (d = new Date()) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 const nextMidnight = () => { const d = new Date(); d.setHours(24, 0, 0, 0); return d.getTime(); };
 
 module.exports = (ctx) => {
-  const { D, dec, sendT, sendItems, sendCastle, sendPlayer, grant, pay, alert, chat, rewardName, playerById, online, sysTime, CONF, M } = ctx;
+  const { D, dec, sendT, sendItems, sendCastle, sendPlayer, grant, pay, alert, chat, rewardName, playerById, online, sysTime, CONF, M, table } = ctx;
   const GAIN = (CONF.get('FarmCrop_Gains_Percent') || 3) / 100, ACCEL = CONF.get('Farm_Accelerate_Point') || 15;
   const fmt = t => t ? sysTime(new Date(t)) : NEVER;
+  // t_s_upgradetemplate Types 17 (client UPGRADE_TYPE_FARM): Data = EXP to reach that grade
+  const FARM_UP = table('t_s_upgradetemplate').filter(r => r.Types === 17).sort((a, b) => a.Grades - b.Grades);
+  const MAX_FARM = FARM_UP.length ? Math.max(...FARM_UP.map(r => r.Grades)) : 80;
+  const gpForLevel = target => {
+    let gp = 0;
+    for (const row of FARM_UP) {
+      if (row.Grades <= 1) continue;
+      if (row.Grades > target) break;
+      gp += row.Data || 0;
+    }
+    return gp;
+  };
 
   function farm(p) {
-    const f = p.s.farm = p.s.farm || { gp: 0, lands: Array.from({ length: LANDS }, () => null), tree: { water: 0, fruit: 0, ownWater: 0, nextPick: 0 }, friendWater: {} };
+    const f = p.s.farm = p.s.farm || { gp: 0, landGrades: 1, lands: Array.from({ length: LANDS_DEFAULT }, () => null), tree: { water: 0, fruit: 0, ownWater: 0, nextPick: 0 }, friendWater: {} };
+    if (f.landGrades == null) f.landGrades = 1;
+    if (!Array.isArray(f.lands) || !f.lands.length) f.lands = Array.from({ length: LANDS_DEFAULT }, () => null);
     if (f.friendWater.day !== dayKey()) f.friendWater = { day: dayKey() };
     return f;
   }
-  const level = f => 1 + Math.floor(f.gp / GP_PER_LEVEL);
+  const level = f => {
+    let lv = 1, left = f.gp || 0;
+    for (const row of FARM_UP) {
+      if (row.Grades <= 1) continue;
+      const need = row.Data || 0;
+      if (left < need) break;
+      left -= need;
+      lv = row.Grades;
+    }
+    return Math.min(lv, MAX_FARM);
+  };
   function addGp(c, f, n = 1) {
     const before = level(f); f.gp += n;
     if (level(f) > before) alert(c, `Sua fazenda ${level(f)} evoluiu para o nível`);
@@ -54,11 +79,23 @@ module.exports = (ctx) => {
     return m;
   }
   const farmInfo = owner => { const f = farm(owner); return { farmLandInfo: f.lands.map((_, i) => landMsg(owner, i)), petInfo: [], userId: owner.id, nickName: owner.s.nickName,
-    grades: level(f), landGrades: 1, gp: f.gp, treeInfo: treeMsg(owner) }; };
+    grades: level(f), landGrades: f.landGrades || 1, gp: f.gp, treeInfo: treeMsg(owner) }; };
   const landUpdate = (c, owner, i, op) => sendT(c, 4387, 'farm.FarmInfoRspMsg', { farmLandInfo: [landMsg(owner, i, { opType: op })], petInfo: [] });
   function water(t) { t.water++; if (t.water >= FRUIT_AT && !t.fruit && Date.now() >= (t.nextPick || 0)) t.fruit = 1; }
   const isFriend = (p, id) => ((p.s.relations || {})[id] || {}).relation === 1;
   const open = c => { if (c.player.s.grades >= OPEN_LEVEL) return true; alert(c, `Karakter Lv. ${OPEN_LEVEL} necessário`); return false; };
+
+  // GM / admin: fazenda no teto (nível, terreno e todos os lotes)
+  ctx.gmMaxFarm = c => {
+    const f = farm(c.player);
+    f.gp = gpForLevel(MAX_FARM);
+    f.landGrades = LAND_GRADE_MAX;
+    while (f.lands.length < LANDS_MAX) f.lands.push(null);
+    c.player.save();
+    sendT(c, 4386, 'farm.FarmInfoRspMsg', farmInfo(c.player));
+    sendT(c, 4157, 'farm.LoadFarmRsp', { friendFarmState: [], farmLog: [], farm: farmInfo(c.player) });
+    return `Fazenda Nv.${level(f)}, terreno Nv.${f.landGrades}, ${f.lands.length} lotes`;
+  };
 
   // login: the farm loading step (4157 U_C_LOAD_WATER; the recorded one was the official character's farm)
   ctx.onLoad.push(c => sendT(c, 4157, 'farm.LoadFarmRsp', { friendFarmState: [], farmLog: [], farm: farmInfo(c.player) }));
@@ -73,7 +110,7 @@ module.exports = (ctx) => {
       if (!open(c)) return;
       const mine = owner === p;
       if (m.opType === 1) {   // plant
-        if (!mine || l || i >= LANDS) { alert(c, 'Este tarlaya ekilemez'); return; }
+        if (!mine || l || i < 0 || i >= f.lands.length) { alert(c, 'Este tarlaya ekilemez'); return; }
         const seed = p.itemAt(m.bagPos, 1), st = seed && D.items.get(seed.templateId);
         if (!st || st.SonType !== 216) { alert(c, 'Selecione uma semente'); return; }
         if (st.NeedGrades && p.s.grades < st.NeedGrades) { alert(c, `Karakter Lv. ${st.NeedGrades} necessário`); return; }
@@ -86,15 +123,16 @@ module.exports = (ctx) => {
         ctx.stat(c, 'farmPlant');
         return;
       }
-      if (m.opType === 3) {   // clear a weed / pest (own land or a friend's: helping)
-        if (!l || (!l.grass && !l.worm)) { alert(c, 'Nada para limpar'); return; }
+      if (m.opType === 2 || m.opType === 3) {   // 2 WORM / 3 WEED (own land or a friend's: helping)
+        const wantWorm = m.opType === 2;
+        if (!l || (wantWorm ? !l.worm : !l.grass)) { alert(c, 'Nada para limpar'); return; }
         if (!mine && !isFriend(p, owner.id)) { alert(c, 'Você só pode ajudar seus amigos'); return; }
-        if (l.grass) l.grass = false; else l.worm = false;
+        if (wantWorm) l.worm = false; else l.grass = false;
         l.reward = Math.min(l.full, l.reward + Math.round(0.1 * l.base));
         addGp(c, farm(p));
         owner.save(); p.save();
         sendT(c, 4386, 'farm.FarmInfoRspMsg', farmInfo(owner));
-        landUpdate(c, owner, i, 3);
+        landUpdate(c, owner, i, m.opType);
         if (!mine) ctx.stat(c, 'farmHelp');
         return;
       }
@@ -120,6 +158,14 @@ module.exports = (ctx) => {
         p.save();
         sendPlayer(c);
         landUpdate(c, p, i, 7);
+        return;
+      }
+      if (m.opType === 8) {   // CLEAR — arrancar plantação morta / limpar o lote
+        if (!mine || !l) { alert(c, 'Nada para arrancar'); return; }
+        f.lands[i] = null;
+        p.save();
+        sendT(c, 4386, 'farm.FarmInfoRspMsg', farmInfo(p));
+        landUpdate(c, p, i, 8);
         return;
       }
       alert(c, 'Esta ação da fazenda ainda não existe');

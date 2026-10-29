@@ -2,7 +2,7 @@
 // localhost / private LAN (or an account listed in GM_USERS) runs a command instead of being
 // sent to the channel. GM=0 turns them off. The reply comes back as a system chat line only to the sender.
 // The same tools live on one admin page (admin_page.html), reachable from the LAN:
-// http://<host>:8899/admin — economy, events, commands, mail/catalogue.
+// http://<host>:8899/admin — economy, events, commands, mail/catalogue, gift codes.
 //  !yardim                       the list
 //  !seviye N                     levels up to N (as EXP: level boxes, opened systems, quests follow)
 //  !altin N / !diamantes N / !kilitli N   gold / diamonds / bound diamonds
@@ -32,26 +32,63 @@ module.exports = (ctx) => {
   };
 
   const CMDS = {
-    yardim(c) { reply(c, '!nivel N, !ouro N, !diamantes N, !vinculado N, !item ID [QTD], !energia, !labirinto N, !vip N, !honra N, !missoes, !classe, !cg [abrir|fechar|auto], !passe [guerreiro|temporada|mensal|lorde|fundo|todos]'); },
+    yardim(c) { reply(c, '!nivel N, !ouro N, !diamantes N, !vinculado N, !item ID [QTD], !energia, !labirinto N, !vip N, !honra N, !missoes, !classe, !fazenda, !fogueira, !cg [abrir|fechar|auto], !cb [abrir|fechar|auto], !gvg [abrir|fechar|auto], !passe [guerreiro|temporada|mensal|lorde|fundo|todos]'); },
+    // CG = Chefe Global (world boss); CB = Campo de Batalha (war field); GVG = Batalha de Guilda
     cg(c, [mode]) {
+      const m = String(mode || 'abrir').toLowerCase();
+      if (m === 'fechar' || m === 'off' || m === 'close') {
+        if (!ctx.stopWorldBoss) return reply(c, 'Chefe Global indisponível.');
+        ctx.stopWorldBoss();
+        return reply(c, 'Chefe Global (CG) encerrado / forçado FECHADO.');
+      }
+      if (m === 'auto' || m === 'calendario' || m === 'calendar') {
+        if (ctx.clearAdminWorldBoss) ctx.clearAdminWorldBoss();
+        if (ctx.events) ctx.events.setForce('worldBoss', null);
+        return reply(c, 'Chefe Global (CG) voltou ao calendário.');
+      }
+      if (!ctx.startWorldBoss) return reply(c, 'Chefe Global indisponível.');
+      const f = ctx.startWorldBoss();
+      reply(c, f ? `Chefe Global (CG) INVOCADO agora (campanha ${f.campaign}, HP ${f.hp}).` : 'Falha ao invocar o Chefe Global.');
+    },
+    chefe(c, a) { return CMDS.cg(c, a); },
+    worldboss(c, a) { return CMDS.cg(c, a); },
+    cb(c, [mode]) {
       const m = String(mode || 'abrir').toLowerCase();
       if (m === 'fechar' || m === 'off' || m === 'close') {
         if (!ctx.closeWarField) return reply(c, 'Campo de Batalha indisponível.');
         ctx.closeWarField();
-        return reply(c, 'Campo de Batalha (CG) forçado FECHADO.');
+        return reply(c, 'Campo de Batalha (CB) forçado FECHADO.');
       }
       if (m === 'auto' || m === 'calendario' || m === 'calendar') {
         if (!ctx.events) return reply(c, 'Sistema de eventos indisponível.');
         ctx.events.setForce('warField', null);
         if (ctx.openWarField) ctx.openWarField(false);
-        return reply(c, 'Campo de Batalha (CG) voltou ao calendário.');
+        return reply(c, 'Campo de Batalha (CB) voltou ao calendário.');
       }
       if (!ctx.openWarField) return reply(c, 'Campo de Batalha indisponível.');
       const cur = ctx.openWarField(true);
-      reply(c, cur ? `Campo de Batalha (CG) ABERTO agora (campanha ${cur.CampaignId}).` : 'Campo de Batalha forçado, mas sem campanha na tabela.');
+      reply(c, cur ? `Campo de Batalha (CB) ABERTO agora (campanha ${cur.CampaignId}).` : 'Campo de Batalha forçado, mas sem campanha na tabela.');
     },
-    campo(c, a) { return CMDS.cg(c, a); },
-    warfield(c, a) { return CMDS.cg(c, a); },
+    campo(c, a) { return CMDS.cb(c, a); },
+    warfield(c, a) { return CMDS.cb(c, a); },
+    gvg(c, [mode]) {
+      const m = String(mode || 'abrir').toLowerCase();
+      if (m === 'fechar' || m === 'off' || m === 'close') {
+        if (!ctx.closeGuildWar) return reply(c, 'Batalha de Guilda indisponível.');
+        ctx.closeGuildWar();
+        return reply(c, 'Batalha de Guilda (GvG) forçada FECHADA.');
+      }
+      if (m === 'auto' || m === 'calendario' || m === 'calendar') {
+        if (!ctx.events) return reply(c, 'Sistema de eventos indisponível.');
+        ctx.events.setForce('guildWar', null);
+        if (ctx.openGuildWar) ctx.openGuildWar(false);
+        return reply(c, 'Batalha de Guilda (GvG) voltou ao calendário.');
+      }
+      if (!ctx.openGuildWar) return reply(c, 'Batalha de Guilda indisponível.');
+      const cur = ctx.openGuildWar(true);
+      reply(c, cur ? `Batalha de Guilda (GvG) ABERTA agora (${cur.left}s restantes).` : 'GvG forçada, mas sem janela.');
+    },
+    guildwar(c, a) { return CMDS.gvg(c, a); },
     passe(c, [kind]) {
       const k = String(kind || 'todos').toLowerCase();
       const out = [];
@@ -122,6 +159,26 @@ module.exports = (ctx) => {
       if (!ctx.forceJobChange) return reply(c, 'Sistema de avanço de classe indisponível.');
       reply(c, ctx.forceJobChange(c).msg);
     },
+    // Lar: fazenda (nível + terreno) e fogueira (nível da Residência)
+    fazenda(c) {
+      if (!ctx.gmMaxFarm) return reply(c, 'Sistema de fazenda indisponível.');
+      reply(c, ctx.gmMaxFarm(c));
+    },
+    farm(c, a) { return CMDS.fazenda(c, a); },
+    fogueira(c) {
+      // fogueira exige fazenda ≥ 15 no cliente; sobe as duas para o teto
+      const parts = [];
+      if (ctx.gmMaxFarm) parts.push(ctx.gmMaxFarm(c));
+      if (!ctx.gmMaxHouse) return reply(c, parts.join(' · ') || 'Sistema de fogueira indisponível.');
+      parts.push(ctx.gmMaxHouse(c));
+      reply(c, parts.join(' · '));
+    },
+    bonfire(c, a) { return CMDS.fogueira(c, a); },
+    residencia(c) {
+      if (!ctx.gmMaxHouse) return reply(c, 'Sistema de residência indisponível.');
+      reply(c, ctx.gmMaxHouse(c));
+    },
+    casa(c, a) { return CMDS.residencia(c, a); },
   };
 
   // chat.js asks this first; true = it was a command (not sent to the channel)
@@ -136,12 +193,22 @@ module.exports = (ctx) => {
     return true;
   };
 
-  // ---- admin / GM page (loopback + private LAN) ----
+  // ---- admin / GM page: only accounts listed in server/.env → ADMIN_USERS ----
   const http = require('../../http');
   const store = require('../../store');
-  const local = req => enabled && auth.isPrivate(req.socket.remoteAddress);
+  const env = require('../../env');
   const json = (res, o) => http.send(res, 200, JSON.stringify(o), 'application/json');
-  const guard = (req, res) => { if (local(req)) return true; http.send(res, 403, 'Apenas na rede local'); return false; };
+  const adminSession = req => {
+    if (!enabled) return null;
+    const se = auth.session(req.headers.cookie);
+    if (!se || !env.isAdminUser(se.userName)) return null;
+    return se;
+  };
+  const guard = (req, res) => {
+    if (adminSession(req)) return true;
+    http.send(res, 403, 'Acesso negado. Entre no portal com uma conta listada em ADMIN_USERS no arquivo .env');
+    return false;
+  };
   const serveAdmin = (req, res) => {
     if (!guard(req, res)) return;
     http.send(res, 200, fs.readFileSync(ADMIN_FILE), 'text/html; charset=utf-8');
@@ -157,23 +224,68 @@ module.exports = (ctx) => {
     json(res, store.listPlayers().map(x => Object.assign(x, { online: on.has(x.id) })));
   });
   http.route('/gm/items', (req, res) => { if (guard(req, res)) json(res, catalogue()); });
-  // {id, items: [[templateId, count], ...], title, text} -> mails of 5 attachments each (mail.js takes 5)
-  http.route('/gm/mail', (req, res, b) => {
-    if (!guard(req, res)) return;
-    const m = body(b), p = ctx.playerById(Number(m.id));
-    if (!p) return json(res, { ok: false, out: ['Jogador não encontrado'] });
-    const items = (Array.isArray(m.items) ? m.items : []).map(([tid, n]) => [num(tid), Math.min(MAIL_MAX, Math.max(1, num(n)))])
-      .filter(([tid]) => D.items.has(tid));
-    if (!items.length) return json(res, { ok: false, out: ['Nenhum item para enviar'] });
-    const title = String(m.title || 'Presente GM').slice(0, 40), text = String(m.text || '').slice(0, 300);
+  // annex helper: items + currency ids (negative). mail.js parseMailAnnex if available.
+  const annexOf = list => {
+    if (ctx.parseMailAnnex) return ctx.parseMailAnnex(list, MAIL_MAX);
+    return (Array.isArray(list) ? list : []).map(([tid, n]) => [Math.floor(Number(tid)), Math.min(MAIL_MAX, Math.max(1, Math.floor(Number(n) || 0)))])
+      .filter(([tid]) => Number.isFinite(tid) && tid !== 0 && (tid < 0 || D.items.has(tid)));
+  };
+  const annexLabel = (t, n) => `${(ctx.rewardName && ctx.rewardName(t)) || itemName(t)} x${n}`;
+  // deliver one player's worth of mail (chunks of 5 annexes). returns mail count.
+  const deliverMail = (p, items, title, text) => {
     let mails = 0;
     for (let i = 0; i < items.length; i += 5) {
       const part = items.slice(i, i + 5);
-      const contents = text || part.map(([t, n]) => `${itemName(t)} x${n}`).join(', ');
+      const contents = text || part.map(([t, n]) => annexLabel(t, n)).join(', ');
       if (ctx.sendMail(p.id, { title, contents, annex: part })) mails++;
     }
-    log(`[GM page] mail to ${p.id}: ${items.map(([t, n]) => `${t}x${n}`).join(' ')}`);
-    json(res, { ok: mails > 0, out: [`${p.s.nickName}: ${items.length} tipos de item, ${mails} correio(s) enviado(s)`] });
+    return mails;
+  };
+  // {id}|{all:true}, items: [[templateId, count], ...], title, text} -> mails of 5 attachments each
+  http.route('/gm/mail', (req, res, b) => {
+    if (!guard(req, res)) return;
+    const m = body(b);
+    const items = annexOf(m.items);
+    if (!items.length) return json(res, { ok: false, out: ['Nenhum item para enviar'] });
+    const title = String(m.title || 'Presente GM').slice(0, 40), text = String(m.text || '').slice(0, 300);
+    const all = !!(m.all || m.toAll || m.everyone);
+    const targets = all
+      ? store.listPlayers().map(x => ctx.playerById(x.id)).filter(Boolean)
+      : [ctx.playerById(Number(m.id))].filter(Boolean);
+    if (!targets.length) return json(res, { ok: false, out: [all ? 'Nenhum personagem no servidor' : 'Jogador não encontrado'] });
+    let players = 0, mails = 0;
+    for (const p of targets) {
+      const n = deliverMail(p, items, title, text);
+      if (n) { players++; mails += n; }
+    }
+    log(`[GM page] mail ${all ? 'ALL' : targets[0].id}: ${items.map(([t, n]) => `${t}x${n}`).join(' ')} → ${players} jogador(es), ${mails} carta(s)`);
+    json(res, {
+      ok: mails > 0,
+      out: [all
+        ? `Enviado a ${players}/${targets.length} personagem(ns): ${items.length} tipo(s), ${mails} correio(s)`
+        : `${targets[0].s.nickName}: ${items.length} tipos de item, ${mails} correio(s) enviado(s)`],
+    });
+  });
+  // pacote de boas-vindas (primeiro login): GET atual · POST salva title/contents/annex
+  http.route('/admin/welcome', (req, res, b) => {
+    if (!guard(req, res)) return;
+    if (!ctx.getWelcomePack || !ctx.setWelcomePack) return json(res, { ok: false, out: ['Sistema de boas-vindas indisponível'] });
+    if (req.method === 'GET') {
+      return json(res, {
+        ok: true,
+        welcome: ctx.getWelcomePack(),
+        defaults: ctx.WELCOME_DEFAULT || null,
+        currencies: [
+          { id: -100, name: 'Ouro' }, { id: -400, name: 'Diamante' }, { id: -500, name: 'Diamante Vinculado' },
+          { id: -600, name: 'Cristal' }, { id: -700, name: 'EXP' }, { id: -5500, name: 'EXP VIP' },
+        ],
+      });
+    }
+    const m = body(b);
+    const r = ctx.setWelcomePack({ title: m.title, contents: m.text != null ? m.text : m.contents, annex: m.items || m.annex });
+    if (!r.ok) return json(res, { ok: false, out: [r.error || 'Falha ao salvar'] });
+    log(`[admin] welcome pack: ${r.welcome.title} · ${r.welcome.annex.map(([t, n]) => `${t}x${n}`).join(' ')}`);
+    json(res, { ok: true, welcome: r.welcome, out: ['Pacote de boas-vindas salvo (vale para novos personagens / primeiro login)'] });
   });
   // ---- admin page: set or add gold, diamonds and XP (offline players are saved; online ones are pushed) ----
   const JOB_PT = JOBS;
@@ -270,10 +382,143 @@ module.exports = (ctx) => {
       else if (force === false && ctx.closeWarField) ctx.closeWarField();
       else if (ctx.openWarField) ctx.openWarField(false);
     }
+    if (key === 'guildWar') {
+      if (force === true && ctx.openGuildWar) ctx.openGuildWar(true);
+      else if (force === false && ctx.closeGuildWar) ctx.closeGuildWar();
+      else if (ctx.openGuildWar) ctx.openGuildWar(false);
+    }
+    let extra = '';
+    if (key === 'worldBoss') {
+      if (force === true) {
+        if (!ctx.startWorldBoss) return json(res, { ok: false, out: ['Chefe Global indisponível'] });
+        const f = ctx.startWorldBoss();
+        extra = f ? ` — invocado agora (campanha ${f.campaign}, HP ${f.hp})` : '';
+      } else if (force === false) {
+        if (ctx.stopWorldBoss) ctx.stopWorldBoss();
+        extra = ' — invocação encerrada';
+      } else {
+        if (ctx.clearAdminWorldBoss) ctx.clearAdminWorldBoss();
+        extra = ' — voltou ao calendário';
+      }
+    }
+    if (key === 'starMoonRuins' && ctx.refreshStarMoonRuins) {
+      ctx.refreshStarMoonRuins();
+      extra = force === true ? ' — evento aberto para jogadores online' : force === false ? ' — evento fechado' : ' — voltou ao calendário (fechado)';
+    }
     const label = (ev.CATALOG.find(e => e.key === key) || {}).label || key;
     const mode = force === true ? 'FORÇADO ABERTO' : force === false ? 'FORÇADO FECHADO' : 'calendário';
-    log(`[admin] events: ${key} → ${mode}`);
-    json(res, { ok: true, events: ev.status(), out: [`${label}: ${mode}`] });
+    log(`[admin] events: ${key} → ${mode}${extra}`);
+    json(res, { ok: true, events: ev.status(), out: [`${label}: ${mode}${extra}`] });
+  });
+
+  // Chefe Global (CG) — vida atual / máxima
+  http.route('/admin/worldboss', (req, res, b) => {
+    if (!guard(req, res)) return;
+    if (!ctx.getWorldBossAdmin) return json(res, { ok: false, out: ['Chefe Global indisponível'] });
+    if (req.method === 'GET') return json(res, { ok: true, boss: ctx.getWorldBossAdmin() });
+    const m = body(b) || {};
+    const info = ctx.setWorldBossHp(m.hp, m.max);
+    if (!info) return json(res, { ok: false, out: ['Não foi possível alterar a vida do CG'] });
+    log(`[admin] worldboss HP → ${info.hp}/${info.max} (lv ${info.level}, camp ${info.campaign || '-'})`);
+    json(res, { ok: true, boss: info, out: [info.active
+      ? `CG: HP ${info.hp.toLocaleString('pt-BR')} / ${info.max.toLocaleString('pt-BR')} (nível ${info.level})`
+      : 'CG inativo'] });
+  });
+
+  // Cloudflare tunnel / public URLs — persisted in data/netconfig.json
+  const netconfig = require('../../netconfig');
+  http.route('/admin/netconfig', (req, res, b) => {
+    if (!guard(req, res)) return;
+    if (req.method === 'GET') {
+      return json(res, {
+        ok: true,
+        config: netconfig.publicView(),
+        adminUsers: env.adminUsers(),
+        hint: 'Um túnel: cloudflared tunnel --url http://127.0.0.1:' + require('../../config').HTTP_PORT,
+      });
+    }
+    const m = body(b);
+    const saved = netconfig.save({
+      enabled: m.enabled != null ? !!m.enabled : undefined,
+      httpPublic: m.httpPublic,
+      loginPublic: m.loginPublic,
+      gatePublic: m.gatePublic,
+      notes: m.notes,
+    });
+    const d = saved.config.derived || {};
+    log(`[admin] netconfig: enabled=${saved.config.enabled} http=${saved.config.httpPublic || '(off)'} login=${d.login || '-'} gate=${d.gate || '-'}`);
+    return json(res, {
+      ok: true,
+      out: saved.config.enabled
+        ? ['Cloudflare ativo. Recarregue o jogo no túnel.', 'Login: ' + (d.login || '—'), 'Gate: ' + (d.gate || '—')]
+        : ['Modo LAN (túnel desligado).'],
+      config: saved.config,
+    });
+  });
+
+  // database backend: local SQLite ↔ Turso (URL + auth token). Persisted in data/dbconfig.json.
+  const dbconfig = require('../../dbconfig');
+  const turso = require('../../turso');
+  http.route('/admin/dbconfig', (req, res, b) => {
+    if (!guard(req, res)) return;
+    const reply = (o) => json(res, o);
+    const run = async () => {
+      if (req.method === 'GET') {
+        return reply({ ok: true, config: dbconfig.publicView(), status: turso.status(), file: require('path').basename(store.FILE) });
+      }
+      const m = body(b);
+      const act = String(m.action || m.op || 'save').toLowerCase();
+      const tokenFromForm = m.tursoAuthToken != null && String(m.tursoAuthToken).trim() ? String(m.tursoAuthToken).trim() : '';
+      if (act === 'test') {
+        const cur = dbconfig.load();
+        const testUrl = (m.tursoUrl != null ? String(m.tursoUrl).trim() : '') || cur.tursoUrl;
+        const testTok = tokenFromForm || cur.tursoAuthToken;
+        const r = await turso.testConnection({ tursoUrl: testUrl, tursoAuthToken: testTok });
+        // on success, persist URL/token so the next Salvar / sync already has them
+        let cfg = dbconfig.publicView();
+        if (r.ok && testUrl && testTok) {
+          const saved = dbconfig.save({
+            mode: 'turso',
+            tursoUrl: testUrl,
+            tursoAuthToken: testTok,
+            syncMinutes: m.syncMinutes != null ? m.syncMinutes : cur.syncMinutes,
+          });
+          if (saved.ok) {
+            cfg = saved.config;
+            await turso.applyConfig(log);
+            log(`[admin] dbconfig: test OK → mode=turso url=${testUrl}`);
+          }
+        }
+        return reply({
+          ok: r.ok,
+          out: r.ok
+            ? [...(r.out || []), 'Credenciais gravadas (modo Turso).']
+            : [r.error],
+          error: r.error || null,
+          config: cfg,
+          status: turso.status(),
+        });
+      }
+      if (act === 'sync') {
+        const dir = m.direction === 'pull' || m.direction === 'push' ? m.direction : undefined;
+        const r = await turso.sync({ log, direction: dir, prefer: dir || 'push' });
+        return reply({ ok: r.ok, out: r.ok ? r.out : [r.error], error: r.error || null, sync: r, config: dbconfig.publicView(), status: turso.status() });
+      }
+      const partial = { mode: m.mode, tursoUrl: m.tursoUrl, syncMinutes: m.syncMinutes };
+      if (tokenFromForm) partial.tursoAuthToken = tokenFromForm;
+      const saved = dbconfig.save(partial);
+      if (!saved.ok) return reply({ ok: false, out: [saved.error], config: saved.config, status: turso.status() });
+      const applied = await turso.applyConfig(log);
+      log(`[admin] dbconfig: mode=${saved.config.mode}` + (saved.config.mode === 'turso' ? ` url=${saved.config.tursoUrl}` : ''));
+      return reply({
+        ok: applied.ok,
+        out: applied.ok ? ['Configuração salva.', ...(applied.out || [])] : ['Configuração salva, mas sync falhou:', applied.error || 'erro'],
+        error: applied.error || null,
+        config: saved.config,
+        status: turso.status(),
+      });
+    };
+    run().catch(e => reply({ ok: false, out: [e.message || String(e)], config: dbconfig.publicView(), status: turso.status() }));
   });
 
   // multi-server list (LoginOS): create / rename / open / close — persisted in meta "sites"
@@ -325,13 +570,18 @@ module.exports = (ctx) => {
       }
     })(ICON_ROOT);
     const items = [];
+    // moedas/recursos (ids negativos) no topo do catálogo para o correio / boas-vindas
+    const moneyGroup = GROUPS.length - 1;
+    for (const [id, name] of [[-100, 'Ouro'], [-400, 'Diamante'], [-500, 'Diamante Vinculado'], [-600, 'Cristal'], [-700, 'EXP'], [-5500, 'EXP VIP']]) {
+      items.push([id, name, moneyGroup, 6, 0, '', 0]);
+    }
     for (const it of D.items.values()) {
       const name = itemName(it);
       if (!name) continue;
       items.push([it.TemplateId, name, groupOf(it), it.Profile || 0, it.NeedGrades || 0,
         icons.get(String(it.Icon || '').replace(/^\//, '')) || '', jobMask(it)]);
     }
-    items.sort((a, b) => a[2] - b[2] || a[4] - b[4] || a[6] - b[6] || a[3] - b[3] || a[0] - b[0]);
+    items.sort((a, b) => (a[0] < 0 && b[0] >= 0 ? -1 : a[0] >= 0 && b[0] < 0 ? 1 : 0) || a[2] - b[2] || a[4] - b[4] || a[6] - b[6] || a[3] - b[3] || a[0] - b[0]);
     return (CATALOGUE = { groups: GROUPS.map(g => g[0]), jobs: JOBS, items, sets: sets() });
   }
   // equipment sets: the pieces with a SuiteId of one class, level and quality (weapon, helmet, armour, soul,

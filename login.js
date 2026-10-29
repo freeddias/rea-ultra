@@ -11,11 +11,10 @@ const { sysTime } = require('./util');
 const NO_ROLE = 'Login Succeed No Visualize';   // SH.SUCCEED_NOVISUALIZE -> client opens character creation
 const VERIFY_ERROR = 7;                          // client rZ.VERIFY_ERROR
 
-// Advertise the host the browser used for the login WS (LAN IP / localhost), not only cfg.HOST.
-// Cookie and gate must stay on the same hostname or the gateway handshake loses the session.
+// LAN: Host + GATE_PORT. Cloudflare: full wss://… (or …/gate) from netconfig.
 function gateInfo(c) {
   const host = String((c && c.host) || cfg.HOST).replace(/^\[|\]$/g, '');
-  return { gateIp: host || cfg.HOST, port: cfg.GATE_PORT };
+  return require('./netconfig').gateInfo(host || cfg.HOST);
 }
 
 module.exports = (log) => {
@@ -40,6 +39,9 @@ module.exports = (log) => {
         return c.send('U_L_CREATE_LOGIN_RSP', { userName, site, result: VERIFY_ERROR });
       }
       c.session.userName = userName; c.session.site = site;
+      // Remember selected server for HTTP nicknamecheck (client never sends site there).
+      const se = auth.session(c.cookie);
+      if (se) { se.pendingSite = site; db.save(); }
       db.account(userName, site);
       c.send('U_L_CREATE_LOGIN_RSP', { userName, site, result: 0 });
     },
@@ -65,10 +67,25 @@ module.exports = (log) => {
       const m = c.decode('login.registerRoleReq', body);
       log(`[#${c.id}] registerRole`, m);
       const userName = c.session.userName || name(c, m.userName); if (!userName) return;
-      const a = db.account(userName, m.site || c.session.site);
-      if (a.char) { log(`[#${c.id}] registerRole refused: ${userName} already has a character`); return; }
+      const site = m.site || c.session.site;
+      const a = db.account(userName, site);
+      if (a.char) {
+        log(`[#${c.id}] registerRole already has char ${a.char.nickName} — sending gate again`);
+        return c.send('U_L_REGISTER_ROLE_RSP', { userName: a.userName, site: a.site, value: true, type: 0, message: 'ok', userId: a.userId, ...gateInfo(c) });
+      }
+      // Nick unique only within this server; same nick on another site is fine.
+      const nick = m.nickName;
+      const taken = Object.values(db.state.accounts).some(x =>
+        x.site === site && x.char && x.char.nickName === nick && x.userId !== a.userId);
+      if (taken) {
+        log(`[#${c.id}] registerRole nick taken on ${site}: ${nick}`);
+        return c.send('U_L_REGISTER_ROLE_RSP', {
+          userName: a.userName, site: a.site, value: false, type: 0,
+          message: 'login.nicknameExists', userId: a.userId,
+        });
+      }
       // RegisterSWnd icons: 1..3 male, 4..6 female; job = (icon-1)%3+1 (1 warrior, 2 archer, 3 mage)
-      a.char = { nickName: m.nickName, sex: m.sex, camp: m.camp, icon: m.icon, job: ((m.icon - 1) % 3) + 1, created: Date.now() };
+      a.char = { nickName: nick, sex: m.sex, camp: m.camp, icon: m.icon, job: ((m.icon - 1) % 3) + 1, created: Date.now() };
       db.save();
       c.send('U_L_REGISTER_ROLE_RSP', { userName: a.userName, site: a.site, value: true, type: 0, message: 'ok', userId: a.userId, ...gateInfo(c) });
     },

@@ -1,14 +1,22 @@
 // Mail: list, read, attachments (one / all), delete, player-to-player mail, system mail for other features.
 // Client: Pf (requests) / Nf (handlers) in the bundle; mail types Tf: 1 normal, 2 system, 3 battle report, 4 star, 5 pet.
 // Attachments: annexN = annexNName = templateId (negative = currency), isAnnexN = already taken.
+// Welcome pack (first login) is editable from the admin page and stored in meta "welcomeMail".
+const store = require('../../store');
 const UNREAD = '2999-01-01 00:00:00';
 const VALID_DAYS = 30;
 const TYPE = { NORMAL: 1, SYSTEM: 2, BATTLE: 3, STAR: 4, PET: 5 };
+const CURRENCIES = new Set([-100, -400, -500, -600, -700, -5500]);
+const DEFAULT_WELCOME = {
+  title: 'Bem-vindo ao Wartune',
+  contents: 'Olá {nick}, boa sorte na sua aventura! Segue um pequeno presente de boas-vindas.',
+  annex: [[-100, 5000], [-500, 50]],
+};
 const pad = n => String(n).padStart(2, '0');
 const fmt = (d = new Date()) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
 
 module.exports = (ctx) => {
-  const { sendT, log, grant, dec, online, playerById } = ctx;
+  const { sendT, log, grant, dec, online, playerById, D } = ctx;
   const mails = p => (p.s.mails = p.s.mails || []);
   const daysLeft = m => Math.max(0, VALID_DAYS - Math.floor((Date.now() - m.sent) / 86400000));
   const expired = m => daysLeft(m) <= 0 && !m.annex.some(a => !a.taken);
@@ -38,6 +46,38 @@ module.exports = (ctx) => {
   ctx.sendMail = sendMail;
   ctx.MAIL_TYPE = TYPE;
 
+  // annex from admin / welcome: [[templateId, count], ...] — allows currency ids (negative)
+  function parseAnnex(list, maxPer = 99999) {
+    return (Array.isArray(list) ? list : [])
+      .map(row => {
+        const tid = Math.floor(Number(Array.isArray(row) ? row[0] : row && row.tid));
+        const count = Math.min(maxPer, Math.max(1, Math.floor(Number(Array.isArray(row) ? row[1] : row && row.count) || 0)));
+        return [tid, count];
+      })
+      .filter(([tid]) => Number.isFinite(tid) && tid !== 0 && (tid < 0 ? (CURRENCIES.has(tid) || tid <= -100) : !!(D && D.items && D.items.has(tid))));
+  }
+  function getWelcomePack() {
+    const w = store.getMeta('welcomeMail', null);
+    const title = String((w && w.title) || DEFAULT_WELCOME.title).slice(0, 40);
+    const contents = String(w && w.contents != null ? w.contents : DEFAULT_WELCOME.contents).slice(0, 500);
+    const annex = parseAnnex(w && w.annex);
+    return { title, contents, annex: annex.length ? annex : DEFAULT_WELCOME.annex.map(a => a.slice()) };
+  }
+  function setWelcomePack({ title, contents, annex }) {
+    const pack = {
+      title: String(title || DEFAULT_WELCOME.title).slice(0, 40),
+      contents: String(contents != null ? contents : DEFAULT_WELCOME.contents).slice(0, 500),
+      annex: parseAnnex(annex),
+    };
+    if (!pack.annex.length) return { ok: false, error: 'Informe ao menos um anexo válido' };
+    store.setMeta('welcomeMail', pack);
+    return { ok: true, welcome: pack };
+  }
+  ctx.parseMailAnnex = parseAnnex;
+  ctx.getWelcomePack = getWelcomePack;
+  ctx.setWelcomePack = setWelcomePack;
+  ctx.WELCOME_DEFAULT = DEFAULT_WELCOME;
+
   function take(c, m) {
     const open = m.annex.filter(a => !a.taken);
     if (!open.length) return true;
@@ -51,13 +91,15 @@ module.exports = (ctx) => {
     if (fresh.length) sendT(c, 4854, 'mail.MailReadRspMsg', { mailId: fresh.map(m => m.id), readDate: fmt(new Date(now)), validityDate: VALID_DAYS });
   }
 
-  // first login: a welcome mail, so the mailbox and attachments have something real in them
+  // first login: welcome mail from admin-configurable pack ({nick} → character name)
   // (login hooks run before the connection counts as online, so nothing is pushed before the client asks)
   ctx.onLogin.push(c => {
     const p = c.player;
     if (p.s.welcomeMail) return;
     p.s.welcomeMail = true;
-    sendMail(p.id, { title: 'Bem-vindo ao Wartune', contents: `Olá ${p.s.nickName}, boa sorte na sua aventura! Segue um pequeno presente de boas-vindas.`, annex: [[-100, 5000], [-500, 50]] });
+    const w = getWelcomePack();
+    const contents = w.contents.replace(/\{nick\}/gi, p.s.nickName || '');
+    sendMail(p.id, { title: w.title, contents, annex: w.annex });
   });
 
   return {

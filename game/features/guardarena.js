@@ -63,6 +63,7 @@ module.exports = (ctx) => {
     sendT(c, 4950, 'carnival.GuardArenaInfoRes', { freeTimes: a.refresh, nextFreeTime: Date.now() + FRESH * 1000, rank: rankOf(p), score: a.score,
       fight: lineup(p).reduce((n, x) => n + fightOf(x.combat), 0), challengeTimes: a.used, opponent, buyTimes: 0 });
   }
+  ctx.onLoad.push(c => { if (c.player && c.player.s.grades >= NEED) info(c); });
 
   return {
     C_GUARD_ARENA_REQ(c, body) {

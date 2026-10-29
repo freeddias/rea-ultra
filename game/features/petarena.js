@@ -57,7 +57,7 @@ module.exports = (ctx) => {
       const r = state(p).robots[id]; if (!r) return null;
       const ps = robotPets(r), d = dummy();
       return { userId: id, nickName: r.nick, score: r.score, fighters: ps.map((x, k) => ({ pos: POS[k], combat: ctx.petCombat(d, x) })),
-        infos: ps.map(x => { const cb = ctx.petCombat(d, x); return { petId: x.id, templateId: x.templateId, petName: x.name, curGrade: x.grade, quality: x.quality, maxHp: cb.hp, fightingCapacity: Math.ceil(700 + cb.stats.attack + cb.stats.magicAttack + cb.stats.defence + cb.stats.magicDefence + cb.hp / 5) }; }) };
+        infos: ps.map(x => { const st = ctx.petStats(d, x); return { petId: x.id, templateId: x.templateId, petName: x.name, curGrade: x.grade, quality: x.quality, maxHp: st.hp, fightingCapacity: st.fight }; }) };
     }
     const t = playerById(id); if (!t) return null;
     const lu = lineup(t), ids = new Set(lu.map(x => x.pet.id));

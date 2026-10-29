@@ -49,6 +49,7 @@ module.exports = (ctx) => {
         let itemAdd = false;
         if (s.rewards < DAILY) { const got = roll(lv.Reward); if (got.length && grant(c, got)) { s.rewards++; itemAdd = true; } }
         p.save();
+        ctx.stat(c, 'petCampaign');   // daily activity Type 48
         sendT(c, 4744, 'uiplay.UserUiPlayInfoMsg', info(s, lv.UiPlayId, { itemAdd }));
         log(`[#${c.id}] pet campaign ${lv.UiLevelId} won (best ${ps.best}, rewards ${s.rewards}/${DAILY})`);
       } });

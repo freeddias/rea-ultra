@@ -38,7 +38,7 @@ function loadProbes() {
   const FEATURES = path.join(ROOT, 'game', 'features');
   for (const f of ['season.js', 'pass.js', 'carnival.js', 'goldenroad.js', 'memorycard.js',
     'sumactive.js', 'guarddraw.js', 'guildmaze.js', 'worldboss.js', 'dragonnest.js',
-    'warfield.js', 'treasuremine.js']) {
+    'warfield.js', 'treasuremine.js', 'starmoonruins.js']) {
     try { require(path.join(FEATURES, f))(ctx); } catch (e) { /* probe opcional */ }
   }
 }
@@ -73,6 +73,7 @@ function featureFile(key) {
     worldBoss: 'features/worldboss.js',
     warField: 'features/warfield.js',
     treasureMine: 'features/treasuremine.js',
+    starMoonRuins: 'features/starmoonruins.js',
   };
   return map[key] || '';
 }
@@ -171,7 +172,7 @@ const sheetPass = passIdx.map((r, i) => ({
 
 const sheetOther = [
   {
-    Sistema: 'Chefe Mundial (worldBoss)',
+    Sistema: 'Chefe Global / CG (worldBoss)',
     Janela: '11:30–12:30 (campanha 5001) e 21:00–22:00 (campanha 5002)',
     'Padrão calendário': 'Horários acima (ou WORLDBOSS_OPEN)',
     'Chave eventflags': 'worldBoss',
@@ -209,6 +210,14 @@ const sheetOther = [
     'Chave eventflags': 'memoryCard',
     Arquivo: 'features/memorycard.js',
     Notas: 'NewMemoryCardState',
+  },
+  {
+    Sistema: 'Ruínas da Estrela da Lua (starMoonRuins)',
+    Janela: 'Sem calendário oficial neste build — abrir via admin',
+    'Padrão calendário': 'Fechado',
+    'Chave eventflags': 'starMoonRuins',
+    Arquivo: 'features/starmoonruins.js',
+    Notas: 'cccactive 134; Bússola 2100037 / Fragmento 2100038 / Baú 2100039; data/starmoonruins.json',
   },
   {
     Sistema: 'Metas de 7 dias (seven)',

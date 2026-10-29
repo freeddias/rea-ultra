@@ -121,7 +121,12 @@ module.exports = (ctx) => {
     sendT(c, 140, 'army.MapUpdatedMsg', { updatedType: 3, army: ctx.M.mapArmy(c.player, 0) });
   };
   ctx.refreshGuards = sendAll;   // rareweapon.js after equip/unequip on a guard
+  const sendChallenge = c => {
+    const S = state(c.player);
+    sendT(c, 4944, 'carnival.ChallengeGuardInfoMsg', { userId: c.player.id, chaPos: S.pos || '', fightIndex: S.index || '' });
+  };
   ctx.onLoad.push(sendAll);
+  ctx.onLoad.push(sendChallenge);   // Guard Arena formation (client GuardChallengeWnd)
   ctx.guardFight = (p, g) => stats(p, g).fight;   // features/guardpatrol.js (task type 5)
 
   // the guard in battle for logic.js startBattle
@@ -129,7 +134,13 @@ module.exports = (ctx) => {
   // any guard's battle values (also the guard arena, features/guardarena.js) and the arena line-up: formation 11
   // chaPos = 10 entries, entry i = the guard on battle position i (-1 empty)
   ctx.guardCombat = (p, id) => { const g = state(p).list[id]; return g ? combat(p, g) : null; };
-  ctx.guardLineup = p => { const S = state(p); return String(S.pos || '').split(',').map((x, i) => ({ pos: i, id: Number(x) })).filter(x => x.id > 0 && x.pos >= 1 && x.pos <= 9 && S.list[x.id]); };
+  ctx.guardLineup = p => {
+    const S = state(p);
+    let lu = String(S.pos || '').split(',').map((x, i) => ({ pos: i, id: Number(x) })).filter(x => x.id > 0 && x.pos >= 1 && x.pos <= 9 && S.list[x.id]);
+    // no challenge formation yet: fall back to the battle guard in the center slot so the arena can open
+    if (!lu.length && S.fight && S.list[S.fight]) lu = [{ pos: 5, id: S.fight }];
+    return lu;
+  };
   function combat(p, g) {
     const tp = TPL.get(g.id), st = stats(p, g), q = quals(g.id).find(r => r.Quailty === g.stage) || {};
     const active = (g.skills || []).filter(id => (D.skills.get(id) || {}).UseWay === 1);

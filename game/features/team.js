@@ -13,6 +13,8 @@ const MAX = 4, INVITE_GRADE = 20;
 
 module.exports = (ctx) => {
   const { dec, sendT, online, alert, M, cfg, log } = ctx;
+  const sites = require('../../sites');
+  const srv = p => sites.showNameOf(p.s.site) || cfg.SERVER_NAME;
   const teams = new Map();   // teamId -> { id, captain, members: [ids], pos: [{memberId, pos}] }
   let nextId = 1;
   const teamOf = c => c.player && c.player.teamId && teams.get(c.player.teamId);
@@ -20,7 +22,7 @@ module.exports = (ctx) => {
   function memberMsg(t, p) {
     const a = M.mapArmy(p);
     return { playerId: p.id, heroId: p.heroId, grades: p.s.grades, nickName: p.s.nickName, sex: p.s.sex, templateId: p.s.icon, headId: p.s.icon, arm: a.arm, cloth: a.cloth,
-      armyId: p.armyId, fightingCapacity: p.fightingCapacity(), onlineState: true, teamId: t.id, serverName: cfg.SERVER_NAME, hasLeftForNow: false,
+      armyId: p.armyId, fightingCapacity: p.fightingCapacity(), onlineState: true, teamId: t.id, serverName: srv(p), hasLeftForNow: false,
       guardShowInfo: {}, ...M.showFields(p) };
   }
   const info = t => ({ teamId: t.id, captainId: t.captain, memberId: t.members.slice(), memberDetail: conns(t).map(o => memberMsg(t, o.player)) });
@@ -92,7 +94,7 @@ module.exports = (ctx) => {
     C_CAPTAIN_SPEAK(c, body) {
       const m = dec(c, 'C_CAPTAIN_SPEAK', body), p = c.player, text = String(m.inviteContent || '').slice(0, 100);
       if (!text.trim()) return;
-      const msg = { channel: 10, type: 0, encodeMsg: text, otherId: p.id, name: p.s.nickName, headid: p.s.icon, level: p.s.grades, job: p.s.job, serverName: cfg.SERVER_NAME, curTime: Date.now() };
+      const msg = { channel: 10, type: 0, encodeMsg: text, otherId: p.id, name: p.s.nickName, headid: p.s.icon, level: p.s.grades, job: p.s.job, serverName: srv(p), curTime: Date.now() };
       for (const o of online.values()) if (o.player) sendT(o, 83, 'chat.ChatChannelMsg', msg);
     },
   };

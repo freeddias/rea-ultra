@@ -15,6 +15,8 @@ const SETTING = { 1: 'refuseFamInvite', 2: 'refuseLookInfo', 3: 'refuseConsortia
 
 module.exports = (ctx) => {
   const { D, M, db, dec, sendT, sendItems, sendPlayer, online, playerById, alert, cfg, log } = ctx;
+  const sites = require('../../sites');
+  const srv = p => sites.showNameOf(p.s.site) || cfg.SERVER_NAME;
   const settings = p => (p.s.settings = p.s.settings || {});
   const byNick = name => {
     const n = String(name || '').trim().toLowerCase(); if (!n) return null;
@@ -113,7 +115,7 @@ module.exports = (ctx) => {
       const m = c.decode('chat.ChatChannelMsg', body), p = c.player, text = String(m.encodeMsg || '').slice(0, 100);
       if (!c.battle || !text.trim()) return;
       sendT(c, 83, 'chat.ChatChannelMsg', { channel: BATTLE_CHAT, type: m.type || 0, encodeMsg: text, otherId: p.id, name: p.s.nickName, headid: p.s.icon,
-        level: p.s.grades, job: p.s.job, fight: m.fight || 0, vipGrade: p.s.vipGrade || 0, serverName: cfg.SERVER_NAME, curTime: Date.now(), battleId: m.battleId });
+        level: p.s.grades, job: p.s.job, fight: m.fight || 0, vipGrade: p.s.vipGrade || 0, serverName: srv(p), curTime: Date.now(), battleId: m.battleId });
     },
     // otherObj 0 = retreat (settings window in a fight); 1 / 2 = team retreat votes (no team fights here)
     B_WITHDRAW_BATTLE(c, body) {

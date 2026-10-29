@@ -8,10 +8,14 @@
 //   (client hasPick; capture: 2 after daily box 1, 65538 after weekly box 1). Loot: the box's drop
 //   (capture: 13001 "Ouro x40000, Canavar Taşı x3", 13101 "Kutsal Ruh Taşı x10, Büyük Ouro Kesesi x1").
 //  resets: daily at midnight, weekly on Monday (day keys, as the other daily systems here).
-// Counted from our events (ctx.stat): Type 1 login, 15 diamonds spent, 19 arena, 24 bounty tasks,
-// 42 refining, 47 weary spent, 62 promotion packages (weekly). The other types (farm, world boss, maze, battlefield ...) belong to systems
-// that are not built yet and stay at 0.
-const TYPE_OF_STAT = { spendPoint: 15, arena: 19, bounty: 24, refine: 42, weary: 47, giftpack: 62, farmHarvest: 25, treeWaterFriend: 3, groupScene: 5, maze: 23, fieldCommon: 39, fieldElite: 40 };
+// Counted from our events (ctx.stat). Types still without a system (guild blessing 12, sylph atoll 46, …) stay at 0.
+const TYPE_OF_STAT = {
+  spendPoint: 15, arena: 19, bounty: 24, refine: 42, weary: 47, giftpack: 62,
+  farmHarvest: 25, treeWaterFriend: 3, groupScene: 5, maze: 23,
+  fieldCommon: 39, fieldElite: 40, fieldBoss: 41,
+  worldBoss: 18, warField: 27, petArena: 35, mysteryShop: 36, guildShop: 34,
+  towerKings: 37, spire: 28, petCampaign: 48, secretEnter: 49, petEquipResolve: 44,
+};
 const pad = n => String(n).padStart(2, '0');
 const dayKey = (d = new Date()) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 const weekKey = (d = new Date()) => { const m = new Date(d); m.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return dayKey(m); };
@@ -59,12 +63,21 @@ module.exports = (ctx) => {
     send(c, changed);
   }
   ctx.onStat((c, key, n) => { const t = TYPE_OF_STAT[key]; if (t && c.player) progress(c, t, n || 1); });
+  // login Type 1: only mark the day once a fitting daily login task exists (Lv < 5 must wait for level-up)
+  function tryLogin(c) {
+    const p = c.player, l = state(p);
+    if (l.loginDay === l.day) return;
+    if (!TASKS.some(t => t.Type === 1 && !t.Kind && fits(p, t))) return;
+    l.loginDay = l.day;
+    progress(c, 1);
+  }
   // login: the full list (replaces the recorded one, NATIVE 4152), then the daily login task
   ctx.onLoad.push(c => {
     const p = c.player, l = state(p);
     send(c, TASKS.filter(t => fits(p, t)).map(t => entry(p, l, t)));
-    if (l.loginDay !== l.day) { l.loginDay = l.day; progress(c, 1); }
+    tryLogin(c);
   });
+  ctx.onExp.push(c => tryLogin(c));
 
   return {
     // the client asks at 05:00 (new day): the whole list again (state() starts the new day)

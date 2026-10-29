@@ -10,9 +10,10 @@
 //    (~400 recorded hits fit within the random band; crits ~2.5 % of hits: chance is our estimate)
 //  - targets by the skill's AcceptObject (texts of the skill descriptions + recorded positions): grid columns
 //    {1,4,7} {2,5,8} {3,6,9}, front = the lowest column that still has a living unit
-//  - player hero rage: starts at 100 (spMax 100), each action adds the skill's Cost (30711 +20, 30811 -16,
-//    31011 -80); 307xx skills leave a buffer (30711: +2 rage on every action, see buffs). A chosen skill the
-//    rage can't pay for falls back to the normal attack 30000
+//  - player hero rage: starts at Initial Rage (AttackType 23 from fashion / sets / …, see fury.js), spMax
+//    defaults to 100 (+ AttackType 71). Each action adds the skill's Cost (30711 +20, 30811 -16, 31011 -80),
+//    reduced by AttackType 22 / seal "% Rage Consumption". 307xx leave a buffer (AT 6: +rage each action).
+//    A chosen skill the rage can't pay for falls back to the normal attack 30000
 //  - other units pick a random entry of their 4 skill slots each action (troops [10,10,10,11]: 1 in 4 strong)
 //  - skills' buffers (bleeding, damage dealt/taken, crit, heal over time, rage, shields): see addBuff
 //  - runes (carried by the player hero, rune.js): usable UseCount times per battle via U_B_HERO_ORDER, costing
@@ -53,10 +54,34 @@ class Battle {
     this.bufSeq = 0;
     for (const u of units) {
       u.buffs = [];
-      if (u.playerHero || u.autoHero) u.sp = 100;
-      if (u.pet) { u.awaken = 0; u.morphed = false; }
+      if (u.playerHero || u.autoHero) {
+        u.spMax = u.spMax || 100;
+        u.sp = u.sp != null ? Math.max(0, Math.min(u.spMax, u.sp)) : 0;
+        u.costReducePct = u.costReducePct || 0;
+        for (const b of u.passiveRageBuffers || []) {
+          const way = b.AttackWay || 1;
+          if ((b.AttackType === 6 || b.AttackType === 7) && way === 4) {
+            u.sp = Math.max(0, Math.min(u.spMax, u.sp + (b.AttackValue || 0)));
+          } else if (b.AttackType === 6 || b.AttackType === 7) {
+            u.buffs.push({
+              id: ++this.bufSeq, tpl: b, src: u.livingId, left: b.ValidCount ?? -1, stacks: 1, hit: 0,
+              good: true, shield: 0,
+            });
+          } else if (b.AttackType === 22) {
+            u.costReducePct += Math.abs(b.ValuePercent || 0);
+          }
+        }
+      }
+      if (u.pet) { u.awaken = u.awaken || 0; u.morphed = false; }
       if (u.guard) u.upani = u.upani || 0;
     }
+  }
+  spCap(u) { return u.spMax || 100; }
+  // negative Cost = spend; costReducePct cuts the spend (e.g. 10 → pay 90% of |Cost|)
+  skillCost(u, sk) {
+    let cost = sk.Cost || 0;
+    if (cost < 0 && u.costReducePct) cost = Math.ceil(cost * (1 - Math.min(100, u.costReducePct) / 100));
+    return cost;
   }
   get hero() { return this.units.find(u => u.playerHero); }
   alive(side) { return this.units.filter(u => u.hp > 0 && (side == null || u.side === side)); }
@@ -120,7 +145,7 @@ class Battle {
       if (this.chosen && u.runes && u.runes[this.chosen] > 0) return this.chosen;
       const want = this.chosen || (this.auto ? this.bestHeroSkill(u) : 0);
       const sk = D.skills.get(want);
-      if (sk && (sk.Cost || 0) + u.sp >= 0 && u.skills.includes(want)) return want;
+      if (sk && this.skillCost(u, sk) + u.sp >= 0 && u.skills.includes(want)) return want;
       return NORMAL_ATTACK;
     }
     if (u.guard) {
@@ -132,8 +157,8 @@ class Battle {
     return u.skills[Math.floor(this.rnd() * u.skills.length)] || u.skills[0];
   }
   bestHeroSkill(u) {
-    const act = u.skills.map(id => D.skills.get(id)).filter(s => s && s.UseWay === 1 && (s.Cost || 0) + u.sp >= 0);
-    act.sort((a, b) => (a.Cost || 0) - (b.Cost || 0));   // the most expensive affordable first
+    const act = u.skills.map(id => D.skills.get(id)).filter(s => s && s.UseWay === 1 && this.skillCost(u, s) + u.sp >= 0);
+    act.sort((a, b) => this.skillCost(u, a) - this.skillCost(u, b));   // the most expensive affordable first
     return act.length ? act[0].TemplateId : NORMAL_ATTACK;
   }
   targets(u, sk) {
@@ -169,9 +194,10 @@ class Battle {
   //   holder is hit, 3 counts down on the holder's action, 4 works at once and is gone.
   //  AttackType: 20 damage dealt +ValuePercent %, 15 damage taken +ValuePercent %, 16 crit chance +AttackValue %,
   //   305 bleeding: ValuePercent % of the hit that caused it on each action (capture: 6 of a ~30 bite),
-  //   33 hp ±ValuePercent % of max hp, 6 rage +AttackValue (damageType 9 with the new rage), 14 healing
-  //   received +ValuePercent %, 34 shield absorbing AttackValue, 18 removes one beneficial buff (Dispel 1).
-  //  Other types are shown but have no effect yet (chaos, awakening, passives …).
+  //   33 hp ±ValuePercent % of max hp, 6/7 rage +AttackValue (damageType 9 with the new rage), 14 healing
+  //   received +ValuePercent %, 34 shield absorbing AttackValue, 18 removes one beneficial buff (Dispel 1),
+  //   22 rage spend −ValuePercent %, 23 initial rage / 71 max rage (applied at battle start via fury.js).
+  //  Other types are shown but have no effect yet (chaos, awakening, custom talent ids …).
   addBuff(src, t, b, out, hit = 0) {
     if (!t || t.hp <= 0) return;
     if ((b.Random ?? 100) < 100 && this.rnd() * 100 >= (b.Random ?? 100)) return;
@@ -180,6 +206,14 @@ class Battle {
       const i = t.buffs.findIndex(x => x.good);
       if (i >= 0) { const [x] = t.buffs.splice(i, 1); out.push(this.bufMsg(x, t, 2)); }
       return;
+    }
+    if (b.AttackType === 23 || b.AttackType === 71) return;   // battle-start only (fury.js)
+    if (b.AttackType === 22 && (t.playerHero || t.autoHero)) {
+      t.costReducePct = (t.costReducePct || 0) + Math.abs(b.ValuePercent || 0);
+      if (way === 4) {
+        out.push({ damage: [], unSkillIds: [], bufferId: ++this.bufSeq, templateId: b.Id, sourceId: src.livingId, targetId: t.livingId, exeWay: 4, pressedNum: 1, maxTurn: 1, maxRound: 1, curRound: -1, level: 1 });
+        return;
+      }
     }
     if (way === 4) {   // instant
       const dmg = this.buffEffect(t, b, hit);
@@ -196,7 +230,7 @@ class Battle {
       return;
     }
     const x = { id: ++this.bufSeq, tpl: b, src: src.livingId, left: b.ValidCount ?? -1, stacks: 1, hit,
-      good: (b.AttackType === 20 && b.ValuePercent > 0) || (b.AttackType === 15 && b.ValuePercent < 0) || [16, 6, 34].includes(b.AttackType) || (b.AttackType === 33 && b.ValuePercent > 0),
+      good: (b.AttackType === 20 && b.ValuePercent > 0) || (b.AttackType === 15 && b.ValuePercent < 0) || [16, 6, 7, 34].includes(b.AttackType) || (b.AttackType === 33 && b.ValuePercent > 0),
       shield: b.AttackType === 34 ? Math.max(0, b.AttackValue || 0) : 0 };
     t.buffs.push(x);
     out.push(this.bufMsg(x, t, 0));
@@ -220,9 +254,10 @@ class Battle {
       if (b.ValuePercent > 0) { v = Math.floor(v * this.healMul(t)); t.hp = Math.min(t.maxHp, t.hp + v); }
       else t.hp = Math.max(0, t.hp - v);
       dmg.push({ livingId: t.livingId, damageType: 6, damageValue: b.ValuePercent > 0 ? -v : v, leftValue: t.hp, index: 1 });
-    } else if (b.AttackType === 6 && (t.playerHero || t.autoHero)) {
-      t.sp = Math.max(0, Math.min(100, t.sp + (b.AttackValue || 0) * stacks));
-      dmg.push({ livingId: t.livingId, damageType: 9, damageValue: (b.AttackValue || 0) * stacks, leftValue: t.sp, index: 1 });
+    } else if ((b.AttackType === 6 || b.AttackType === 7) && (t.playerHero || t.autoHero)) {
+      const add = (b.AttackValue || 0) * stacks;
+      t.sp = Math.max(0, Math.min(this.spCap(t), t.sp + add));
+      dmg.push({ livingId: t.livingId, damageType: 9, damageValue: add, leftValue: t.sp, index: 1 });
     }
     return dmg;
   }
@@ -348,8 +383,8 @@ class Battle {
     }
     let sp, spAdded;
     if (u.playerHero || u.autoHero) {
-      spAdded = sk.Cost || 0;
-      u.sp = Math.max(0, Math.min(100, u.sp + spAdded));
+      spAdded = this.skillCost(u, sk);
+      u.sp = Math.max(0, Math.min(this.spCap(u), u.sp + spAdded));
       sp = u.sp;
     }
     const frame = this.frame;

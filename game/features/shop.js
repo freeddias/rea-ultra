@@ -26,10 +26,21 @@ module.exports = (ctx) => {
   const state = p => { const s = counters(p); return { hasDataInfo: infos(p, s.daily), weeklyDataInfo: infos(p, s.weekly), monthDataInfo: infos(p, s.monthly) }; };
 
   // what n of this good cost; null when it has a price this server can't take
+  // GiftToken (BuyFrameI PAY_BY_GIFT): o cliente, com "usar vinculado" marcado, considera
+  // giftToken+point como saldo (PayMoney). Sem isso o servidor cobrava só -500 e a compra do
+  // Pergaminho de Habilidade de Silfo (208061 / shop 10038) falhava com diamantes livres.
   function cost(p, g, n, payType) {
     const out = [];
     if (g.Point) out.push([payType === 0 && ctx.balance(p, -500) >= g.Point * n ? -500 : -400, g.Point * n]);
-    if (g.GiftToken) out.push([-500, g.GiftToken * n]);
+    if (g.GiftToken) {
+      const need = g.GiftToken * n;
+      const bound = ctx.balance(p, -500), free = ctx.balance(p, -400);
+      if (payType === 0 && bound >= need) out.push([-500, need]);
+      else if (payType === 0 && bound > 0 && bound + free >= need) {
+        out.push([-500, bound]);
+        out.push([-400, need - bound]);
+      } else out.push([-400, need]);
+    }
     if (g.Gold) out.push([-100, g.Gold * n]);
     if (g.Honor) out.push([MEDAL, g.Honor * n]);
     // Labirent Marketi (ShopType 4): Labirent Parası, an item (older official capture: 117 -> 92 for a
@@ -84,6 +95,7 @@ module.exports = (ctx) => {
       }
       for (const k of ['daily', 'weekly', 'monthly']) s[k][g.Id] = (s[k][g.Id] || 0) + n;
       p.save();
+      if (g.ConsortiaOffer) ctx.stat(c, 'guildShop');   // daily activity Type 34
       if (g.MazeCoin || g.ConsortiaOffer) { alert(c, `${name} x${n} comprado com sucesso!`); ctx.chat(c, `${name} x${n} comprado com sucesso!`); }   // official wording (capture)
       else alert(c, `${name} x${n} comprado`);
       reply(1);

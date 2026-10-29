@@ -265,7 +265,7 @@ module.exports = (ctx) => {
       const bound = m.payType === 0 && ctx.balance(p, -500) >= LIVE_COST;
       if (!pay(c, [[bound ? -500 : -400, LIVE_COST]])) { alert(c, 'Diamantes insuficientes'); return sendT(c, 4207, 'campaign.TowerDiedMsg', { title: '', msg: String(LIVE_COST) }); }
       s.dead = false; p.save();
-      sendT(c, 4175, 'simple.PlayerStateListMsg', { playerState: [{ armyId: p.armyId, state: 0, leftTime: 0, serverName: ctx.cfg.SERVER_NAME }], userId: [p.id] });
+      sendT(c, 4175, 'simple.PlayerStateListMsg', { playerState: [{ armyId: p.armyId, state: 0, leftTime: 0, serverName: require('../../sites').showNameOf(p.s.site) || ctx.cfg.SERVER_NAME }], userId: [p.id] });
     },
   };
 };

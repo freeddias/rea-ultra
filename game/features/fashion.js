@@ -36,7 +36,8 @@ module.exports = (ctx) => {
     }
     return f;
   }
-  // identified fashions + devour-grade TemplateName skills -> s.adds.fashion / s.addsPct.fashion
+  // identified fashions + devour-grade TemplateName skills -> s.adds.fashion / s.addsPct.fashion.
+  // Initial Rage on the grade's 40801xxx buffer (AttackType 23) is applied in battle via fury.js, not here.
   function restat(p) {
     const f = state(p), flat = { Power: 0, Agility: 0, Intellect: 0, Physique: 0, Attack: 0, MagicAttack: 0, Defence: 0, MagicDefence: 0, Live: 0, Conat: 0 };
     const pct = {};

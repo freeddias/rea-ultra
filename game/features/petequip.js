@@ -126,6 +126,7 @@ module.exports = (ctx) => {
       }
       ctx.sendItems(c, entries);
       grant(c, Object.entries(got).map(([t, n]) => [Number(t), n]).filter(([, n]) => n > 0));
+      ctx.stat(c, 'petEquipResolve', items.length);   // daily activity Type 44
       p.save(); ctx.sendPlayer(c);
     },
     C_PET_EQUIP_SUCCINCT(c, body) {

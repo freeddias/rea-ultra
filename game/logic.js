@@ -6,7 +6,10 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../db');
 const cfg = require('../config');
+const sites = require('../sites');
 const { sysTime } = require('../util');
+// Must match PlayerMsg.serverName — client only sets battle selfHero when hero.serverName == player.serviceName.
+const playerServerName = p => sites.showNameOf(p && p.s && p.s.site) || cfg.SERVER_NAME;
 const codemap = require('../codemap.json');
 const { type: protoType } = require('../proto');
 const { Rewriter, OFFICIAL_REF, OFFICIAL_TIME } = require('../rewrite');
@@ -23,6 +26,7 @@ const MAP_BY_ID = new Map(table('t_s_map').map(m => [m.Id, m]));
 const D = require('./data');
 const DROPS = require('./drops');
 const { Battle, squadHp } = require('./battle');
+const FURY = require('./fury');
 const M = require('./msg');
 const E = require('./events');
 const L = require('./locale');
@@ -35,6 +39,8 @@ const S = E.OFFICIAL;
 const NATIVE = new Set([4475, 4476, 4463, 4706, 4529, 4721, 508, 807, 828, 4142, 822, 4743, 197, 4428, 4919, 4948, 789, 771, 553, 4556, 4410, 512, 4614, 4615, 4616, 4617, 362, 4145, 4177, 4198, 3, 150, 5, 100, 112, 52, 115, 4153, 4154, 4155, 109, 4130, 4245, 1, 6, 11, 4598, 4234, 301, 4160,
   125, 140, 21, 127, 130, 131, 143, 128, 157, 156, 153, 154, 75, 4103, 4382, 83, 111, 26, 134, 137, 20, 116, 93, 92, 104, 151, 4187, 4242, 102, 4156,
   117, 164, 454, 4133, 4134, 4135, 4137, 4138, 4139, 4140, 4466, 162, 163,   // guild (features/guild.js)
+  4379, 4377, 4439, 4440, 4441, 4451, 4457, 4458, 4460, 4462, 4424,   // guild war / GvG (features/guildwar.js)
+  515, 516, 517, 518, 519, 520, 521, 528, 530,   // consortia battle icon/board (features/guildwar.js)
   4169, 4176, 4243,   // arena (features/arena.js)
   4373, 4205, 4207, 4419, 4175,   // maze (features/maze.js)
   4180, 4178, 4179, 4479, 4953, 4261,   // astrology (features/star.js)
@@ -48,8 +54,9 @@ const NATIVE = new Set([4475, 4476, 4463, 4706, 4529, 4721, 508, 807, 828, 4142,
   4150, 4152,   // daily activity (features/leed.js)
   4971, 4868,   // gift packages, account reward (features/giftpack.js)
   533, 544, 4608, 4459, 451,
-  4157, 4386, 4387, 146, 147, 4158, 4189, 4146, 4190,
-  12, 13, 15, 16, 17, 24, 25, 28, 32, 120, 121, 4161, 4186, 4370]);   // group scene rooms (features/grouproom.js)   // farm (features/farm.js)   // guide, viewing other players (features/guide.js, viewother.js)
+  4157, 4386, 4387, 146, 147, 4158, 4189, 4146, 4190,   // farm (features/farm.js)
+  801, 804, 805, 810, 811,   // home / fogueira (features/home.js)
+  12, 13, 15, 16, 17, 24, 25, 28, 32, 120, 121, 4161, 4186, 4370]);   // group scene rooms (features/grouproom.js)   // guide, viewing other players (features/guide.js, viewother.js)
 const srv = (a, b) => { const r = []; for (let i = a; i <= b && i < S.length; i++) if (!S[i].client && !NATIVE.has(S[i].code)) r.push(i); return r; };
 const STATIC_LOGIN = srv(1, 39);      // after gateway login (+ C_SYNCHRONIZED_TIME burst)
 const STATIC_LOAD = srv(49, 86);      // replies to the full C_LONIG_LOAD_REQ batch
@@ -550,7 +557,7 @@ module.exports = (log) => {
       fightCapaity: 0, param1: cd.Param1 || 0, param2: cd.Param2 || 0, param3: cd.Param3 || '', param4: cd.Param4 || '', param5: cd.Param5 || '',
     }));
   }
-  function enterCampaign(c, mapId, pos, createdType = 1) {
+  function enterCampaign(c, mapId, pos, createdType = 1, opts = {}) {
     const p = c.player;
     const prev = p.s.campaign;
     p.s.campaign = (prev && prev.campaignId === mapId) ? prev : { campaignId: mapId, nodes: {}, triggers: {}, posX: 0, posY: 0 };
@@ -564,12 +571,17 @@ module.exports = (log) => {
       st.posX = born[0] || (first ? first.Property1 : 20); st.posY = born[1] || (first ? first.Property2 : 20);
     }
     p.save();
-    sendT(c, 125, 'room.RoomCreatedMsg', { createdType, room: { campaignId: mapId } });
+    // opts.room merges into RoomMsg (house/bonfire need masterId / roomId / name for the client UI)
+    sendT(c, 125, 'room.RoomCreatedMsg', {
+      createdType, isCross: !!opts.isCross,
+      room: Object.assign({ campaignId: mapId }, opts.room || {}),
+    });
     sendT(c, 140, 'army.MapUpdatedMsg', { updatedType: 3, army: M.mapArmy(p, 0) });
     const enter = M.clone(M.REF[21]);
     Object.assign(enter.player[0], {
       heroId: p.heroId, playerId: p.id, grades: p.s.grades, nickName: p.s.nickName, templateId: p.s.icon, armyId: p.armyId,
-      fightingCapacity: p.fightingCapacity(), curPosX: st.posX, curPosY: st.posY, campaignId: mapId, serverName: cfg.SERVER_NAME,
+      fightingCapacity: p.fightingCapacity(), curPosX: st.posX, curPosY: st.posY, campaignId: mapId, serverName: playerServerName(p),
+      teamId: opts.teamId || 0, playerState: opts.playerState != null ? opts.playerState : (enter.player[0].playerState || 0),
     }, (() => { const a = M.mapArmy(p); return { arm: a.arm, cloth: a.cloth }; })());
     sendT(c, 21, 'room.RoomEnterMsg', enter);
     for (const fn of ctx.onEnterMap) fn(c, mapId, st);   // features may set node states first (e.g. the dragon nest floors)
@@ -663,7 +675,7 @@ module.exports = (log) => {
     const t = p.stats().total, a = M.mapArmy(p);
     return Object.assign(M.clone(base || M.REF[157].heros[0]), {
       heroId: p.heroId, userId: p.id, userPics: p.s.icon, tempId: p.s.icon, nickName: p.s.nickName, grade: p.s.grades, job: p.s.job,
-      maxHp: t.live, initHp: t.live, hp: t.live, skillId: p.s.skills.slice(), serverName: cfg.SERVER_NAME,
+      maxHp: t.live, initHp: t.live, hp: t.live, skillId: p.s.skills.slice(), serverName: playerServerName(p),
       fightCapacity: p.fightingCapacity(), slotAvata: a.arm, clothAvate: a.cloth, type: 1, side: 1,
       multiLanNickName: [{ lan: 6, param: p.s.nickName }],
       item: RUNE.battleItems(p),   // carried runes
@@ -764,8 +776,11 @@ module.exports = (log) => {
     // the engine lets the hero turn into it with full awaken (battle.js morph)
     // within the same campaign map, keep fury (sp) and pet gauge (awaken) across battles
     const campSt = p.s.campaign;
-    const savedSp = campSt && campSt.battleSp != null ? Math.max(0, Math.min(100, campSt.battleSp)) : 100;
+    const fury = FURY.of(p, { angry: campSt && campSt.angry });
     const savedAwaken = campSt && campSt.battleAwaken != null ? Math.max(0, campSt.battleAwaken) : 0;
+    const startSp = campSt && campSt.battleSp != null
+      ? Math.max(0, Math.min(fury.spMax, campSt.battleSp))
+      : fury.initial;
     const petB = ctx.petBattle && ctx.petBattle(p);
     if (petB) {
       const meU = units.find(u => u.playerHero), meP = prep.heros.find(h => h.userId === p.id);
@@ -773,7 +788,7 @@ module.exports = (log) => {
         const petLiving = Math.max(0, ...units.map(u => u.livingId)) + 1;
         // changeSkillId (int[]): client SkillItemListController → petSkillIds; fastKey slots via enterWarPet
         Object.assign(meP, { livingId2: petLiving, initHp2: petB.hp, hp2: petB.hp, petQuality: petB.quality, awake: savedAwaken, isChange: false,
-          changeSkillId: petB.changeSkillId || petB.skills || [], followSkills: petB.followSkills, sp: savedSp, spMax: 100 });
+          changeSkillId: petB.changeSkillId || petB.skills || [], followSkills: petB.followSkills, sp: startSp, spMax: fury.spMax });
         prep.pets = [Object.assign(M.clone(meP), { heroId: petB.id, livingId: petLiving, livingId2: meP.livingId, tempId: petB.templateId, nickName: petB.name, type: 1,
           grade: petB.grade, maxHp: petB.hp, initHp: petB.hp, hp: petB.hp, petQuality: petB.quality, skillId: [petB.skill], item: [],
           multiLanNickName: [{ lan: 6, param: petB.name }], phyAttack: petB.stats.attack, magAttack: petB.stats.magicAttack, phyDefence: petB.stats.defence, magDefence: petB.stats.magicDefence })];
@@ -782,7 +797,9 @@ module.exports = (log) => {
     }
     {
       const meP = prep.heros.find(h => h.userId === p.id);
-      if (meP) { meP.sp = savedSp; meP.spMax = meP.spMax || 100; }
+      const meU = units.find(u => u.playerHero);
+      if (meP) Object.assign(meP, FURY.prepFields({ initial: startSp, spMax: fury.spMax }));
+      if (meU) FURY.applyToUnit(meU, { ...fury, sp: startSp });
     }
     // the guard in battle (features/guards.js): its own unit next to the hero, 157 guards (client isGuardFake).
     // Official capture: no type/tempId; growthGrade = Profile (0..4). type:3 breaks sprite (monster path).
@@ -812,13 +829,10 @@ module.exports = (log) => {
       send: msg => sendT(c, 153, 'battle.AttackOrderMsg', Object.assign(msg, { attackMillis: sysTime() })),
       onEnd: (won, frame) => { if (c.battle && c.battle.engine === engine) endBattle(c, won, frame); },
     });
-    // Battle() resets sp/awaken; re-apply map-persisted bars for campaign fights
+    // Battle() keeps unit.sp / spMax from applyToUnit; re-apply pet awaken across campaign fights
     {
       const meU = engine.hero;
-      if (meU) {
-        meU.sp = savedSp;
-        if (meU.pet) meU.awaken = savedAwaken;
-      }
+      if (meU && meU.pet) meU.awaken = savedAwaken;
     }
     const b = c.battle = { id: prep.battleId, cd: cd || {}, units, engine, type: prep.battleType, prepHero: prep.heros.find(h => h.userId === p.id) };
     log(`[#${c.id}] battle ${b.id} type ${prep.battleType} (${units.filter(u => u.side === 2).length} enemies, ${units.filter(u => u.own).length} squads)`);
@@ -854,6 +868,12 @@ module.exports = (log) => {
     });
     // troop stats: the pawn template, as for campaign troops; both heroes get their troop special
     applySpecial(p, units, 1, prep.heros); applySpecial(opp, units, 2, prep.heros);
+    const furyMe = FURY.of(p), furyOpp = FURY.of(opp);
+    const meP = prep.heros.find(h => h.userId === p.id), foeP = prep.heros.find(h => h.userId === opp.id);
+    if (meP) Object.assign(meP, FURY.prepFields(furyMe));
+    if (foeP) Object.assign(foeP, FURY.prepFields(furyOpp));
+    FURY.applyToUnit(units.find(u => u.playerHero), furyMe);
+    FURY.applyToUnit(units.find(u => u.autoHero), furyOpp);
     if (c.battle && c.battle.engine) c.battle.engine.stop();
     const engine = new Battle({ id: prep.battleId, units, send: msg => sendT(c, 153, 'battle.AttackOrderMsg', Object.assign(msg, { attackMillis: sysTime() })),
       onEnd: (won, frame) => { if (c.battle && c.battle.engine === engine) endBattle(c, won, frame); } });
@@ -865,16 +885,20 @@ module.exports = (log) => {
   }
   // pets only (pet arena, battle type 35 PET_PK; client createPetRoleInfo: with isAllPetPKBattle the heros list is
   // ignored and every pets entry is a fighter, read as a hero role + petRoleInfo; the fight is watch-only).
-  // sides: [{ userId, nickName, pets: [{ pos, combat (pets.js petCombat) }] }, ...] for side 1 and side 2.
+  // Guard arena (3896) uses the same path with guards[] (client isGuardFake → never becomes selfHero).
+  // Client createLookBattleHeroRoleInfo needs watchHeros[0] with livingId 0 + matching userId/serverName for selfHero.
+  // sides: [{ userId, nickName, serverName?, pets: [{ pos, combat }] , guards? }, ...] for side 1 and side 2.
   function startPetPvp(c, sides, opts = {}) {
     const p = c.player, prep = M.clone(M.REF[157]), base = nativeHero(p), pets = [], units = [];
+    const sideName = (sd, k) => sd.serverName || (k === 0 ? playerServerName(p) : (sd.nickName ? String(sd.nickName) : playerServerName(p)));
     let living = 1;
     sides.forEach((sd, k) => {
-      for (const { pos, combat: cb, hp: startHp, key } of sd.pets) {
+      const srv = sideName(sd, k);
+      for (const { pos, combat: cb, hp: startHp, key } of sd.pets || []) {
         const hp0 = startHp == null ? cb.hp : Math.max(1, Math.min(cb.hp, startHp));   // remote pets keep their hp between floors
-        const skills = [...cb.arenaSkills, cb.skill].filter((x, i, a) => a.indexOf(x) === i);
+        const skills = [...(cb.arenaSkills || []), cb.skill].filter((x, i, a) => a.indexOf(x) === i);
         const e = Object.assign(M.clone(base), { userId: sd.userId, heroId: cb.id, livingId: living, livingId2: 0, tempId: cb.templateId, nickName: cb.name, type: 1, side: k + 1, pos,
-          grade: cb.grade, maxHp: cb.hp, initHp: hp0, hp: hp0, initHp2: 0, hp2: 0, petQuality: cb.quality, awake: 0, isChange: true, skillId: skills, item: [],
+          grade: cb.grade, maxHp: cb.hp, initHp: hp0, hp: hp0, initHp2: 0, hp2: 0, petQuality: cb.quality, awake: 0, isChange: true, skillId: skills, item: [], serverName: srv,
           multiLanNickName: [{ lan: 6, param: cb.name }], phyAttack: cb.stats.attack, magAttack: cb.stats.magicAttack, phyDefence: cb.stats.defence, magDefence: cb.stats.magicDefence,
           changeSkills: cb.changeSkills, followSkills: cb.followSkills });
         pets.push(e);
@@ -886,9 +910,10 @@ module.exports = (log) => {
     // sides[k].guards [{pos, combat (guards.js guardCombat)}]: guard fighters (guard arena, 157 guards as in startBattle)
     const guards = [];
     sides.forEach((sd, k) => {
+      const srv = sideName(sd, k);
       for (const { pos, combat: gb } of sd.guards || []) {
         const gs = gb.stats, id = living++, skills = [gb.skill, ...(gb.skills || [])];
-        const gMsg = Object.assign(M.clone(base), { userId: sd.userId, heroId: gb.id, livingId: id, livingId2: 0, headId: gb.headId, nickName: gb.name, side: k + 1, pos,
+        const gMsg = Object.assign(M.clone(base), { userId: sd.userId, heroId: gb.id, livingId: id, livingId2: 0, headId: gb.headId, nickName: gb.name, side: k + 1, pos, serverName: srv,
           multiLanNickName: [{ lan: 6, param: gb.name }], maxHp: gs.hp, initHp: gs.hp, hp: gs.hp, initHp2: 0, hp2: 0, item: [], skillId: skills, castTime: 3500,
           phyAttack: gs.attack, magAttack: gs.magicAttack, phyDefence: gs.defence, magDefence: gs.magicDefence, growthGrade: gb.stage, upaniValue: 0, awake: 0 });
         delete gMsg.type; delete gMsg.tempId; delete gMsg.isChange; delete gMsg.petQuality; delete gMsg.changeSkills; delete gMsg.followSkills;
@@ -905,7 +930,13 @@ module.exports = (log) => {
       return { heroId: 1300000000 + i, livingId: id, tempId, type: t.HeroType || 3, grade: t.Grades || 1, side: 2, pos, maxHp: t.Live, initHp: t.Live, hp: t.Live,
         captain: t.Captain || 1, res: t.ResPath || '', castTime: 4000, job: t.Job || 10, spMax: 100, skillId: [sk, sk, sk, sk], multiLanNickName: [{ lan: 6, param: nameOf(t) }] };
     });
-    Object.assign(prep, { battleType: opts.battleType || 35, mapTempId: opts.mapTempId || 992, heros, soldiers: [], soldierTemplated: [], pets, guards, watchHeros: [] });
+    // look / selfHero: livingId 0 on our side (PET_PK + GUARD_CHALLENGE); guards alone never become selfHero (isGuardFake).
+    // PET_PK watch heroes are read as pets; reuse our first pet shape when present, else the player hero (guard arena).
+    const lookPet = pets.find(e => e.side === 1);
+    const look = lookPet
+      ? Object.assign(M.clone(lookPet), { livingId: 0, livingId2: 0, pos: 0 })
+      : Object.assign(nativeHero(p), { livingId: 0, livingId2: 0, pos: 0, side: 1, initHp2: 0, hp2: 0, item: [] });
+    Object.assign(prep, { battleType: opts.battleType || 35, mapTempId: opts.mapTempId || 992, side: 1, heros, soldiers: [], soldierTemplated: [], pets, guards, watchHeros: [look] });
     prep.battleId = `local-${p.id}-${battleSeq++}`;
     prep.coolDown = [];
     if (c.battle && c.battle.engine) c.battle.engine.stop();
@@ -935,7 +966,7 @@ module.exports = (log) => {
     const meEnd = b.units.find(u => u.playerHero);
     // keep fury + pet fill for the next fight on this map (cleared on map change / campaign exit)
     if (p.s.campaign && meEnd && !b.pvp) {
-      p.s.campaign.battleSp = Math.max(0, Math.min(100, meEnd.sp || 0));
+      p.s.campaign.battleSp = Math.max(0, Math.min(meEnd.spMax || FURY.BASE_SP_MAX, meEnd.sp || 0));
       p.s.campaign.battleAwaken = meEnd.pet ? Math.max(0, meEnd.awaken || 0) : 0;
     }
     const winners = b.units.filter(u => u.side === (won ? 1 : 2) && u.hp > 0);
@@ -1745,7 +1776,7 @@ module.exports = (log) => {
     onBattleEnd: [],         // fn(c, node, won) after a campaign map fight
     onArrive: [],            // fn(c, node) -> true when the feature handled the arrival
     onEnterMap: [],          // fn(c, mapId, campaignState) when a campaign map is entered, before its node list
-    enterMap: (c, mapId, pos, createdType) => enterCampaign(c, mapId, pos, createdType),
+    enterMap: (c, mapId, pos, createdType, opts) => enterCampaign(c, mapId, pos, createdType, opts || {}),
     finishCampaign: c => H.U_C_CAMPAIGN_FINISH(c),
     nodeUpdate: (c, cd, state, extra) => nodeUpdate(c, cd, state, extra),
     nodeUpdate: (c, cd, state, extra) => nodeUpdate(c, cd, state, extra), stateOf: (p, cd) => stateOf(p, cd),
@@ -1753,7 +1784,9 @@ module.exports = (log) => {
   };
   for (const f of fs.readdirSync(FEATURES).filter(f => f.endsWith('.js')).sort()) {
     for (const [k, fn] of Object.entries(require(path.join(FEATURES, f))(ctx))) {
-      if (H[k]) { log(`feature ${f}: ${k} is already handled natively, skipped`); continue; }
+      // native handlers win; a prior feature may be replaced by a later one that owns the request
+      if (H[k] && !H[k].__feature) { log(`feature ${f}: ${k} is already handled natively, skipped`); continue; }
+      fn.__feature = f;
       H[k] = fn;
     }
   }

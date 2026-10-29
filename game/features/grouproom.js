@@ -15,8 +15,13 @@ const READY = 2;
 
 module.exports = (ctx) => {
   const { dec, sendT, online, alert, M, CONF, table, sysTime, log } = ctx;
-  // group scenes 9000..9299 and the season nest (4201, features/dragonnest.js; its runs cost no weary and have no daily cap here)
-  const CAMPAIGNS = new Map(table('t_s_campaign').filter(r => (r.CampaignId >= 9000 && r.CampaignId < 9300) || r.CampaignId === 4201).map(r => [r.CampaignId, r]));
+  // Party dungeons (Capacity 2–5, Types 0): Torre 8200+, Anel 2300+, Tara 5902, Portão 9000+, plus season nest 4201
+  // (dragonnest.js — no weary / daily cap here). Warfield (Types=5) and mass PvP stay out of rooms.
+  const CAMPAIGNS = new Map(table('t_s_campaign').filter(r => {
+    const id = Number(r.CampaignId), cap = Number(r.Capacity) || 0, t = Number(r.Types);
+    if (id === 4201) return true;
+    return t === 0 && cap >= 2 && cap <= 5;
+  }).map(r => [r.CampaignId, r]));
   const WEARY = CONF.get('MultiCampaign_Weary') || 20, PER_DAY = CONF.get('MultiCampaign_MaxCount') || 1;
   const rooms = new Map();   // roomId -> { id, master, members: [ids], places: [id|0|-1 x3], ready: {id: state}, campaignId, password, type }
   let nextId = 1000;
@@ -32,9 +37,10 @@ module.exports = (ctx) => {
       curPosY: p.s.castle.posY, onlineState: true, job: p.s.job, hp: p.stats().total.live, maxHp: p.stats().total.live, tarIds: [],
       guardShowInfo: {}, ...M.showFields(p) };
   }
+  const capOf = r => Math.min(5, Math.max(2, Number((CAMPAIGNS.get(r.campaignId) || {}).Capacity) || 3));
   const roomMsg = r => ({ roomPlayer: r.members.map(id => online.get(id)).filter(Boolean).map(o => member(r, o.player)), roomId: r.id, campaignId: r.campaignId || 0,
-    masterId: r.master, name: name(r), count: r.members.length, capacity: 3, roomType: r.type || 0, isSetPassword: !!r.password });
-  const edit = r => ({ roomId: r.id, startCampaignId: r.campaignId || 0, masterId: r.master, count: r.members.length, capacity: 3, roomName: name(r), passWord: r.password || '' });
+    masterId: r.master, name: name(r), count: r.members.length, capacity: capOf(r), roomType: r.type || 0, isSetPassword: !!r.password });
+  const edit = r => ({ roomId: r.id, startCampaignId: r.campaignId || 0, masterId: r.master, count: r.members.length, capacity: capOf(r), roomName: name(r), passWord: r.password || '' });
   const readyMsg = r => ({ readyState: r.members.map(id => ({ playerId: id, readyState: r.ready[id] || 0 })) });
   const members = r => ({ roomPlayer: r.members.map(id => online.get(id)).filter(Boolean).map(o => member(r, o.player)) });
 
@@ -71,7 +77,12 @@ module.exports = (ctx) => {
   }
   const today = () => sysTime().slice(0, 10);
   function runs(p) { const g = p.s.groupRuns = p.s.groupRuns || {}; if (g.day !== today()) { g.day = today(); g.count = {}; } return g; }
-  ctx.onCampaignCleared.push((c, camp) => { if (CAMPAIGNS.has(camp)) ctx.stat(c, 'groupScene'); });
+  ctx.onCampaignCleared.push((c, camp) => {
+    if (!CAMPAIGNS.has(camp)) return;
+    ctx.stat(c, 'groupScene');   // daily activity Type 5 (Salão dos Heróis)
+    if (camp === 8200 || camp === 8202 || camp === 8203 || camp === 8204) ctx.stat(c, 'towerKings');   // Type 37
+    if (camp === 8201 || camp === 8205) ctx.stat(c, 'spire');   // Type 28
+  });
 
   // the start (U_C_CAMPAIGN_ENTER = C_CAMPAIGN_START, code 5039): called by logic.js before a normal run;
   // true = handled here

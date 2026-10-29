@@ -75,7 +75,7 @@
   <p class="lead" id="lead">Entre ou crie uma nova conta</p>
 
   <section class="card" aria-live="polite">
-    <!-- an open session: the account, then "Devam et" opens the game (server list) -->
+    <!-- an open session: the account, then "Continuar" opens the game (server list) -->
     <div id="v-session" hidden>
       <div class="who">
         <div class="crest" id="crest">W</div>
@@ -89,15 +89,20 @@
       </div>
     </div>
 
-    <div id="v-forms" hidden>
+    <!-- forms visible by default (no JS) so Cloudflare/slow /me never leaves an empty card -->
+    <div id="v-forms">
       <div class="tabs" role="tablist">
         <button type="button" role="tab" id="t-login" aria-selected="true">Entrar</button>
         <button type="button" role="tab" id="t-register" aria-selected="false">Criar conta</button>
       </div>
 
       <form id="f-login" autocomplete="on">
-        <label>Nome de usuário <input type="text" id="l-user" name="username" autocomplete="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_.\-]{3,20}"></label>
-        <label>Senha <input type="password" id="l-pass" name="password" autocomplete="current-password" required minlength="4" maxlength="64"></label>
+        <label>Nome de usuário
+          <input type="text" id="l-user" name="username" autocomplete="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_.\-]{3,20}" placeholder="seu_usuario">
+        </label>
+        <label>Senha
+          <input type="password" id="l-pass" name="password" autocomplete="current-password" required minlength="4" maxlength="64" placeholder="••••••••">
+        </label>
         <p class="msg" id="l-msg" role="alert"></p>
         <button class="btn" type="submit" id="l-btn">Entrar</button>
         <div class="links">
@@ -107,9 +112,15 @@
       </form>
 
       <form id="f-register" autocomplete="on" hidden>
-        <label>Nome de usuário <input type="text" id="r-user" name="username" autocomplete="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_.\-]{3,20}"></label>
-        <label>Senha <input type="password" id="r-pass" name="new-password" autocomplete="new-password" required minlength="4" maxlength="64"></label>
-        <label>Senha (repetir) <input type="password" id="r-pass2" autocomplete="new-password" required minlength="4" maxlength="64"></label>
+        <label>Nome de usuário
+          <input type="text" id="r-user" name="username" autocomplete="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_.\-]{3,20}" placeholder="novo_usuario">
+        </label>
+        <label>Senha
+          <input type="password" id="r-pass" name="new-password" autocomplete="new-password" required minlength="4" maxlength="64" placeholder="mín. 4 caracteres">
+        </label>
+        <label>Senha (repetir)
+          <input type="password" id="r-pass2" autocomplete="new-password" required minlength="4" maxlength="64" placeholder="repita a senha">
+        </label>
         <label class="check"><input type="checkbox" id="r-terms" required> <span>Li e aceito os <button class="linkbtn" type="button" id="show-terms">termos de uso</button>.</span></label>
         <p class="msg" id="r-msg" role="alert"></p>
         <button class="btn" type="submit" id="r-btn">Criar conta</button>
@@ -119,7 +130,7 @@
   </section>
 </main>
 
-<footer>Wartune Ultra é um servidor privado independente; não possui ligação com a 7Road. O nome de usuário pode ter de 3 a 20 caracteres (letras, números, _ . -). <a href="/admin">Administração</a></footer>
+<footer>Wartune Ultra é um servidor privado independente; não possui ligação com a 7Road. O nome de usuário pode ter de 3 a 20 caracteres (letras, números, _ . -). <a href="/admin" id="admin-link" hidden>Administração</a></footer>
 
 <dialog id="terms">
   <h2>Termos de uso</h2>
@@ -151,18 +162,20 @@
     setTimeout(function () { (t === 'login' && first.value ? $('l-pass') : first).focus(); }, 0);
   }
   function play() { if (me) location.href = '/?user=' + encodeURIComponent(me.user) + '&from=WAN'; }
+  function setAdminLink(on) { $('admin-link').hidden = !on; }
   function load() {
     fetch('/me', { credentials: 'same-origin' }).then(function (r) { return r.json(); }).then(function (j) {
       me = j && j.user ? j : null;
+      setAdminLink(!!(j && j.isAdmin));
       if (!me) return show('forms', 'login');
       $('who-user').textContent = me.user;
       $('who-char').textContent = me.nickName ? 'Personagem: ' + me.nickName : 'Ainda sem personagem — você o criará ao selecionar o servidor';
       $('crest').textContent = (me.nickName || me.user).charAt(0).toUpperCase();
       show('session');
       $('go').focus();
-    }).catch(function () { show('forms', 'login'); });
+    }).catch(function () { setAdminLink(false); show('forms', 'login'); });
   }
-  function logout(then) { fetch('/logout', { credentials: 'same-origin' }).finally(function () { me = null; then(); }); }
+  function logout(then) { fetch('/logout', { credentials: 'same-origin' }).finally(function () { me = null; setAdminLink(false); then(); }); }
   function submit(mode, user, pass, msg, btn) {
     msg.textContent = ''; btn.disabled = true;
     fetch('/auth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify({ user: user, pass: pass, mode: mode }) })

@@ -14,9 +14,11 @@ const CATALOG = [
   { key: 'sumActive', label: 'Painel de Atividades', group: 'Eventos', hint: 'Calendário SumActive / Etkinlikler' },
   { key: 'guardDraw', label: 'Chamada de Guardas', group: 'Eventos', hint: 'Gacha de guardas (janelas OpenTime)' },
   { key: 'guildMaze', label: 'Labirinto da Guilda', group: 'Eventos', hint: 'Dias 6–12 e 20–26 do mês' },
-  { key: 'worldBoss', label: 'Chefe Mundial', group: 'Eventos', hint: 'Janelas 11:30–12:30 e 21:00–22:00' },
-  { key: 'warField', label: 'Campo de Batalha (CG)', group: 'Eventos', hint: 'Horários 13:00–23:20 (20 min por hora); GM pode forçar' },
+  { key: 'worldBoss', label: 'Chefe Global (CG)', group: 'Eventos', hint: 'Calendário 11:30–12:30 e 21:00–22:00; “Forçado aberto” invoca o chefe na hora' },
+  { key: 'warField', label: 'Campo de Batalha (CB)', group: 'Eventos', hint: 'Toda hora, nos primeiros 20 min (xx:00–xx:20)' },
+  { key: 'guildWar', label: 'Batalha de Guilda (GvG)', group: 'Eventos', hint: 'ClanWar_OpenDay/OpenTime (padrão sáb/dom 20:00–20:20 e 20:30–20:50)' },
   { key: 'treasureMine', label: 'Mina de Tesouro (MP)', group: 'Eventos', hint: 'Janelas de guerra 10:00–11:59 e 19:00–20:59' },
+  { key: 'starMoonRuins', label: 'Ruínas da Estrela da Lua', group: 'Eventos', hint: 'Star-Moon Ruins (cccactive 134); sem calendário — use “Forçado aberto” para ligar' },
 ];
 
 const probes = Object.create(null);

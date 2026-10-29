@@ -64,6 +64,35 @@ function listPlayers() { return q.plList.all().map(r => ({ id: r.id, nickName: r
 // a consistent copy of the whole database (backup.js)
 function copyTo(file) { db.exec(`VACUUM INTO '${String(file).replace(/'/g, "''")}'`); }
 
+// full table dump / replace for Turso sync (turso.js) — uses the already-open connection
+function exportSnapshot() {
+  return {
+    meta: db.prepare('SELECT key, json, updated_at FROM meta').all(),
+    accounts: db.prepare('SELECT user_id, site, user_name, nick_name, created_at, has_password, json FROM accounts').all(),
+    players: db.prepare('SELECT id, nick_name, job, grades, vip, gold, point, gift_token, guild_id, updated_at, json FROM players').all(),
+  };
+}
+function importSnapshot({ meta = [], accounts = [], players = [] }) {
+  db.exec('BEGIN');
+  try {
+    db.exec('DELETE FROM meta');
+    db.exec('DELETE FROM accounts');
+    db.exec('DELETE FROM players');
+    const insM = db.prepare('INSERT INTO meta (key, json, updated_at) VALUES (?, ?, ?)');
+    const insA = db.prepare(`INSERT INTO accounts (user_id, site, user_name, nick_name, created_at, has_password, json)
+      VALUES (?, ?, ?, ?, ?, ?, ?)`);
+    const insP = db.prepare(`INSERT INTO players (id, nick_name, job, grades, vip, gold, point, gift_token, guild_id, updated_at, json)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
+    for (const r of meta) insM.run(r.key, r.json, r.updated_at);
+    for (const r of accounts) insA.run(r.user_id, r.site, r.user_name, r.nick_name, r.created_at, r.has_password, r.json);
+    for (const r of players) insP.run(r.id, r.nick_name, r.job, r.grades, r.vip, r.gold, r.point, r.gift_token, r.guild_id, r.updated_at, r.json);
+    db.exec('COMMIT');
+  } catch (e) { db.exec('ROLLBACK'); throw e; }
+}
+function counts() {
+  return { accounts: q.accCount.get().n, players: q.plCount.get().n, meta: db.prepare('SELECT COUNT(*) AS n FROM meta').get().n };
+}
+
 // first start on the database: bring in the JSON files of the older versions
 function migrate(log = () => {}) {
   if (q.accCount.get().n || q.plCount.get().n) return false;
@@ -88,4 +117,7 @@ function migrate(log = () => {}) {
   return true;
 }
 
-module.exports = { FILE, getMeta, setMeta, loadAccounts, saveAccount, saveAccounts, loadPlayer, savePlayer, listPlayers, copyTo, migrate, close: () => db.close() };
+module.exports = {
+  FILE, getMeta, setMeta, loadAccounts, saveAccount, saveAccounts, loadPlayer, savePlayer, listPlayers,
+  copyTo, migrate, exportSnapshot, importSnapshot, counts, close: () => db.close(),
+};

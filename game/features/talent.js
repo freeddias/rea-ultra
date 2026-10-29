@@ -12,7 +12,8 @@
 //   C_HERO_TALENT_CHANGE {index} switches; each page has its own talents and spent points.
 //  C_TELENT_TREE {seal1 = branch shown}, C_TELENT_SORT {seal1..3 = seal order}. State -> 4431 HeroTalentMsg.
 //  Stats: the common talents' values (Description_en "ATK +50", "HP +1%", PDEF, MDEF, Crit, Block) are added;
-//  the seal / job talents are battle effects (buffs) not applied by battle.js.
+//  seal Rage Consumption −% (and AT 6/7/22/23/71 on any talent buffer) feed fury.js at battle start;
+//  other seal / job custom AttackTypes (crit procs, skill-specific rage bonus ids, …) are not modelled yet.
 const OPEN = 50, SEALS = [910001, 920001, 930001], SEAL_TYPES = [1001, 1002, 1003];
 const STAT = { ATK: ['attack', 'magicAttack'], HP: ['live'], PDEF: ['defence'], MDEF: ['magicDefence'], Crit: ['forceHit'], 'Crit Value': ['forceHit'], Block: ['parry'], 'Block Value': ['parry'] };
 
@@ -183,17 +184,63 @@ module.exports = (ctx) => {
         if (!pay(c, [[-100, ADV_RESET * a.grade]])) { alert(c, 'Ouro insuficiente'); return send(); }
         a.skills = []; a.spent = 0;
       } else if (m.op === 2) {
-        const t = SK.get(m.skillTempId);
-        if (!t || !advTree(p).includes(t.MasterType)) return send();
-        if (a.grade - a.spent < 1) { alert(c, 'Pontos de talento insuficientes'); return send(); }
-        if ((t.NeedPlayerGrade || 0) > a.grade) { alert(c, `Nível de talento avançado ${t.NeedPlayerGrade} necessário`); return send(); }
-        const pre = String(t.PreTemplateId || '').split(',').map(Number).filter(Boolean);
-        const has = id => { const q = SK.get(id); return !!q && a.skills.some(x => { const o = SK.get(x); return o && o.Index === q.Index && o.MasterType === q.MasterType && o.Grades >= q.Grades; }); };
-        if (!pre.every(has)) { alert(c, 'Aprenda o talento necessário primeiro'); return send(); }
-        const i = a.skills.findIndex(id => { const o = SK.get(id); return o && o.Index === t.Index && o.MasterType === t.MasterType; });
-        if (i >= 0) { if (Number(SK.get(a.skills[i]).NextTemplateId) !== Number(t.TemplateId)) return send(); a.skills[i] = t.TemplateId; }
-        else { if (t.Grades !== 1) return send(); a.skills.push(t.TemplateId); }
-        a.spent++;
+        // Client stepper may send a TemplateId several levels ahead (same UX as regular talent).
+        // Climb NextTemplateId from the owned level (or grade 1) and spend one point per step.
+        const want = SK.get(Number(m.skillTempId)) || SK.get(m.skillTempId);
+        if (!want || !advTree(p).includes(want.MasterType)) return send();
+        const left = a.grade - a.spent;
+        if (left < 1) { alert(c, 'Pontos de talento insuficientes'); return send(); }
+        const i = a.skills.findIndex(id => { const o = SK.get(id); return o && o.Index === want.Index && o.MasterType === want.MasterType; });
+        const owned = i >= 0 ? SK.get(a.skills[i]) : null;
+        if (owned && Number(owned.Grades) >= Number(want.Grades) && !Number(owned.NextTemplateId)) {
+          alert(c, 'Talento no nível máximo'); return send();
+        }
+        // Build the chain of templates to buy (exclusive of currently owned).
+        const steps = [];
+        let cur = owned;
+        if (!cur) {
+          // First learn: start at grade 1 of this Index/MasterType, then climb to `want`.
+          const base = [...SK.values()].find(r => r.MasterType === want.MasterType && r.Index === want.Index && Number(r.Grades) === 1);
+          if (!base) return send();
+          steps.push(base);
+          cur = base;
+        }
+        const seen = new Set(steps.map(s => Number(s.TemplateId)));
+        while (cur && Number(cur.TemplateId) !== Number(want.TemplateId)) {
+          const nextId = Number(cur.NextTemplateId);
+          if (!nextId || seen.has(nextId)) break;
+          seen.add(nextId);
+          const next = SK.get(nextId);
+          if (!next) break;
+          steps.push(next);
+          cur = next;
+        }
+        if (!steps.length) {
+          // Stuck tip re-sends the current level → climb one when already owned.
+          if (owned && Number(owned.NextTemplateId)) {
+            const next = SK.get(Number(owned.NextTemplateId));
+            if (next) steps.push(next);
+          }
+        } else if (Number(steps[steps.length - 1].TemplateId) !== Number(want.TemplateId)) {
+          return send();
+        }
+        if (!steps.length) return send();
+        const buy = steps.slice(0, left);
+        for (const step of buy) {
+          if ((step.NeedPlayerGrade || 0) > a.grade) { alert(c, `Nível de talento avançado ${step.NeedPlayerGrade} necessário`); return send(); }
+          const pre = String(step.PreTemplateId || '').split(',').map(Number).filter(Boolean);
+          const has = id => {
+            const q = SK.get(id); if (!q) return false;
+            if (buy.some(s => s.Index === q.Index && s.MasterType === q.MasterType && s.Grades >= q.Grades)) return true;
+            return a.skills.some(x => { const o = SK.get(x); return o && o.Index === q.Index && o.MasterType === q.MasterType && o.Grades >= q.Grades; });
+          };
+          if (!pre.every(has)) { alert(c, 'Aprenda o talento necessário primeiro'); return send(); }
+        }
+        const target = buy[buy.length - 1];
+        if (i >= 0) a.skills[i] = Number(target.TemplateId);
+        else a.skills.push(Number(target.TemplateId));
+        a.spent += buy.length;
+        log(`[#${c.id}] adv talent learn ${target.TemplateId} (+${buy.length}, grade ${a.grade}, spent ${a.spent})`);
       }
       advRecalc(p); p.save();
       send(); sendPlayer(c); sendArmy(c);

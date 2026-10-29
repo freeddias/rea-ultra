@@ -99,11 +99,12 @@ module.exports = (ctx) => {
   }
   // join / leave ----------------------------------------------------------------------------------------
   function join(g, p) {
+    if (!G.sameSite(g, p)) return;
     p.s.guild = { id: g.id, duty: p.id === g.chairmanId ? CHAIRMAN : MEMBER, offer: 0, totalOffer: 0, joined: Date.now(), skills: (p.s.guild || {}).skills || {} };
     p.s.guildJoins = (p.s.guildJoins || 0) + 1;
     if (!isMember(g, p.id)) { g.members.push(p.id); event(g, 1, `${p.s.nickName} entrou na guilda`); }
-    // the player's other applications / invitations are over
-    for (const o of G.all()) o.applies = o.applies.filter(a => a.userId !== p.id);
+    // the player's other applications / invitations on this server are over
+    for (const o of G.all(p.s.site)) o.applies = o.applies.filter(a => a.userId !== p.id);
     G.save(); p.save();
     const c = online.get(p.id);
     if (c) ctx.refreshQuests(c);   // quest condition 22 "Criar ou Entrar na Guilda"
@@ -159,7 +160,7 @@ module.exports = (ctx) => {
       if (mine(p)) return fail(c, 34, 'Você já está em uma guilda');
       if (p.s.grades < CREATE_GRADE) return fail(c, 34, `Personagem Lv. ${CREATE_GRADE} necessário`);
       if (name.length < 2 || name.length > 12 || /[<>"&]/.test(name)) return fail(c, 34, 'Nome de guilda inválido');
-      if (G.byName(name)) return fail(c, 34, 'Este nome de guilda já está em uso');
+      if (G.byName(name, p.s.site)) return fail(c, 34, 'Este nome de guilda já está em uso');
       if (!cooldown(c, p, false)) return sendT(c, 34, 'consortia.ConsortiaMsg', { result: false });
       if (p.s.gold < CREATE_GOLD) return fail(c, 34, 'Ouro insuficiente');
       p.s.gold -= CREATE_GOLD;
@@ -170,12 +171,13 @@ module.exports = (ctx) => {
     },
     U_C_CONSORTIA_SEARCH(c, body) {
       const m = dec(c, 'U_C_CONSORTIA_SEARCH', body), q = String(m.consortiaName || '').trim().toLowerCase();
-      const list = G.all().filter(g => !q || g.name.toLowerCase().includes(q)).sort((a, b) => b.levels[1] - a.levels[1] || b.offer - a.offer);
+      const list = G.all(c.player.s.site).filter(g => !q || g.name.toLowerCase().includes(q)).sort((a, b) => b.levels[1] - a.levels[1] || b.offer - a.offer);
       const page = Math.max(1, m.pageIndex || 1), per = 10;
       sendT(c, 4139, 'consortia.ConsortiaSearchRspMsg', { consortiaInfo: list.slice((page - 1) * per, page * per).map(info), totalRows: list.length, isReset: !!m.isNewOpen });
     },
     U_C_CONSORTIA_INFO(c, body) {
-      const m = dec(c, 'U_C_CONSORTIA_INFO', body), g = G.get(m.consortiaId) || mine(c.player);
+      const m = dec(c, 'U_C_CONSORTIA_INFO', body), p = c.player;
+      const asked = G.get(m.consortiaId), g = (asked && G.sameSite(asked, p) ? asked : null) || mine(p);
       if (g) sendT(c, 4138, 'consortia.ConsortiaInfoMsg', info(g));
     },
     U_C_CONSORTIAUSER_LIST(c) {
@@ -192,7 +194,7 @@ module.exports = (ctx) => {
     U_C_CONSORTIA_USERINVITE(c, body) {
       const m = dec(c, 'U_C_CONSORTIA_USERINVITE', body), p = c.player, g = G.get(m.consortiaId);
       if (mine(p)) return fail(c, 35, 'Você já está em uma guilda');
-      if (!g) return fail(c, 35, 'Guilda não encontrada');
+      if (!g || !G.sameSite(g, p)) return fail(c, 35, 'Guilda não encontrada');
       if (!g.openApp) return fail(c, 35, 'Esta guilda não está aceitando pedidos no momento');
       if (g.members.length >= G.maxMembers(g)) return fail(c, 35, 'Guilda cheia');
       if (!cooldown(c, p, m.isPay)) return sendT(c, 35, 'consortia.ConsortiaMsg', {});
@@ -203,12 +205,12 @@ module.exports = (ctx) => {
     // my applications and the invitations I got
     U_C_INVITEINFO_LIST(c) {
       const p = c.player, out = [];
-      for (const g of G.all()) for (const a of g.applies) if (a.userId === p.id) out.push(applyInfo(g, a));
+      for (const g of G.all(p.s.site)) for (const a of g.applies) if (a.userId === p.id) out.push(applyInfo(g, a));
       sendT(c, 4135, 'consortia.ConsortiaUserInviteInfoListRspMsg', { inviteInfo: out });
     },
     U_C_CONSORTIA_INVITEDEL(c, body) {
       const m = dec(c, 'U_C_CONSORTIA_INVITEDEL', body), p = c.player;
-      for (const g of G.all()) g.applies = g.applies.filter(a => !(a.id === m.applyId && a.userId === p.id));
+      for (const g of G.all(p.s.site)) g.applies = g.applies.filter(a => !(a.id === m.applyId && a.userId === p.id));
       G.save();
       ok(c, 36, { applyId: m.applyId });
     },
@@ -235,7 +237,7 @@ module.exports = (ctx) => {
     U_C_CONSORTIA_INVITE(c, body) {
       const m = dec(c, 'U_C_CONSORTIA_INVITE', body), g = mine(c.player), t = playerById(m.otherId);
       if (!g || !officer(c.player)) return fail(c, 41, 'Permissão insuficiente');
-      if (!t || mine(t)) return fail(c, 41, 'Este jogador não pode ser convidado');
+      if (!t || mine(t) || !G.sameSite(g, t)) return fail(c, 41, 'Este jogador não pode ser convidado');
       if (t.s.refuseGuildInvite) return fail(c, 41, 'Este jogador não aceita convites');
       let a = g.applies.find(x => x.userId === t.id && x.invite);
       if (!a) { a = { id: G.nextApplyId(), userId: t.id, invite: true, inviteId: c.player.id, at: Date.now() }; g.applies.push(a); G.save(); }
@@ -245,7 +247,7 @@ module.exports = (ctx) => {
     },
     U_C_CONSORTIA_USERPASS(c, body) {
       const m = dec(c, 'U_C_CONSORTIA_USERPASS', body), p = c.player;
-      const g = G.all().find(x => x.applies.some(a => a.id === m.applyId && a.userId === p.id && a.invite));
+      const g = G.all(p.s.site).find(x => x.applies.some(a => a.id === m.applyId && a.userId === p.id && a.invite));
       if (!g) return fail(c, 37, 'Convite não encontrado');
       g.applies = g.applies.filter(a => a.id !== m.applyId); G.save();
       if (!m.result) return ok(c, 37, { applyId: m.applyId, result: false });
@@ -331,7 +333,7 @@ module.exports = (ctx) => {
       const m = dec(c, 'U_C_CONSORTIA_RENAME', body), p = c.player, g = mine(p), name = String(m.newName || '').trim();
       const reply = r => sendT(c, 49, 'consortia.ConsortiaRenameRspMsg', { result: r });
       if (!g || p.id !== g.chairmanId) { alert(c, 'Permissão insuficiente'); return reply(false); }
-      if (name.length < 2 || name.length > 12 || /[<>"&]/.test(name) || G.byName(name)) { alert(c, 'Este nome de guilda não pode ser usado'); return reply(false); }
+      if (name.length < 2 || name.length > 12 || /[<>"&]/.test(name) || G.byName(name, g.site, g.id)) { alert(c, 'Este nome de guilda não pode ser usado'); return reply(false); }
       if (!pay(c, [[m.payType === 0 ? -500 : -400, RENAME_COST]])) { alert(c, 'Diamantes insuficientes'); return reply(false); }
       g.name = name; G.save(); sendPlayer(c); reply(true); fresh(g);
     },
@@ -383,7 +385,7 @@ module.exports = (ctx) => {
     // a guild link in chat (client consortiaLink {consortiaId}) -> 4267 its card
     C_CONSORTIA_LINK(c, body) {
       const m = dec(c, 'C_CONSORTIA_LINK', body), g = G.get(m.consortiaId);
-      if (!g) { alert(c, 'Guilda não encontrada'); return; }
+      if (!g || !G.sameSite(g, c.player)) { alert(c, 'Guilda não encontrada'); return; }
       sendT(c, 4267, 'consortia.ConsortiaLinkRspMsg', { consortiaId: g.id, consortiaName: g.name, creatorName: (playerById(g.chairmanId) || { s: {} }).s.nickName || g.creatorName,
         levels: g.levels[1], Offer: g.offer, currentCount: g.members.length, honor: 0, description: g.description || '', materials: 0 });
     },

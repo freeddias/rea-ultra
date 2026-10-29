@@ -43,21 +43,28 @@ module.exports = (ctx) => {
   // owned gem, srcItemid the wanted one (iz.sendSwitch(target, current, count)). No reply body: bag + alert.
   const TRANSFORM = table('t_s_transformtemplate');
   const rowOf = tid => TRANSFORM.find(r => [1, 2, 3, 4, 5, 6, 7, 8].some(i => r['Material' + i] === tid));
-  // Tanrısal döküm (client cast view, iz.sendItemMould(), no body): the forge-slot equipment (StrengthenMax > 0,
-  // Profile >= 5, NeedGrades >= 50) takes Vulkan'ın Çekici 2120100 x5 + Vulkan'ın Ocağı 2120101 x15 (relic /
-  // heraldry: 10 / 30) and 500 x (8 + e)^3 gold, e = the next star (grade % 10 + 1); rate = 50 - 10(e - 1) for
-  // e <= 5, else 5, plus blessValue (cap 100). Cap Divinecast_Upperlimit "80,160" (160 for Property6 == 1).
+  // Tanrısal döküm / Fundição divina (client cast view, iz.sendItemMould(), no body): the forge-slot
+  // equipment (StrengthenMax > 0, Profile >= 5, NeedGrades >= 50) takes Vulkan'ın Çekici 2120100 x5 +
+  // Vulkan'ın Ocağı 2120101 x15 (relic / heraldry: 10 / 30) and 500 x (8 + e)^3 gold, e = the next star
+  // (grade % 10 + 1); rate = 50 - 10(e - 1) for e <= 5, else 5, plus blessValue (cap 100).
+  // Cap: Divinecast_Upperlimit (hard max, tipicamente 160) limitado ao nível do jogador — não mais
+  // travado em 80 para equipamentos sem Property6.
   // Our choice (no capture): a failure adds 10 bless (MOULD_MAX_BLESS 100), a success clears it.
   // -> 4558 store.StoreRspMsg {strengResult, strengthenGrade = new mouldGrade, pos, objectId, bagType}
-  const MOULD_CAP = String(CONF.str('Divinecast_Upperlimit') || '80,160').split(',').map(Number);
+  const MOULD_CAP = String(CONF.str('Divinecast_Upperlimit') || '160,160').split(',').map(Number);
   const RELIC = new Set([117, 118]);   // client SONTYPE_HERALDRY, SONTYPE_RELIC
   function mould(c) {
     const p = c.player, it = forgeItem(p), tp = it && D.items.get(it.templateId);
     const reply = ok => sendT(c, 4558, 'store.StoreRspMsg', { strengResult: ok, strengthenGrade: it ? it.mouldGrade || 0 : 0, pos: it ? it.pos : 0, objectId: it ? it.objectId || 0 : 0, bagType: FORGE });
     if (!tp) { alert(c, 'Coloque um equipamento primeiro'); return reply(false); }
     if (!tp.StrengthenMax || (tp.Profile || 0) < 5 || (tp.NeedGrades || 0) < 50) { alert(c, 'Este equipamento não pode ser fundido'); return reply(false); }
-    const g = it.mouldGrade || 0, cap = MOULD_CAP[tp.Property6 === 1 ? 1 : 0] || 80;
-    if (g >= cap) { alert(c, 'Nível máximo de fundição'); return reply(false); }
+    const hard = Math.max(MOULD_CAP[0] || 160, MOULD_CAP[1] || 160);
+    const cap = Math.min(hard, Math.max(1, p.s.grades | 0));
+    const g = it.mouldGrade || 0;
+    if (g >= cap) {
+      alert(c, g >= hard ? 'Nível máximo de fundição' : `Fundição limitada ao seu nível (${cap})`);
+      return reply(false);
+    }
     const e = g % 10 + 1, relic = RELIC.has(tp.SonType);
     const cost = [[2120100, relic ? 10 : 5], [2120101, relic ? 30 : 15], [-100, 500 * (8 + e) ** 3]];
     if (!pay(c, cost)) { alert(c, 'Material ou ouro insuficiente'); return reply(false); }

@@ -5,9 +5,11 @@
 //  Stats, as the client computes them (PetData):
 //   base stat (power / intel / physi / armor) = template Power / Intel / Physi / Armor + floor((grade-1) x growthRate/80);
 //   the shown stat adds the points the player put in (5 per level, Fy.EACH_LEVEL_POINT);
-//   physical attack = floor(1.8 x power x powerApti / 1000), magic attack likewise with intel;
-//   physical defence = floor((0.9 armor x armorApti + 0.9 power x powerApti) / 1000), magic defence with intel;
-//   hp = InitHp + floor(6 x physi x physiApti / 1000); fighting capacity = ceil(700 + the four + hp / 5).
+//   Tip combat stats (exact): ATQ = 1.8×Força×Aptidão/1000 (etc.). Ultra mapping:
+//   Força/Intelecto/Armadura/Resistência = Sepulcrum (pet.apti, Melhorar current);
+//   Aptidão = Mahra/star cap (coeLimit for the current temQuality). HP keeps InitHp.
+//   fightingCapacity = ceil(700 + the four + bag* + (hp+bagLiving)/5) — potential/artifact atr stay out of FC;
+//   potentialAtr = ceil((combat+bag) x pot / 1000) (hp: floor).
 //   Aptitude limits (PetData.calculateCoeLimit): the template PowerApt / IntelApt / PhysiApt / ArmorApt [min, max]
 //   of the star's template row; growthRate = its GrowthRate. quality = star index (temQuality, (Quality-1)*5+1 to
 //   start), initQuality = Quality.
@@ -16,16 +18,17 @@
 //  armor]), 3 reset points, 9 to war (one at a time), 10 rest, 14 rename, 6 release; the rest are later stages.
 // Our choices: a new pet rolls each aptitude in the lower half of its [min, max] range (training is a later
 // stage); the pet in war gets the hero's battle / quest EXP; resetting points is free; releasing returns nothing.
-// Stage 3: 12 carry slot (3 to start, add_pet_count 100 / 100 / 300 diamonds for slots 4..6, Fy.PET_CARRY_LIMIT 6);
+// Stage 3: carry slots — Ultra: all Fy.PET_CARRY_LIMIT (6) open by default;
 //  7 aptitude training with Sepulcrum 3040001 (client PET_COE_STONE / tipItem Sepulcrum; up to the star's
 //  limit, PetData.calculateCoeLimit; Wartune Ultra: each stone grants several aptitude points, not just +1);
-//  5 learn a skill from the pet-type library (client petSkill[PetType] / getPetRealitySkill) for its
-//  Parameter3 Peri Beceri Kitabı 208061 (Ultra: no NeedPlayerGrade; at most Fy.CHANGE_SKILL_NUM = 6).
+//  5 learn any skill from the pet-type library (no learn cap); equip at most EQUIP_ACTIVE_SKILLS = 6 actives
+//  via fastKey (op 11); passives (UseWay 2) do not consume equip slots. Skill book 208061; no NeedPlayerGrade.
 //  Template ChangeSkills are the starter set; Ultra also accepts any MasterType = PetType (or 107) skill
 //  whose Parameter4 <= the pet's stage (Property2). FollowSkills are always on and cannot be "re-learned".
-//  18 forget for pet_forget_skill (300) diamonds. In battle the pet form uses learned active skills.
-const SEAL_SONTYPE = 306, POINTS_PER_LEVEL = 5, CARRY_BASE = 3;
-const COE_STONE = 208023, APT_STONE = 3040001, SKILL_BOOK = 208061, MAX_SKILLS = 6;   // Mahra / Sepulcrum / skill book; Fy.CHANGE_SKILL_NUM
+//  18 forget for pet_forget_skill (300) diamonds. In battle the pet form uses the 6 equipped actives.
+const SEAL_SONTYPE = 306, POINTS_PER_LEVEL = 5, CARRY_LIMIT = 6;   // Fy.PET_CARRY_LIMIT — all open by default
+const COE_STONE = 208023, APT_STONE = 3040001, SKILL_BOOK = 208061;
+const EQUIP_ACTIVE_SKILLS = 6;   // Fy.CHANGE_SKILL_NUM — equipped actives only; learn has no cap
 const SKILL_STAT_BONUS = 1500;   // Ultra: each learned skill adds this much flat ATQ to the Silfo
 // Potential crystals (client kX.potencyActiveTempIdArr / sendPetPotencyActive opType 17): +5 potential each
 const POTENCY_CRYSTALS = {
@@ -41,24 +44,40 @@ const POTENCY_PER_CRYSTAL = 5;
 const PE = require('../petequip');
 module.exports = (ctx) => {
   const { D, table, dec, sendT, alert, log, pay, CONF } = ctx;
-  const SLOT_PRICE = String(CONF.str('add_pet_count') || '100,100,300').split(',').map(Number);
   const FORGET_PRICE = Number(CONF.str('pet_forget_skill')) || 300;
-  const carry = p => CARRY_BASE + ((p.s.pets || {}).slots || 0);
+  const carry = () => CARRY_LIMIT;
   // follow skills (UseWay 2) of the pet in war: t_s_skillpropertytemplate AddType 0 = % of hero stats
   // (e.g. 701101 Attack/MagicAttack 5 → +5% ATQ when the pet is set to war)
   const PROPS = new Map(table('t_s_skillpropertytemplate').map(r => [r.TemplateId, r]));
   const PCT_KEYS = { Attack: 'attack', MagicAttack: 'magicAttack', Defence: 'defence', MagicDefence: 'magicDefence', Live: 'live' };
   function linkPet(p) {
-    const pct = {}, pet = list(p).find(x => x.id === (p.s.pets || {}).fight);
+    const pct = {}, flat = { Attack: 0, MagicAttack: 0, Defence: 0, MagicDefence: 0, Live: 0 };
+    const pet = list(p).find(x => x.id === (p.s.pets || {}).fight);
     if (pet) {
       const tp = TPL.get(pet.templateId);
-      for (const id of [].concat((tp && tp.FollowSkills) || [])) {
+      const ids = new Set([].concat((tp && tp.FollowSkills) || [], pet.skills || []));
+      for (const id of ids) {
         const sk = D.skills.get(id), pr = PROPS.get(id);
         if (!sk || sk.UseWay !== 2 || !pr) continue;
         for (const [k, key] of Object.entries(PCT_KEYS)) if (pr[k]) pct[key] = (pct[key] || 0) + pr[k];
       }
+      // Ultra: silfo em guerra — potencial + combate somam no herói.
+      // Ataque: maior aptidão do pet (Força vs Intelecto) define ATQ ou ATQM;
+      // esse valor vai para o ataque do herói da maior aptidão (Força→ATQ, Intelecto→ATQM).
+      const st = stats(p, pet);
+      const apti = Array.isArray(pet.apti) ? pet.apti : [0, 0, 0, 0];
+      const atk = st.patk + st.bag.attack + st.atr.atk;
+      const mat = st.matk + st.bag.magicAttack + st.atr.mat;
+      const petMain = apti[1] > apti[0] ? mat : atk;   // Intelecto > Força → ATQM, senão ATQ
+      const hero = p.stats().total;
+      if (hero.intellect > hero.power) flat.MagicAttack = petMain;
+      else flat.Attack = petMain;
+      flat.Defence = st.pdef + st.bag.defence + st.atr.def;
+      flat.MagicDefence = st.mdef + st.bag.magicDefence + st.atr.mdf;
+      flat.Live = st.hp + st.bag.live + st.atr.hp;
     }
     (p.s.addsPct = p.s.addsPct || {}).pet = pct;
+    (p.s.adds = p.s.adds || {}).pet = flat;
   }
   ctx.linkPet = linkPet;
   // pet in war as others see it on the map (ArmyMsg / MapUpdatedMsg / Room: petTempId + petTemplateId)
@@ -121,35 +140,50 @@ module.exports = (ctx) => {
     if (!Array.isArray(pet.potency) || pet.potency.length !== 5) pet.potency = [0, 0, 0, 0, 0];
     return pet.potency;
   }
-  // potential points → flat combat attrs (server-owned; client only displays *potentialAtr)
-  function potencyAtr(pot) {
-    const [atk, mat, def, mdf, hp] = pot || [0, 0, 0, 0, 0];
-    return { atk, mat, def, mdf, hp };
+  // potential → % of (combat + bag*), client/official: ceil(stat * pot / 1000); HP uses floor
+  function potencyAtr(pot, atk, mat, def, mdf, hp) {
+    const [ap, mp, dp, mdp, hpP] = pot || [0, 0, 0, 0, 0];
+    return {
+      atk: Math.ceil(atk * ap / 1000), mat: Math.ceil(mat * mp / 1000),
+      def: Math.ceil(def * dp / 1000), mdf: Math.ceil(mdf * mdp / 1000),
+      hp: Math.floor(hp * hpP / 1000),
+    };
   }
   function stats(p, pet) {
     const tp = TPL.get(pet.templateId), row = rowOf(tp, pet.quality);
-    const growth = growthOf(tp, pet.quality) || row.GrowthRate || 0, g = pet.grade - 1;
-    const base = k => (tp[k] || 0) + Math.floor(g * growth / 80);
-    // worn pet equipment (game/petequip.js): attribute 1 Güç, 2 Zırh, 3 Zeka, 4 Beden into the base stats, 6..10 flat (bag*)
+    const growth = growthOf(tp, pet.quality) || row.GrowthRate || 0, g = Math.max(0, (pet.grade || 1) - 1);
+    const pts = Array.isArray(pet.points) ? pet.points : (pet.points = [0, 0, 0, 0]);
+    const apti = Array.isArray(pet.apti) ? pet.apti : (pet.apti = [0, 0, 0, 0]);
     const eq = PE.petAdds(p, pet.id), e = k => eq[k] || 0;
-    const pc = (v, k) => v + Math.floor(v * e(k) / 10000);   // EX entries: 1001..1004 percent of the base stat (our choice), 1006..1010 below
-    const power = pc(base('Power') + pet.points[0] + e(1), 1001), intel = pc(base('Intel') + pet.points[1] + e(3), 1003), physi = pc(base('Physi') + pet.points[2] + e(4), 1004), armor = pc(base('Armor') + pet.points[3] + e(2), 1002);
-    const [pa, ia, ha, aa] = pet.apti;
-    const patk = Math.floor(1.8 * power * pa / 1000), matk = Math.floor(1.8 * intel * ia / 1000);
-    const pdef = Math.floor((0.9 * armor * aa + 0.9 * power * pa) / 1000), mdef = Math.floor((0.9 * armor * aa + 0.9 * intel * ia) / 1000);
-    const hp = (tp.InitHp || 0) + Math.floor(6 * physi * ha / 1000);
+    // Tip: ATQ=1.8×Força×Aptidão÷1000. Ultra: Força=Sepulcrum (pet.apti); Aptidão=teto Mahra (coeLimit).
+    const lim = APT_KEYS.map(k => coeLimit(tp, pet.quality, k));
+    const pc = (v, k) => v + Math.floor(v * e(k) / 10000);
+    const power = pc(apti[0] + e(1), 1001), intel = pc(apti[1] + e(3), 1003);
+    const physi = pc(apti[2] + e(4), 1004), armor = pc(apti[3] + e(2), 1002);
+    const [pApt, iApt, hApt, aApt] = lim;
+    const patk = Math.floor(1.8 * power * pApt / 1000), matk = Math.floor(1.8 * intel * iApt / 1000);
+    const pdef = Math.floor((0.9 * armor * aApt + 0.9 * power * pApt) / 1000);
+    const mdef = Math.floor((0.9 * armor * aApt + 0.9 * intel * iApt) / 1000);
+    const hp = (tp.InitHp || 0) + Math.floor(6 * physi * hApt / 1000);
     const bag = { attack: e(6), defence: e(7), magicAttack: e(8), magicDefence: e(9), live: e(10) };
-    const up = (k, v, id) => { bag[k] += Math.floor((v + bag[k]) * e(id) / 10000); };   // client calAttr: 1006 attack, 1007 magic attack, 1008 defence, 1009 magic defence, 1010 hp
+    const up = (k, v, id) => { bag[k] += Math.floor((v + bag[k]) * e(id) / 10000); };
     up('attack', patk, 1006); up('magicAttack', matk, 1007); up('defence', pdef, 1008); up('magicDefence', mdef, 1009); up('live', hp, 1010);
-    // Ultra: each learned skill on the active page adds +1500 flat ATQ (bagAttack / combate / FC)
     bag.attack += (pet.skills || []).length * SKILL_STAT_BONUS;
-    const pot = ensurePotency(pet), atr = potencyAtr(pot);
-    // potential stays out of bag* (client shows *potentialAtr separately) but counts in fight/combat
+    // Client ATQ = 1.8×strength×coeStrength/1000 + bag*. Melhorar needs coeStrength=Sepulcrum (powerApti).
+    // Send strength=Aptidão (Mahra lim) so getter = Sepulcrum×Mahra; Atributos "Força" shows o teto Mahra,
+    // Melhorar continua mostrando o Sepulcrum. Produto das estatísticas = tip.
+    const pot = ensurePotency(pet);
+    const atr = potencyAtr(pot, patk + bag.attack, matk + bag.magicAttack, pdef + bag.defence, mdef + bag.magicDefence, hp + bag.live);
+    const bene = ctx.petBene ? ctx.petBene(p, pet.id) : {};
     const resi = { fire: e(14), water: e(15), wind: e(16), elect: e(17), dark: e(18), light: e(19) };
-    return { power, intel, physi, armor, patk, matk, pdef, mdef, hp, growth, bag, resi, pot, atr,
-      fight: Math.ceil(700 + patk + matk + pdef + mdef + bag.attack + bag.magicAttack + bag.defence + bag.magicDefence
-        + atr.atk + atr.mat + atr.def + atr.mdf + (hp + bag.live + atr.hp) / 5),
-      remain: g * POINTS_PER_LEVEL - pet.points.reduce((a, b) => a + b, 0) };
+    const fight = Math.ceil(700 + patk + matk + pdef + mdef + bag.attack + bag.magicAttack + bag.defence + bag.magicDefence
+      + (hp + bag.live) / 5);
+    return {
+      power: pApt, intel: iApt, physi: hApt, armor: aApt,   // client strength = Aptidão Mahra
+      // petMsg still sends powerApti = pet.apti (Sepulcrum / Melhorar)
+      patk, matk, pdef, mdef, hp, growth, bag, resi, pot, atr, bene,
+      fight, remain: g * POINTS_PER_LEVEL - pts.reduce((a, b) => a + b, 0),
+    };
   }
   ctx.petStats = stats;
   ctx.petSend = (c, pets) => send(c, pets);
@@ -161,33 +195,53 @@ module.exports = (ctx) => {
   // any pet's combat values (also the pet arena, features/petarena.js; arena skills chaSkillIndexs go first)
   ctx.petCombat = (p, pet) => combat(p, pet);
   ctx.petTemplate = id => TPL.get(id);
-  // battle bar slots: client maps changeSkillId → petSkills only when SonType is listed in fastKey
-  function syncFastKey(pet) {
+  // equipped active SonTypes (passives excluded); at most EQUIP_ACTIVE_SKILLS in the battle bar
+  function syncFastKey(pet, fill = false) {
     const keys = (pet.skills || []).map(id => D.skills.get(id)).filter(s => s && s.UseWay === 1).map(s => s.SonType).filter(Boolean);
-    const cur = String(pet.fastKey || '').split(',').map(Number).filter(n => n > 0);
+    const had = !!(pet.fastKey && String(pet.fastKey).split(',').some(x => Number(x) > 0));
     const out = [];
-    for (const k of cur) if (keys.includes(k) && !out.includes(k)) out.push(k);
-    for (const k of keys) if (!out.includes(k) && out.length < MAX_SKILLS) out.push(k);
+    for (const tok of String(pet.fastKey || '').split(',')) {
+      const n = Number(tok);
+      if (!(n > 0) || !keys.includes(n) || out.includes(n)) continue;
+      out.push(n);
+      if (out.length >= EQUIP_ACTIVE_SKILLS) break;
+    }
+    // only auto-equip on first learn / empty bar — never overwrite a player's bar layout
+    if (fill || !had) {
+      for (const k of keys) {
+        if (out.length >= EQUIP_ACTIVE_SKILLS) break;
+        if (!out.includes(k)) out.push(k);
+      }
+    }
     pet.fastKey = out.length ? out.join(',') + ',' : '';
     return pet.fastKey;
   }
+  // actives currently on the bar (UseWay 1 + SonType in fastKey), max 6; passives never count
+  function equippedActives(pet) {
+    syncFastKey(pet);
+    const keyed = new Set(String(pet.fastKey || '').split(',').map(Number).filter(n => n > 0));
+    const learned = (pet.skills || []).map(id => D.skills.get(id)).filter(s => s && s.UseWay === 1);
+    const eq = learned.filter(s => keyed.has(s.SonType));
+    return eq.length ? eq : learned.slice(0, EQUIP_ACTIVE_SKILLS);
+  }
   function combat(p, pet) {
     const tp = TPL.get(pet.templateId), st = stats(p, pet);
-    const active = (pet.skills || []).map(id => D.skills.get(id)).filter(s => s && s.UseWay === 1).sort((x, y) => (y.Parameter1 || 0) - (x.Parameter1 || 0));
+    const b = st.bene || {};
+    const active = equippedActives(pet);
     const fallback = [].concat(tp.DefaultSkills || []).map(Number).filter(id => D.skills.has(id));
     const skills = active.length ? active.map(s => s.TemplateId) : (fallback.length ? fallback : [701000]);
     const skill = skills[0];
-    syncFastKey(pet);
-    return { id: pet.id, templateId: pet.templateId, name: pet.name, grade: pet.grade, quality: pet.quality, hp: st.hp + st.bag.live + st.atr.hp, skill, skills,
+    return { id: pet.id, templateId: pet.templateId, name: pet.name, grade: pet.grade, quality: pet.quality,
+      hp: st.hp + st.bag.live + st.atr.hp + (b.hpbeneAtr || 0), skill, skills,
       stats: {
-        attack: st.patk + st.bag.attack + st.atr.atk,
-        magicAttack: st.matk + st.bag.magicAttack + st.atr.mat,
-        defence: st.pdef + st.bag.defence + st.atr.def,
-        magicDefence: st.mdef + st.bag.magicDefence + st.atr.mdf,
+        attack: st.patk + st.bag.attack + st.atr.atk + (b.atkbeneAtr || 0),
+        magicAttack: st.matk + st.bag.magicAttack + st.atr.mat + (b.matbeneAtr || 0),
+        defence: st.pdef + st.bag.defence + st.atr.def + (b.defbeneAtr || 0),
+        magicDefence: st.mdef + st.bag.magicDefence + st.atr.mdf + (b.mdfbeneAtr || 0),
       },
-      // HeroMsg.changeSkillId (int32[]): learned actives; string changeSkills is PetInfo only
-      changeSkillId: skills.slice(),
-      changeSkills: skills.join(','), followSkills: [].concat(tp.FollowSkills || []).join(','),
+      // HeroMsg.changeSkillId: equipped actives (≤6); PetInfo.changeSkills lists every learned skill
+      changeSkillId: skills.slice(0, EQUIP_ACTIVE_SKILLS),
+      changeSkills: (pet.skills || []).join(','), followSkills: [].concat(tp.FollowSkills || []).join(','),
       fastKey: pet.fastKey || '',
       arenaSkills: String(pet.chaSkills || '').split(',').map(Number).filter(id => D.skills.has(id)) };
   }
@@ -253,7 +307,7 @@ module.exports = (ctx) => {
   ctx.useItem[SEAL_SONTYPE] = (c, it, itp) => {
     const p = c.player, tp = TPL.get(itp.Property1);
     if (!tp) { alert(c, 'Este selo não pode ser usado'); return; }
-    if (list(p).length >= carry(p)) { alert(c, `Você pode carregar no máximo ${carry(p)} silfos (abra novos espaços)`); return; }
+    if (list(p).length >= carry()) { alert(c, `Você pode carregar no máximo ${carry()} silfos`); return; }
     const roll = key => { const [lo, hi] = apt(tp, key); return lo + Math.floor(Math.random() * (Math.max(0, hi - lo) / 2 + 1)); };
     const pet = { id: p.s.pets.nextId++, templateId: tp.TemplateId, name: ctx.nameOf(tp), grade: 1, gp: 0, totalGp: 0,
       quality: (tp.Quality - 1) * 5 + 1, points: [0, 0, 0, 0], skills: [], apti: ['PowerApt', 'IntelApt', 'PhysiApt', 'ArmorApt'].map(roll) };
@@ -315,18 +369,15 @@ module.exports = (ctx) => {
           if (wasFight) { ctx.sendPlayer(c); syncMap(c); }
           return;
         }
-        case 12: {   // one more carry slot: add_pet_count diamonds each (3 -> 6)
-          const p0 = p.s.pets = p.s.pets || { list: [], nextId: 1 }, n = p0.slots || 0;
-          if (n >= SLOT_PRICE.length) { alert(c, 'Todos os espaços estão abertos'); return; }
-          if (!pay(c, [[m.payType === 0 && ctx.balance(p, -500) >= SLOT_PRICE[n] ? -500 : -400, SLOT_PRICE[n]]])) { alert(c, 'Diamantes insuficientes'); return; }
-          p0.slots = n + 1; p.save();
-          return sendT(c, 4540, 'pet.PlayerPetMsg', { op: 2, userId: p.id, petCount: carry(p) });
+        case 12: {   // Ultra: all carry slots already open
+          alert(c, 'Todos os espaços estão abertos');
+          return sendT(c, 4540, 'pet.PlayerPetMsg', { op: 2, userId: p.id, petCount: carry() });
         }
         case 4: {   // star upgrade: value points (stones first, then diamonds for the missing ones)
           if (!pet) return;
           const tp = TPL.get(pet.templateId), max = QMAX[tp.Property2 || 1] || 21;
           if (pet.quality >= max || !nextStar(tp, pet.quality)) { alert(c, 'Já está na estrela máxima'); return; }
-          const n = Math.max(1, Math.min(m.value || 1, 100)), have = Math.min(n, p.countTemplate(COE_STONE));
+          const n = Math.max(1, Math.min(m.value || 1, 10000)), have = Math.min(n, p.countTemplate(COE_STONE));
           const cost = []; if (have) cost.push([COE_STONE, have]);
           if (n > have) { const price = (n - have) * STAR_PRICE; cost.push([m.payType === 0 && ctx.balance(p, -500) >= price ? -500 : -400, price]); }
           if (!pay(c, cost)) { alert(c, 'Pedra de Espírito Sagrado/diamantes insuficientes'); return; }
@@ -389,7 +440,7 @@ module.exports = (ctx) => {
           if (!pet) return;
           const tp = TPL.get(pet.templateId), lim = APT_KEYS.map(k => coeLimit(tp, pet.quality, k));
           if (pet.apti.every((v, i) => v >= lim[i])) { alert(c, 'Aptidões no limite desta estrela'); return; }
-          const n = Math.max(1, Math.min(m.value || 1, 100));
+          const n = Math.max(1, Math.min(m.value || 1, 10000));
           if (!pay(c, [[APT_STONE, n]])) { alert(c, 'Sepulcrum de Silfo insuficiente'); return; }
           // each stone: +5..12 total aptitude points, spread across stats still below the star limit
           for (let k = 0; k < n; k++) {
@@ -403,7 +454,7 @@ module.exports = (ctx) => {
           }
           break;
         }
-        case 5: {   // learn a skill from the type library (ChangeSkills + same PetType / stage)
+        case 5: {   // learn a skill (no learn cap); only EQUIP_ACTIVE_SKILLS actives can be on the bar
           if (!pet) return;
           const tp = TPL.get(pet.templateId), sk = D.skills.get(m.skillId);
           pet.skills = pet.skills || [];
@@ -416,12 +467,28 @@ module.exports = (ctx) => {
           if (!learnable) { alert(c, 'Este silfo não pode aprender esta habilidade'); return; }
           if (pet.skills.includes(sk.TemplateId)) { alert(c, 'Esta habilidade já foi aprendida'); return; }
           if (pet.skills.some(id => (D.skills.get(id) || {}).SonType === sk.SonType)) { alert(c, 'Esta linha de habilidade já foi aprendida'); return; }
-          if (pet.skills.length >= MAX_SKILLS) { alert(c, 'Espaços de habilidade cheios'); return; }
-          // Ultra: no pet/player level gate on skill books (NeedPlayerGrade ignored)
-          if (!pay(c, [[SKILL_BOOK, sk.Parameter3 || 1]])) { alert(c, 'Livro de habilidade de silfo insuficiente'); return; }
+          // Ultra: no pet/player level gate on skill books (NeedPlayerGrade ignored); learn all, equip ≤6 actives
+          // Parameter3=0 no cliente = grátis; `|| 1` cobrava 1 pergaminho e bloqueava ~metade das skills
+          const bookCost = Number(sk.Parameter3) || 0;
+          if (bookCost > 0 && !pay(c, [[SKILL_BOOK, bookCost]])) { alert(c, 'Livro de habilidade de silfo insuficiente'); return; }
           pet.skills.push(sk.TemplateId);
-          syncFastKey(pet);
+          if (sk.UseWay === 1) syncFastKey(pet, true);   // fill empty bar slots up to 6 actives
+          if (sk.UseWay === 2) linkPet(p);
           alert(c, `${pet.name} ${ctx.nameOf(sk)} aprendeu a habilidade`);
+          break;
+        }
+        case 11: {   // set skill bar (Lm.setSkillFastKey): petName = "sonType,..." — actives only, max 6
+          if (!pet) return;
+          const learned = new Set((pet.skills || []).map(id => D.skills.get(id)).filter(s => s && s.UseWay === 1).map(s => s.SonType));
+          const out = [];
+          let used = 0;
+          for (const tok of String(m.petName || '').split(',').filter(x => x !== '')) {
+            const n = Number(tok);
+            if (!(n > 0)) { out.push(-1); continue; }
+            if (!learned.has(n) || out.includes(n) || used >= EQUIP_ACTIVE_SKILLS) { out.push(-1); continue; }
+            out.push(n); used++;
+          }
+          pet.fastKey = out.length ? out.join(',') + ',' : '';
           break;
         }
         case 18: {   // forget a learned skill: pet_forget_skill bound diamonds first (payType 0)
@@ -463,6 +530,8 @@ module.exports = (ctx) => {
       }
       p.save();
       send(c, [pet]);
+      // potencial / aptidão / skills alteram o bónus flat do herói enquanto o silfo está em guerra
+      if (pet && p.s.pets.fight === pet.id) { linkPet(p); if (ctx.sendPlayer) ctx.sendPlayer(c); }
     },
   };
 };
